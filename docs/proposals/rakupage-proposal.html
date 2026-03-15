@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ラクページ 営業提案書 | ADLINK</title>
+<style>
+  /* ============================================
+     Base Reset & Typography
+     ============================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #dbeafe;
+    --accent: #f59e0b;
+    --accent-dark: #d97706;
+    --accent-light: #fef3c7;
+    --text: #1e293b;
+    --text-light: #64748b;
+    --bg: #ffffff;
+    --bg-gray: #f8fafc;
+    --border: #e2e8f0;
+    --success: #10b981;
+    --danger: #ef4444;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    color: var(--text);
+    background: #f1f5f9;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ============================================
+     Page Container (A4 simulation)
+     ============================================ */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    padding: 50px 50px;
+    background: var(--bg);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ============================================
+     Typography
+     ============================================ */
+  h1 { font-size: 2.4rem; line-height: 1.3; font-weight: 900; }
+  h2 { font-size: 1.8rem; line-height: 1.4; font-weight: 800; margin-bottom: 24px; }
+  h3 { font-size: 1.3rem; line-height: 1.5; font-weight: 700; margin-bottom: 12px; }
+  p { font-size: 1.05rem; margin-bottom: 12px; }
+
+  .section-label {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+
+  .section-title {
+    color: var(--primary-dark);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 8px;
+    margin-bottom: 28px;
+  }
+
+  .highlight { color: var(--accent-dark); font-weight: 800; }
+  .highlight-blue { color: var(--primary); font-weight: 800; }
+  .text-center { text-align: center; }
+  .text-small { font-size: 0.9rem; color: var(--text-light); }
+  .mt-12 { margin-top: 12px; }
+  .mt-24 { margin-top: 24px; }
+  .mt-32 { margin-top: 32px; }
+  .mb-8 { margin-bottom: 8px; }
+  .mb-16 { margin-bottom: 16px; }
+
+  /* ============================================
+     PAGE 1: Cover
+     ============================================ */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: calc(297mm - 100px);
+    position: relative;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50px; left: -50px; right: -50px;
+    height: 320px;
+    background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 50%, #60a5fa 100%);
+    border-radius: 0 0 60% 60%/0 0 80px 80px;
+  }
+  .cover-top {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    margin-bottom: 60px;
+    padding-top: 20px;
+  }
+  .cover-top .company { font-size: 1rem; font-weight: 600; letter-spacing: 0.15em; margin-bottom: 8px; opacity: 0.9; }
+  .cover-logo {
+    font-size: 3.2rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+    color: #ffffff;
+  }
+  .cover-logo span { color: #f59e0b !important; }
+  .cover-subtitle { font-size: 1.1rem; opacity: 0.9; font-weight: 500; }
+
+  .cover-main { position: relative; z-index: 1; }
+  .cover-catch {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .cover-catch em {
+    font-style: normal;
+    color: var(--primary);
+    border-bottom: 4px solid var(--accent);
+  }
+  .cover-sub {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 40px;
+  }
+  .cover-badge {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cover-badge span {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 30px;
+    border: 2px solid var(--primary);
+  }
+  .cover-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    padding: 16px;
+  }
+  .cover-footer strong { color: var(--primary); }
+
+  /* ============================================
+     PAGE 2: Pain Points
+     ============================================ */
+  .pain-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .pain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: #fff7ed;
+    border-left: 5px solid var(--accent);
+    padding: 16px 18px;
+    border-radius: 0 12px 12px 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .pain-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-top: 2px;
+  }
+  .pain-text strong { color: var(--accent-dark); }
+  .pain-note {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  /* ============================================
+     PAGE 3: About / Flow
+     ============================================ */
+  .about-hero {
+    background: linear-gradient(135deg, var(--primary-light), #eff6ff);
+    border-radius: 16px;
+    padding: 28px 32px;
+    text-align: center;
+    margin-bottom: 28px;
+    border: 2px solid var(--primary);
+  }
+  .about-hero h3 {
+    font-size: 1.6rem;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+  }
+  .about-hero p {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 0;
+  }
+  .flow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 32px 0;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 130px;
+  }
+  .flow-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+  }
+  .flow-circle .step-num { font-size: 0.7rem; font-weight: 600; opacity: 0.8; }
+  .flow-circle .step-icon { font-size: 1.6rem; }
+  .flow-label { font-size: 0.95rem; font-weight: 700; color: var(--text); line-height: 1.4; }
+  .flow-desc { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; }
+  .flow-arrow { font-size: 1.5rem; color: var(--primary); font-weight: 900; margin-top: -20px; }
+  .no-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 28px;
+  }
+  .no-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-light);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--accent-dark);
+    border: 2px solid var(--accent);
+  }
+  .no-item .x-mark { color: var(--danger); font-size: 1.2rem; }
+
+  /* ============================================
+     PAGE 4: 5 Reasons
+     ============================================ */
+  .reason-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .reason-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: var(--bg-gray);
+    border: 1px solid var(--border);
+  }
+  .reason-num {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 900;
+  }
+  .reason-content h3 { color: var(--text); margin-bottom: 4px; font-size: 1.15rem; }
+  .reason-content p { margin-bottom: 0; font-size: 0.95rem; color: var(--text-light); }
+
+  /* ============================================
+     PAGE 5: Before/After
+     ============================================ */
+  .ba-section { margin-bottom: 36px; }
+  .ba-section h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+  }
+  .ba-container {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .ba-box {
+    flex: 1;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+  }
+  .ba-before {
+    background: #fef2f2;
+    border: 2px solid var(--danger);
+  }
+  .ba-after {
+    background: #f0fdf4;
+    border: 2px solid var(--success);
+  }
+  .ba-label {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+  .ba-before .ba-label { background: var(--danger); }
+  .ba-after .ba-label { background: var(--success); }
+  .ba-list {
+    list-style: none;
+    font-size: 0.95rem;
+    line-height: 2;
+  }
+  .ba-list li::before { margin-right: 6px; font-weight: 700; }
+  .ba-before .ba-list li::before { content: "\2717"; color: var(--danger); }
+  .ba-after .ba-list li::before { content: "\2713"; color: var(--success); }
+  .ba-arrow-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 50px;
+  }
+  .ba-arrow {
+    width: 50px;
+    height: 50px;
+  }
+  .ba-arrow polygon { fill: var(--primary); }
+
+  /* ============================================
+     PAGE 6: Pricing
+     ============================================ */
+  .plan-grid {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .plan-card {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    position: relative;
+  }
+  .plan-card.recommended {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(245,158,11,0.2);
+  }
+  .plan-recommend-badge {
+    position: absolute;
+    top: -1px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 4px 20px;
+    border-radius: 0 0 10px 10px;
+  }
+  .plan-header {
+    padding: 28px 20px 16px;
+    text-align: center;
+    background: var(--bg-gray);
+  }
+  .plan-card.recommended .plan-header { background: var(--accent-light); }
+  .plan-name { font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+  .plan-price { font-size: 2rem; font-weight: 900; color: var(--primary); }
+  .plan-price small { font-size: 0.9rem; font-weight: 600; }
+  .plan-price .tax { font-size: 0.75rem; color: var(--text-light); font-weight: 500; }
+  .plan-body { padding: 20px; }
+  .plan-features {
+    list-style: none;
+    font-size: 0.95rem;
+  }
+  .plan-features li {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .plan-features li:last-child { border-bottom: none; }
+  .plan-features .check { color: var(--success); font-weight: 700; font-size: 1.1rem; }
+  .plan-note {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .plan-note span {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .plan-cta {
+    margin-top: 28px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    font-weight: 900;
+  }
+  .plan-cta small { display: block; font-size: 0.9rem; font-weight: 500; margin-top: 4px; opacity: 0.9; }
+
+  /* ============================================
+     PAGE 7: ROI / Effects
+     ============================================ */
+  .effect-cards {
+    display: flex;
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .effect-card {
+    flex: 1;
+    text-align: center;
+    padding: 16px 12px;
+    background: var(--bg-gray);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .effect-card .num { font-size: 2rem; font-weight: 900; color: var(--primary); line-height: 1.2; }
+  .effect-card .unit { font-size: 0.9rem; color: var(--text-light); }
+  .effect-card .label { font-size: 0.85rem; font-weight: 600; margin-top: 4px; }
+
+  .roi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+  }
+  .roi-table th, .roi-table td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .roi-table th {
+    background: var(--primary);
+    color: #fff;
+    font-weight: 700;
+  }
+  .roi-table th:first-child { border-radius: 8px 0 0 0; }
+  .roi-table th:last-child { border-radius: 0 8px 0 0; }
+  .roi-table tr:nth-child(even) { background: var(--bg-gray); }
+  .roi-table .amount { font-weight: 800; color: var(--primary); font-size: 1.1rem; }
+
+  /* Bar chart */
+  .chart-container { margin: 24px 0; }
+  .chart-title { font-size: 1rem; font-weight: 700; margin-bottom: 12px; text-align: center; }
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 32px;
+    height: 180px;
+    padding: 0 20px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 8px;
+  }
+  .bar-group { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .bar {
+    width: 70px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 8px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #fff;
+    transition: height 0.3s;
+  }
+  .bar-label { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-top: 4px; }
+
+  /* ============================================
+     PAGE 8: Comparison Table
+     ============================================ */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    margin-top: 20px;
+  }
+  .compare-table th, .compare-table td {
+    padding: 12px 10px;
+    text-align: center;
+    border: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .compare-table thead th {
+    background: var(--bg-gray);
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .compare-table thead th:nth-child(2) {
+    background: var(--primary);
+    color: #fff;
+    font-size: 1rem;
+  }
+  .compare-table tbody th {
+    background: var(--bg-gray);
+    font-weight: 600;
+    text-align: left;
+    padding-left: 14px;
+    white-space: nowrap;
+  }
+  .compare-table .good { color: var(--success); font-weight: 700; }
+  .compare-table .bad { color: var(--danger); font-weight: 700; }
+  .compare-table .raku-col { background: #eff6ff; font-weight: 700; color: var(--primary-dark); }
+  .compare-table .circle { font-size: 1.2rem; }
+
+  /* ============================================
+     PAGE 9: FAQ
+     ============================================ */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .faq-q {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: var(--bg-gray);
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  .faq-q-mark {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 900;
+  }
+  .faq-a {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .faq-a-mark {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 900;
+  }
+
+  /* ============================================
+     PAGE 10: CTA / Contact
+     ============================================ */
+  .cta-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(297mm - 100px);
+    text-align: center;
+  }
+  .cta-heading {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .cta-sub {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    margin-bottom: 36px;
+  }
+  .cta-phone-box {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    padding: 32px 48px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 30px rgba(37,99,235,0.3);
+  }
+  .cta-phone-label { font-size: 1rem; font-weight: 600; opacity: 0.9; margin-bottom: 8px; }
+  .cta-phone-number { font-size: 2.8rem; font-weight: 900; letter-spacing: 0.05em; }
+  .cta-phone-hours { font-size: 0.9rem; opacity: 0.85; margin-top: 8px; }
+  .cta-badges {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cta-badge {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border: 3px solid;
+  }
+  .cta-badge.trial {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent-dark);
+  }
+  .cta-badge.free {
+    background: #f0fdf4;
+    border-color: var(--success);
+    color: #059669;
+  }
+  .cta-guarantee {
+    background: var(--bg-gray);
+    padding: 20px 32px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    border: 1px solid var(--border);
+    max-width: 480px;
+  }
+  .cta-guarantee p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0;
+  }
+  .cta-guarantee small { color: var(--text-light); }
+  .cta-company {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 20px;
+  }
+  .cta-company strong { color: var(--primary); }
+
+  /* ============================================
+     Page footer
+     ============================================ */
+  .page-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+  }
+  .page-footer .logo-sm { font-weight: 800; color: var(--primary); }
+
+  /* ============================================
+     Print Styles
+     ============================================ */
+  @media print {
+    html { font-size: 14px; }
+    body { background: #fff; }
+    .page {
+      width: 100%;
+      margin: 0;
+      padding: 40px 45px;
+      box-shadow: none;
+      page-break-after: always;
+      min-height: auto;
+    }
+    .page:last-child { page-break-after: auto; }
+    .cover { min-height: 100vh; }
+    .cta-page { min-height: 100vh; }
+    .page-footer { position: fixed; bottom: 10mm; left: 15mm; right: 15mm; }
+  }
+
+  /* ============================================
+     Responsive (screen)
+     ============================================ */
+  @media screen and (max-width: 800px) {
+    .page {
+      width: 100%;
+      min-height: auto;
+      padding: 32px 20px;
+      margin: 10px auto;
+      border-radius: 0;
+    }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+    .cover-logo { font-size: 2.4rem; }
+    .cover-catch { font-size: 1.6rem; }
+    .cover-sub { font-size: 1.1rem; }
+    .flow-container { gap: 4px; }
+    .flow-step { width: 90px; }
+    .flow-circle { width: 60px; height: 60px; }
+    .flow-circle .step-icon { font-size: 1.2rem; }
+    .flow-label { font-size: 0.8rem; }
+    .no-list { flex-direction: column; align-items: center; gap: 10px; }
+    .ba-container { flex-direction: column; }
+    .ba-arrow-col {
+      width: 100%;
+      height: 40px;
+      transform: rotate(90deg);
+    }
+    .plan-grid { flex-direction: column; }
+    .effect-cards { flex-direction: column; }
+    .bar-chart { gap: 16px; }
+    .bar { width: 50px; }
+    .compare-table { font-size: 0.78rem; }
+    .compare-table th, .compare-table td { padding: 8px 6px; }
+    .cta-phone-number { font-size: 2rem; }
+    .cta-phone-box { padding: 24px 20px; }
+    .page-footer { position: relative; bottom: auto; left: auto; right: auto; margin-top: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================================================
+     PAGE 1: COVER
+     =================================================== -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-top">
+      <div class="company">合同会社ADLINK</div>
+      <div class="cover-logo" style="color:#f59e0b;">ラクページ</div>
+      <div class="cover-subtitle">ホームページ制作代行サービス ご提案書</div>
+    </div>
+    <div class="cover-main">
+      <h1 class="cover-catch">ホームページ、<br><em>めんどくさくないですか？</em></h1>
+      <p class="cover-sub">お電話1本で、プロ品質のHPが完成します。</p>
+      <div class="cover-badge">
+        <span>初期費用 0円</span>
+        <span>月額 9,800円〜</span>
+        <span>最短3日で完成</span>
+      </div>
+    </div>
+    <div class="cover-footer">
+      <strong>合同会社ADLINK</strong> | 〒150-0043 東京都渋谷区道玄坂1-10-8 2F-C ｜ TEL: 080-1100-0675
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================
+     PAGE 2: PAIN POINTS
+     =================================================== -->
+<div class="page">
+  <span class="section-label">PAGE 02</span>
+  <h2 class="section-title">こんなお悩みありませんか？</h2>
+
+  <ul class="pain-list">
+    <li class="pain-item">
+      <span class="pain-icon">1</span>
+      <span class="pain-text"><strong>ホームページがないけど</strong>、どうやって作ればいいのかわからない</span>
+    </li>
+    <li class="pain-item">
+      <span class="pain-icon">2</span>
+      <span class="pain-text">今のHPが<strong>古くて、スマホで見ると崩れる</strong></span>
+    </li>
+    <li class="pain-item">
+      <span class="pain-icon">3</span>
+      <span class="pain-text">Chromeで<strong>「安全でないサイト」と表示される</strong>（SSL未対応）</span>
+    </li>
+    <li class="pain-item">
+      <span class="pain-icon">4</span>
+      <span class="pain-text">制作会社に見積もりを取ったら<strong>50万〜100万円</strong>と言われた</span>
+    </li>
+    <li class="pain-item">
+      <span class="pain-icon">5</span>
+      <span class="pain-text"><strong>パソコンが苦手</strong>で、自分ではHPを更新できない</span>
+    </li>
+    <li class="pain-item">
+      <span class="pain-icon">6</span>
+      <span class="pain-text">若いお客さんが<strong>ネットで検索しても自社が出てこない</strong></span>
+    </li>
+  </ul>
+
+  <p class="pain-note">そのお悩み、<span class="highlight">ラクページ</span>がすべて解決します。</p>
+
+  <div class="page-footer">
+    <span class="logo-sm">ラクページ</span>
+    <span>ADLINK | ご提案書</span>
+  </div>
+</div>
+
+<!-- ===================================================
+     PAGE 3: ABOUT / FLOW
+     =================================================== -->
+<div class="page">
+  <span class="section-label">PAGE 03</span>
+  <h2 class="section-title">ラクページとは？</h2>
+
+  <div class="about-hero">
+    <h3>電話1本で、プロ品質のHPが完成する<br>ホームページ制作代行サービスです。</h3>
+    <p>パソコンが苦手な方でも、お電話だけでHPが持てます。</p>
+  </div>
+
+  <h3 class="text-center mb-16" style="font-size:1.15rem; color:var(--primary-dark);">ご利用の流れ</h3>
+
+  <div class="flow-container">
+    <div class="flow-step">
+      <div class="flow-circle">
+        <span class="step-num">STEP 1</span>
+        <span class="step-icon">&#9742;</span>
+      </div>
+      <span class="flow-label">お電話</span>
+      <span class="flow-desc">お気軽にご連絡</span>
+    </div>
+    <span class="flow-arrow">&#9654;</span>
+    <div class="flow-step">
+      <div class="flow-circle">
+        <span class="step-num">STEP 2</span>
+        <span class="step-icon">&#9997;</span>
+      </div>
+      <span class="flow-label">ヒアリング</span>
+      <span class="flow-desc">約15分</span>
+    </div>
+    <span class="flow-arrow">&#9654;</span>
+    <div class="flow-step">
+      <div class="flow-circle">
+        <span class="step-num">STEP 3</span>
+        <span class="step-icon">&#128187;</span>
+      </div>
+      <span class="flow-label">デモサイト作成</span>
+      <span class="flow-desc">最短3日</span>
+    </div>
+    <span class="flow-arrow">&#9654;</span>
+    <div class="flow-step">
+      <div class="flow-circle" style="background: var(--accent);">
+        <span class="step-num">STEP 4</span>
+        <span class="step-icon">&#127881;</span>
+      </div>
+      <span class="flow-label">気に入ったら公開!</span>
+      <span class="flow-desc">即日公開OK</span>
+    </div>
+  </div>
+
+  <div class="no-list">
+    <div class="no-item"><span class="x-mark">&#10007;</span> メール不要</div>
+    <div class="no-item"><span class="x-mark">&#10007;</span> Zoom不要</div>
+    <div class="no-item"><span class="x-mark">&#10007;</span> パソコン不要</div>
+  </div>
+
+  <div class="page-footer">
+    <span class="logo-sm">ラクページ</span>
+    <span>ADLINK | ご提案書</span>
+  </div>
+</div>
+
+<!-- ===================================================
+     PAGE 4: 5 REASONS
+     =================================================== -->
+<div class="page">
+  <span class="section-label">PAGE 04</span>
+  <h2 class="section-title">選ばれる5つの理由</h2>
+
+  <div class="reason-list">
+    <div class="reason-item">
+      <span class="reason-num">1</span>
+      <div class="reason-content">
+        <h3>電話1本でOK</h3>
+        <p>ITが苦手でも大丈夫。メールもZoomも不要。お電話だけでヒアリングから納品まで完結します。</p>
+      </div>
+    </div>
+    <div class="reason-item">
+      <span class="reason-num">2</span>
+      <div class="reason-content">
+        <h3>初期費用0円・月額9,800円〜</h3>
+        <p>一般的な制作会社の<strong>1/10以下</strong>のコスト。初期費用なし・いつでも解約OKで始めやすい。</p>
+      </div>
+    </div>
+    <div class="reason-item">
+      <span class="reason-num">3</span>
+      <div class="reason-content">
+        <h3>最短3日で完成</h3>
+        <p>スピード納品。お急ぎの方にも対応。デモサイトを確認してから公開するので安心です。</p>
+      </div>
+    </div>
+    <div class="reason-item">
+      <span class="reason-num">4</span>
+      <div class="reason-content">
+        <h3>スマホ対応・SSL対応が標準</h3>
+        <p>追加料金なしで全ページスマホ対応＆SSL（https）対応。「安全でないサイト」表示の心配なし。</p>
+      </div>
+    </div>
+    <div class="reason-item">
+      <span class="reason-num">5</span>
+      <div class="reason-content">
+        <h3>更新・修正は何度でも無料</h3>
+        <p>お電話1本で修正依頼OK。施工事例やメニュー変更もすべてお任せください。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="logo-sm">ラクページ</span>
+    <span>ADLINK | ご提案書</span>
+  </div>
+</div>
+
+<!-- ===================================================
+     PAGE 5: BEFORE / AFTER
+     =================================================== -->
+<div class="page">
+  <span class="section-label">PAGE 05</span>
+  <h2 class="section-title">Before &rarr; After 導入事例</h2>
+
+  <div class="ba-section">
+    <h3>&#9655; 工務店 A社様の場合</h3>
+    <div class="ba-container">
+      <div class="ba-box ba-before">
+        <span class="ba-label">Before</span>
+        <ul class="ba-list">
+          <li>http://のまま（SSL未対応）</li>
+          <li>スマホで見ると文字が小さい</li>
+          <li>10年前に作って放置</li>
+          <li>施工事例の掲載なし</li>
+          <li>問い合わせ月0〜1件</li>
+        </ul>
+      </div>
+      <div class="ba-arrow-col">
+        <svg class="ba-arrow" viewBox="0 0 50 50">
+          <polygon points="10,15 30,15 30,5 50,25 30,45 30,35 10,35"/>
+        </svg>
+      </div>
+      <div class="ba-box ba-after">
+        <span class="ba-label">After</span>
+        <ul class="ba-list">
+          <li>https://でSSL対応済み</li>
+          <li>スマホ完全対応デザイン</li>
+          <li>モダンで清潔感のある外観</li>
+          <li>施工事例ギャラリー搭載</li>
+          <li>問い合わせ月5〜8件に増加</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="ba-section">
+    <h3>&#9655; 飲食店 B社様の場合</h3>
+    <div class="ba-container">
+      <div class="ba-box ba-before">
+        <span class="ba-label">Before</span>
+        <ul class="ba-list">
+          <li>ホームページなし</li>
+          <li>食べログだけに依存</li>
+          <li>メニューの最新情報が伝わらない</li>
+          <li>アクセス方法がわかりにくい</li>
+          <li>ネット予約ができない</li>
+        </ul>
+      </div>
+      <div class="ba-arrow-col">
+        <svg class="ba-arrow" viewBox="0 0 50 50">
+          <polygon points="10,15 30,15 30,5 50,25 30,45 30,35 10,35"/>
+        </svg>
+      </div>
+      <div class="ba-box ba-after">
+        <span class="ba-label">After</span>
+        <ul class="ba-list">
+          <li>写真付きメニューページ</li>
+          <li>Googleマップ埋め込み</li>
+          <li>予約ボタン設置</li>
+          <li>営業時間・定休日が一目瞭然</li>
+          <li>新規来店1日5人増加</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="logo-sm">ラクページ</span>
+    <span>ADLINK | ご提案書</span>
+  </div>
+</div>
+
+<!-- ===================================================
+     PAGE 6: PRICING
+     =================================================== -->
+<div class="page">
+  <span class="section-label">PAGE 06</span>
+  <h2 class="section-title">料金プラン</h2>
+
+  <div class="plan-grid">
+    <!-- Light Plan -->
+    <div class="plan-card">
+      <div class="plan-header">
+        <div class="plan-name">ライトプラン</div>
+        <div class="plan-price">
+          月額 <strong>9,800</strong><small>円</small>
+          <span class="tax">（税別）</span>
+        </div>
+      </div>
+      <div class="plan-body">
+        <ul class="plan-features">
+          <li><span class="check">&#10003;</span> 5ページまで</li>
+          <li><span class="check">&#10003;</span> スマホ対応</li>
+          <li><span class="check">&#10003;</span> SSL対応（https）</li>
+          <li><span class="check">&#10003;</span> 月2回まで更新無料</li>
+          <li><span class="check">&#10003;</span> 電話サポート</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Standard Plan -->
+    <div class="plan-card recommended">
+      <span class="plan-recommend-badge">おすすめ</span>
+      <div class="plan-header">
+        <div class="plan-name">スタンダードプラン</div>
+        <div class="plan-price">
+          月額 <strong>14,800</strong><small>円</small>
+          <span class="tax">（税別）</span>
+        </div>
+      </div>
+      <div class="plan-body">
+        <ul class="plan-features">
+          <li><span class="check">&#10003;</span> 10ページまで</li>
+          <li><span class="check">&#10003;</span> スマホ対応</li>
+          <li><span class="check">&#10003;</span> SSL対応（https）</li>
+          <li><span class="check">&#10003;</span> <strong>更新・修正 無制限</strong></li>
+          <li><span class="check">&#10003;</span> <strong>SEO対策込み</strong></li>
+          <li><span class="check">&#10003;</span> <strong>優先サポート</strong></li>
+          <li><span class="check">&#10003;</span> <strong>アクセス解析レポート</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="plan-note mt-24">
+    <span>初期費用 0円</span>
+    <span>いつでも解約OK</span>
+    <span>違約金なし</span>
+  </div>
+
+  <div class="plan-cta mt-24">
+    まずは無料でデモサイトを作成します！
+    <small>デモサイトを見てからご検討いただけます。費用は一切かかりません。</small>
+  </div>
+
+  <div class="page-footer">
+    <span class="logo-sm">ラクページ</span>
+    <span>ADLINK | ご提案書</span>
+  </div>
+</div>
+
+<!-- ===================================================
+     PAGE 7: ROI / EFFECTS
+     =================================================== -->
+<div class="page">
+  <span class="section-label">PAGE 07</span>
+  <h2 class="section-title">導入効果・売上試算</h2>
+
+  <div class="effect-cards">
+    <div class="effect-card">
+      <div class="num">5<small>件〜</small></div>
+      <div class="unit">/ 月</div>
+      <div class="label">問い合わせ増加</div>
+    </div>
+    <div class="effect-card">
+      <div class="num">1.5〜2<small>倍</small></div>
+      <div class="unit">&nbsp;</div>
+      <div class="label">アクセス数UP<br><span style="font-size:0.75rem;color:var(--text-light)">（スマホ対応後）</span></div>
+    </div>
+    <div class="effect-card">
+      <div class="num" style="color:var(--success);">&#10003;</div>
+      <div class="unit">&nbsp;</div>
+      <div class="label">「安全でないサイト」<br>表示がなくなる</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:24px;">業種別 売上UP試算</h3>
+
+  <table class="roi-table">
+    <thead>
+      <tr>
+        <th>業種</th>
+        <th>増加要因</th>
+        <th>計算根拠</th>
+        <th>月間売上UP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>工務店</strong></td>
+        <td>リフォーム問い合わせ<br>月5件増加</td>
+        <td>5件 &times; 単価50万円<br>&times; 成約率20%</td>
+        <td class="amount">+50万円/月</td>
+      </tr>
+      <tr>
+        <td><strong>飲食店</strong></td>
+        <td>新規来店<br>1日5人増加</td>
+        <td>5人 &times; 客単価2,500円<br>&times; 月25日</td>
+        <td class="amount">+31万円/月</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="chart-container">
+    <div class="chart-title">月額コスト vs 月間売上UPの比較</div>
+    <div class="bar-chart">
+      <div class="bar-group">
+        <div class="bar" style="height:20px; background:var(--accent);">0.98万</div>
+        <span class="bar-label">ライト<br>月額コスト</span>
+      </div>
+      <div class="bar-group">
+        <div class="bar" style="height:24px; background:var(--accent);">1.48万</div>
+        <span class="bar-label">スタンダード<br>月額コスト</span>
+      </div>
+      <div class="bar-group">
+        <div class="bar" style="height:140px; background:var(--primary);">+50万</div>
+        <span class="bar-label">工務店<br>売上UP</span>
+      </div>
+      <div class="bar-group">
+        <div class="bar" style="height:110px; background:var(--primary);">+31万</div>
+        <span class="bar-label">飲食店<br>売上UP</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-center text-small">※ 効果には個人差があります。業種・地域・競合状況により異なります。</p>
+
+  <div class="page-footer">
+    <span class="logo-sm">ラクページ</span>
+    <span>ADLINK | ご提案書</span>
+  </div>
+</div>
+
+<!-- ===================================================
+     PAGE 8: COMPARISON TABLE
+     =================================================== -->
+<div class="page">
+  <span class="section-label">PAGE 08</span>
+  <h2 class="section-title">競合比較表</h2>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th style="width:18%;"></th>
+        <th style="width:28%;">ラクページ</th>
+        <th style="width:27%;">一般的な制作会社</th>
+        <th style="width:27%;">Wix / Jimdo<br><span style="font-size:0.8rem;font-weight:400;">（自分で作る）</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>初期費用</th>
+        <td class="raku-col good">0円</td>
+        <td class="bad">50〜100万円</td>
+        <td>0円</td>
+      </tr>
+      <tr>
+        <th>月額費用</th>
+        <td class="raku-col good">9,800円〜</td>
+        <td>なし〜数千円<br><span style="font-size:0.8rem;">（保守別途）</span></td>
+        <td>1,000〜3,000円</td>
+      </tr>
+      <tr>
+        <th>制作期間</th>
+        <td class="raku-col good">最短3日</td>
+        <td class="bad">1〜3ヶ月</td>
+        <td>自分次第<br><span style="font-size:0.8rem;">（数週間〜挫折も）</span></td>
+      </tr>
+      <tr>
+        <th>スマホ対応</th>
+        <td class="raku-col"><span class="circle good">&#9711;</span> 標準</td>
+        <td><span class="circle good">&#9711;</span> 標準</td>
+        <td><span class="circle">&#9651;</span> テンプレ次第</td>
+      </tr>
+      <tr>
+        <th>SSL対応</th>
+        <td class="raku-col"><span class="circle good">&#9711;</span> 標準</td>
+        <td><span class="circle">&#9651;</span> 別途費用の場合あり</td>
+        <td><span class="circle good">&#9711;</span> 標準</td>
+      </tr>
+      <tr>
+        <th>更新方法</th>
+        <td class="raku-col good">電話1本でOK</td>
+        <td class="bad">都度見積もり<br><span style="font-size:0.8rem;">（数千〜数万円）</span></td>
+        <td class="bad">自分でPC操作</td>
+      </tr>
+      <tr>
+        <th>パソコン</th>
+        <td class="raku-col good">不要</td>
+        <td>メール連絡に必要</td>
+        <td class="bad">必須</td>
+      </tr>
+      <tr>
+        <th>解約</th>
+        <td class="raku-col good">いつでもOK<br>違約金なし</td>
+        <td>--</td>
+        <td>いつでもOK</td>
+      </tr>
+      <tr>
+        <th>こんな方に</th>
+        <td class="raku-col" style="font-size:0.85rem;">ITが苦手で<br>全部お任せしたい方</td>
+        <td style="font-size:0.85rem;">予算があり<br>こだわりたい方</td>
+        <td style="font-size:0.85rem;">自分で作る時間と<br>スキルがある方</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="text-center mt-32">
+    <p style="font-size:1.2rem; font-weight:800; color:var(--primary);">
+      「パソコンが苦手」「全部お任せしたい」なら<br>
+      <span class="highlight">ラクページ</span>が最適です。
+    </p>
+  </div>
+
+  <div class="page-footer">
+    <span class="logo-sm">ラクページ</span>
+    <span>ADLINK | ご提案書</span>
+  </div>
+</div>
+
+<!-- ===================================================
+     PAGE 9: FAQ
+     =================================================== -->
+<div class="page">
+  <span class="section-label">PAGE 09</span>
+  <h2 class="section-title">よくあるご質問</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-mark">Q</span>
+        パソコンが苦手でも大丈夫ですか？
+      </div>
+      <div class="faq-a">
+        <span class="faq-a-mark">A</span>
+        <span>はい、まったく問題ありません。お電話でのヒアリングだけでHPを作成します。パソコン・メール・Zoomは一切不要です。更新もお電話1本で対応いたします。</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-mark">Q</span>
+        解約はいつでもできますか？
+      </div>
+      <div class="faq-a">
+        <span class="faq-a-mark">A</span>
+        <span>はい、いつでも解約可能です。違約金や解約手数料は一切かかりません。最低利用期間もございませんので、安心してお試しいただけます。</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-mark">Q</span>
+        HPの更新はどうすればいいですか？
+      </div>
+      <div class="faq-a">
+        <span class="faq-a-mark">A</span>
+        <span>お電話いただくだけでOKです。「施工事例を追加したい」「営業時間を変えたい」など、ご要望をお伝えいただければ、弊社スタッフが対応いたします。</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-mark">Q</span>
+        写真がない場合はどうなりますか？
+      </div>
+      <div class="faq-a">
+        <span class="faq-a-mark">A</span>
+        <span>ご安心ください。高品質なフリー素材をご用意いたします。また、スマートフォンで撮影した写真をLINEなどで送っていただくだけでも対応可能です。</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-mark">Q</span>
+        初期費用は本当に0円ですか？
+      </div>
+      <div class="faq-a">
+        <span class="faq-a-mark">A</span>
+        <span>はい、本当に0円です。デザイン費・制作費・サーバー設定費など、すべて月額料金に含まれています。デモサイトの作成も無料ですので、まずはお気軽にお電話ください。</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        <span class="faq-q-mark">Q</span>
+        どんな業種でも対応できますか？
+      </div>
+      <div class="faq-a">
+        <span class="faq-a-mark">A</span>
+        <span>はい、業種を問わず対応可能です。工務店・建築業・飲食店・美容室・接骨院・士業・小売店など、幅広い業種のHP制作実績がございます。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="logo-sm">ラクページ</span>
+    <span>ADLINK | ご提案書</span>
+  </div>
+</div>
+
+<!-- ===================================================
+     PAGE 10: CTA / CONTACT
+     =================================================== -->
+<div class="page">
+  <div class="cta-page">
+    <h2 class="cta-heading">
+      まずは<span style="color:var(--accent);">無料</span>で<br>デモサイトを作成します
+    </h2>
+    <p class="cta-sub">デモサイトを見てからご検討いただけます。<br>お気軽にお電話ください。</p>
+
+    <div class="cta-phone-box">
+      <div class="cta-phone-label">お電話でのお問い合わせ</div>
+      <div class="cta-phone-number">080-1100-0675</div>
+      <div class="cta-phone-hours">受付時間: 平日 9:00〜18:00</div>
+    </div>
+
+    <div class="cta-badges">
+      <div class="cta-badge trial">14日間 無料トライアル</div>
+      <div class="cta-badge free">初期費用 0円</div>
+    </div>
+
+    <div class="cta-guarantee">
+      <p>気に入らなければ費用は一切かかりません。</p>
+      <small>無料期間中にご満足いただけない場合は、そのまま終了いただけます。</small>
+    </div>
+
+    <div style="background:var(--primary-light); border-radius:12px; padding:20px 32px; max-width:480px; margin-bottom:20px;">
+      <p style="font-size:1rem; font-weight:700; color:var(--primary-dark); margin-bottom:8px;">お電話が難しい場合</p>
+      <p style="font-size:0.95rem; margin-bottom:0;">LINEでもお問い合わせいただけます。<br>QRコードまたはID検索で友だち追加してください。</p>
+    </div>
+
+    <div class="cta-company">
+      <strong>合同会社ADLINK</strong><br>
+      〒150-0043 東京都渋谷区道玄坂1丁目10番8号渋谷道玄坂東急ビル2F-C<br>
+      TEL: 080-1100-0675 ｜ Mail: info@cawae-laboo.com<br>
+      Web: https://adlink.created.app
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
