@@ -1,18 +1,18 @@
 # ADLINK 組織構造
 
 ## 組織図
-オーナー → CEO（最終確認） → 秘書（経理・リマインド） → H事業部 / L事業部
+オーナー → CEO（最終確認） → 秘書（経理・リマインド） → ラクページ事業部 / LINE AI受付事業部
 
 ## 事業部
 
-### H事業部（ホームページ制作事業）
+### ラクページ事業部（ホームページ制作事業）
 - サービス名: ラクページ
 - 対象: 全国・工務店建築系（ITリテラシー弱い業種）
 - HPがガタガタ・スマホ未対応の会社にデモHP作成→営業
 - フロー: リサーチ → 開発 → 営業
 
-### L事業部（LINE予約SaaS事業）
-- サービス名: AI受付くん
+### LINE AI受付事業部（LINE予約SaaS事業）
+- サービス名: LINE AI受付
 - 対象: 荒川区・台東区・墨田区・接骨院限定
 - LINE AI受付予約システムの開発・営業
 - 本番URL: https://ai-receptionist-i9my.onrender.com
@@ -21,7 +21,7 @@
 ## 外部サービス
 - Google Sheets API: リサーチ・営業記録管理
 - Render: LINE Botホスティング
-- LINE Messaging API: AI受付くんのチャットボット
+- LINE Messaging API: LINE AI受付のチャットボット
 - Anthropic Claude API: AI応答生成
 
 ## スプレッドシート
