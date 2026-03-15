@@ -1245,7 +1245,7 @@ img { max-width: 100%; height: auto; }
         <h3>📝 かんたんお問い合わせフォーム</h3>
         <form id="contactForm" action="https://formsubmit.co/ooisidegesu@gmail.com" method="POST">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://iridescent-hummingbird-ebda09.netlify.app/">
+          <input type="hidden" name="_next" value="https://iridescent-hummingbird-ebda09.netlify.app/thanks.html">
           <input type="hidden" name="_subject" value="【ラクページ】新規お問い合わせ">
           <div class="form-group">
             <label for="name">お名前</label>
@@ -1335,8 +1335,8 @@ const observer = new IntersectionObserver((entries) => {
 
 fadeEls.forEach(el => observer.observe(el));
 
-// ===== Form Submit (FormSubmit.co) =====
-// FormSubmit.coが処理するため、JSハンドリング不要
+// ===== Form Submit =====
+// FormSubmit.coが処理し、thanks.htmlにリダイレクトされる
 
 // ===== Header shrink on scroll =====
 window.addEventListener('scroll', () => {
