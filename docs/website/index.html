@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ラクページ｜電話1本でホームページ完成。月額9,800円〜</title>
+<meta name="description" content="ラクページは中小企業・個人事業主向けのホームページ制作サービスです。電話1本、月額9,800円から。初期費用0円、最短3日で完成。">
+<style>
+/* ========== Reset & Base ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  color: #333;
+  line-height: 1.8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; }
+
+/* ========== Variables ========== */
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --accent: #f59e0b;
+  --accent-dark: #d97706;
+  --bg-light: #f0f9ff;
+  --bg-white: #ffffff;
+  --text: #333333;
+  --text-light: #666666;
+  --text-white: #ffffff;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --max-width: 1100px;
+  --section-padding: 80px 20px;
+}
+
+/* ========== Utility ========== */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+.section-title {
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text);
+  line-height: 1.4;
+}
+.section-subtitle {
+  text-align: center;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--text-light);
+  margin-bottom: 48px;
+}
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: 60px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  line-height: 1.4;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(245,158,11,0.4);
+}
+.btn-primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(245,158,11,0.5);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.highlight { color: var(--primary); }
+.highlight-accent { color: var(--accent); }
+
+/* ========== Fade-in Animation ========== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== Header ========== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+.logo span {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 8px;
+  margin-right: 4px;
+  font-size: 0.85em;
+}
+.nav-desktop { display: flex; align-items: center; gap: 28px; }
+.nav-desktop a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.3s;
+}
+.nav-desktop a:hover { color: var(--primary); }
+.nav-desktop .btn { padding: 10px 24px; font-size: 0.9rem; }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1100;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.98);
+  z-index: 1050;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.nav-mobile.active { display: flex; }
+.nav-mobile a {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.nav-mobile a:hover { color: var(--primary); }
+
+@media (max-width: 768px) {
+  .nav-desktop { display: none; }
+  .hamburger { display: flex; }
+}
+
+/* ========== Hero ========== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 80px;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 30%, #fff 60%, #fef3c7 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -20%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-content { position: relative; z-index: 1; max-width: 720px; }
+.hero-badge {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 60px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 5.5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+.hero p {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  color: var(--text-light);
+  margin-bottom: 36px;
+  line-height: 1.8;
+}
+.hero p strong {
+  color: var(--primary);
+  font-size: 1.15em;
+}
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.hero-note {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ========== Problems ========== */
+.problems {
+  padding: var(--section-padding);
+  background: var(--bg-white);
+}
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.problem-card {
+  background: #fff;
+  border: 2px solid #f1f5f9;
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: all 0.3s ease;
+}
+.problem-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+}
+.problem-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.problem-card p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.6;
+}
+.problems-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+.problems-cta p {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+/* ========== Reasons ========== */
+.reasons {
+  padding: var(--section-padding);
+  background: var(--bg-light);
+}
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+.reason-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 40px 28px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+.reason-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.reason-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.reason-icon {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+  display: block;
+}
+.reason-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.reason-card p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ========== Services ========== */
+.services {
+  padding: var(--section-padding);
+  background: var(--bg-white);
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.service-item {
+  background: var(--bg-light);
+  border-radius: var(--radius-sm);
+  padding: 28px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.service-item:hover {
+  background: #dbeafe;
+  transform: translateY(-2px);
+}
+.service-item .icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  display: block;
+}
+.service-item h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.service-item p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ========== Pricing ========== */
+.pricing {
+  padding: var(--section-padding);
+  background: var(--bg-light);
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.pricing-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.pricing-card.popular {
+  border: 3px solid var(--primary);
+}
+.pricing-badge {
+  position: absolute;
+  top: 16px;
+  right: -32px;
+  background: var(--accent);
+  color: #fff;
+  padding: 4px 40px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  transform: rotate(45deg);
+}
+.pricing-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.pricing-price {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+.pricing-price small { font-size: 0.45em; font-weight: 600; color: var(--text-light); }
+.pricing-note {
+  font-size: 0.85rem;
+  color: var(--accent-dark);
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.pricing-features { text-align: left; margin-bottom: 28px; }
+.pricing-features li {
+  padding: 8px 0;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #f1f5f9;
+}
+.pricing-features li::before {
+  content: '✓';
+  color: var(--primary);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.pricing-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+.pricing-cta-box {
+  display: inline-block;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  padding: 20px 36px;
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+/* ========== Works ========== */
+.works {
+  padding: var(--section-padding);
+  background: var(--bg-white);
+}
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.work-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  background: #fff;
+}
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.work-thumb {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #fff;
+  position: relative;
+}
+.work-thumb::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.1));
+}
+.work-card:nth-child(1) .work-thumb { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.work-card:nth-child(2) .work-thumb { background: linear-gradient(135deg, #f97316, #ea580c); }
+.work-card:nth-child(3) .work-thumb { background: linear-gradient(135deg, #ec4899, #db2777); }
+.work-card:nth-child(4) .work-thumb { background: linear-gradient(135deg, #10b981, #059669); }
+.work-card:nth-child(5) .work-thumb { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.work-card:nth-child(6) .work-thumb { background: linear-gradient(135deg, #14b8a6, #0d9488); }
+.work-body { padding: 20px; }
+.work-body .badge {
+  display: inline-block;
+  background: var(--bg-light);
+  color: var(--primary);
+  padding: 3px 12px;
+  border-radius: 60px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.work-body h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.work-body p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ========== Flow ========== */
+.flow {
+  padding: var(--section-padding);
+  background: var(--bg-light);
+}
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+.flow-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 28px 0;
+  position: relative;
+}
+.flow-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 76px;
+  bottom: 0;
+  width: 2px;
+  background: #cbd5e1;
+}
+.flow-step-number {
+  width: 56px;
+  height: 56px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.flow-step-content h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.flow-step-content p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+.flow-cta {
+  text-align: center;
+  margin-top: 36px;
+}
+.flow-cta-box {
+  display: inline-block;
+  background: #fff;
+  border: 3px solid var(--accent);
+  padding: 16px 32px;
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+}
+
+/* ========== FAQ ========== */
+.faq {
+  padding: var(--section-padding);
+  background: var(--bg-white);
+}
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq-item {
+  background: var(--bg-light);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 24px;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: inherit;
+  line-height: 1.6;
+}
+.faq-question::before {
+  content: 'Q.';
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.faq-toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+.faq-item.active .faq-toggle { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-answer-inner {
+  padding: 0 24px 20px 52px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+.faq-answer-inner::before {
+  content: 'A. ';
+  color: var(--accent);
+  font-weight: 800;
+}
+.faq-item.active .faq-answer { max-height: 300px; }
+
+/* ========== Contact ========== */
+.contact {
+  padding: var(--section-padding);
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: #fff;
+}
+.contact .section-title { color: #fff; }
+.contact .section-subtitle { color: rgba(255,255,255,0.8); }
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .contact-inner { grid-template-columns: 1fr; }
+}
+.contact-info { text-align: center; }
+.contact-phone {
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-weight: 900;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.contact-phone a { color: #fff; }
+.contact-phone-icon { margin-right: 8px; }
+.contact-hours {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+.contact-message {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.btn-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #06c755;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 60px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn-line:hover {
+  background: #05a847;
+  transform: translateY(-2px);
+}
+.btn-line svg { width: 24px; height: 24px; }
+.contact-form {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+.contact-form h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s;
+  outline: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+.form-group textarea { height: 100px; resize: vertical; }
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 60px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+.form-submit:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: #0f172a;
+  color: rgba(255,255,255,0.7);
+  padding: 40px 20px;
+  text-align: center;
+}
+.footer-logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.footer-company {
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
+.footer-info {
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+.footer-links { margin-top: 16px; }
+.footer-links a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: #fff; }
+.footer-copy {
+  margin-top: 24px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ========== Mobile Fixed Bar ========== */
+.mobile-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--primary);
+  padding: 0;
+}
+.mobile-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 16px;
+  text-align: center;
+}
+.mobile-bar a span { font-size: 1.2rem; }
+@media (max-width: 768px) {
+  .mobile-bar { display: block; }
+  .footer { padding-bottom: 80px; }
+}
+
+/* ========== Responsive Tweaks ========== */
+@media (max-width: 480px) {
+  :root { --section-padding: 56px 16px; }
+  .hero { padding: 100px 16px 60px; }
+  .btn { padding: 14px 28px; font-size: 1rem; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .works-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header" id="top">
+  <div class="header-inner">
+    <a href="#top" class="logo"><span>ラク</span>ページ</a>
+    <nav class="nav-desktop">
+      <a href="#service">サービス</a>
+      <a href="#pricing">料金</a>
+      <a href="#works">実績</a>
+      <a href="#contact" class="btn btn-primary" style="padding:10px 24px;font-size:0.9rem;">無料で相談する</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="nav-mobile" id="navMobile">
+  <a href="#service" onclick="closeMenu()">サービス</a>
+  <a href="#pricing" onclick="closeMenu()">料金</a>
+  <a href="#works" onclick="closeMenu()">実績</a>
+  <a href="#contact" onclick="closeMenu()">お問い合わせ</a>
+  <a href="#contact" class="btn btn-primary" onclick="closeMenu()">無料で相談する</a>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">初期費用0円・月額9,800円〜</div>
+    <h1>ホームページ、<br>めんどくさくないですか？</h1>
+    <p><strong>ラクページ</strong>なら、お電話1本で完成。<br>パソコンもメールも不要です。<br>月額<strong>9,800円</strong>から、最短<strong>3日</strong>で公開。</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary">まずは無料で相談する</a>
+      <a href="#flow" class="btn btn-outline">ご利用の流れ</a>
+    </div>
+    <p class="hero-note">※ 無理な勧誘は一切いたしません</p>
+  </div>
+</section>
+
+<!-- ===== Problems ===== -->
+<section class="problems" id="problems">
+  <div class="container fade-in">
+    <h2 class="section-title">こんなお悩み、ありませんか？</h2>
+    <p class="section-subtitle">一つでも当てはまったら、ラクページにご相談ください</p>
+    <div class="problems-grid">
+      <div class="problem-card">
+        <span class="problem-icon">😥</span>
+        <p>ホームページがないけど、<br>どう作ればいいかわからない</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">📱</span>
+        <p>今のHPが古くて、<br>スマホで見ると崩れる</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">😰</span>
+        <p>パソコンが苦手で、<br>自分では更新できない</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">💸</span>
+        <p>制作会社に頼むと<br>高すぎて手が出ない</p>
+      </div>
+    </div>
+    <div class="problems-cta">
+      <p>そのお悩み、ラクページが解決します！</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Reasons ===== -->
+<section class="reasons" id="reasons">
+  <div class="container fade-in">
+    <h2 class="section-title">ラクページが選ばれる<br class="sp-only"><span class="highlight">3つの理由</span></h2>
+    <p class="section-subtitle">「ラクに」「安く」「早く」を追求しました</p>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <span class="reason-number">1</span>
+        <span class="reason-icon">📞</span>
+        <h3>電話1本でOK</h3>
+        <p>メール不要、Zoom不要、パソコン不要。お電話で「こんなHPがほしい」と伝えるだけ。あとは全部おまかせください。</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-number">2</span>
+        <span class="reason-icon">💰</span>
+        <h3>月額9,800円〜<br>初期費用0円</h3>
+        <p>数十万の初期費用は不要。月額のみで始められるから、リスクなし。合わなければいつでも解約できます。</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-number">3</span>
+        <span class="reason-icon">⚡</span>
+        <h3>最短3日で完成<br>スマホ対応</h3>
+        <p>AIを活用したプロの制作体制で、スピード対応。もちろんスマホ対応は標準です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Services ===== -->
+<section class="services" id="service">
+  <div class="container fade-in">
+    <h2 class="section-title">サービス内容</h2>
+    <p class="section-subtitle">ホームページに必要なもの、全部入りです</p>
+    <div class="services-grid">
+      <div class="service-item">
+        <span class="icon">🌐</span>
+        <h4>ホームページ制作</h4>
+        <p>5〜10ページの本格HP</p>
+      </div>
+      <div class="service-item">
+        <span class="icon">📱</span>
+        <h4>スマホ完全対応</h4>
+        <p>どの端末でもキレイに表示</p>
+      </div>
+      <div class="service-item">
+        <span class="icon">🔒</span>
+        <h4>SSL対応</h4>
+        <p>安全なサイトの証</p>
+      </div>
+      <div class="service-item">
+        <span class="icon">📸</span>
+        <h4>写真撮影代行</h4>
+        <p>オプションでプロが撮影</p>
+      </div>
+      <div class="service-item">
+        <span class="icon">🔄</span>
+        <h4>更新・修正 何度でも無料</h4>
+        <p>電話一本で修正対応</p>
+      </div>
+      <div class="service-item">
+        <span class="icon">🔍</span>
+        <h4>SEO・MEO対策</h4>
+        <p>検索で見つかるサイトに</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Pricing ===== -->
+<section class="pricing" id="pricing">
+  <div class="container fade-in">
+    <h2 class="section-title">料金プラン</h2>
+    <p class="section-subtitle">どちらも初期費用0円。月額だけでスタートできます</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>ライトプラン</h3>
+        <div class="pricing-price">9,800<small>円/月（税別）</small></div>
+        <p class="pricing-note">初期費用 0円</p>
+        <ul class="pricing-features">
+          <li>5ページまで</li>
+          <li>スマホ対応</li>
+          <li>SSL対応</li>
+          <li>更新・修正 無料</li>
+          <li>電話サポート</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="width:100%;">無料相談する</a>
+      </div>
+      <div class="pricing-card popular">
+        <div class="pricing-badge">おすすめ</div>
+        <h3>スタンダードプラン</h3>
+        <div class="pricing-price">14,800<small>円/月（税別）</small></div>
+        <p class="pricing-note">初期費用 0円</p>
+        <ul class="pricing-features">
+          <li>10ページまで</li>
+          <li>スマホ対応</li>
+          <li>SSL対応</li>
+          <li>SEO対策込み</li>
+          <li>更新・修正 無料</li>
+          <li>優先サポート</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="width:100%;">無料相談する</a>
+      </div>
+    </div>
+    <div class="pricing-cta">
+      <div class="pricing-cta-box">
+        📝 まずは<span class="highlight-accent">無料でデモサイトを作成</span>します！
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Works ===== -->
+<section class="works" id="works">
+  <div class="container fade-in">
+    <h2 class="section-title">制作実績</h2>
+    <p class="section-subtitle">お客様のために作成したデモサイトの一部です</p>
+    <div class="works-grid">
+      <div class="work-card">
+        <div class="work-thumb">🏠</div>
+        <div class="work-body">
+          <span class="badge">工務店</span>
+          <h4>山田建設 様</h4>
+          <p>地域密着の工務店サイト。施工事例を大きく見せるデザインに。</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb">🍽️</div>
+        <div class="work-body">
+          <span class="badge">飲食店</span>
+          <h4>旬菜ダイニング 結 様</h4>
+          <p>料理の魅力が伝わる写真中心のレイアウト。予約導線も設計。</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb">💇</div>
+        <div class="work-body">
+          <span class="badge">美容室</span>
+          <h4>hair salon Lino 様</h4>
+          <p>おしゃれで洗練された雰囲気のサイト。スタイルギャラリー付き。</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb">🦴</div>
+        <div class="work-body">
+          <span class="badge">接骨院</span>
+          <h4>あおば接骨院 様</h4>
+          <p>安心感のあるデザイン。症状別の案内ページを設置。</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb">📊</div>
+        <div class="work-body">
+          <span class="badge">税理士事務所</span>
+          <h4>田中税理士事務所 様</h4>
+          <p>信頼感を重視した落ち着いたデザイン。サービス一覧を明確に。</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb">🦷</div>
+        <div class="work-body">
+          <span class="badge">歯科医院</span>
+          <h4>さくら歯科クリニック 様</h4>
+          <p>清潔感あるデザイン。Web予約機能との連携も対応。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Flow ===== -->
+<section class="flow" id="flow">
+  <div class="container fade-in">
+    <h2 class="section-title">ご利用の流れ</h2>
+    <p class="section-subtitle">かんたん3ステップで完成します</p>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step-number">1</div>
+        <div class="flow-step-content">
+          <h3>📞 お電話でご相談</h3>
+          <p>15分ほどのヒアリングで、ご希望をお聞きします。「こんな感じにしたい」というざっくりしたイメージでOKです。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-number">2</div>
+        <div class="flow-step-content">
+          <h3>🎨 デモサイトを無料作成</h3>
+          <p>最短翌日にデモサイトをお見せします。実際のホームページを見ながら確認できるので安心です。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-number">3</div>
+        <div class="flow-step-content">
+          <h3>🎉 気に入ったらそのまま公開！</h3>
+          <p>デモサイトにOKをいただけたら、そのまま本番公開。月額プランがスタートします。</p>
+        </div>
+      </div>
+    </div>
+    <div class="flow-cta">
+      <div class="flow-cta-box">
+        ✨ 気に入らなければ費用は一切かかりません
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="container fade-in">
+    <h2 class="section-title">よくある質問</h2>
+    <p class="section-subtitle">お客様からよくいただくご質問をまとめました</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question">
+          パソコンが苦手でも大丈夫ですか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">もちろん大丈夫です！パソコンは一切不要。お電話だけですべて完結しますので、ご安心ください。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          解約はいつでもできますか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">はい、いつでも解約可能です。違約金も一切ありません。安心してお試しいただけます。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          更新は自分でやるんですか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">いいえ、更新作業はすべてこちらで行います。お電話いただくだけで修正・更新に対応いたします。何度でも無料です。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          写真がないんですが、大丈夫ですか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">大丈夫です。高品質な無料素材をご用意しております。また、オプションでプロカメラマンによる撮影代行も承っています。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          本当に初期費用0円ですか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">はい、初期費用は一切いただいておりません。お支払いは月額料金のみです。隠れた費用もございませんので、ご安心ください。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="contact" id="contact">
+  <div class="container fade-in">
+    <h2 class="section-title">お問い合わせ</h2>
+    <p class="section-subtitle">まずはお気軽にお電話ください</p>
+    <div class="contact-inner">
+
+      <div class="contact-info">
+        <p class="contact-message">ホームページのことなら<br>なんでもご相談ください</p>
+        <div class="contact-phone">
+          <a href="tel:080-1100-0675"><span class="contact-phone-icon">📞</span>080-1100-0675</a>
+        </div>
+        <p class="contact-hours">📅 平日 9:00〜18:00（土日祝休み）</p>
+        <a href="#" class="btn-line">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"></path></svg>
+          LINEで相談する
+        </a>
+      </div>
+
+      <div class="contact-form">
+        <h3>📝 かんたんお問い合わせフォーム</h3>
+        <form id="contactForm" action="https://formsubmit.co/ooisidegesu@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://iridescent-hummingbird-ebda09.netlify.app/">
+          <input type="hidden" name="_subject" value="【ラクページ】新規お問い合わせ">
+          <div class="form-group">
+            <label for="name">お名前</label>
+            <input type="text" id="name" name="name" placeholder="山田太郎" required>
+          </div>
+          <div class="form-group">
+            <label for="tel">電話番号</label>
+            <input type="tel" id="tel" name="tel" placeholder="090-1234-5678" required>
+          </div>
+          <div class="form-group">
+            <label for="message">ご相談内容（任意）</label>
+            <textarea id="message" name="message" placeholder="ホームページを作りたいのですが..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">無料で相談する</button>
+        </form>
+        <div id="formSuccess" style="display:none; text-align:center; padding:40px 20px;">
+          <div style="font-size:64px; margin-bottom:16px;">✅</div>
+          <h3 style="color:#2563eb; margin-bottom:12px;">お問い合わせありがとうございます！</h3>
+          <p style="color:#64748b;">担当者より折り返しご連絡いたします。<br>通常1営業日以内にお返事いたします。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">ラクページ</div>
+    <div class="footer-company">運営: 合同会社ADLINK</div>
+    <div class="footer-info">〒150-0043 東京都渋谷区道玄坂1丁目10番8号渋谷道玄坂東急ビル2F-C</div>
+    <div class="footer-info">TEL: 080-1100-0675 ｜ Mail: info@cawae-laboo.com</div>
+    <div class="footer-links">
+      <a href="https://adlink.created.app">会社HP</a>
+      <a href="#">プライバシーポリシー</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 合同会社ADLINK All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- ===== Mobile Fixed Bar ===== -->
+<div class="mobile-bar">
+  <a href="tel:080-1100-0675">
+    <span>📞</span> 今すぐ電話で無料相談
+  </a>
+</div>
+
+<script>
+// ===== Hamburger Menu =====
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('navMobile');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMobile.classList.toggle('active');
+  document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+});
+
+function closeMenu() {
+  hamburger.classList.remove('active');
+  navMobile.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ===== FAQ Accordion =====
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isActive = item.classList.contains('active');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    // Toggle current
+    if (!isActive) item.classList.add('active');
+  });
+});
+
+// ===== Scroll Fade-in =====
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+fadeEls.forEach(el => observer.observe(el));
+
+// ===== Form Submit (FormSubmit.co) =====
+// FormSubmit.coが処理するため、JSハンドリング不要
+
+// ===== Header shrink on scroll =====
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.header');
+  if (window.scrollY > 50) {
+    header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+  } else {
+    header.style.boxShadow = '0 2px 12px rgba(0,0,0,0.06)';
+  }
+});
+</script>
+
+</body>
+</html>
