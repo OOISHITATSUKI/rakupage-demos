@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>茨城県瓦工事業組合 | 屋根から暮らしを守る</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --kawara: #3a3a3a;
+  --kawara-dark: #2a2a2a;
+  --akacya: #8b4513;
+  --akacya-light: #a0522d;
+  --washi: #f5f0e8;
+  --washi-dark: #ebe4d6;
+  --sumi: #1a1a1a;
+  --gold: #b8860b;
+  --text: #333;
+  --text-light: #666;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  color: var(--text);
+  background: var(--washi);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* ===== HEADER ===== */
+.header {
+  background: var(--kawara-dark);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--akacya), var(--akacya-light));
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+}
+.header-logo-text {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+.header-logo-text small {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 2px;
+}
+
+.nav-desktop { display: flex; gap: 24px; }
+.nav-desktop a {
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-desktop a:hover { color: #fff; }
+.nav-desktop a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--akacya-light);
+  transition: width 0.3s;
+}
+.nav-desktop a:hover::after { width: 100%; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.mobile-menu {
+  display: none;
+  background: var(--kawara-dark);
+  padding: 0 20px 20px;
+}
+.mobile-menu.active { display: block; }
+.mobile-menu a {
+  display: block;
+  color: rgba(255,255,255,0.9);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .nav-desktop { display: none; }
+  .hamburger { display: flex; }
+  .header-logo-text { font-size: 13px; }
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    linear-gradient(135deg, rgba(42,42,42,0.82) 0%, rgba(139,69,19,0.72) 100%),
+    url('https://images.unsplash.com/photo-1601123416264-38e759e63239?w=1600&q=80') center/cover no-repeat;
+  overflow: hidden;
+  padding: 80px 20px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(184,134,11,0.15) 0%, transparent 60%);
+  animation: heroGlow 8s ease-in-out infinite alternate;
+}
+@keyframes heroGlow {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(5%, 3%); }
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+.hero-roof {
+  font-size: 80px;
+  margin-bottom: 20px;
+  display: block;
+  line-height: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  padding: 6px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(4px);
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  letter-spacing: 2px;
+}
+.hero h1 span {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--gold), #d4a843);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  color: rgba(255,255,255,0.75);
+  font-size: clamp(14px, 2vw, 18px);
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--akacya), var(--akacya-light));
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(139,69,19,0.4);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139,69,19,0.5); }
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  text-align: center;
+  color: #fff;
+}
+.hero-stat-num {
+  font-size: 36px;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--gold), #e0c068);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+}
+
+/* ===== SECTION COMMON ===== */
+.section { padding: 80px 0; }
+.section-dark { background: var(--kawara-dark); color: #fff; }
+.section-gray { background: var(--washi-dark); }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.section-header h2 {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.section-header-en {
+  font-size: 12px;
+  color: var(--akacya);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.section-dark .section-header-en { color: var(--gold); }
+.section-header p {
+  color: var(--text-light);
+  margin-top: 12px;
+  font-size: 15px;
+}
+.section-dark .section-header p { color: rgba(255,255,255,0.6); }
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--akacya), var(--gold));
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== ABOUT ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.about-visual {
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.about-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-visual-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(26,26,26,0.85));
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* Gallery */
+.gallery { padding: 80px 0; background: var(--washi-dark); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+  display: block;
+}
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  transform: translateY(100%);
+  transition: transform 0.4s;
+}
+.gallery-item:hover .gallery-item-overlay { transform: translateY(0); }
+.gallery-item-tag {
+  display: inline-block;
+  background: var(--akacya);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+@media (max-width: 768px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+
+.about-content h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: var(--kawara-dark);
+}
+.about-content p {
+  color: var(--text-light);
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.about-points {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+.about-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.about-point-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  background: linear-gradient(135deg, var(--akacya), var(--akacya-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.about-point-text { font-size: 14px; font-weight: 500; }
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
+/* ===== SERVICES ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.service-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--akacya), var(--gold));
+  transform: scaleX(0);
+  transition: transform 0.4s;
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-card:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.service-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 16px;
+  background: linear-gradient(135deg, var(--akacya), var(--gold));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  transition: transform 0.3s;
+}
+.service-card:hover .service-icon { transform: scale(1.1); }
+
+.service-card h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.service-card p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== SEARCH / CTA ===== */
+.search-section {
+  padding: 80px 0;
+  background:
+    linear-gradient(135deg, rgba(139,69,19,0.08) 0%, rgba(184,134,11,0.06) 100%);
+}
+.search-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.search-content h2 {
+  font-size: clamp(22px, 3.5vw, 32px);
+  margin-bottom: 16px;
+  font-weight: 800;
+  color: var(--kawara-dark);
+}
+.search-content p {
+  color: var(--text-light);
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+.search-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.search-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: transform 0.3s;
+}
+.search-step:hover { transform: translateX(6px); }
+.search-step-num {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background: linear-gradient(135deg, var(--akacya), var(--akacya-light));
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+}
+.search-step-text h4 { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+.search-step-text p { font-size: 13px; color: var(--text-light); margin: 0; }
+
+.search-map {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, rgba(58,58,58,0.6) 0%, rgba(139,69,19,0.5) 80%),
+    url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&q=80') center/cover no-repeat;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.search-map::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 40% 40%, rgba(184,134,11,0.2), transparent 60%);
+}
+.search-map-icon {
+  font-size: 80px;
+  position: relative;
+  z-index: 1;
+}
+.search-map-text {
+  color: rgba(255,255,255,0.7);
+  font-size: 16px;
+  margin-top: 16px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 1;
+}
+.search-map-sub {
+  color: rgba(255,255,255,0.5);
+  font-size: 12px;
+  margin-top: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .search-inner { grid-template-columns: 1fr; }
+  .search-map { aspect-ratio: 16/9; }
+}
+
+/* ===== FAQ ===== */
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq-item {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.faq-question {
+  width: 100%;
+  padding: 18px 24px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: inherit;
+  line-height: 1.6;
+  transition: background 0.3s;
+}
+.faq-question:hover { background: rgba(139,69,19,0.04); }
+.faq-question::before {
+  content: 'Q';
+  min-width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--akacya), var(--akacya-light));
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+}
+.faq-toggle {
+  min-width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--washi);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--text-light);
+  transition: transform 0.3s;
+}
+.faq-item.active .faq-toggle { transform: rotate(45deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-answer-inner {
+  padding: 0 24px 18px 66px;
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ===== CONTACT ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.contact-info { color: rgba(255,255,255,0.8); }
+.contact-info h3 {
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.contact-info p { font-size: 14px; margin-bottom: 20px; }
+
+.contact-items { display: flex; flex-direction: column; gap: 16px; }
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.contact-item-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+.contact-item-text { font-size: 14px; line-height: 1.6; }
+.contact-item-text strong { display: block; color: #fff; font-size: 13px; margin-bottom: 2px; }
+
+.contact-form {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 30px;
+}
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.3s;
+  outline: none;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  border-color: var(--akacya-light);
+}
+.form-group textarea { min-height: 100px; resize: vertical; }
+.form-group select option { color: #333; }
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--akacya), var(--akacya-light));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139,69,19,0.4); }
+
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--sumi);
+  color: rgba(255,255,255,0.5);
+  padding: 40px 0 100px;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.footer-brand { max-width: 320px; }
+.footer-brand-name {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.footer-brand p { font-size: 12px; line-height: 1.7; }
+
+.footer-links { display: flex; gap: 40px; flex-wrap: wrap; }
+.footer-links-col h4 {
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.footer-links-col a {
+  display: block;
+  font-size: 12px;
+  padding: 3px 0;
+  color: rgba(255,255,255,0.4);
+  transition: color 0.3s;
+}
+.footer-links-col a:hover { color: rgba(255,255,255,0.8); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 30px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 11px;
+}
+.footer-bottom p { margin-bottom: 4px; }
+.footer-demo {
+  display: inline-block;
+  background: rgba(255,255,255,0.08);
+  padding: 4px 14px;
+  border-radius: 4px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ===== MOBILE FIXED BAR ===== */
+.mobile-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--kawara-dark);
+  z-index: 9999;
+  box-shadow: 0 -2px 15px rgba(0,0,0,0.3);
+  padding: 0;
+}
+.mobile-bar-inner {
+  display: flex;
+}
+.mobile-bar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  color: rgba(255,255,255,0.7);
+  font-size: 10px;
+  text-align: center;
+  transition: background 0.3s;
+  gap: 3px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.mobile-bar-item:hover, .mobile-bar-item:active {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+.mobile-bar-icon { font-size: 20px; }
+.mobile-bar-cta {
+  background: linear-gradient(135deg, var(--akacya), var(--akacya-light)) !important;
+  color: #fff !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-bar { display: block; }
+  .footer { padding-bottom: 80px; }
+}
+
+/* ===== FADE IN ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== SCROLL TOP ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: var(--kawara-dark);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s;
+}
+.scroll-top:hover { background: var(--akacya); transform: translateY(-2px); }
+.scroll-top.show { display: flex; }
+
+@media (min-width: 769px) {
+  .scroll-top { bottom: 30px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="header-logo">
+      <div class="header-logo-icon">瓦</div>
+      <div class="header-logo-text">
+        茨城県瓦工事業組合
+        <small>IBARAKI KAWARA UNION</small>
+      </div>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#about">組合について</a>
+      <a href="#services">サービス</a>
+      <a href="#search">加盟店検索</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMenu()">組合について</a>
+    <a href="#services" onclick="closeMenu()">サービス</a>
+    <a href="#search" onclick="closeMenu()">加盟店検索</a>
+    <a href="#faq" onclick="closeMenu()">よくある質問</a>
+    <a href="#contact" onclick="closeMenu()">お問い合わせ</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-roof">&#127983;</div>
+    <div class="hero-badge">茨城県の屋根を守り続けて</div>
+    <h1>屋根から<span>暮らし</span>を守る</h1>
+    <p class="hero-sub">
+      伝統の技術と確かな品質で、茨城県の住まいを守る瓦工事の専門家集団。<br>
+      地域密着の組合だからこそできる、安心と信頼の屋根工事をお届けします。
+    </p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary">&#9993; お問い合わせ</a>
+      <a href="#search" class="btn btn-outline">&#128269; 加盟店を探す</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">50+</div>
+        <div class="hero-stat-label">加盟事業者</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">茨城</div>
+        <div class="hero-stat-label">県内全域対応</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">信頼</div>
+        <div class="hero-stat-label">確かな技術力</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-header-en">ABOUT US</div>
+      <h2>茨城県瓦工事業組合について</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-visual fade-in-left">
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80" alt="瓦屋根の日本家屋">
+        <div class="about-visual-overlay">伝統と技術の継承</div>
+      </div>
+      <div class="about-content fade-in-right">
+        <h3>地域に根ざした瓦工事の専門家集団</h3>
+        <p>
+          茨城県瓦工事業組合は、茨城県内の瓦工事・屋根工事の専門事業者が集まる組合です。
+          長年にわたり培われた伝統の技術と、最新の工法を融合させ、地域の皆さまの住まいを守り続けています。
+        </p>
+        <p>
+          組合に加盟する事業者は、高い技術力と施工品質を維持するための研修や勉強会を定期的に実施。
+          お客様に安心してご依頼いただける体制を整えています。
+        </p>
+        <div class="about-points">
+          <div class="about-point">
+            <div class="about-point-icon">&#128736;</div>
+            <div class="about-point-text">確かな技術力を持つ加盟事業者のネットワーク</div>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon">&#128218;</div>
+            <div class="about-point-text">定期的な技術研修と品質向上への取り組み</div>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon">&#129309;</div>
+            <div class="about-point-text">地域密着・誠実な対応をお約束</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-dark" id="services">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-header-en">SERVICES</div>
+      <h2>サービス紹介</h2>
+      <div class="section-divider"></div>
+      <p>組合加盟店が提供する、確かな技術の屋根工事サービス</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <img src="https://images.unsplash.com/photo-1601123416264-38e759e63239?w=400&q=80" alt="瓦葺き工事" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:16px">
+        <div class="service-icon">&#127983;</div>
+        <h3>瓦葺き工事</h3>
+        <p>日本の風土に適した瓦屋根の新設工事。和瓦・洋瓦・平板瓦など、多様な瓦に対応します。美しく耐久性の高い屋根を実現。</p>
+      </div>
+      <div class="service-card fade-in">
+        <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?w=400&q=80" alt="修繕・葺き替え" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:16px">
+        <div class="service-icon">&#128295;</div>
+        <h3>修繕・葺き替え</h3>
+        <p>雨漏りや瓦のズレ、割れなどのトラブルに迅速対応。部分修理から全面葺き替えまで、最適な方法をご提案いたします。</p>
+      </div>
+      <div class="service-card fade-in">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80" alt="耐震工事" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:16px">
+        <div class="service-icon">&#128170;</div>
+        <h3>耐震工事</h3>
+        <p>地震対策に欠かせない屋根の軽量化・耐震補強。ガイドライン工法に基づく安心の施工で、地震に強い住まいづくり。</p>
+      </div>
+      <div class="service-card fade-in">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&q=80" alt="屋根リフォーム" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:16px">
+        <div class="service-icon">&#127968;</div>
+        <h3>屋根リフォーム</h3>
+        <p>屋根の断熱性・遮熱性向上や外観のリフレッシュ。太陽光パネル対応工事など、暮らしに合わせたリフォームをご案内。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-header-en">WORKS</div>
+      <h2>施工事例</h2>
+      <div class="section-divider"></div>
+      <p>組合加盟店による施工事例をご紹介します</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1601123416264-38e759e63239?w=600&q=80" alt="和瓦の新築屋根">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-tag">新築</div>
+          <div>和瓦葺き工事 - 水戸市 I様邸</div>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=600&q=80" alt="葺き替え完了の住宅">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-tag">葺き替え</div>
+          <div>屋根全面葺き替え - つくば市 S様邸</div>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=600&q=80" alt="瓦屋根の美しい家">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-tag">修繕</div>
+          <div>瓦修繕・雨漏り修理 - 日立市 K様邸</div>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="リフォーム後の住宅">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-tag">リフォーム</div>
+          <div>屋根リフォーム工事 - 土浦市 A様邸</div>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80" alt="モダンな住宅外観">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-tag">新築</div>
+          <div>平板瓦葺き工事 - ひたちなか市 M様邸</div>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="高級住宅の屋根">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-tag">耐震補強</div>
+          <div>耐震ガイドライン工法 - 古河市 T様邸</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<section class="search-section" id="search">
+  <div class="container">
+    <div class="search-inner">
+      <div class="search-content fade-in-left">
+        <div class="section-header-en" style="text-align:left;margin-bottom:12px;">FIND A MEMBER</div>
+        <h2>加盟店検索のご案内</h2>
+        <p>お住まいの地域に対応する加盟事業者をお探しいただけます。<br>信頼できる地元の瓦工事店に、安心してご相談ください。</p>
+        <div class="search-steps">
+          <div class="search-step">
+            <div class="search-step-num">1</div>
+            <div class="search-step-text">
+              <h4>エリアを選択</h4>
+              <p>茨城県内のお住まいの市町村を選びます</p>
+            </div>
+          </div>
+          <div class="search-step">
+            <div class="search-step-num">2</div>
+            <div class="search-step-text">
+              <h4>加盟店一覧を確認</h4>
+              <p>対応可能な加盟事業者が表示されます</p>
+            </div>
+          </div>
+          <div class="search-step">
+            <div class="search-step-num">3</div>
+            <div class="search-step-text">
+              <h4>直接お問い合わせ</h4>
+              <p>お好きな加盟店に直接ご連絡・ご相談いただけます</p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:28px;">
+          <a href="#contact" class="btn btn-primary">&#128222; まずはお気軽にご相談</a>
+        </div>
+      </div>
+      <div class="search-map fade-in-right" style="background:linear-gradient(135deg,rgba(58,58,58,0.5),rgba(139,69,19,0.4)),url('https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=800&q=80') center/cover no-repeat;">
+        <div class="search-map-icon">&#128205;</div>
+        <div class="search-map-text">茨城県全域対応</div>
+        <div class="search-map-sub">水戸・つくば・日立・土浦・ひたちなか 他</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-gray" id="faq">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-header-en">FAQ</div>
+      <h2>よくあるご質問</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          瓦屋根の寿命はどのくらいですか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            瓦自体の寿命は一般的に50年から100年以上と非常に長持ちします。ただし、下地の防水シートや野地板は20〜30年程度で劣化するため、定期的な点検とメンテナンスが大切です。まずはお気軽に組合加盟店へご相談ください。
+          </div>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          瓦屋根は地震に弱いのですか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            現在のガイドライン工法で施工された瓦屋根は、地震に対して高い耐震性を持っています。1枚ずつ釘やビスで固定するため、ズレや落下のリスクは大幅に軽減されます。既存の屋根も耐震補強工事が可能ですので、ご心配な方はお気軽にご相談ください。
+          </div>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          見積もりだけでもお願いできますか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            はい、もちろんです。組合加盟店では無料でお見積もりを承っております。実際に屋根の状態を確認させていただいた上で、最適な工事内容と費用をご提案いたします。相見積もりも歓迎しておりますので、お気軽にお問い合わせください。
+          </div>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          雨漏りの修理はすぐ対応してもらえますか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            雨漏りなどの緊急性の高い案件には、できる限り迅速に対応いたします。まずは組合またはお近くの加盟店にお電話ください。状況をヒアリングの上、応急処置を含めた最善の対応をご案内いたします。
+          </div>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          組合に加盟している業者に頼むメリットは？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            組合加盟店は、一定の技術水準と施工品質をクリアした事業者です。定期的な技術研修への参加や、組合としての品質管理体制があるため、安心してご依頼いただけます。万が一のトラブル時にも、組合がサポートいたします。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-dark" id="contact">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-header-en">CONTACT</div>
+      <h2>お問い合わせ</h2>
+      <div class="section-divider"></div>
+      <p>屋根のことなら何でもお気軽にご相談ください</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-in-left">
+        <h3>茨城県瓦工事業組合</h3>
+        <p>
+          屋根の点検・修理・リフォームなど、お気軽にお問い合わせください。<br>
+          組合が最適な加盟店をご紹介いたします。
+        </p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">&#128205;</div>
+            <div class="contact-item-text">
+              <strong>所在地</strong>
+              茨城県内（詳細はお問い合わせください）
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">&#128222;</div>
+            <div class="contact-item-text">
+              <strong>お電話</strong>
+              お気軽にお問い合わせください
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">&#128339;</div>
+            <div class="contact-item-text">
+              <strong>受付時間</strong>
+              平日 9:00〜17:00
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">&#127760;</div>
+            <div class="contact-item-text">
+              <strong>公式サイト</strong>
+              ibagaren.com
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form fade-in-right">
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label>お名前 *</label>
+            <input type="text" placeholder="山田 太郎" required>
+          </div>
+          <div class="form-group">
+            <label>メールアドレス *</label>
+            <input type="email" placeholder="info@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>お電話番号</label>
+            <input type="tel" placeholder="029-XXX-XXXX">
+          </div>
+          <div class="form-group">
+            <label>お問い合わせ内容</label>
+            <select>
+              <option value="">選択してください</option>
+              <option>瓦の修理・修繕について</option>
+              <option>屋根の葺き替えについて</option>
+              <option>耐震工事について</option>
+              <option>屋根リフォームについて</option>
+              <option>加盟店の紹介について</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>詳細</label>
+            <textarea placeholder="お問い合わせ内容をご記入ください"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">送信する</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-brand-name">茨城県瓦工事業組合</div>
+        <p>伝統の技術と確かな品質で、茨城県の住まいを守る瓦工事の専門家集団です。屋根のことなら何でもお気軽にご相談ください。</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-col">
+          <h4>メニュー</h4>
+          <a href="#about">組合について</a>
+          <a href="#services">サービス</a>
+          <a href="#search">加盟店検索</a>
+          <a href="#faq">よくある質問</a>
+          <a href="#contact">お問い合わせ</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>サービス</h4>
+          <a href="#services">瓦葺き工事</a>
+          <a href="#services">修繕・葺き替え</a>
+          <a href="#services">耐震工事</a>
+          <a href="#services">屋根リフォーム</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 茨城県瓦工事業組合 All Rights Reserved.</p>
+      <div class="footer-demo">デモサイト・未公開 ｜ ラクページ制作</div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE FIXED BAR -->
+<div class="mobile-bar">
+  <div class="mobile-bar-inner">
+    <a href="#" class="mobile-bar-item">
+      <span class="mobile-bar-icon">&#127968;</span>
+      TOP
+    </a>
+    <a href="#services" class="mobile-bar-item">
+      <span class="mobile-bar-icon">&#128295;</span>
+      サービス
+    </a>
+    <a href="#search" class="mobile-bar-item">
+      <span class="mobile-bar-icon">&#128269;</span>
+      加盟店
+    </a>
+    <a href="#contact" class="mobile-bar-item mobile-bar-cta">
+      <span class="mobile-bar-icon">&#9993;</span>
+      お問い合わせ
+    </a>
+  </div>
+</div>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#9650;</button>
+
+<script>
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('active');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('active');
+}
+
+// FAQ accordion
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const answer = item.querySelector('.faq-answer');
+  const isActive = item.classList.contains('active');
+
+  // Close all
+  document.querySelectorAll('.faq-item').forEach(function(el) {
+    el.classList.remove('active');
+    el.querySelector('.faq-answer').style.maxHeight = null;
+  });
+
+  // Open clicked if wasn't active
+  if (!isActive) {
+    item.classList.add('active');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+
+// Fade-in on scroll
+function handleFadeIn() {
+  var els = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+  for (var i = 0; i < els.length; i++) {
+    var rect = els[i].getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) {
+      els[i].classList.add('visible');
+    }
+  }
+}
+window.addEventListener('scroll', handleFadeIn);
+window.addEventListener('load', handleFadeIn);
+
+// Scroll to top button
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('scrollTop');
+  if (window.scrollY > 400) {
+    btn.classList.add('show');
+  } else {
+    btn.classList.remove('show');
+  }
+});
+
+// Form submit
+function handleSubmit(e) {
+  e.preventDefault();
+  alert('お問い合わせありがとうございます。\nこちらはデモサイトのため、実際の送信は行われません。');
+}
+</script>
+</body>
+</html>

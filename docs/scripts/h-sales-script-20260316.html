@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ラクページ事業部 営業トークスクリプト | 2026年3月16日</title>
+<style>
+  :root {
+    --primary: #1a56db;
+    --primary-light: #e8effc;
+    --accent: #e74c3c;
+    --accent-light: #fdecea;
+    --success: #16a34a;
+    --success-light: #ecfdf5;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --orange: #ea580c;
+    --orange-light: #fff7ed;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Meiryo", sans-serif;
+    color: var(--gray-800);
+    line-height: 1.75;
+    background: var(--gray-50);
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  /* ===== HEADER ===== */
+  .doc-header {
+    background: linear-gradient(135deg, var(--primary), #2563eb);
+    color: #fff;
+    padding: 40px 32px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .doc-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .doc-header .subtitle {
+    font-size: 15px;
+    opacity: .85;
+  }
+  .doc-header .meta {
+    margin-top: 16px;
+    font-size: 13px;
+    opacity: .7;
+  }
+
+  /* ===== TABLE OF CONTENTS ===== */
+  .toc {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 24px 32px;
+    margin-bottom: 32px;
+  }
+  .toc h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--primary);
+  }
+  .toc ol {
+    padding-left: 20px;
+  }
+  .toc li {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+  .toc a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ===== SECTIONS ===== */
+  .section {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    page-break-inside: avoid;
+  }
+  .section h2 {
+    font-size: 22px;
+    color: var(--primary);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+  .section h3 {
+    font-size: 17px;
+    color: var(--gray-800);
+    margin: 20px 0 10px;
+    padding-left: 12px;
+    border-left: 4px solid var(--primary);
+  }
+
+  /* ===== COMPANY CARD ===== */
+  .company-card {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    page-break-inside: avoid;
+  }
+  .company-card-header {
+    background: var(--primary-light);
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .company-num {
+    background: var(--primary);
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .company-card-header .info h3 {
+    font-size: 18px;
+    color: var(--gray-900);
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  .company-card-header .info .tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .tag-area { background: #dbeafe; color: #1e40af; }
+  .tag-biz { background: #fef3c7; color: #92400e; }
+  .tag-issue { background: var(--accent-light); color: var(--accent); }
+
+  .company-card-body {
+    padding: 24px;
+  }
+
+  /* ===== SCRIPT BOX ===== */
+  .script-box {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .script-box h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .script-box h4 .icon-phone { color: var(--success); }
+  .script-box h4 .icon-mail { color: var(--primary); }
+
+  .script-line {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .script-line .speaker {
+    display: inline-block;
+    font-weight: 700;
+    min-width: 60px;
+    color: var(--primary);
+  }
+  .script-line .direction {
+    display: block;
+    color: var(--gray-600);
+    font-size: 13px;
+    font-style: italic;
+    margin: 4px 0 4px 60px;
+    padding: 4px 10px;
+    background: var(--orange-light);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 4px 4px 0;
+  }
+  .highlight {
+    background: #fef08a;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  /* ===== EMAIL TEMPLATE ===== */
+  .email-box {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    margin: 16px 0;
+    overflow: hidden;
+  }
+  .email-header {
+    background: var(--gray-100);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--gray-200);
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+  .email-header strong { color: var(--gray-800); }
+  .email-body {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.9;
+    white-space: pre-wrap;
+    font-family: inherit;
+  }
+
+  /* ===== COMMON POINTS ===== */
+  .point-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .point-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .point-card h4 {
+    font-size: 14px;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  .point-card p, .point-card ul {
+    font-size: 13px;
+    color: var(--gray-700);
+  }
+  .point-card ul {
+    padding-left: 18px;
+  }
+  .point-card li {
+    margin-bottom: 4px;
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    body { background: #fff; }
+    .container { padding: 0; max-width: 100%; }
+    .doc-header {
+      background: var(--primary) !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      border-radius: 0;
+    }
+    .company-card, .section, .toc {
+      border-radius: 0;
+      box-shadow: none;
+      break-inside: avoid;
+    }
+    .company-card { page-break-inside: avoid; }
+    .point-grid { grid-template-columns: 1fr 1fr; }
+    a { color: var(--primary) !important; }
+  }
+  @media print and (max-width: 600px) {
+    .point-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .container { padding: 12px; }
+    .doc-header { padding: 24px 16px; }
+    .doc-header h1 { font-size: 22px; }
+    .section, .company-card-body { padding: 16px; }
+    .point-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ======================================== HEADER ======================================== -->
+<div class="doc-header">
+  <h1>ラクページ事業部 営業トークスクリプト</h1>
+  <div class="subtitle">合同会社ADLINK | ラクページ（HP制作サービス）</div>
+  <div class="meta">作成日: 2026年3月16日 ／ 対象: リサーチ10社カスタマイズ版</div>
+</div>
+
+<!-- ======================================== TOC ======================================== -->
+<div class="toc">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#common">共通営業ポイント・サービス訴求</a></li>
+    <li><a href="#c1">有限会社 カネゲン吉田工務店（山形）</a></li>
+    <li><a href="#c2">有限会社 小坂工務店（秋田）</a></li>
+    <li><a href="#c3">有限会社 渡辺工務店（栃木）</a></li>
+    <li><a href="#c4">有限会社 山口業務店（愛知）</a></li>
+    <li><a href="#c5">北斗工芸（鳥取）</a></li>
+    <li><a href="#c6">株式会社アド・サイン（大分）</a></li>
+    <li><a href="#c7">大阪府表具内装協同組合（大阪）</a></li>
+    <li><a href="#c8">茨城県瓦工事業組合（茨城）</a></li>
+    <li><a href="#c9">長野県瓦事業組合（長野）</a></li>
+    <li><a href="#c10">株式会社鳥本（岐阜）</a></li>
+  </ol>
+</div>
+
+<!-- ======================================== COMMON ======================================== -->
+<div class="section" id="common">
+  <h2>共通営業ポイント</h2>
+
+  <div class="point-grid">
+    <div class="point-card">
+      <h4>サービスの強み</h4>
+      <ul>
+        <li><strong>初期費用0円</strong>・月額9,800円から</li>
+        <li>電話1本でHP完成、<strong>最短3日</strong>納品</li>
+        <li>スマホ対応・SSL（https）標準</li>
+        <li>テキスト・画像の更新<strong>無料</strong></li>
+        <li>面倒なPC操作・専門知識は一切不要</li>
+      </ul>
+    </div>
+    <div class="point-card">
+      <h4>刺さるキーワード</h4>
+      <ul>
+        <li>「SSL証明書エラー」＝お客様がアクセスできない</li>
+        <li>「スマホ非対応」＝検索順位に悪影響</li>
+        <li>「HTTP」＝Googleが"安全でない"と表示</li>
+        <li>「デザインが古い」＝信頼感を損ねる</li>
+        <li>「Jimdo無料版」＝広告・機能制限</li>
+      </ul>
+    </div>
+    <div class="point-card">
+      <h4>業種別の訴求</h4>
+      <ul>
+        <li><strong>工務店</strong>: 施工事例ギャラリーで集客力UP</li>
+        <li><strong>看板業</strong>: デザイン力を見せるHP自体がポートフォリオ</li>
+        <li><strong>組合</strong>: 会員企業への信頼感、加盟メリットの発信</li>
+        <li><strong>表具業</strong>: 伝統技術をしっかり伝えるデザイン</li>
+      </ul>
+    </div>
+    <div class="point-card">
+      <h4>よくある断り文句への対応</h4>
+      <ul>
+        <li>「うちはHPいらない」→ 名刺代わり。検索した人が見つけられない</li>
+        <li>「費用が心配」→ 初期0円、月9,800円。チラシ1回分以下</li>
+        <li>「パソコン苦手」→ 電話1本でOK、操作不要</li>
+        <li>「今のHPで十分」→ SSL警告が出ていてお客様が離脱している</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>電話の基本フロー</h3>
+  <div class="script-box">
+    <div class="script-line"><span class="speaker">STEP 1</span> 挨拶＋名乗り（10秒以内）</div>
+    <div class="script-line"><span class="speaker">STEP 2</span> 相手の課題を指摘（HPの問題点を具体的に）</div>
+    <div class="script-line"><span class="speaker">STEP 3</span> 共感＋解決策の提示（ラクページの特徴）</div>
+    <div class="script-line"><span class="speaker">STEP 4</span> 料金提示（初期0円・月額9,800円〜）</div>
+    <div class="script-line"><span class="speaker">STEP 5</span> クロージング（無料相談・資料送付）</div>
+  </div>
+</div>
+
+<!-- ======================================== COMPANY 1 ======================================== -->
+<div class="company-card" id="c1">
+  <div class="company-card-header">
+    <div class="company-num">1</div>
+    <div class="info">
+      <h3>有限会社 カネゲン吉田工務店</h3>
+      <div class="tags">
+        <span class="tag tag-area">山形県</span>
+        <span class="tag tag-biz">工務店</span>
+        <span class="tag tag-issue">SSL証明書エラー</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-card-body">
+
+    <div class="script-box">
+      <h4><span class="icon-phone">&#9742;</span> 電話トークスクリプト</h4>
+
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        お忙しいところ恐れ入ります。合同会社ADLINKの○○と申します。山形で工務店をされていらっしゃるカネゲン吉田工務店様にぜひお伝えしたいことがありまして、少しだけお時間よろしいでしょうか。
+      </div>
+      <div class="script-line">
+        <span class="direction">相手が「はい」と言ったら続ける。忙しそうなら「30秒だけ」と伝える。</span>
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        実は御社のホームページを拝見しようとしたのですが、<span class="highlight">SSL証明書のエラーが表示されて、ページが開けない状態</span>になっておりました。お客様がスマホやパソコンで御社を検索した際も同じ状態が出ている可能性がありまして……。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        今、ブラウザが「この接続は安全ではありません」と大きく警告を出してしまうので、<span class="highlight">せっかく御社に興味を持ったお客様が離れてしまう</span>のが非常にもったいないなと思いまして、ご連絡しました。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        弊社の「ラクページ」というサービスでは、<strong>初期費用0円・月額9,800円</strong>で、SSL対応・スマホ対応済みのホームページをお作りしています。お電話1本で完成しますので、パソコンの操作は一切不要です。山形の工務店さんですと、施工事例のギャラリーページも入れられるので集客にもつながります。
+      </div>
+      <div class="script-line">
+        <span class="direction">反応を見る。興味がありそうなら詳細説明へ。</span>
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        まずは無料でサンプルデザインをお見せすることもできますので、よろしければメールかお電話でご都合の良い時間を教えていただけますか？
+      </div>
+    </div>
+
+    <div class="email-box">
+      <div class="email-header">
+        <strong>件名:</strong> 【ご確認のお願い】御社ホームページのSSLエラーについて
+      </div>
+      <div class="email-body">有限会社 カネゲン吉田工務店
+ご担当者様
+
+突然のご連絡失礼いたします。
+合同会社ADLINKの○○と申します。
+
+このたび山形県の工務店様のホームページを調査しておりましたところ、
+御社サイトにアクセスした際に「SSL証明書エラー」が表示され、
+ページが正常に閲覧できない状態であることを確認いたしました。
+
+この状態ですと、御社名で検索されたお客様がサイトを開こうとした際に
+「この接続は安全ではありません」という警告画面が表示されてしまい、
+そのまま離脱してしまうケースが多くございます。
+
+弊社では「ラクページ」というHP制作サービスを運営しており、
+以下の特徴でご好評をいただいております。
+
+ ・初期費用 0円 ／ 月額 9,800円（税別）〜
+ ・お電話1本で完成、最短3日で公開
+ ・SSL（https）対応・スマホ対応を標準装備
+ ・テキスト・画像の更新は何度でも無料
+ ・施工事例ギャラリーで御社の実績をアピール
+
+もしよろしければ、無料でサンプルデザインをお作りすることも可能です。
+ご興味がございましたら、本メールへのご返信またはお電話にて
+お気軽にお問い合わせくださいませ。
+
+何卒よろしくお願いいたします。
+
+━━━━━━━━━━━━━━━━━━━
+合同会社ADLINK ラクページ事業部
+担当: ○○
+TEL: xxx-xxxx-xxxx
+Mail: xxx@adlink.co.jp
+━━━━━━━━━━━━━━━━━━━</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================================== COMPANY 2 ======================================== -->
+<div class="company-card" id="c2">
+  <div class="company-card-header">
+    <div class="company-num">2</div>
+    <div class="info">
+      <h3>有限会社 小坂工務店</h3>
+      <div class="tags">
+        <span class="tag tag-area">秋田県</span>
+        <span class="tag tag-biz">工務店</span>
+        <span class="tag tag-issue">自己署名証明書</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-card-body">
+
+    <div class="script-box">
+      <h4><span class="icon-phone">&#9742;</span> 電話トークスクリプト</h4>
+
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        お忙しいところ恐れ入ります。合同会社ADLINKの○○と申します。秋田で工務店をされていらっしゃる小坂工務店様に、ホームページの件でお伝えしたいことがございまして、お電話しました。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御社のホームページを拝見しましたところ、<span class="highlight">SSL証明書が自己署名（オレオレ証明書）の状態</span>になっておりまして、ChromeやSafariなどのブラウザで「安全ではないサイト」と警告が表示される状態です。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        今はGoogleも「安全でないサイト」の検索順位を下げる傾向にありますので、<span class="highlight">せっかくの秋田での実績がお客様に届かなくなっている</span>可能性があります。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        弊社の「ラクページ」では、正規のSSL証明書を標準装備したホームページを、<strong>初期費用0円・月額9,800円</strong>でお作りしております。電話1本で完成、最短3日です。施工事例のページも含めて、お電話だけで完結しますので、パソコン操作は不要です。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        無料でサンプルをお作りできますので、一度ご覧いただけませんか？
+      </div>
+    </div>
+
+    <div class="email-box">
+      <div class="email-header">
+        <strong>件名:</strong> 【重要】御社ホームページのセキュリティ警告について
+      </div>
+      <div class="email-body">有限会社 小坂工務店
+ご担当者様
+
+突然のご連絡失礼いたします。
+合同会社ADLINKの○○と申します。
+
+秋田県の工務店様のホームページを調査しておりましたところ、
+御社サイトのSSL証明書が「自己署名証明書」となっていることを
+確認いたしました。
+
+自己署名証明書の状態では、主要なブラウザ（Chrome、Safari等）が
+「この接続は安全ではありません」と警告を表示するため、
+お客様がサイトの閲覧を断念してしまうケースが多発いたします。
+また、Googleの検索順位にも悪影響を及ぼす可能性がございます。
+
+弊社の「ラクページ」では、正規のSSL証明書を標準装備した
+安心・安全なホームページを以下の条件でお作りしております。
+
+ ・初期費用 0円 ／ 月額 9,800円（税別）〜
+ ・お電話1本で完成、最短3日で公開
+ ・SSL（https）・スマホ対応を標準装備
+ ・テキスト・画像の更新は何度でも無料
+ ・施工実績ギャラリーで秋田での信頼をアピール
+
+無料サンプルのご提供も可能です。
+ご興味がございましたら、お気軽にお問い合わせくださいませ。
+
+何卒よろしくお願いいたします。
+
+━━━━━━━━━━━━━━━━━━━
+合同会社ADLINK ラクページ事業部
+担当: ○○
+TEL: xxx-xxxx-xxxx
+Mail: xxx@adlink.co.jp
+━━━━━━━━━━━━━━━━━━━</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================================== COMPANY 3 ======================================== -->
+<div class="company-card" id="c3">
+  <div class="company-card-header">
+    <div class="company-num">3</div>
+    <div class="info">
+      <h3>有限会社 渡辺工務店</h3>
+      <div class="tags">
+        <span class="tag tag-area">栃木県</span>
+        <span class="tag tag-biz">工務店</span>
+        <span class="tag tag-issue">SSL証明書エラー</span>
+        <span class="tag tag-issue">自然派住宅</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-card-body">
+
+    <div class="script-box">
+      <h4><span class="icon-phone">&#9742;</span> 電話トークスクリプト</h4>
+
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        お忙しいところ恐れ入ります。合同会社ADLINKの○○と申します。栃木で自然派住宅を手掛けていらっしゃる渡辺工務店様にお電話しました。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御社のホームページを拝見しようとしたのですが、<span class="highlight">SSL証明書のエラーでサイトが正常に表示できない状態</span>になっておりました。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        自然派住宅というのは今すごくニーズが高まっていて、「自然素材 工務店 栃木」で検索されるお客様も多いと思うのですが、<span class="highlight">サイトにエラーが出ていると、その方々がそのまま離れてしまう</span>のが本当にもったいないです。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        弊社の「ラクページ」なら、SSL対応はもちろん、<strong>自然素材の温かみを伝えるデザイン</strong>で施工事例もきれいに掲載できます。初期費用0円・月額9,800円、お電話だけで最短3日に完成します。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御社の自然派住宅の魅力が伝わるサンプルを無料でお作りしますので、一度ご覧いただけませんか？
+      </div>
+    </div>
+
+    <div class="email-box">
+      <div class="email-header">
+        <strong>件名:</strong> 【ご確認】御社HPのSSLエラーと自然派住宅の魅力発信について
+      </div>
+      <div class="email-body">有限会社 渡辺工務店
+ご担当者様
+
+突然のご連絡失礼いたします。
+合同会社ADLINKの○○と申します。
+
+栃木県で自然派住宅を手掛けていらっしゃる御社のホームページを
+拝見しようとしたところ、SSL証明書のエラーにより
+正常にアクセスできない状態であることを確認いたしました。
+
+近年「自然素材 住宅」「無垢材 工務店」等の検索需要は
+年々増加しており、御社のような自然派住宅を手掛ける工務店様には
+大きなチャンスがございます。しかしサイトにSSLエラーが出ていると、
+せっかくの検索流入をすべて逃してしまう状況です。
+
+弊社の「ラクページ」では、自然素材の温かみを感じるデザインで
+御社の強みを最大限に発信するHPをお作りしております。
+
+ ・初期費用 0円 ／ 月額 9,800円（税別）〜
+ ・お電話1本で完成、最短3日で公開
+ ・SSL・スマホ対応を標準装備
+ ・施工事例ギャラリーで自然派住宅の魅力をアピール
+ ・テキスト・画像の更新は何度でも無料
+
+御社の自然派住宅の雰囲気に合わせたサンプルデザインを
+無料でお作りいたします。ぜひ一度ご覧くださいませ。
+
+何卒よろしくお願いいたします。
+
+━━━━━━━━━━━━━━━━━━━
+合同会社ADLINK ラクページ事業部
+担当: ○○
+TEL: xxx-xxxx-xxxx
+Mail: xxx@adlink.co.jp
+━━━━━━━━━━━━━━━━━━━</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================================== COMPANY 4 ======================================== -->
+<div class="company-card" id="c4">
+  <div class="company-card-header">
+    <div class="company-num">4</div>
+    <div class="info">
+      <h3>有限会社 山口業務店</h3>
+      <div class="tags">
+        <span class="tag tag-area">愛知県</span>
+        <span class="tag tag-biz">左官・塗装</span>
+        <span class="tag tag-issue">接続不安定</span>
+        <span class="tag tag-issue">携帯が代表電話</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-card-body">
+
+    <div class="script-box">
+      <h4><span class="icon-phone">&#9742;</span> 電話トークスクリプト</h4>
+
+      <div class="script-line">
+        <span class="direction">※代表電話が携帯番号のため、社長に直接つながる可能性が高い。丁寧だが端的に。</span>
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        お忙しいところ恐れ入ります。合同会社ADLINKの○○と申します。愛知で左官・塗装をされている山口業務店様でしょうか。ホームページの件でお伝えしたいことがありまして、30秒だけよろしいでしょうか。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御社のホームページを確認させていただいたところ、<span class="highlight">サイトの接続が不安定で、アクセスできたりできなかったり</span>する状態のようです。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        左官や塗装のお仕事は、仕上がりの写真を見て依頼される方が多いと思います。サイトがつながらないと、<span class="highlight">元請けさんや施主さんに実績を見てもらえない</span>のがもったいないです。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        弊社の「ラクページ」は安定したサーバーでSSL対応・スマホ対応のHPをお作りしています。<strong>初期費用0円・月額9,800円</strong>で、お電話だけで最短3日に完成します。施工写真をきれいに並べたギャラリーページもお作りできます。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        ご興味があれば無料でサンプルをお作りしますので、いかがでしょうか？
+      </div>
+    </div>
+
+    <div class="email-box">
+      <div class="email-header">
+        <strong>件名:</strong> 御社ホームページの接続状態について（ご確認のお願い）
+      </div>
+      <div class="email-body">有限会社 山口業務店
+ご担当者様
+
+突然のご連絡失礼いたします。
+合同会社ADLINKの○○と申します。
+
+愛知県で左官・塗装業をされている御社のホームページを
+拝見しようとしたところ、サイトへの接続が不安定な状態で
+アクセスできない場合があることを確認いたしました。
+
+左官・塗装のお仕事では、施工事例の写真が
+お客様の発注判断に大きく影響いたします。
+サイトが安定して閲覧できない状態では、
+せっかくの実績をアピールする機会を逃してしまいます。
+
+弊社の「ラクページ」では、安定稼働のサーバーで
+常時アクセス可能なHPを以下の条件でお作りしております。
+
+ ・初期費用 0円 ／ 月額 9,800円（税別）〜
+ ・お電話1本で完成、最短3日で公開
+ ・SSL・スマホ対応を標準装備
+ ・施工写真ギャラリーで左官・塗装の仕上がりをアピール
+ ・テキスト・画像の更新は何度でも無料
+
+無料でサンプルデザインをお作りすることも可能です。
+ご興味がございましたら、お気軽にお問い合わせくださいませ。
+
+何卒よろしくお願いいたします。
+
+━━━━━━━━━━━━━━━━━━━
+合同会社ADLINK ラクページ事業部
+担当: ○○
+TEL: xxx-xxxx-xxxx
+Mail: xxx@adlink.co.jp
+━━━━━━━━━━━━━━━━━━━</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================================== COMPANY 5 ======================================== -->
+<div class="company-card" id="c5">
+  <div class="company-card-header">
+    <div class="company-num">5</div>
+    <div class="info">
+      <h3>北斗工芸</h3>
+      <div class="tags">
+        <span class="tag tag-area">鳥取県</span>
+        <span class="tag tag-biz">看板業</span>
+        <span class="tag tag-issue">HTTP（非SSL）</span>
+        <span class="tag tag-issue">デザイン古い</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-card-body">
+
+    <div class="script-box">
+      <h4><span class="icon-phone">&#9742;</span> 電話トークスクリプト</h4>
+
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        お忙しいところ恐れ入ります。合同会社ADLINKの○○と申します。鳥取で看板をされている北斗工芸さんにお電話しました。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御社のホームページを拝見したのですが、2つほどお伝えしたいことがありまして。まず、<span class="highlight">現在HTTPのままでSSL（https）に対応していない状態</span>です。Chromeでは「保護されていない通信」と表示されてしまいます。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        もう1点、看板業さんにとってホームページは<span class="highlight">「デザイン力の名刺」</span>だと思うのですが、正直なところ現在のサイトデザインが少し古い印象を受けました。看板のデザインセンスが素晴らしくても、HPが古いとそれが伝わりにくいですよね。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        弊社の「ラクページ」では、<strong>看板業さんの制作実績を大きくきれいに見せるデザイン</strong>で、SSL対応・スマホ対応のHPを初期費用0円・月額9,800円でお作りしています。お電話だけで完結、最短3日です。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御社の看板実績が映えるサンプルを無料でお作りできますが、いかがでしょうか？
+      </div>
+    </div>
+
+    <div class="email-box">
+      <div class="email-header">
+        <strong>件名:</strong> 御社HPのSSL対応とデザインリニューアルのご提案
+      </div>
+      <div class="email-body">北斗工芸
+ご担当者様
+
+突然のご連絡失礼いたします。
+合同会社ADLINKの○○と申します。
+
+鳥取県で看板製作をされている御社のホームページを
+拝見させていただきました。以下2点お伝えしたく存じます。
+
+1. SSL（https）未対応
+   現在HTTP通信のため、Google Chromeでは
+   「保護されていない通信」と警告が表示されます。
+   Googleの検索順位にも悪影響がございます。
+
+2. デザインの印象
+   看板業様にとってHPは「デザイン力を示すポートフォリオ」です。
+   現在のサイトデザインですと、御社の看板制作の
+   クオリティが十分に伝わりにくい状態かと存じます。
+
+弊社の「ラクページ」では、看板業様の制作実績を
+大きく美しく見せるモダンなデザインのHPをお作りしております。
+
+ ・初期費用 0円 ／ 月額 9,800円（税別）〜
+ ・お電話1本で完成、最短3日で公開
+ ・SSL・スマホ対応を標準装備
+ ・制作実績ギャラリーで御社のデザイン力をアピール
+ ・テキスト・画像の更新は何度でも無料
+
+御社の看板実績が映えるサンプルデザインを
+無料でお作りいたします。ぜひ一度ご覧くださいませ。
+
+何卒よろしくお願いいたします。
+
+━━━━━━━━━━━━━━━━━━━
+合同会社ADLINK ラクページ事業部
+担当: ○○
+TEL: xxx-xxxx-xxxx
+Mail: xxx@adlink.co.jp
+━━━━━━━━━━━━━━━━━━━</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================================== COMPANY 6 ======================================== -->
+<div class="company-card" id="c6">
+  <div class="company-card-header">
+    <div class="company-num">6</div>
+    <div class="info">
+      <h3>株式会社アド・サイン</h3>
+      <div class="tags">
+        <span class="tag tag-area">大分県</span>
+        <span class="tag tag-biz">看板業</span>
+        <span class="tag tag-issue">SSL期限切れ</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-card-body">
+
+    <div class="script-box">
+      <h4><span class="icon-phone">&#9742;</span> 電話トークスクリプト</h4>
+
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        お忙しいところ恐れ入ります。合同会社ADLINKの○○と申します。大分で看板制作をされているアド・サインさんにお電話しました。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御社のホームページを確認しましたところ、<span class="highlight">SSL証明書の有効期限が切れている</span>状態でした。ブラウザで「この接続は安全ではありません」というエラーが出てしまいます。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        看板業さんですから、ホームページのデザイン力って特に見られますよね。証明書切れのエラー画面が出ると、<span class="highlight">お客様が「この会社大丈夫かな？」と不安に感じてしまう</span>のが心配です。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        弊社の「ラクページ」なら、SSLの更新管理もすべて弊社で対応しますので、期限切れの心配は一切ありません。<strong>初期費用0円・月額9,800円</strong>で、お電話だけで最短3日に完成します。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御社の看板実績を活かしたサンプルを無料でお作りできますが、いかがでしょうか？
+      </div>
+    </div>
+
+    <div class="email-box">
+      <div class="email-header">
+        <strong>件名:</strong> 【緊急】御社HPのSSL証明書期限切れについて
+      </div>
+      <div class="email-body">株式会社アド・サイン
+ご担当者様
+
+突然のご連絡失礼いたします。
+合同会社ADLINKの○○と申します。
+
+大分県で看板制作をされている御社のホームページを
+確認しましたところ、SSL証明書の有効期限が切れており、
+ブラウザにセキュリティ警告が表示される状態です。
+
+SSL期限切れは、お客様に「このサイトは安全ではない」という
+印象を与えてしまうため、早急な対応をお勧めいたします。
+特に看板業様のHPはデザイン力を示す場でもあるため、
+エラー画面の影響は大きいと存じます。
+
+弊社の「ラクページ」では、SSLの更新管理もすべて弊社で
+対応するため、期限切れの心配が一切ございません。
+
+ ・初期費用 0円 ／ 月額 9,800円（税別）〜
+ ・お電話1本で完成、最短3日で公開
+ ・SSL自動更新・スマホ対応を標準装備
+ ・制作実績ギャラリーで御社のデザイン力をアピール
+ ・テキスト・画像の更新は何度でも無料
+
+御社の看板制作実績を活かしたサンプルデザインを
+無料でお作りいたします。ぜひご検討くださいませ。
+
+何卒よろしくお願いいたします。
+
+━━━━━━━━━━━━━━━━━━━
+合同会社ADLINK ラクページ事業部
+担当: ○○
+TEL: xxx-xxxx-xxxx
+Mail: xxx@adlink.co.jp
+━━━━━━━━━━━━━━━━━━━</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================================== COMPANY 7 ======================================== -->
+<div class="company-card" id="c7">
+  <div class="company-card-header">
+    <div class="company-num">7</div>
+    <div class="info">
+      <h3>大阪府表具内装協同組合</h3>
+      <div class="tags">
+        <span class="tag tag-area">大阪府</span>
+        <span class="tag tag-biz">組合</span>
+        <span class="tag tag-issue">テーブルレイアウト</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-card-body">
+
+    <div class="script-box">
+      <h4><span class="icon-phone">&#9742;</span> 電話トークスクリプト</h4>
+
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        お忙しいところ恐れ入ります。合同会社ADLINKの○○と申します。大阪府表具内装協同組合さんにお電話しました。ホームページの件で少しだけお時間よろしいでしょうか。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御社のホームページを拝見しましたが、<span class="highlight">テーブルレイアウトという古い技術で作られていて、スマホで見たときにレイアウトが崩れてしまう</span>状態でした。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        今はホームページのアクセスの7割以上がスマホからなんですね。組合員の方や、表具・内装に興味のある一般の方がスマホで検索されたとき、<span class="highlight">サイトが見づらいと「この組合に入って大丈夫かな」と不安を感じてしまう</span>こともあります。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        弊社の「ラクページ」なら、<strong>スマホでもPCでもきれいに見えるデザイン</strong>で、初期費用0円・月額9,800円。組合の活動紹介や加盟企業一覧のページもお作りできます。電話1本で完成、最短3日です。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        無料でサンプルデザインをお見せできますので、一度ご検討いただけませんか？
+      </div>
+    </div>
+
+    <div class="email-box">
+      <div class="email-header">
+        <strong>件名:</strong> 組合HPのスマートフォン対応リニューアルのご提案
+      </div>
+      <div class="email-body">大阪府表具内装協同組合
+ご担当者様
+
+突然のご連絡失礼いたします。
+合同会社ADLINKの○○と申します。
+
+御社のホームページを拝見しましたところ、テーブルレイアウトで
+構築されており、スマートフォンでの閲覧時にレイアウトが崩れ、
+文字が小さく読みにくい状態であることを確認いたしました。
+
+現在、ホームページへのアクセスの70%以上がスマートフォンからです。
+組合員の方々や、表具・内装に関心のある一般の方が
+スマホで御組合を検索された際、見づらいHPは
+組合全体の信頼感にも影響いたします。
+
+弊社の「ラクページ」では、スマホ・PC両対応の
+モダンなデザインで組合HPをお作りしております。
+
+ ・初期費用 0円 ／ 月額 9,800円（税別）〜
+ ・お電話1本で完成、最短3日で公開
+ ・SSL・スマホ対応を標準装備
+ ・組合活動紹介、加盟企業一覧ページにも対応
+ ・テキスト・画像の更新は何度でも無料
+
+組合様の活動内容に合わせたサンプルデザインを
+無料でお作りいたします。ぜひ一度ご覧くださいませ。
+
+何卒よろしくお願いいたします。
+
+━━━━━━━━━━━━━━━━━━━
+合同会社ADLINK ラクページ事業部
+担当: ○○
+TEL: xxx-xxxx-xxxx
+Mail: xxx@adlink.co.jp
+━━━━━━━━━━━━━━━━━━━</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================================== COMPANY 8 ======================================== -->
+<div class="company-card" id="c8">
+  <div class="company-card-header">
+    <div class="company-num">8</div>
+    <div class="info">
+      <h3>茨城県瓦工事業組合</h3>
+      <div class="tags">
+        <span class="tag tag-area">茨城県</span>
+        <span class="tag tag-biz">組合</span>
+        <span class="tag tag-issue">SSL証明書エラー</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-card-body">
+
+    <div class="script-box">
+      <h4><span class="icon-phone">&#9742;</span> 電話トークスクリプト</h4>
+
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        お忙しいところ恐れ入ります。合同会社ADLINKの○○と申します。茨城県瓦工事業組合さんにお電話しました。ホームページに関してお伝えしたいことがございます。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御組合のホームページにアクセスしましたところ、<span class="highlight">SSL証明書エラーが表示され、サイトが正常に閲覧できない状態</span>でした。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        瓦工事を依頼したい一般のお客様や、組合への加入を検討している瓦屋さんがサイトにアクセスしたとき、「安全ではありません」と出てしまうと、<span class="highlight">組合全体の信頼に関わってしまう</span>と思い、ご連絡しました。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        弊社の「ラクページ」なら、SSL対応のきちんとしたHPを<strong>初期費用0円・月額9,800円</strong>でお作りしています。組合員一覧や活動報告のページもお電話だけで最短3日に完成します。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        まずは無料のサンプルデザインをご覧いただけませんか？
+      </div>
+    </div>
+
+    <div class="email-box">
+      <div class="email-header">
+        <strong>件名:</strong> 【ご確認】御組合HPのSSL証明書エラーについて
+      </div>
+      <div class="email-body">茨城県瓦工事業組合
+ご担当者様
+
+突然のご連絡失礼いたします。
+合同会社ADLINKの○○と申します。
+
+御組合のホームページにアクセスしましたところ、
+SSL証明書エラーが表示され、サイトが正常に
+閲覧できない状態であることを確認いたしました。
+
+瓦工事をご依頼されたい一般のお客様や、
+組合への加入を検討されている事業者様がアクセスした際に
+セキュリティ警告が表示されますと、
+組合全体の信頼感にも影響しかねません。
+
+弊社の「ラクページ」では、SSL対応済みの
+安心・安全なHPを以下の条件でお作りしております。
+
+ ・初期費用 0円 ／ 月額 9,800円（税別）〜
+ ・お電話1本で完成、最短3日で公開
+ ・SSL・スマホ対応を標準装備
+ ・組合員一覧、活動報告ページにも対応
+ ・テキスト・画像の更新は何度でも無料
+
+御組合に合わせたサンプルデザインを
+無料でお作りいたします。ぜひご検討くださいませ。
+
+何卒よろしくお願いいたします。
+
+━━━━━━━━━━━━━━━━━━━
+合同会社ADLINK ラクページ事業部
+担当: ○○
+TEL: xxx-xxxx-xxxx
+Mail: xxx@adlink.co.jp
+━━━━━━━━━━━━━━━━━━━</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================================== COMPANY 9 ======================================== -->
+<div class="company-card" id="c9">
+  <div class="company-card-header">
+    <div class="company-num">9</div>
+    <div class="info">
+      <h3>長野県瓦事業組合</h3>
+      <div class="tags">
+        <span class="tag tag-area">長野県</span>
+        <span class="tag tag-biz">組合</span>
+        <span class="tag tag-issue">SSL証明書エラー</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-card-body">
+
+    <div class="script-box">
+      <h4><span class="icon-phone">&#9742;</span> 電話トークスクリプト</h4>
+
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        お忙しいところ恐れ入ります。合同会社ADLINKの○○と申します。長野県瓦事業組合さんにお電話しました。ホームページの件で少しだけお時間よろしいでしょうか。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御組合のホームページを確認しましたところ、<span class="highlight">SSL証明書のエラーが出ていて、アクセス時に警告画面が表示される</span>状態でした。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        長野は台風や雪の影響で瓦の修理需要も多いエリアだと思います。「瓦 修理 長野」で検索されたお客様が組合のサイトにたどり着いても、<span class="highlight">警告画面が出ると、そのまま別の業者を探してしまう</span>ことになります。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        弊社の「ラクページ」なら、SSL対応済みのHPを<strong>初期費用0円・月額9,800円</strong>でお作りしています。組合員さんの紹介ページや、瓦のメンテナンス情報なども掲載できます。電話だけで最短3日です。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        無料でサンプルデザインをお作りしますので、いかがでしょうか？
+      </div>
+    </div>
+
+    <div class="email-box">
+      <div class="email-header">
+        <strong>件名:</strong> 【ご確認】御組合HPのSSL証明書エラーについて
+      </div>
+      <div class="email-body">長野県瓦事業組合
+ご担当者様
+
+突然のご連絡失礼いたします。
+合同会社ADLINKの○○と申します。
+
+御組合のホームページにアクセスしましたところ、
+SSL証明書のエラーにより、ブラウザにセキュリティ警告が
+表示される状態であることを確認いたしました。
+
+長野県は気候の影響で瓦の修理・メンテナンスの需要が高い地域です。
+「瓦 修理 長野」等で検索されたお客様が御組合のサイトに
+たどり着いた際、警告画面が表示されてしまうと
+そのまま離脱してしまうケースが多くございます。
+
+弊社の「ラクページ」では、SSL対応済みの
+安心して閲覧できるHPを以下の条件でお作りしております。
+
+ ・初期費用 0円 ／ 月額 9,800円（税別）〜
+ ・お電話1本で完成、最短3日で公開
+ ・SSL・スマホ対応を標準装備
+ ・組合員紹介、瓦メンテナンス情報ページにも対応
+ ・テキスト・画像の更新は何度でも無料
+
+御組合に合わせたサンプルデザインを
+無料でお作りいたします。ぜひご検討くださいませ。
+
+何卒よろしくお願いいたします。
+
+━━━━━━━━━━━━━━━━━━━
+合同会社ADLINK ラクページ事業部
+担当: ○○
+TEL: xxx-xxxx-xxxx
+Mail: xxx@adlink.co.jp
+━━━━━━━━━━━━━━━━━━━</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================================== COMPANY 10 ======================================== -->
+<div class="company-card" id="c10">
+  <div class="company-card-header">
+    <div class="company-num">10</div>
+    <div class="info">
+      <h3>株式会社鳥本</h3>
+      <div class="tags">
+        <span class="tag tag-area">岐阜県</span>
+        <span class="tag tag-biz">表具業</span>
+        <span class="tag tag-issue">Jimdo無料版</span>
+      </div>
+    </div>
+  </div>
+  <div class="company-card-body">
+
+    <div class="script-box">
+      <h4><span class="icon-phone">&#9742;</span> 電話トークスクリプト</h4>
+
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        お忙しいところ恐れ入ります。合同会社ADLINKの○○と申します。岐阜で表具業をされている鳥本さんにお電話しました。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御社のホームページを拝見しましたが、<span class="highlight">Jimdoの無料版でお作りになっている</span>ようですね。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        Jimdoの無料版ですと、ページ下部にJimdoの広告バナーが表示されたり、独自ドメインが使えなかったり、SEO対策にも制限があります。表具というのは伝統的で格式のあるお仕事ですから、<span class="highlight">無料版の広告付きHPだと、御社の品格が十分に伝わらない</span>のがもったいないです。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        弊社の「ラクページ」なら、<strong>広告なし・独自ドメイン対応</strong>で、表具の伝統と職人技を丁寧に伝えるHPをお作りします。初期費用0円・月額9,800円、お電話だけで最短3日に完成します。
+      </div>
+      <div class="script-line">
+        <span class="speaker">営業:</span>
+        御社の表具作品が美しく見えるサンプルを無料でお作りできますが、いかがでしょうか？
+      </div>
+    </div>
+
+    <div class="email-box">
+      <div class="email-header">
+        <strong>件名:</strong> Jimdo無料版からのHP移行のご提案
+      </div>
+      <div class="email-body">株式会社鳥本
+ご担当者様
+
+突然のご連絡失礼いたします。
+合同会社ADLINKの○○と申します。
+
+岐阜県で表具業をされている御社のホームページを
+拝見しましたところ、Jimdoの無料版をご利用であることを
+確認いたしました。
+
+Jimdo無料版には以下のような制限がございます。
+ ・ページ下部にJimdoの広告バナーが表示される
+ ・独自ドメイン（〇〇.com等）が使用できない
+ ・SEO（検索対策）の設定に制限がある
+ ・デザインのカスタマイズ性が限定的
+
+表具は日本の伝統技術であり、格式と品格が求められるお仕事です。
+広告付きの無料HPでは、御社の職人技や
+作品の美しさが十分に伝わりにくい状態かと存じます。
+
+弊社の「ラクページ」では、広告なし・独自ドメイン対応で
+表具の伝統と技を丁寧に伝えるHPをお作りしております。
+
+ ・初期費用 0円 ／ 月額 9,800円（税別）〜
+ ・お電話1本で完成、最短3日で公開
+ ・SSL・スマホ対応を標準装備
+ ・広告なし、独自ドメイン対応
+ ・表具作品ギャラリーで職人技をアピール
+ ・テキスト・画像の更新は何度でも無料
+
+御社の表具作品が美しく映えるサンプルデザインを
+無料でお作りいたします。ぜひ一度ご覧くださいませ。
+
+何卒よろしくお願いいたします。
+
+━━━━━━━━━━━━━━━━━━━
+合同会社ADLINK ラクページ事業部
+担当: ○○
+TEL: xxx-xxxx-xxxx
+Mail: xxx@adlink.co.jp
+━━━━━━━━━━━━━━━━━━━</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================================== FOOTER ======================================== -->
+<div style="text-align:center; padding:24px 0; color:var(--gray-600); font-size:13px;">
+  合同会社ADLINK ラクページ事業部 ／ 営業トークスクリプト ／ 2026年3月16日作成<br>
+  社外秘 - 取り扱い注意
+</div>
+
+</div><!-- /.container -->
+</body>
+</html>

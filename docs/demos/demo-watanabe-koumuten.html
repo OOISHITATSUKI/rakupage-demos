@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有限会社 渡辺工務店 | 自然派住宅・木造建築・リフォーム｜栃木県壬生町</title>
+<meta name="description" content="栃木県壬生町の有限会社渡辺工務店。自然素材を活かした木造建築・リフォームで、家族の健康と暮らしを守る住まいづくり。">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green-dark:#2d5016;
+  --green:#3a7d0a;
+  --green-light:#5fa32a;
+  --green-pale:#e8f5d8;
+  --beige:#f5f0e6;
+  --beige-dark:#e8dcc8;
+  --brown:#6b4226;
+  --brown-light:#8b6b4a;
+  --wood:#a0825a;
+  --white:#fefefe;
+  --text:#333;
+  --text-light:#666;
+  --shadow:0 4px 24px rgba(0,0,0,.08);
+  --radius:12px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,"Segoe UI",sans-serif;color:var(--text);line-height:1.8;background:var(--white);overflow-x:hidden}
+img{max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* ===== UTILITIES ===== */
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:clamp(1.6rem,4vw,2.2rem);color:var(--green-dark);position:relative;display:inline-block;padding-bottom:16px}
+.section-title h2::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:linear-gradient(90deg,var(--green),var(--wood));border-radius:2px}
+.section-title p{margin-top:12px;color:var(--text-light);font-size:.95rem}
+
+section{padding:80px 0}
+@media(max-width:768px){section{padding:60px 0}}
+
+/* ===== FADE IN ANIMATION ===== */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-left{opacity:0;transform:translateX(-40px);transition:opacity .8s ease,transform .8s ease}
+.fade-in-left.visible{opacity:1;transform:translateX(0)}
+.fade-in-right{opacity:0;transform:translateX(40px);transition:opacity .8s ease,transform .8s ease}
+.fade-in-right.visible{opacity:1;transform:translateX(0)}
+
+/* ===== HEADER ===== */
+.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(254,254,254,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.06);transition:all .3s}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--green),var(--green-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;font-weight:700}
+.logo-text{font-size:1.05rem;font-weight:700;color:var(--green-dark);line-height:1.3}
+.logo-text small{display:block;font-size:.65rem;font-weight:400;color:var(--text-light);letter-spacing:.5px}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:.88rem;color:var(--text);font-weight:500;position:relative;transition:color .3s}
+.nav a:hover{color:var(--green)}
+.nav a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--green);transition:width .3s}
+.nav a:hover::after{width:100%}
+.nav-cta{background:var(--green);color:#fff!important;padding:8px 20px;border-radius:50px;font-size:.85rem!important;transition:background .3s,transform .2s}
+.nav-cta:hover{background:var(--green-dark);transform:translateY(-1px)}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--green-dark);transition:all .3s;border-radius:1px}
+
+@media(max-width:768px){
+  .nav{position:fixed;top:0;right:-100%;width:70%;max-width:300px;height:100vh;background:var(--white);flex-direction:column;justify-content:center;gap:30px;box-shadow:-4px 0 30px rgba(0,0,0,.1);transition:right .4s ease}
+  .nav.open{right:0}
+  .nav a{font-size:1.1rem}
+  .hamburger{display:flex}
+  .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+}
+
+/* ===== HERO ===== */
+.hero{margin-top:70px;min-height:calc(100vh - 70px);display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(26,58,10,.75) 0%,rgba(45,80,22,.7) 30%,rgba(58,107,18,.65) 60%,rgba(74,122,26,.7) 100%),url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1600&q=80');background-size:cover;background-position:center}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse 800px 600px at 20% 80%,rgba(139,107,74,.25),transparent),
+  radial-gradient(ellipse 600px 400px at 80% 20%,rgba(90,160,30,.2),transparent),
+  radial-gradient(ellipse 400px 400px at 50% 50%,rgba(255,255,255,.03),transparent)}
+.hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+
+/* 木の装飾 */
+.hero-tree{position:absolute;bottom:0;opacity:.08;pointer-events:none}
+.hero-tree-1{right:5%;width:200px;height:400px;background:linear-gradient(to top,var(--brown) 40%,var(--green-light) 40%);border-radius:50% 50% 0 0/70% 70% 0 0;clip-path:polygon(40% 100%,60% 100%,55% 40%,80% 45%,50% 0,20% 45%,45% 40%)}
+.hero-tree-2{left:8%;width:140px;height:300px;background:linear-gradient(to top,var(--brown) 40%,var(--green) 40%);border-radius:50% 50% 0 0/70% 70% 0 0;clip-path:polygon(40% 100%,60% 100%,55% 40%,80% 45%,50% 0,20% 45%,45% 40%)}
+
+/* 葉っぱアニメーション */
+.leaf{position:absolute;font-size:1.4rem;opacity:.15;animation:leafFall linear infinite;pointer-events:none}
+.leaf:nth-child(1){left:10%;animation-duration:12s;animation-delay:0s}
+.leaf:nth-child(2){left:30%;animation-duration:15s;animation-delay:3s;font-size:1rem}
+.leaf:nth-child(3){left:55%;animation-duration:18s;animation-delay:6s}
+.leaf:nth-child(4){left:75%;animation-duration:14s;animation-delay:2s;font-size:1.1rem}
+.leaf:nth-child(5){left:90%;animation-duration:16s;animation-delay:8s;font-size:.9rem}
+@keyframes leafFall{
+  0%{top:-5%;transform:rotate(0deg) translateX(0)}
+  25%{transform:rotate(90deg) translateX(30px)}
+  50%{transform:rotate(180deg) translateX(-20px)}
+  75%{transform:rotate(270deg) translateX(25px)}
+  100%{top:105%;transform:rotate(360deg) translateX(0)}
+}
+
+.hero-content{position:relative;z-index:2;max-width:700px;padding:0 20px;margin:0 auto;text-align:center;color:#fff}
+.hero-badge{display:inline-block;padding:6px 20px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:50px;font-size:.8rem;letter-spacing:1px;margin-bottom:24px;backdrop-filter:blur(4px)}
+.hero h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.4;font-weight:800;margin-bottom:20px;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.hero h1 span{color:#c5e89e;display:block;font-size:clamp(1rem,3vw,1.3rem);font-weight:500;margin-top:8px}
+.hero-desc{font-size:clamp(.95rem,2.5vw,1.15rem);line-height:2;opacity:.9;margin-bottom:36px}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 36px;background:#fff;color:var(--green-dark);border-radius:50px;font-size:1rem;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,.15);transition:all .3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 36px;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);border-radius:50px;font-size:1rem;font-weight:600;transition:all .3s}
+.btn-secondary:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-2px)}
+
+.hero-stats{display:flex;justify-content:center;gap:40px;margin-top:50px;padding-top:40px;border-top:1px solid rgba(255,255,255,.15)}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;color:#c5e89e}
+.hero-stat .label{font-size:.8rem;opacity:.8;margin-top:4px}
+@media(max-width:480px){.hero-stats{gap:20px}.hero-stat .num{font-size:1.5rem}}
+
+/* ===== CONCEPT ===== */
+.concept{background:var(--beige)}
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:40px}
+.concept-card{background:var(--white);border-radius:var(--radius);padding:40px 28px;text-align:center;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+.concept-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.concept-icon{width:80px;height:80px;margin:0 auto 20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem}
+.concept-card:nth-child(1) .concept-icon{background:linear-gradient(135deg,rgba(232,245,216,.85),rgba(197,232,158,.85)),url('https://images.unsplash.com/photo-1542621334-a254cf47733d?w=200&q=80');background-size:cover;background-position:center;color:var(--green-dark)}
+.concept-card:nth-child(2) .concept-icon{background:linear-gradient(135deg,rgba(245,230,208,.85),rgba(232,207,168,.85)),url('https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=200&q=80');background-size:cover;background-position:center;color:var(--brown)}
+.concept-card:nth-child(3) .concept-icon{background:linear-gradient(135deg,rgba(216,238,245,.85),rgba(168,212,232,.85)),url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=200&q=80');background-size:cover;background-position:center;color:#1a6b8a}
+.concept-card h3{font-size:1.15rem;color:var(--green-dark);margin-bottom:12px}
+.concept-card p{font-size:.9rem;color:var(--text-light);line-height:1.8}
+@media(max-width:768px){.concept-grid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}}
+
+/* ===== SERVICES ===== */
+.services{background:var(--white)}
+.service-list{display:flex;flex-direction:column;gap:60px}
+.service-item{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.service-item:nth-child(even){direction:rtl}
+.service-item:nth-child(even)>*{direction:ltr}
+.service-visual{aspect-ratio:4/3;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+.service-visual-1{background:linear-gradient(135deg,rgba(45,80,22,.25),rgba(95,163,42,.2)),url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80');background-size:cover;background-position:center}
+.service-visual-2{background:linear-gradient(135deg,rgba(107,66,38,.25),rgba(160,130,90,.2)),url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80');background-size:cover;background-position:center}
+.service-visual-3{background:linear-gradient(135deg,rgba(26,90,58,.25),rgba(45,139,90,.2)),url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80');background-size:cover;background-position:center}
+.service-visual .icon{font-size:3.5rem;opacity:0;filter:drop-shadow(0 4px 8px rgba(0,0,0,.2))}
+.service-visual .label{color:#fff;font-size:1.1rem;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,.3);background:rgba(0,0,0,.4);padding:6px 18px;border-radius:50px;position:relative;z-index:2;backdrop-filter:blur(4px)}
+.service-visual::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M20 0L0 20h10L20 10l10 10h10z'/%3E%3C/g%3E%3C/svg%3E")}
+.service-info h3{font-size:1.4rem;color:var(--green-dark);margin-bottom:16px;position:relative;padding-left:20px}
+.service-info h3::before{content:"";position:absolute;left:0;top:4px;width:4px;height:24px;background:var(--green);border-radius:2px}
+.service-info p{color:var(--text-light);margin-bottom:16px;font-size:.95rem}
+.service-tags{display:flex;flex-wrap:wrap;gap:8px}
+.service-tags span{padding:5px 14px;background:var(--green-pale);color:var(--green-dark);border-radius:20px;font-size:.8rem;font-weight:500}
+@media(max-width:768px){
+  .service-item,.service-item:nth-child(even){grid-template-columns:1fr;direction:ltr;gap:24px}
+}
+
+/* ===== WORKS ===== */
+.works{background:var(--beige)}
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.work-card{border-radius:var(--radius);overflow:hidden;background:var(--white);box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+.work-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.work-thumb{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative}
+.work-thumb-1{background:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80') center/cover no-repeat}
+.work-thumb-2{background:url('https://images.unsplash.com/photo-1600210491369-e753d80a41f3?w=800&q=80') center/cover no-repeat}
+.work-thumb-3{background:url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80') center/cover no-repeat}
+.work-thumb .icon{font-size:2.5rem;opacity:0}
+.work-thumb .cat{position:absolute;top:12px;left:12px;padding:4px 12px;background:rgba(0,0,0,.4);color:#fff;border-radius:20px;font-size:.72rem;backdrop-filter:blur(4px)}
+.work-body{padding:20px}
+.work-body h3{font-size:1rem;color:var(--green-dark);margin-bottom:8px}
+.work-body p{font-size:.85rem;color:var(--text-light);line-height:1.7}
+.work-meta{display:flex;gap:16px;margin-top:12px;font-size:.78rem;color:var(--wood)}
+@media(max-width:768px){.works-grid{grid-template-columns:1fr;max-width:450px;margin-left:auto;margin-right:auto}}
+
+/* ===== FLOW ===== */
+.flow{background:var(--white)}
+.flow-steps{display:flex;justify-content:center;gap:0;flex-wrap:wrap;position:relative}
+.flow-step{flex:1;min-width:160px;max-width:200px;text-align:center;padding:20px 16px;position:relative}
+.flow-step::after{content:"\25B6";position:absolute;right:-8px;top:38px;color:var(--green-light);font-size:1rem;z-index:1}
+.flow-step:last-child::after{display:none}
+.flow-num{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;margin:0 auto 14px;box-shadow:0 4px 15px rgba(58,125,10,.3)}
+.flow-step h4{font-size:.95rem;color:var(--green-dark);margin-bottom:6px}
+.flow-step p{font-size:.78rem;color:var(--text-light)}
+@media(max-width:768px){
+  .flow-steps{flex-direction:column;align-items:center;gap:8px}
+  .flow-step{max-width:100%;width:100%;display:flex;align-items:center;gap:16px;text-align:left;padding:12px 20px}
+  .flow-step::after{content:"\25BC";right:auto;left:35px;top:auto;bottom:-14px}
+  .flow-num{margin:0;flex-shrink:0}
+  .flow-step h4,.flow-step p{margin:0}
+}
+
+/* ===== COMPANY ===== */
+.company{background:var(--beige)}
+.company-table{max-width:700px;margin:0 auto;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.company-table table{width:100%;border-collapse:collapse}
+.company-table th,.company-table td{padding:18px 24px;text-align:left;font-size:.92rem;border-bottom:1px solid var(--beige-dark)}
+.company-table tr:last-child th,.company-table tr:last-child td{border-bottom:none}
+.company-table th{background:var(--green-pale);color:var(--green-dark);font-weight:600;width:140px;white-space:nowrap}
+@media(max-width:480px){
+  .company-table th,.company-table td{display:block;padding:12px 20px}
+  .company-table th{width:100%;padding-bottom:4px}
+  .company-table td{padding-top:4px;padding-bottom:16px}
+}
+
+/* ===== FAQ ===== */
+.faq{background:var(--white)}
+.faq-list{max-width:750px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--beige);border-radius:var(--radius);overflow:hidden;transition:box-shadow .3s}
+.faq-item:hover{box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.faq-q{padding:20px 24px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:600;font-size:.95rem;color:var(--green-dark);user-select:none;-webkit-user-select:none}
+.faq-q::before{content:"Q";flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700}
+.faq-q::after{content:"+";font-size:1.4rem;color:var(--green);transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+.faq-item.open .faq-a{max-height:300px;padding:0 24px 20px 80px}
+.faq-a p{font-size:.9rem;color:var(--text-light);line-height:1.9}
+
+/* ===== CONTACT ===== */
+.contact{background:linear-gradient(135deg,var(--green-dark),#1a4a0a);color:#fff;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.contact .section-title h2{color:#fff}
+.contact .section-title h2::after{background:linear-gradient(90deg,#c5e89e,#fff)}
+.contact .section-title p{color:rgba(255,255,255,.7)}
+.contact-content{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:50px;max-width:800px;margin:0 auto}
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.contact-info-item{display:flex;align-items:flex-start;gap:16px}
+.contact-info-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.contact-info-text h4{font-size:.85rem;opacity:.7;margin-bottom:4px}
+.contact-info-text p{font-size:1rem;font-weight:500}
+.contact-info-text a{color:#c5e89e;transition:opacity .3s}
+.contact-info-text a:hover{opacity:.8}
+.contact-cta{display:flex;flex-direction:column;gap:16px;justify-content:center}
+.btn-contact{display:flex;align-items:center;justify-content:center;gap:10px;padding:18px 32px;border-radius:var(--radius);font-size:1.1rem;font-weight:700;transition:all .3s;text-align:center}
+.btn-tel{background:#fff;color:var(--green-dark)}
+.btn-tel:hover{background:var(--green-pale);transform:translateY(-2px)}
+.btn-line{background:#06c755;color:#fff}
+.btn-line:hover{background:#05b04c;transform:translateY(-2px)}
+@media(max-width:768px){
+  .contact-content{grid-template-columns:1fr;gap:36px}
+}
+
+/* ===== FOOTER ===== */
+.footer{background:#1a2a0a;color:rgba(255,255,255,.7);padding:50px 0 100px;text-align:center}
+.footer-logo{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px}
+.footer-address{font-size:.82rem;margin-bottom:20px;line-height:1.8}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:30px;flex-wrap:wrap}
+.footer-links a{font-size:.82rem;transition:color .3s}
+.footer-links a:hover{color:#c5e89e}
+.footer-divider{width:60px;height:1px;background:rgba(255,255,255,.15);margin:20px auto}
+.footer-credit{font-size:.75rem;opacity:.5;margin-top:12px;line-height:1.8}
+.footer-demo{display:inline-block;margin-top:12px;padding:6px 18px;border:1px solid rgba(255,255,255,.2);border-radius:20px;font-size:.72rem;color:rgba(255,255,255,.5)}
+
+/* ===== MOBILE FIXED BAR ===== */
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;width:100%;background:var(--green-dark);z-index:999;box-shadow:0 -4px 20px rgba(0,0,0,.15);padding:0}
+.mobile-bar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px;color:#fff;font-size:1rem;font-weight:700;width:100%;text-align:center;transition:background .3s}
+.mobile-bar a:active{background:var(--green)}
+.mobile-bar .tel-icon{font-size:1.3rem;animation:ring 2s ease-in-out infinite}
+@keyframes ring{0%,100%{transform:rotate(0)}10%{transform:rotate(14deg)}20%{transform:rotate(-14deg)}30%{transform:rotate(10deg)}40%{transform:rotate(-8deg)}50%,100%{transform:rotate(0)}}
+@media(max-width:768px){
+  .mobile-bar{display:block}
+  .footer{padding-bottom:80px}
+}
+
+/* ===== SCROLL TOP ===== */
+.scroll-top{position:fixed;bottom:90px;right:20px;width:46px;height:46px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 15px rgba(58,125,10,.3);opacity:0;transform:translateY(20px);transition:all .3s;z-index:998;border:none}
+.scroll-top.show{opacity:1;transform:translateY(0)}
+.scroll-top:hover{background:var(--green-dark);transform:translateY(-3px)}
+@media(min-width:769px){.scroll-top{bottom:30px}}
+
+/* ===== OVERLAY ===== */
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:998;opacity:0;pointer-events:none;transition:opacity .3s}
+.nav-overlay.show{opacity:1;pointer-events:all}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">渡</div>
+      <div class="logo-text">渡辺工務店<small>自然派住宅 ・ 木造建築</small></div>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#concept">こだわり</a>
+      <a href="#services">サービス</a>
+      <a href="#works">施工事例</a>
+      <a href="#company">会社概要</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="leaf">&#127811;</div>
+  <div class="leaf">&#127810;</div>
+  <div class="leaf">&#127811;</div>
+  <div class="leaf">&#127810;</div>
+  <div class="leaf">&#127811;</div>
+  <div class="hero-content">
+    <div class="hero-badge">&#127807; 栃木県壬生町の工務店</div>
+    <h1>自然と暮らす、<br>木のぬくもりの家。<span>無垢材・自然素材にこだわった住まいづくり</span></h1>
+    <p class="hero-desc">家族の健康と心地よさを第一に考え、<br>自然素材を活かした木造建築・リフォームを<br>地域密着で手がけています。</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">&#128222; お電話で相談</a>
+      <a href="#services" class="btn-secondary">&#128205; サービスを見る</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">30+</div>
+        <div class="label">年の実績</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">500+</div>
+        <div class="label">施工実績</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">98%</div>
+        <div class="label">お客様満足度</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Concept -->
+<section class="concept" id="concept">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>渡辺工務店のこだわり</h2>
+      <p>自然の恵みを住まいに取り入れ、家族が安心して暮らせる家をつくります</p>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-card fade-in">
+        <div class="concept-icon">&#127795;</div>
+        <h3>自然素材へのこだわり</h3>
+        <p>無垢材、珪藻土、漆喰など、体にやさしい自然素材を厳選。化学物質を極力排除し、家族の健康を守る住まいを実現します。</p>
+      </div>
+      <div class="concept-card fade-in">
+        <div class="concept-icon">&#128736;</div>
+        <h3>熟練の職人技</h3>
+        <p>木造建築を知り尽くした職人が、一棟一棟丁寧に仕上げます。伝統工法と最新技術を融合し、長く住み続けられる家をつくります。</p>
+      </div>
+      <div class="concept-card fade-in">
+        <div class="concept-icon">&#129309;</div>
+        <h3>地域密着の信頼</h3>
+        <p>壬生町を中心に30年以上の実績。お引き渡し後もすぐに駆けつけられる距離感で、末永いお付き合いをお約束します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>サービス紹介</h2>
+      <p>新築からリフォームまで、暮らしのあらゆるお悩みに対応いたします</p>
+    </div>
+    <div class="service-list">
+      <div class="service-item fade-in-left">
+        <div class="service-visual service-visual-1">
+          <div class="icon">&#127969;</div>
+          <div class="label">自然派住宅</div>
+        </div>
+        <div class="service-info">
+          <h3>自然素材の注文住宅</h3>
+          <p>無垢材のフローリング、珪藻土の壁、天然木の梁。自然素材をふんだんに使い、深呼吸したくなるような心地よい空間をつくります。断熱性・耐震性にもこだわった、長く愛される住まいです。</p>
+          <p>お客様のライフスタイルや家族構成に合わせたオーダーメイドの設計で、世界にひとつだけの住まいをご提案します。</p>
+          <div class="service-tags">
+            <span>無垢材</span><span>珪藻土</span><span>漆喰</span><span>高断熱</span><span>耐震等級3</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-item fade-in-right">
+        <div class="service-visual service-visual-2">
+          <div class="icon">&#128295;</div>
+          <div class="label">リフォーム</div>
+        </div>
+        <div class="service-info">
+          <h3>リフォーム・リノベーション</h3>
+          <p>キッチン・浴室・トイレなどの水回りから、間取り変更を伴う大規模リノベーションまで対応。既存の住まいに自然素材を取り入れ、快適で健康的な空間へ生まれ変わらせます。</p>
+          <p>築年数の古いお住まいの耐震補強やバリアフリー化もお任せください。</p>
+          <div class="service-tags">
+            <span>水回り</span><span>間取り変更</span><span>耐震補強</span><span>バリアフリー</span><span>断熱改修</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-item fade-in-left">
+        <div class="service-visual service-visual-3">
+          <div class="icon">&#127981;</div>
+          <div class="label">木造建築</div>
+        </div>
+        <div class="service-info">
+          <h3>木造建築・増改築</h3>
+          <p>店舗、倉庫、離れなど、住宅以外の木造建築にも対応。木の温かみを活かした空間は、働く場所や集う場所にもやすらぎをもたらします。</p>
+          <p>増改築では、既存建物との調和を大切にしながら、新しい暮らしの可能性を広げるご提案をいたします。</p>
+          <div class="service-tags">
+            <span>店舗建築</span><span>増築</span><span>改築</span><span>木造設計</span><span>伝統工法</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Works -->
+<section class="works" id="works">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>施工事例</h2>
+      <p>自然素材を活かした、渡辺工務店の施工事例をご紹介します</p>
+    </div>
+    <div class="works-grid">
+      <div class="work-card fade-in">
+        <div class="work-thumb work-thumb-1">
+          <div class="icon">&#127969;</div>
+          <div class="cat">新築</div>
+        </div>
+        <div class="work-body">
+          <h3>無垢材の平屋住宅</h3>
+          <p>栃木県産の杉・檜をふんだんに使用した平屋建て。リビングの天井には丸太梁を配し、木の香りに包まれる空間に。</p>
+          <div class="work-meta">
+            <span>&#128205; 壬生町</span>
+            <span>&#128207; 延床32坪</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-thumb work-thumb-2">
+          <div class="icon">&#128295;</div>
+          <div class="cat">リフォーム</div>
+        </div>
+        <div class="work-body">
+          <h3>築40年の全面リノベーション</h3>
+          <p>断熱材を全面刷新し、珪藻土の塗り壁と無垢フローリングに。耐震補強も施し、安心して住み続けられる住まいへ。</p>
+          <div class="work-meta">
+            <span>&#128205; 栃木市</span>
+            <span>&#128207; 延床28坪</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-thumb work-thumb-3">
+          <div class="icon">&#127795;</div>
+          <div class="cat">新築</div>
+        </div>
+        <div class="work-body">
+          <h3>パッシブデザインの二階建て</h3>
+          <p>南面の大きな窓で冬の日射を取り込み、夏は深い軒で日差しを遮る設計。自然エネルギーを活かした快適住宅です。</p>
+          <div class="work-meta">
+            <span>&#128205; 下野市</span>
+            <span>&#128207; 延床38坪</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Flow -->
+<section class="flow" id="flow">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>ご依頼の流れ</h2>
+      <p>お問い合わせから完成まで、丁寧にサポートいたします</p>
+    </div>
+    <div class="flow-steps fade-in">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div>
+          <h4>お問い合わせ</h4>
+          <p>お電話またはフォームからお気軽にご連絡ください</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div>
+          <h4>現地調査・ヒアリング</h4>
+          <p>ご要望を丁寧にお伺いし、現地を確認します</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div>
+          <h4>プラン・お見積り</h4>
+          <p>最適なプランと明瞭なお見積りをご提示します</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div>
+          <h4>ご契約・着工</h4>
+          <p>ご納得いただいてから施工を開始します</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div>
+          <h4>完成・お引渡し</h4>
+          <p>完了検査後、鍵をお渡しします。アフターサポートも万全です</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Company -->
+<section class="company" id="company">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>会社概要</h2>
+    </div>
+    <div class="company-table fade-in">
+      <table>
+        <tr><th>会社名</th><td>有限会社 渡辺工務店</td></tr>
+        <tr><th>所在地</th><td>〒321-0212<br>栃木県下都賀郡壬生町寿町2-9</td></tr>
+        <tr><th>電話番号</th><td><a href="tel:0282-82-0408" style="color:var(--green);font-weight:600">0282-82-0408</a></td></tr>
+        <tr><th>業種</th><td>建築工事業（木造建築・リフォーム・自然派住宅）</td></tr>
+        <tr><th>対応エリア</th><td>栃木県壬生町を中心に、栃木市・下野市・宇都宮市など県内全域</td></tr>
+        <tr><th>営業時間</th><td>8:00 〜 18:00（日曜・祝日定休）</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>よくあるご質問</h2>
+      <p>お客様からよくいただくご質問にお答えします</p>
+    </div>
+    <div class="faq-list fade-in">
+      <div class="faq-item">
+        <div class="faq-q">自然素材の家は費用が高くなりますか？</div>
+        <div class="faq-a"><p>素材や仕様によって異なりますが、ご予算に合わせたプランをご提案可能です。長期的に見ると、自然素材は耐久性が高く、メンテナンスコストを抑えられるケースも多くあります。まずはお気軽にご相談ください。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">リフォームの相談だけでも大丈夫ですか？</div>
+        <div class="faq-a"><p>もちろん大丈夫です。現地調査・お見積りまで無料で対応しております。「まだ決まっていないけど話を聞いてみたい」という段階でもお気軽にお電話ください。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">対応エリアはどこまでですか？</div>
+        <div class="faq-a"><p>壬生町を中心に、栃木市、下野市、宇都宮市など栃木県内全域で施工可能です。遠方の場合も、まずはご相談いただければ対応を検討いたします。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">工事中の仮住まいは必要ですか？</div>
+        <div class="faq-a"><p>工事の規模によって異なります。部分的なリフォームであれば、住みながらの施工が可能です。大規模な場合は仮住まいのご相談も承りますので、事前にお打ち合わせで確認いたします。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">アフターサポートはありますか？</div>
+        <div class="faq-a"><p>はい。お引渡し後も定期的な点検を実施し、万が一の不具合にも迅速に対応いたします。地域密着の工務店だからこそ、すぐにお伺いできる距離感でサポートし続けます。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>お問い合わせ</h2>
+      <p>まずはお気軽にご相談ください。お見積り・現地調査は無料です。</p>
+    </div>
+    <div class="contact-content fade-in">
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="contact-info-icon">&#128222;</div>
+          <div class="contact-info-text">
+            <h4>お電話でのお問い合わせ</h4>
+            <p><a href="tel:0282-82-0408">0282-82-0408</a></p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">&#128197;</div>
+          <div class="contact-info-text">
+            <h4>営業時間</h4>
+            <p>8:00 〜 18:00（日曜・祝日定休）</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">&#128205;</div>
+          <div class="contact-info-text">
+            <h4>所在地</h4>
+            <p>栃木県下都賀郡壬生町寿町2-9</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-cta">
+        <a href="tel:0282-82-0408" class="btn-contact btn-tel">&#128222; 電話で相談する</a>
+        <a href="#" class="btn-contact btn-line">&#128172; LINEで相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">有限会社 渡辺工務店</div>
+    <div class="footer-address">
+      〒321-0212 栃木県下都賀郡壬生町寿町2-9<br>
+      TEL: 0282-82-0408
+    </div>
+    <div class="footer-links">
+      <a href="#concept">こだわり</a>
+      <a href="#services">サービス</a>
+      <a href="#works">施工事例</a>
+      <a href="#company">会社概要</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">お問い合わせ</a>
+    </div>
+    <div class="footer-divider"></div>
+    <p class="footer-credit">
+      &copy; 有限会社 渡辺工務店 All Rights Reserved.<br>
+      制作：ラクページ制作（ADLINK合同会社）
+    </p>
+    <div class="footer-demo">本サイトはデモサイトです（未公開）</div>
+  </div>
+</footer>
+
+<!-- Mobile Fixed Bar -->
+<div class="mobile-bar">
+  <a href="tel:0282-82-0408">
+    <span class="tel-icon">&#128222;</span>
+    今すぐ電話で相談する（0282-82-0408）
+  </a>
+</div>
+
+<!-- Scroll Top Button -->
+<button class="scroll-top" id="scrollTop" aria-label="ページトップへ">&#9650;</button>
+
+<script>
+// Hamburger Menu
+const hamburger=document.getElementById("hamburger");
+const nav=document.getElementById("nav");
+const overlay=document.getElementById("navOverlay");
+function toggleNav(){hamburger.classList.toggle("active");nav.classList.toggle("open");overlay.classList.toggle("show");document.body.style.overflow=nav.classList.contains("open")?"hidden":""}
+hamburger.addEventListener("click",toggleNav);
+overlay.addEventListener("click",toggleNav);
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{if(nav.classList.contains("open"))toggleNav()}));
+
+// Fade In on Scroll
+const faders=document.querySelectorAll(".fade-in,.fade-in-left,.fade-in-right");
+const fadeObserver=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");fadeObserver.unobserve(e.target)}})},{threshold:0.15,rootMargin:"0px 0px -40px 0px"});
+faders.forEach(el=>fadeObserver.observe(el));
+
+// FAQ Accordion
+document.querySelectorAll(".faq-q").forEach(q=>{
+  q.addEventListener("click",()=>{
+    const item=q.parentElement;
+    const wasOpen=item.classList.contains("open");
+    document.querySelectorAll(".faq-item.open").forEach(i=>i.classList.remove("open"));
+    if(!wasOpen)item.classList.add("open");
+  });
+});
+
+// Scroll Top Button
+const scrollBtn=document.getElementById("scrollTop");
+window.addEventListener("scroll",()=>{scrollBtn.classList.toggle("show",window.scrollY>400)});
+scrollBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener("click",e=>{
+    const target=document.querySelector(a.getAttribute("href"));
+    if(target){e.preventDefault();const y=target.getBoundingClientRect().top+window.scrollY-70;window.scrollTo({top:y,behavior:"smooth"})}
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北斗工芸 | 鳥取県米子市の看板・各種サイン製作</title>
+<meta name="description" content="鳥取県米子市の看板・サイン製作なら北斗工芸。店舗看板・電飾サイン・屋外広告・カッティングシートなど、企画からデザイン・施工まで一貫対応。">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2744;
+  --navy-dark:#0f1a30;
+  --navy-light:#2a3f66;
+  --orange:#e8740c;
+  --orange-dark:#c9620a;
+  --orange-light:#f5a623;
+  --orange-pale:#fff4e6;
+  --gray-50:#f8f9fb;
+  --gray-100:#f0f2f5;
+  --gray-200:#e2e5ea;
+  --gray-600:#6b7280;
+  --text:#222;
+  --text-light:#555;
+  --white:#fff;
+  --shadow:0 2px 20px rgba(26,39,68,.08);
+  --shadow-lg:0 8px 40px rgba(26,39,68,.12);
+  --radius:8px;
+  --transition:.3s ease;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,"Noto Sans JP",sans-serif;color:var(--text);line-height:1.8;background:var(--white);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* ===== UTILITY ===== */
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:1.8rem;color:var(--navy);position:relative;display:inline-block;padding-bottom:14px;letter-spacing:.05em}
+.section-title h2::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange-light));border-radius:2px}
+.section-title p{color:var(--text-light);margin-top:10px;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+section{padding:80px 0}
+
+/* ===== FADE IN ===== */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ===== HEADER ===== */
+.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);box-shadow:0 1px 10px rgba(0,0,0,.06);transition:var(--transition)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{width:46px;height:46px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--orange-light);font-weight:900;font-size:.7rem;line-height:1.1;text-align:center;letter-spacing:.02em}
+.logo-text{font-size:.95rem;font-weight:800;color:var(--navy);line-height:1.3}
+.logo-text span{display:block;font-size:.6rem;font-weight:400;color:var(--text-light);letter-spacing:.08em}
+
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{font-size:.85rem;font-weight:500;color:var(--text);position:relative;transition:var(--transition)}
+.nav a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--orange);transition:var(--transition)}
+.nav a:hover::after{width:100%}
+.nav a:hover{color:var(--orange)}
+.nav-cta{background:var(--orange);color:var(--white)!important;padding:8px 22px;border-radius:50px;font-size:.8rem!important;transition:var(--transition)}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--orange-dark);transform:translateY(-1px)}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;z-index:1001}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);transition:var(--transition)}
+
+/* ===== HERO ===== */
+.hero{margin-top:70px;min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 50%,var(--navy-light) 100%);background-image:linear-gradient(135deg,rgba(15,26,48,.88) 0%,rgba(26,39,68,.82) 50%,rgba(42,63,102,.78) 100%),url('https://images.unsplash.com/photo-1563906267088-b029e7101114?w=1600&q=80');background-size:cover;background-position:center}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse at 30% 40%,rgba(232,116,12,.12) 0%,transparent 60%),
+  radial-gradient(ellipse at 70% 70%,rgba(245,166,35,.08) 0%,transparent 50%)}
+.hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='80' height='80' fill='none'/%3E%3Cpath d='M0 40h80M40 0v80' stroke='%23ffffff' stroke-width='.3' opacity='.03'/%3E%3C/svg%3E")}
+
+.hero-content{position:relative;z-index:2;max-width:680px;padding:0 20px}
+.hero-badge{display:inline-block;background:rgba(232,116,12,.2);backdrop-filter:blur(5px);color:var(--orange-light);padding:6px 20px;border-radius:50px;font-size:.75rem;letter-spacing:.12em;margin-bottom:24px;border:1px solid rgba(232,116,12,.3)}
+.hero h1{font-size:2.5rem;color:var(--white);line-height:1.55;font-weight:800;letter-spacing:.03em;margin-bottom:20px;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.hero h1 em{font-style:normal;color:var(--orange-light)}
+.hero p{color:rgba(255,255,255,.8);font-size:1rem;line-height:2;margin-bottom:36px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-size:.9rem;font-weight:600;transition:var(--transition);cursor:pointer;border:none}
+.btn-primary{background:var(--orange);color:var(--white);box-shadow:0 4px 20px rgba(232,116,12,.3)}
+.btn-primary:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 6px 25px rgba(232,116,12,.4)}
+.btn-secondary{background:rgba(255,255,255,.1);color:var(--white);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(5px)}
+.btn-secondary:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
+
+/* Hero decorative sign shapes */
+.hero-deco{position:absolute;right:5%;top:50%;transform:translateY(-50%);z-index:1;opacity:.07}
+.hero-deco-rect{width:260px;height:160px;border:4px solid #fff;border-radius:16px;position:relative;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#fff;font-weight:900;letter-spacing:.15em}
+.hero-deco-rect::before{content:"";position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:4px;height:40px;background:#fff}
+.hero-deco-circle{width:120px;height:120px;border:3px solid #fff;border-radius:50%;position:absolute;top:-60px;right:-40px}
+
+/* ===== FEATURES (quick strip) ===== */
+.features-strip{background:var(--white);padding:50px 0;border-bottom:1px solid var(--gray-200)}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.feature-item{padding:20px 10px}
+.feature-icon{width:56px;height:56px;margin:0 auto 14px;background:linear-gradient(135deg,var(--orange-pale),var(--gray-100));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.feature-item h4{font-size:.9rem;color:var(--navy);margin-bottom:6px;font-weight:700}
+.feature-item p{font-size:.78rem;color:var(--text-light);line-height:1.6}
+
+/* ===== SERVICES ===== */
+.services{background:var(--gray-50)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.service-card{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.service-thumb{height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.service-thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.service-thumb.t1{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%)}
+.service-thumb.t2{background:linear-gradient(135deg,var(--orange-dark) 0%,var(--orange-light) 100%)}
+.service-thumb.t3{background:linear-gradient(135deg,#1a3a5c 0%,#2a5f8f 100%)}
+.service-thumb.t4{background:linear-gradient(135deg,#2d2d2d 0%,#555 100%)}
+.service-thumb.t5{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--orange) 100%)}
+.service-thumb.t6{background:linear-gradient(135deg,#1a4444 0%,#2a7a6a 100%)}
+.service-icon{font-size:3rem;color:rgba(255,255,255,.95);z-index:2;position:relative;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.service-thumb::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='40' height='40' fill='none'/%3E%3Ccircle cx='20' cy='20' r='1' fill='%23ffffff' opacity='.08'/%3E%3C/svg%3E")}
+.service-body{padding:24px}
+.service-body h3{font-size:1.05rem;color:var(--navy);margin-bottom:8px;font-weight:700}
+.service-body p{font-size:.85rem;color:var(--text-light);line-height:1.8}
+
+/* ===== WORKS ===== */
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.work-card{background:var(--white);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.work-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.work-thumb{height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.work-thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.work-thumb.w1{background:linear-gradient(160deg,var(--navy) 0%,#3a5a8a 100%)}
+.work-thumb.w2{background:linear-gradient(160deg,#2a1a0a 0%,var(--orange) 100%)}
+.work-thumb.w3{background:linear-gradient(160deg,#0a2a3a 0%,#1a5a7a 100%)}
+.work-sign{color:rgba(255,255,255,.95);font-size:1.3rem;font-weight:900;letter-spacing:.15em;border:3px solid rgba(255,255,255,.6);padding:18px 32px;border-radius:8px;z-index:2;position:relative;background:rgba(0,0,0,.35);backdrop-filter:blur(2px)}
+.work-body{padding:22px}
+.work-tag{display:inline-block;background:var(--orange-pale);color:var(--orange-dark);font-size:.7rem;font-weight:600;padding:3px 12px;border-radius:50px;margin-bottom:10px}
+.work-body h3{font-size:1rem;color:var(--navy);margin-bottom:6px;font-weight:700}
+.work-body p{font-size:.82rem;color:var(--text-light);line-height:1.7}
+
+/* ===== COMPANY ===== */
+.company{background:var(--gray-50)}
+.company-inner{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.company-text h3{font-size:1.3rem;color:var(--navy);margin-bottom:16px;font-weight:700}
+.company-text p{font-size:.9rem;color:var(--text-light);line-height:2;margin-bottom:20px}
+.company-table{width:100%;border-collapse:collapse}
+.company-table th,.company-table td{padding:14px 16px;font-size:.88rem;border-bottom:1px solid var(--gray-200);text-align:left}
+.company-table th{width:120px;color:var(--navy);font-weight:600;background:var(--gray-100);white-space:nowrap}
+.company-table td{color:var(--text-light)}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{background:var(--white);border-radius:10px;margin-bottom:14px;box-shadow:var(--shadow);overflow:hidden}
+.faq-q{padding:20px 24px;font-size:.95rem;font-weight:600;color:var(--navy);cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:var(--transition);gap:12px}
+.faq-q::before{content:"Q";flex-shrink:0;width:32px;height:32px;background:var(--orange);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.faq-q::after{content:"+";flex-shrink:0;width:28px;height:28px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--text-light);transition:var(--transition)}
+.faq-item.active .faq-q::after{content:"\2212";background:var(--orange-pale);color:var(--orange)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+.faq-a-inner{padding:0 24px 20px 72px;font-size:.88rem;color:var(--text-light);line-height:1.9}
+
+/* ===== CONTACT ===== */
+.contact{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 100%);color:var(--white);text-align:center}
+.contact .section-title h2{color:var(--white)}
+.contact .section-title p{color:rgba(255,255,255,.5)}
+.contact-desc{font-size:.95rem;color:rgba(255,255,255,.7);margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.9}
+.contact-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:600px;margin:0 auto}
+.contact-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:32px 20px;backdrop-filter:blur(5px);transition:var(--transition)}
+.contact-card:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.contact-card-icon{font-size:2rem;margin-bottom:12px}
+.contact-card h4{font-size:.9rem;margin-bottom:6px;color:var(--orange-light)}
+.contact-card p{font-size:1.1rem;font-weight:700}
+.contact-card .sub{font-size:.75rem;color:rgba(255,255,255,.5);margin-top:4px;font-weight:400}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--navy-dark);color:rgba(255,255,255,.5);padding:40px 0 100px;text-align:center;font-size:.78rem;line-height:2}
+.footer-logo{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:8px}
+.footer a{color:rgba(255,255,255,.5);transition:var(--transition)}
+.footer a:hover{color:var(--orange-light)}
+.footer-credit{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);font-size:.72rem}
+.footer-badge{display:inline-block;background:rgba(232,116,12,.15);color:var(--orange-light);padding:3px 14px;border-radius:50px;font-size:.68rem;margin-top:8px;border:1px solid rgba(232,116,12,.2)}
+
+/* ===== MOBILE FIXED BAR ===== */
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;width:100%;z-index:999;background:var(--white);box-shadow:0 -2px 20px rgba(0,0,0,.1);padding:8px 10px calc(8px + env(safe-area-inset-bottom));gap:6px}
+.mobile-bar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;border-radius:8px;font-size:.65rem;font-weight:600;color:var(--text-light);transition:var(--transition)}
+.mobile-bar a.bar-primary{background:var(--orange);color:var(--white);border-radius:8px}
+.mobile-bar a .bar-icon{font-size:1.2rem}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .services-grid,.works-grid{grid-template-columns:repeat(2,1fr)}
+  .company-inner{grid-template-columns:1fr}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:2rem}
+  .hero-deco{display:none}
+}
+@media(max-width:768px){
+  .nav{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(255,255,255,.98);backdrop-filter:blur(10px);flex-direction:column;justify-content:center;gap:30px;text-align:center}
+  .nav.open{display:flex}
+  .nav a{font-size:1.1rem}
+  .hamburger{display:flex}
+  .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+  .hero{min-height:75vh}
+  .hero h1{font-size:1.65rem}
+  .hero p{font-size:.9rem}
+  .btn{padding:12px 24px;font-size:.85rem}
+  section{padding:60px 0}
+  .section-title h2{font-size:1.5rem}
+  .mobile-bar{display:flex}
+  .footer{padding-bottom:120px}
+  .contact-cards{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .services-grid,.works-grid{grid-template-columns:1fr}
+  .features-grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.4rem}
+  .hero-buttons{flex-direction:column}
+  .btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+<div class="container header-inner">
+  <a href="#" class="logo">
+    <div class="logo-icon">北斗<br>工芸</div>
+    <div class="logo-text">北斗工芸<span>看板・各種サイン製作</span></div>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#services">サービス</a>
+    <a href="#works">制作事例</a>
+    <a href="#company">会社概要</a>
+    <a href="#faq">よくある質問</a>
+    <a href="#contact" class="nav-cta">お問い合わせ</a>
+  </nav>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div class="container hero-content">
+  <span class="hero-badge">鳥取県米子市の看板・サイン専門店</span>
+  <h1><em>伝わるサイン</em>で<br>お客様の想いをカタチに</h1>
+  <p>店舗看板・電飾サイン・屋外広告・カッティングシートなど、<br>デザインから製作・施工まで一貫対応。<br>地域密着で40年以上の信頼と実績。</p>
+  <div class="hero-buttons">
+    <a href="#contact" class="btn btn-primary">&#9742; お問い合わせ</a>
+    <a href="#services" class="btn btn-secondary">&#9655; サービスを見る</a>
+  </div>
+</div>
+<div class="hero-deco">
+  <div class="hero-deco-rect">看 板
+    <div class="hero-deco-circle"></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== FEATURES STRIP ===== -->
+<div class="features-strip">
+<div class="container">
+  <div class="features-grid">
+    <div class="feature-item fade-in">
+      <div class="feature-icon">&#9997;</div>
+      <h4>企画・デザイン</h4>
+      <p>ヒアリングから最適なデザインをご提案</p>
+    </div>
+    <div class="feature-item fade-in">
+      <div class="feature-icon">&#9874;</div>
+      <h4>自社製作</h4>
+      <p>経験豊富な職人が丁寧に製作</p>
+    </div>
+    <div class="feature-item fade-in">
+      <div class="feature-icon">&#128295;</div>
+      <h4>施工・取付</h4>
+      <p>安全かつ確実な施工をお約束</p>
+    </div>
+    <div class="feature-item fade-in">
+      <div class="feature-icon">&#128336;</div>
+      <h4>アフターサポート</h4>
+      <p>メンテナンス・修繕もお任せ</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+<div class="container">
+  <div class="section-title fade-in">
+    <h2>サービス紹介</h2>
+    <p>SERVICE</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-thumb t1">
+        <img src="https://images.unsplash.com/photo-1549396535-c11d5c55b9df?w=600&q=80" alt="店舗看板" loading="lazy">
+        <div class="service-icon">&#127978;</div>
+      </div>
+      <div class="service-body">
+        <h3>店舗看板</h3>
+        <p>新規開業・リニューアルに最適な店舗看板を製作。お店の顔となるサインをデザインからご提案いたします。</p>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-thumb t2">
+        <img src="https://images.unsplash.com/photo-1565538420870-da08ff96a207?w=600&q=80" alt="電飾・LEDサイン" loading="lazy">
+        <div class="service-icon">&#128161;</div>
+      </div>
+      <div class="service-body">
+        <h3>電飾・LEDサイン</h3>
+        <p>夜間も目立つ電飾看板・LEDチャンネル文字。省エネで高輝度、長寿命なLED照明をご提案します。</p>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-thumb t3">
+        <img src="https://images.unsplash.com/photo-1524532787116-e70228437bbe?w=600&q=80" alt="屋外広告・野立て看板" loading="lazy">
+        <div class="service-icon">&#127956;</div>
+      </div>
+      <div class="service-body">
+        <h3>屋外広告・野立て看板</h3>
+        <p>ロードサイドや駐車場など、遠方からも視認性の高い大型屋外広告を設計・施工します。</p>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-thumb t4">
+        <img src="https://images.unsplash.com/photo-1621929747188-0b4dc28498d2?w=600&q=80" alt="カッティングシート" loading="lazy">
+        <div class="service-icon">&#9986;</div>
+      </div>
+      <div class="service-body">
+        <h3>カッティングシート</h3>
+        <p>ウィンドウサインや車両マーキングに。精密なカッティング技術で美しい仕上がりをお届けします。</p>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-thumb t5">
+        <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?w=600&q=80" alt="案内板・誘導サイン" loading="lazy">
+        <div class="service-icon">&#128196;</div>
+      </div>
+      <div class="service-body">
+        <h3>案内板・誘導サイン</h3>
+        <p>施設内の案内板・フロアサイン・誘導標識など。わかりやすく統一感のあるサインシステムを構築します。</p>
+      </div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-thumb t6">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80" alt="看板メンテナンス" loading="lazy">
+        <div class="service-icon">&#128736;</div>
+      </div>
+      <div class="service-body">
+        <h3>看板メンテナンス・撤去</h3>
+        <p>経年劣化した看板の修繕・リニューアル・撤去まで対応。安全管理もお任せください。</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== WORKS ===== -->
+<section id="works">
+<div class="container">
+  <div class="section-title fade-in">
+    <h2>制作事例</h2>
+    <p>WORKS</p>
+  </div>
+  <div class="works-grid">
+    <div class="work-card fade-in">
+      <div class="work-thumb w1">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="鮮魚店看板" loading="lazy">
+        <div class="work-sign">鮮魚 まるた</div>
+      </div>
+      <div class="work-body">
+        <span class="work-tag">店舗看板</span>
+        <h3>鮮魚店 新規開業サイン一式</h3>
+        <p>ファサード看板・袖看板・ウィンドウサインをトータルコーディネート。和の雰囲気を大切にしたデザイン。</p>
+      </div>
+    </div>
+    <div class="work-card fade-in">
+      <div class="work-thumb w2">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&q=80" alt="カフェ看板" loading="lazy">
+        <div class="work-sign">CAFE LUNE</div>
+      </div>
+      <div class="work-body">
+        <span class="work-tag">電飾・LED</span>
+        <h3>カフェ LEDチャンネル文字</h3>
+        <p>温かみのある電球色LEDで、夜間も雰囲気あるファサードを演出。省エネ設計で電気代もお得に。</p>
+      </div>
+    </div>
+    <div class="work-card fade-in">
+      <div class="work-thumb w3">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="医院看板" loading="lazy">
+        <div class="work-sign">大山堂医院</div>
+      </div>
+      <div class="work-body">
+        <span class="work-tag">案内サイン</span>
+        <h3>医院 総合案内サインシステム</h3>
+        <p>院内フロアサイン・外構誘導サイン・駐車場看板まで一括で製作・施工。患者様目線の導線設計。</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== COMPANY ===== -->
+<section class="company" id="company">
+<div class="container">
+  <div class="section-title fade-in">
+    <h2>会社概要</h2>
+    <p>COMPANY</p>
+  </div>
+  <div class="company-inner fade-in">
+    <div class="company-text">
+      <h3>地域と共に歩む看板づくり</h3>
+      <p>北斗工芸は、鳥取県米子市を拠点に看板・各種サインの企画・デザイン・製作・施工を一貫して手がけています。お客様のご要望を丁寧にヒアリングし、集客力のあるサインをご提案。地域の店舗・企業・施設の「顔」づくりをお手伝いしています。</p>
+    </div>
+    <div>
+      <table class="company-table">
+        <tr><th>会社名</th><td>北斗工芸</td></tr>
+        <tr><th>業種</th><td>看板・各種サイン製作</td></tr>
+        <tr><th>所在地</th><td>〒683-0001<br>鳥取県米子市旗ヶ崎2-12-37</td></tr>
+        <tr><th>電話番号</th><td><a href="tel:0859-34-2831" style="color:var(--orange);font-weight:600">0859-34-2831</a></td></tr>
+        <tr><th>事業内容</th><td>店舗看板、電飾サイン、屋外広告、カッティングシート、案内板、看板メンテナンス・撤去</td></tr>
+        <tr><th>対応エリア</th><td>鳥取県米子市を中心に山陰エリア全域</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+<div class="container">
+  <div class="section-title fade-in">
+    <h2>よくある質問</h2>
+    <p>FAQ</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item fade-in">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>看板の製作にはどのくらいの期間がかかりますか？</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">看板の種類・サイズにもよりますが、通常はデザイン確定後2〜4週間程度で製作・施工が完了します。お急ぎの場合もご相談ください。スケジュールに合わせて柔軟に対応いたします。</div></div>
+    </div>
+    <div class="faq-item fade-in">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>デザインからお願いすることはできますか？</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">もちろんです。お客様のご要望やお店のコンセプトをヒアリングし、プロのデザイナーが最適なサインデザインをご提案いたします。ロゴ制作から対応可能です。</div></div>
+    </div>
+    <div class="faq-item fade-in">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>看板の費用はどのくらいかかりますか？</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">看板の種類・サイズ・素材・設置場所により異なります。小さなプレート看板で数万円から、大型の電飾看板で数十万円程度が目安です。まずは無料でお見積りいたしますので、お気軽にお問い合わせください。</div></div>
+    </div>
+    <div class="faq-item fade-in">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>既存の看板の修理やリニューアルも頼めますか？</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">はい、対応しております。経年劣化した看板の補修・面板交換・LED化リニューアルなど、状態に合わせた最適な方法をご提案します。不要になった看板の撤去も承ります。</div></div>
+    </div>
+    <div class="faq-item fade-in">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>米子市以外のエリアも対応していますか？</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">はい、鳥取県米子市を中心に、境港市・大山町・日吉津村など近隣エリアはもちろん、鳥取県全域や島根県東部まで対応しております。まずはお気軽にご相談ください。</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+<div class="container">
+  <div class="section-title fade-in">
+    <h2>お問い合わせ</h2>
+    <p>CONTACT</p>
+  </div>
+  <p class="contact-desc fade-in">看板・サインに関するご相談・お見積りは無料です。<br>お気軽にお問い合わせください。</p>
+  <div class="contact-cards fade-in">
+    <a href="tel:0859-34-2831" class="contact-card">
+      <div class="contact-card-icon">&#9742;</div>
+      <h4>お電話でのお問い合わせ</h4>
+      <p>0859-34-2831</p>
+      <div class="sub">受付時間 9:00〜18:00（日祝休）</div>
+    </a>
+    <div class="contact-card">
+      <div class="contact-card-icon">&#9993;</div>
+      <h4>メールでのお問い合わせ</h4>
+      <p>メールフォーム</p>
+      <div class="sub">24時間受付・翌営業日回答</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+<div class="container">
+  <div class="footer-logo">北斗工芸</div>
+  <p>〒683-0001 鳥取県米子市旗ヶ崎2-12-37<br>
+  TEL: <a href="tel:0859-34-2831">0859-34-2831</a></p>
+  <div class="footer-credit">
+    <p>&copy; 北斗工芸 All Rights Reserved.</p>
+    <span class="footer-badge">&#127919; ラクページ制作 ／ デモサイト・未公開</span>
+  </div>
+</div>
+</footer>
+
+<!-- ===== MOBILE FIXED BAR ===== -->
+<div class="mobile-bar">
+  <a href="tel:0859-34-2831">
+    <span class="bar-icon">&#9742;</span>電話する
+  </a>
+  <a href="#services">
+    <span class="bar-icon">&#128196;</span>サービス
+  </a>
+  <a href="#contact" class="bar-primary">
+    <span class="bar-icon">&#9993;</span>お問い合わせ
+  </a>
+</div>
+
+<script>
+/* Hamburger menu */
+const hamburger=document.getElementById("hamburger");
+const nav=document.getElementById("nav");
+hamburger.addEventListener("click",()=>{
+  hamburger.classList.toggle("active");
+  nav.classList.toggle("open");
+});
+nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+  hamburger.classList.remove("active");
+  nav.classList.remove("open");
+}));
+
+/* FAQ accordion */
+function toggleFaq(el){
+  const item=el.parentElement;
+  const ans=item.querySelector(".faq-a");
+  const inner=ans.querySelector(".faq-a-inner");
+  if(item.classList.contains("active")){
+    ans.style.maxHeight="0";
+    item.classList.remove("active");
+  }else{
+    document.querySelectorAll(".faq-item.active").forEach(i=>{
+      i.querySelector(".faq-a").style.maxHeight="0";
+      i.classList.remove("active");
+    });
+    item.classList.add("active");
+    ans.style.maxHeight=inner.scrollHeight+"px";
+  }
+}
+
+/* Fade in on scroll */
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll(".fade-in").forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>

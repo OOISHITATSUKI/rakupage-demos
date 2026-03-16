@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LINE AI受付｜LINEで予約受付を自動化。整骨院・接骨院向けAI予約システム</title>
+<meta name="description" content="LINE AI受付は、LINE公式アカウントと連携したAI予約受付システムです。患者さんがLINEで話しかけるだけで、AIが自動で予約受付。24時間365日対応。整骨院・接骨院のための次世代受付システム。">
+<meta property="og:title" content="LINE AI受付｜LINEで予約受付を自動化">
+<meta property="og:description" content="患者さんがLINEで話しかけるだけで、AIが自動で予約受付。24時間365日対応の次世代受付システム。">
+<meta property="og:type" content="website">
+<style>
+/* ========== Reset & Base ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  color: #333;
+  line-height: 1.8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; }
+
+/* ========== Variables ========== */
+:root {
+  --primary: #06C755;
+  --primary-dark: #05a847;
+  --primary-light: #e8f9ee;
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --accent-light: #dbeafe;
+  --bg-light: #f0faf4;
+  --bg-white: #ffffff;
+  --text: #333333;
+  --text-light: #666666;
+  --text-white: #ffffff;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --max-width: 1100px;
+  --section-padding: 80px 20px;
+}
+
+/* ========== Utility ========== */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+.section-title {
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text);
+  line-height: 1.4;
+}
+.section-subtitle {
+  text-align: center;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--text-light);
+  margin-bottom: 48px;
+}
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: 60px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  line-height: 1.4;
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(6,199,85,0.35);
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(6,199,85,0.45);
+}
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.35);
+}
+.btn-accent:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(37,99,235,0.45);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.highlight { color: var(--primary); }
+.highlight-accent { color: var(--accent); }
+
+/* ========== Fade-in Animation ========== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== Header ========== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.logo {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.logo-line { color: var(--primary); }
+.logo-ai { color: var(--accent); }
+.nav-desktop { display: flex; align-items: center; gap: 28px; }
+.nav-desktop a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.3s;
+}
+.nav-desktop a:hover { color: var(--primary); }
+.nav-desktop .btn { padding: 10px 24px; font-size: 0.9rem; }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1100;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.98);
+  z-index: 1050;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.nav-mobile.active { display: flex; }
+.nav-mobile a {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.nav-mobile a:hover { color: var(--primary); }
+
+@media (max-width: 768px) {
+  .nav-desktop { display: none; }
+  .hamburger { display: flex; }
+}
+
+/* ========== Hero ========== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 80px;
+  background: linear-gradient(135deg, #e8f9ee 0%, #f0faf4 30%, #fff 60%, #dbeafe 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(6,199,85,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -20%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+}
+.hero-content { }
+.hero-badge {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 60px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+.hero h1 .line-green { color: var(--primary); }
+.hero p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--text-light);
+  margin-bottom: 36px;
+  line-height: 1.8;
+}
+.hero p strong {
+  color: var(--primary);
+  font-size: 1.1em;
+}
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 16px; }
+@media (max-width: 768px) {
+  .hero-buttons { justify-content: center; }
+}
+.hero-note {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ========== LINE Mock ========== */
+.line-mock {
+  background: #7494C0;
+  border-radius: 20px;
+  padding: 16px;
+  max-width: 360px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+.line-mock-header {
+  background: #6B8BB5;
+  border-radius: 12px 12px 0 0;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: -16px -16px 12px -16px;
+  border-radius: 20px 20px 0 0;
+}
+.line-mock-avatar {
+  width: 36px;
+  height: 36px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+.line-mock-name {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.line-mock-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 0;
+}
+.line-msg {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  position: relative;
+  animation: msgFadeIn 0.5s ease forwards;
+  opacity: 0;
+}
+.line-msg:nth-child(1) { animation-delay: 0.3s; }
+.line-msg:nth-child(2) { animation-delay: 1.0s; }
+.line-msg:nth-child(3) { animation-delay: 1.8s; }
+.line-msg:nth-child(4) { animation-delay: 2.5s; }
+.line-msg:nth-child(5) { animation-delay: 3.2s; }
+@keyframes msgFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.line-msg-right {
+  align-self: flex-end;
+  background: var(--primary);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.line-msg-left {
+  align-self: flex-start;
+  background: #fff;
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+.line-msg-time {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+  display: block;
+}
+.line-msg-left .line-msg-time { color: #999; }
+
+/* ========== Problems ========== */
+.problems {
+  padding: var(--section-padding);
+  background: var(--bg-white);
+}
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.problem-card {
+  background: #fff;
+  border: 2px solid #f1f5f9;
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+.problem-card:hover {
+  border-color: #fca5a5;
+  box-shadow: var(--shadow);
+}
+.problem-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.problem-card h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.problem-card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+.problems-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+.problems-cta p {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+/* ========== Features ========== */
+.features {
+  padding: var(--section-padding);
+  background: var(--bg-light);
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+.feature-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  display: block;
+}
+.feature-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.feature-card p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+.feature-tag {
+  display: inline-block;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  padding: 3px 12px;
+  border-radius: 60px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: 12px;
+}
+.feature-tag.dev {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+/* ========== Admin Mock ========== */
+.admin-section {
+  padding: var(--section-padding);
+  background: var(--bg-white);
+}
+.admin-section-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .admin-section-inner { grid-template-columns: 1fr; }
+}
+.admin-text h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text);
+  line-height: 1.4;
+}
+.admin-text p {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.admin-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+.admin-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.admin-features-list li::before {
+  content: '';
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background: var(--primary);
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+  background-size: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Admin Dashboard Mock */
+.admin-mock {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+.admin-mock-header {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.admin-mock-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.admin-mock-dot:nth-child(1) { background: #ef4444; }
+.admin-mock-dot:nth-child(2) { background: #f59e0b; }
+.admin-mock-dot:nth-child(3) { background: #22c55e; }
+.admin-mock-title {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: 8px;
+}
+.admin-mock-body {
+  padding: 20px;
+}
+.admin-mock-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.admin-stat {
+  background: var(--bg-light);
+  padding: 14px 12px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+.admin-stat-number {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--primary);
+  display: block;
+}
+.admin-stat-label {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+.admin-mock-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+.admin-mock-table th {
+  background: #f8fafc;
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-light);
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 0.72rem;
+}
+.admin-mock-table td {
+  padding: 10px;
+  border-bottom: 1px solid #f1f5f9;
+  color: var(--text);
+}
+.status-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 60px;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+.status-confirmed {
+  background: #dcfce7;
+  color: #16a34a;
+}
+.status-pending {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+/* ========== Menu Example ========== */
+.menu-section {
+  padding: var(--section-padding);
+  background: var(--bg-light);
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.menu-item {
+  background: #fff;
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+.menu-item:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.menu-item-info h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.menu-item-info span {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+.menu-item-price {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary);
+  white-space: nowrap;
+}
+.menu-note {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ========== Flow ========== */
+.flow {
+  padding: var(--section-padding);
+  background: var(--bg-white);
+}
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+.flow-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 28px 0;
+  position: relative;
+}
+.flow-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 76px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+}
+.flow-step-number {
+  width: 56px;
+  height: 56px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.flow-step:nth-child(2) .flow-step-number { background: linear-gradient(135deg, var(--primary), var(--accent)); }
+.flow-step:nth-child(3) .flow-step-number { background: var(--accent); }
+.flow-step-content h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.flow-step-content p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+/* ========== Pricing ========== */
+.pricing {
+  padding: var(--section-padding);
+  background: var(--bg-light);
+}
+.pricing-card-single {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 48px 40px;
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid var(--primary);
+  position: relative;
+  overflow: hidden;
+}
+.pricing-card-single::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+.pricing-monitor-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: #fff;
+  padding: 8px 28px;
+  border-radius: 60px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.pricing-card-single h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.pricing-card-single .pricing-desc {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+.pricing-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 28px;
+  text-align: left;
+}
+@media (max-width: 480px) {
+  .pricing-highlights { grid-template-columns: 1fr; }
+}
+.pricing-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  background: var(--primary-light);
+  border-radius: var(--radius-sm);
+}
+.pricing-highlights li::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.pricing-price-box {
+  background: linear-gradient(135deg, #f0faf4, #e8f9ee);
+  padding: 24px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 28px;
+}
+.pricing-price-box .price-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.pricing-price-box .price-main {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--primary);
+}
+.pricing-price-box .price-note {
+  font-size: 0.85rem;
+  color: #ef4444;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* ========== FAQ ========== */
+.faq {
+  padding: var(--section-padding);
+  background: var(--bg-white);
+}
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq-item {
+  background: var(--bg-light);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 24px;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: inherit;
+  line-height: 1.6;
+}
+.faq-question::before {
+  content: 'Q.';
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.faq-toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+.faq-item.active .faq-toggle { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-answer-inner {
+  padding: 0 24px 20px 52px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+.faq-answer-inner::before {
+  content: 'A. ';
+  color: var(--accent);
+  font-weight: 800;
+}
+.faq-item.active .faq-answer { max-height: 300px; }
+
+/* ========== CTA ========== */
+.cta-section {
+  padding: var(--section-padding);
+  background: linear-gradient(135deg, #064e3b, #06C755);
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 60%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.cta-section .section-title { color: #fff; }
+.cta-section .section-subtitle { color: rgba(255,255,255,0.85); }
+.cta-phone {
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-weight: 900;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.cta-phone a { color: #fff; display: inline-flex; align-items: center; gap: 10px; }
+.cta-hours {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 32px;
+}
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+.btn-white {
+  background: #fff;
+  color: var(--primary);
+  padding: 16px 36px;
+  border-radius: 60px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+}
+.btn-demo {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.5);
+  padding: 16px 36px;
+  border-radius: 60px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.btn-demo:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: #0f172a;
+  color: rgba(255,255,255,0.7);
+  padding: 40px 20px;
+  text-align: center;
+}
+.footer-logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.footer-company {
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
+.footer-info {
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+.footer-links { margin-top: 16px; display: flex; gap: 20px; justify-content: center; }
+.footer-links a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: #fff; }
+.footer-copy {
+  margin-top: 24px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ========== Mobile Fixed Bar ========== */
+.mobile-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--primary);
+  padding: 0;
+}
+.mobile-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 16px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .mobile-bar { display: block; }
+  .footer { padding-bottom: 80px; }
+}
+
+/* ========== Responsive Tweaks ========== */
+@media (max-width: 480px) {
+  :root { --section-padding: 56px 16px; }
+  .hero { padding: 100px 16px 60px; }
+  .btn { padding: 14px 28px; font-size: 1rem; }
+  .admin-mock-stats { grid-template-columns: repeat(3, 1fr); }
+  .admin-mock-table th:nth-child(4),
+  .admin-mock-table td:nth-child(4) { display: none; }
+  .line-mock { max-width: 300px; }
+  .pricing-card-single { padding: 36px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header" id="top">
+  <div class="header-inner">
+    <a href="#top" class="logo">
+      <span class="logo-icon">AI</span>
+      <span class="logo-line">LINE</span><span class="logo-ai"> AI受付</span>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#features">機能</a>
+      <a href="#flow">導入の流れ</a>
+      <a href="#pricing">料金</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://lin.ee/s5azjv1" target="_blank" class="btn btn-primary" style="padding:10px 24px;font-size:0.9rem;">LINEで相談</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="nav-mobile" id="navMobile">
+  <a href="#features" onclick="closeMenu()">機能</a>
+  <a href="#flow" onclick="closeMenu()">導入の流れ</a>
+  <a href="#pricing" onclick="closeMenu()">料金</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="https://lin.ee/s5azjv1" target="_blank" class="btn btn-primary" onclick="closeMenu()">LINEで相談</a>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">整骨院・接骨院向け AI予約システム</div>
+      <h1>LINEで話しかけるだけ。<br><span class="line-green">AIが24時間</span><br>予約を受け付けます。</h1>
+      <p>患者さんが<strong>LINEで「予約したい」</strong>と送るだけで、<br>AIが自動で症状のヒアリングからご予約まで完了。<br>電話対応の負担を大幅に削減します。</p>
+      <div class="hero-buttons">
+        <a href="https://lin.ee/s5azjv1" target="_blank" class="btn btn-primary">LINEでお問い合わせ</a>
+        <a href="tel:080-1100-0675" class="btn btn-outline">電話で相談</a>
+      </div>
+      <p class="hero-note">※ 荒川区・台東区・墨田区の院からモニター募集中</p>
+    </div>
+    <div class="hero-visual">
+      <div class="line-mock">
+        <div class="line-mock-header">
+          <div class="line-mock-avatar">AI</div>
+          <div class="line-mock-name">さくら整骨院</div>
+        </div>
+        <div class="line-mock-messages">
+          <div class="line-msg line-msg-right">
+            腰が痛いんですが、予約できますか？
+            <span class="line-msg-time">14:32</span>
+          </div>
+          <div class="line-msg line-msg-left">
+            お辛いですね。ご予約承ります。腰の痛みでしたら「骨盤矯正コース」がおすすめです。ご希望の日時はありますか？
+            <span class="line-msg-time">14:32</span>
+          </div>
+          <div class="line-msg line-msg-right">
+            明日の午後でお願いします
+            <span class="line-msg-time">14:33</span>
+          </div>
+          <div class="line-msg line-msg-left">
+            明日3/17(火)でしたら、14:00と15:30に空きがございます。どちらがよろしいですか？
+            <span class="line-msg-time">14:33</span>
+          </div>
+          <div class="line-msg line-msg-right">
+            14:00でお願いします！
+            <span class="line-msg-time">14:33</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Problems ===== -->
+<section class="problems" id="problems">
+  <div class="container fade-in">
+    <h2 class="section-title">こんなお悩み、ありませんか？</h2>
+    <p class="section-subtitle">一つでも当てはまったら、LINE AI受付にご相談ください</p>
+    <div class="problems-grid">
+      <div class="problem-card">
+        <span class="problem-icon">📞</span>
+        <div>
+          <h4>施術中の電話対応が大変</h4>
+          <p>施術を中断して電話に出る必要があり、患者さんにも申し訳ない。集中して施術ができない。</p>
+        </div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">😰</span>
+        <div>
+          <h4>予約の取りこぼし</h4>
+          <p>電話に出られなかった間に、他院に患者さんが流れてしまう。機会損失が気になる。</p>
+        </div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">🌙</span>
+        <div>
+          <h4>営業時間外の予約対応</h4>
+          <p>夜間や休日に「予約したい」と思っても、電話がつながらない。患者さんの不満に。</p>
+        </div>
+      </div>
+    </div>
+    <div class="problems-cta">
+      <p>LINE AI受付が、すべて解決します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Features ===== -->
+<section class="features" id="features">
+  <div class="container fade-in">
+    <h2 class="section-title">LINE AI受付で<span class="highlight">できること</span></h2>
+    <p class="section-subtitle">AIが受付スタッフの代わりに、24時間365日対応します</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">💬</span>
+        <h3>AIが自動で会話・予約受付</h3>
+        <p>患者さんがLINEで話しかけるだけで、AIが症状をヒアリングし、最適なメニューを提案。そのまま予約まで完了します。</p>
+        <span class="feature-tag">Claude AI搭載</span>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📅</span>
+        <h3>予約台帳で一元管理</h3>
+        <p>管理画面からリスト表示・タイムライン表示で予約を一覧確認。予約の追加・キャンセルもスマホからかんたんに操作できます。</p>
+        <span class="feature-tag">スマホ対応</span>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🕐</span>
+        <h3>24時間365日自動受付</h3>
+        <p>営業時間外でも深夜でも、AIが自動で予約を受け付け。「電話がつながらない」ストレスをゼロにします。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">👥</span>
+        <h3>患者情報・メモ管理</h3>
+        <p>患者さんの情報やカルテメモを一元管理。過去の予約履歴も確認できるので、きめ細やかな対応が可能です。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏥</span>
+        <h3>複数院の一括管理</h3>
+        <p>マルチテナント対応で、複数の院を1つのシステムで管理可能。分院展開している法人にも最適です。</p>
+        <span class="feature-tag">マルチテナント</span>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔔</span>
+        <h3>予約リマインド・カレンダー連携</h3>
+        <p>予約日前日の自動リマインドで、無断キャンセルを防止。Googleカレンダーとの連携も対応予定です。</p>
+        <span class="feature-tag dev">開発中</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Admin Mock Section ===== -->
+<section class="admin-section" id="admin">
+  <div class="container fade-in">
+    <div class="admin-section-inner">
+      <div class="admin-text">
+        <h2>スマホで<span class="highlight">かんたん</span>に<br>予約管理</h2>
+        <p>管理画面はスマホに最適化。外出先でも、施術の合間でも、スマホからサッと予約状況を確認できます。</p>
+        <ul class="admin-features-list">
+          <li>リスト表示・タイムライン表示を切替</li>
+          <li>予約の追加・変更・キャンセル</li>
+          <li>患者情報の確認・メモ追加</li>
+          <li>空き枠の自動管理</li>
+        </ul>
+      </div>
+      <div class="admin-mock">
+        <div class="admin-mock-header">
+          <span class="admin-mock-dot"></span>
+          <span class="admin-mock-dot"></span>
+          <span class="admin-mock-dot"></span>
+          <span class="admin-mock-title">予約管理 - さくら整骨院</span>
+        </div>
+        <div class="admin-mock-body">
+          <div class="admin-mock-stats">
+            <div class="admin-stat">
+              <span class="admin-stat-number">12</span>
+              <span class="admin-stat-label">本日の予約</span>
+            </div>
+            <div class="admin-stat">
+              <span class="admin-stat-number">3</span>
+              <span class="admin-stat-label">空き枠</span>
+            </div>
+            <div class="admin-stat">
+              <span class="admin-stat-number">89</span>
+              <span class="admin-stat-label">今月の予約数</span>
+            </div>
+          </div>
+          <table class="admin-mock-table">
+            <thead>
+              <tr>
+                <th>時間</th>
+                <th>患者名</th>
+                <th>メニュー</th>
+                <th>ステータス</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10:00</td>
+                <td>田中 様</td>
+                <td>骨盤矯正</td>
+                <td><span class="status-badge status-confirmed">確定</span></td>
+              </tr>
+              <tr>
+                <td>11:00</td>
+                <td>佐藤 様</td>
+                <td>肩こり改善</td>
+                <td><span class="status-badge status-confirmed">確定</span></td>
+              </tr>
+              <tr>
+                <td>13:00</td>
+                <td>鈴木 様</td>
+                <td>スポーツ整体</td>
+                <td><span class="status-badge status-pending">仮予約</span></td>
+              </tr>
+              <tr>
+                <td>14:00</td>
+                <td>高橋 様</td>
+                <td>初回カウンセリング</td>
+                <td><span class="status-badge status-confirmed">確定</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Menu Example ===== -->
+<section class="menu-section" id="menu">
+  <div class="container fade-in">
+    <h2 class="section-title">メニュー設定例</h2>
+    <p class="section-subtitle">院のメニューに合わせて自由にカスタマイズ可能です</p>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>骨盤矯正コース</h4>
+          <span>30分</span>
+        </div>
+        <div class="menu-item-price">&yen;4,500</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>肩こり改善コース</h4>
+          <span>30分</span>
+        </div>
+        <div class="menu-item-price">&yen;4,000</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>スポーツ整体</h4>
+          <span>40分</span>
+        </div>
+        <div class="menu-item-price">&yen;5,000</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>交通事故治療</h4>
+          <span>40分</span>
+        </div>
+        <div class="menu-item-price">保険適用</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <h4>初回カウンセリング</h4>
+          <span>60分</span>
+        </div>
+        <div class="menu-item-price">&yen;3,000</div>
+      </div>
+    </div>
+    <p class="menu-note">※ メニュー名・時間・料金は院ごとに自由に設定できます</p>
+  </div>
+</section>
+
+<!-- ===== Flow ===== -->
+<section class="flow" id="flow">
+  <div class="container fade-in">
+    <h2 class="section-title">導入の流れ</h2>
+    <p class="section-subtitle">かんたん3ステップで導入完了</p>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step-number">1</div>
+        <div class="flow-step-content">
+          <h3>お打ち合わせ（無料）</h3>
+          <p>院のメニュー・営業時間・予約の流れをヒアリング。LINE公式アカウントの有無なども確認します。アカウントがない場合は一緒に作成します。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-number">2</div>
+        <div class="flow-step-content">
+          <h3>システムセットアップ</h3>
+          <p>院の情報に合わせてAI受付を設定。メニュー・時間枠・AIの応答内容をカスタマイズ。LINE公式アカウントとの連携を行います。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-number">3</div>
+        <div class="flow-step-content">
+          <h3>運用スタート</h3>
+          <p>テスト運用の後、本番稼働。導入後のサポート・AIの調整も継続的に行います。操作でわからないことはいつでもご連絡ください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Pricing ===== -->
+<section class="pricing" id="pricing">
+  <div class="container fade-in">
+    <h2 class="section-title">料金プラン</h2>
+    <p class="section-subtitle">シンプルな月額制。初期費用を抑えてスタートできます</p>
+    <div class="pricing-card-single">
+      <div class="pricing-monitor-badge">モニター院 募集中！</div>
+      <h3>LINE AI受付 プラン</h3>
+      <p class="pricing-desc">LINE公式アカウント連携 + AI自動予約受付<br>+ 管理画面 + 導入サポート</p>
+      <ul class="pricing-highlights">
+        <li>AI自動応答・予約受付</li>
+        <li>予約台帳（管理画面）</li>
+        <li>患者情報管理</li>
+        <li>キャンセル管理</li>
+        <li>LINE公式連携設定</li>
+        <li>導入・運用サポート</li>
+      </ul>
+      <div class="pricing-price-box">
+        <div class="price-label">月額料金</div>
+        <div class="price-main">お問い合わせください</div>
+        <div class="price-note">モニター院は特別価格でご提供いたします</div>
+      </div>
+      <a href="https://lin.ee/s5azjv1" target="_blank" class="btn btn-primary" style="width:100%;max-width:320px;">LINEで問い合わせる</a>
+      <p style="margin-top:12px;font-size:0.85rem;color:#888;">お電話でも: <a href="tel:080-1100-0675" style="color:var(--primary);">080-1100-0675</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="container fade-in">
+    <h2 class="section-title">よくある質問</h2>
+    <p class="section-subtitle">導入前によくいただくご質問をまとめました</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question">
+          LINE公式アカウントを持っていないのですが、大丈夫ですか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">はい、大丈夫です。LINE公式アカウントの作成から一緒にサポートいたします。費用もかかりませんのでご安心ください。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          AIが間違った予約を取ってしまうことはありませんか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">AIは空き枠を自動で確認してから予約を受け付けるため、ダブルブッキングの心配はありません。万が一の場合も、管理画面からすぐに修正できます。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          患者さんが高齢でLINEを使えない場合はどうなりますか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">従来通りの電話予約も併用できます。管理画面から手動で予約を追加できるので、LINEが使えない患者さんの予約も一元管理が可能です。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          導入までどのくらいかかりますか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">お打ち合わせ後、最短1週間で運用を開始できます。院のメニューや営業時間に合わせたカスタマイズもその期間に含まれます。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          他の予約システムと何が違うのですか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">一般的な予約システムは患者さんがフォームに入力する形式ですが、LINE AI受付は「会話型」です。LINEで話しかけるだけでAIが自然に予約まで完了するので、患者さんの負担が格段に少なくなります。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          途中で解約はできますか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">はい、いつでも解約可能です。長期の縛りはありません。まずはモニターとしてお試しいただき、効果を実感していただければと思います。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section" id="contact">
+  <div class="container fade-in">
+    <h2 class="section-title">まずはお気軽にご相談ください</h2>
+    <p class="section-subtitle">モニター院を募集中。特別価格でご導入いただけます</p>
+    <div class="cta-phone">
+      <a href="https://lin.ee/s5azjv1" target="_blank" style="display:inline-flex;align-items:center;gap:8px;">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="#06C755"><path d="M12 2C6.48 2 2 5.88 2 10.54c0 4.24 3.77 7.79 8.86 8.46.34.07.81.22.93.51.1.26.07.67.03.93l-.15.91c-.05.28-.22 1.1.96.6s6.39-3.76 8.71-6.44C23.07 13.54 22 12.13 22 10.54 22 5.88 17.52 2 12 2z"/></svg>
+        LINEで友だち追加
+      </a>
+    </div>
+    <p class="cta-hours">お電話でも: <a href="tel:080-1100-0675" style="color:#fff;text-decoration:underline;">080-1100-0675</a>（平日 9:00〜18:00）</p>
+    <div class="cta-buttons">
+      <a href="https://lin.ee/s5azjv1" target="_blank" class="btn-white">LINEでお問い合わせ</a>
+      <a href="https://ai-receptionist-i9my.onrender.com" target="_blank" class="btn-demo">デモを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">LINE AI受付</div>
+    <div class="footer-company">運営: 合同会社ADLINK</div>
+    <div class="footer-info">〒150-0043 東京都渋谷区道玄坂1丁目10番8号渋谷道玄坂東急ビル2F-C</div>
+    <div class="footer-info">TEL: 080-1100-0675</div>
+    <div class="footer-links">
+      <a href="https://adlink.created.app">会社HP</a>
+      <a href="rakupage.html">ラクページ</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 合同会社ADLINK All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- ===== Mobile Fixed Bar ===== -->
+<div class="mobile-bar">
+  <a href="https://lin.ee/s5azjv1" target="_blank">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="#fff" style="vertical-align:middle;"><path d="M12 2C6.48 2 2 5.88 2 10.54c0 4.24 3.77 7.79 8.86 8.46.34.07.81.22.93.51.1.26.07.67.03.93l-.15.91c-.05.28-.22 1.1.96.6s6.39-3.76 8.71-6.44C23.07 13.54 22 12.13 22 10.54 22 5.88 17.52 2 12 2z"/></svg>
+    LINEでお問い合わせ
+  </a>
+</div>
+
+<script>
+// ===== Hamburger Menu =====
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('navMobile');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMobile.classList.toggle('active');
+  document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+});
+
+function closeMenu() {
+  hamburger.classList.remove('active');
+  navMobile.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ===== FAQ Accordion =====
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    if (!isActive) item.classList.add('active');
+  });
+});
+
+// ===== Scroll Fade-in =====
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+fadeEls.forEach(el => observer.observe(el));
+
+// ===== Header shrink on scroll =====
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.header');
+  if (window.scrollY > 50) {
+    header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+  } else {
+    header.style.boxShadow = '0 2px 12px rgba(0,0,0,0.06)';
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ラクページ サービス利用契約書</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    font-size: 10.5pt;
+    line-height: 1.8;
+    color: #1a1a1a;
+    background: #f5f5f5;
+  }
+  .document {
+    max-width: 210mm;
+    margin: 20px auto;
+    padding: 25mm 20mm 25mm 20mm;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  h1 {
+    text-align: center;
+    font-size: 18pt;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #1a1a1a;
+  }
+  .preamble {
+    margin-bottom: 25px;
+    text-indent: 1em;
+  }
+  .chapter {
+    margin-bottom: 20px;
+  }
+  .chapter-title {
+    font-size: 11.5pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 4px 0;
+    border-bottom: 1px solid #999;
+  }
+  .article {
+    margin-bottom: 15px;
+  }
+  .article-title {
+    font-weight: bold;
+    font-size: 10.5pt;
+    margin-bottom: 5px;
+  }
+  .article-body {
+    margin-left: 1em;
+  }
+  .article-body p {
+    text-indent: 1em;
+    margin-bottom: 4px;
+  }
+  .article-body ol {
+    margin-left: 1.5em;
+    margin-bottom: 6px;
+  }
+  .article-body ol li {
+    margin-bottom: 3px;
+  }
+  .article-body ul {
+    list-style: none;
+    margin-left: 1em;
+    margin-bottom: 6px;
+  }
+  .article-body ul li::before {
+    content: "・";
+  }
+  .sub-list {
+    margin-left: 1.5em;
+    margin-top: 2px;
+  }
+  .sub-list li {
+    margin-bottom: 2px;
+  }
+  .signature-section {
+    margin-top: 50px;
+    page-break-inside: avoid;
+  }
+  .signature-date {
+    text-align: right;
+    margin-bottom: 40px;
+    font-size: 10.5pt;
+  }
+  .signature-date span {
+    display: inline-block;
+    min-width: 200px;
+    border-bottom: 1px solid #666;
+    padding-bottom: 2px;
+  }
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .signature-party {
+    width: 48%;
+  }
+  .signature-party h3 {
+    font-size: 11pt;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+  .signature-field {
+    margin-bottom: 20px;
+  }
+  .signature-field label {
+    display: block;
+    font-size: 9pt;
+    color: #666;
+    margin-bottom: 3px;
+  }
+  .signature-field .line {
+    border-bottom: 1px solid #666;
+    min-height: 25px;
+    margin-bottom: 5px;
+  }
+  .seal-area {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 1px dashed #999;
+    text-align: center;
+    line-height: 60px;
+    font-size: 8pt;
+    color: #999;
+    float: right;
+    margin-top: -10px;
+  }
+  .adlink-info {
+    font-size: 9.5pt;
+    line-height: 1.6;
+  }
+  .note {
+    font-size: 9pt;
+    color: #555;
+    margin-top: 5px;
+  }
+
+  @media print {
+    body {
+      background: #fff;
+      font-size: 10pt;
+    }
+    .document {
+      max-width: none;
+      margin: 0;
+      padding: 15mm 18mm 15mm 18mm;
+      box-shadow: none;
+    }
+    .chapter {
+      page-break-inside: avoid;
+    }
+    .signature-section {
+      page-break-inside: avoid;
+    }
+    @page {
+      size: A4;
+      margin: 10mm;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="document">
+
+<h1>サービス利用契約書</h1>
+
+<div class="preamble">
+  <p>本契約は、合同会社ADLINK（以下「乙」という。）が提供するホームページ制作・運用・保守サービス「ラクページ」（以下「本サービス」という。）の利用に関し、本サービスの利用を申し込む者（以下「甲」という。）と乙との間で、以下のとおり契約を締結する。</p>
+</div>
+
+<!-- 第1条 -->
+<div class="chapter">
+  <div class="chapter-title">第1章　総則</div>
+
+  <div class="article">
+    <div class="article-title">第1条（目的）</div>
+    <div class="article-body">
+      <p>本契約は、乙が甲に対して提供する本サービスの利用条件、権利義務関係その他必要な事項を定めることを目的とする。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第2条（定義）</div>
+    <div class="article-body">
+      <p>本契約において、次の各号に掲げる用語の意義は、当該各号に定めるところによる。</p>
+      <ol>
+        <li>「本サービス」とは、乙が「ラクページ」の名称で提供するホームページの制作、運用及び保守に関する一切のサービスをいう。</li>
+        <li>「制作物」とは、本サービスの提供に伴い乙が制作したホームページのデザイン、HTML/CSSコード、画像その他一切の成果物をいう。</li>
+        <li>「ドメイン」とは、本サービスにおいて甲のホームページに使用するインターネット上のアドレスをいう。</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 第2章 -->
+<div class="chapter">
+  <div class="chapter-title">第2章　サービス内容</div>
+
+  <div class="article">
+    <div class="article-title">第3条（サービスの内容）</div>
+    <div class="article-body">
+      <p>乙は、甲に対し、以下のサービスを提供する。</p>
+      <ol>
+        <li>ホームページの企画・デザイン・制作</li>
+        <li>ホームページの公開・運用に必要なサーバーの提供及び管理</li>
+        <li>ドメインの取得及び管理（費用は月額料金に含む）</li>
+        <li>SSL（暗号化通信）対応</li>
+        <li>スマートフォン・タブレット端末への表示最適化対応</li>
+        <li>テキスト及び画像の更新作業（回数制限なし）</li>
+        <li>その他、乙が別途定めるサービス</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第4条（サービスの変更）</div>
+    <div class="article-body">
+      <p>乙は、本サービスの内容を変更する場合、事前に甲に通知するものとする。ただし、軽微な変更についてはこの限りでない。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 第3章 -->
+<div class="chapter">
+  <div class="chapter-title">第3章　料金及び支払条件</div>
+
+  <div class="article">
+    <div class="article-title">第5条（料金）</div>
+    <div class="article-body">
+      <ol>
+        <li>本サービスの初期費用は0円とする。</li>
+        <li>本サービスの月額利用料金は、9,800円（税別）を基本とし、甲乙間で別途合意した金額とする。</li>
+        <li>月額利用料金には、サーバー利用料、ドメイン取得・管理費用、SSL対応費用及びテキスト・画像の更新費用を含むものとする。</li>
+        <li>前各項に定めのない追加作業については、乙が別途見積りを提示し、甲の承諾を得たうえで実施するものとする。</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第6条（支払方法）</div>
+    <div class="article-body">
+      <ol>
+        <li>甲は、毎月末日を締日とし、翌月末日までに乙が指定する銀行口座への振込みにより月額利用料金を支払うものとする。振込手数料は甲の負担とする。</li>
+        <li>甲が利用料金の支払を遅延した場合、甲は乙に対し、支払期日の翌日から完済の日まで年14.6%の割合による遅延損害金を支払うものとする。</li>
+        <li>乙は、甲の支払が2ヶ月以上遅延した場合、本サービスの提供を一時停止することができるものとする。</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 第4章 -->
+<div class="chapter">
+  <div class="chapter-title">第4章　契約期間及び更新</div>
+
+  <div class="article">
+    <div class="article-title">第7条（契約期間）</div>
+    <div class="article-body">
+      <ol>
+        <li>本契約の有効期間は、本契約の締結日から1年間とする。</li>
+        <li>本契約は、期間満了の1ヶ月前までに甲又は乙のいずれかから書面又は電子メールによる解約の申出がない限り、同一条件でさらに1年間自動更新されるものとし、以後も同様とする。</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 第5章 -->
+<div class="chapter">
+  <div class="chapter-title">第5章　解約</div>
+
+  <div class="article">
+    <div class="article-title">第8条（甲からの解約）</div>
+    <div class="article-body">
+      <ol>
+        <li>甲は、理由の如何を問わず、いつでも本契約を解約することができる。この場合、違約金は発生しない。</li>
+        <li>前項の解約は、解約希望日の1ヶ月前までに、書面又は電子メールにより乙に通知するものとする。</li>
+        <li>解約日が月の途中である場合、当該月の月額利用料金は日割り計算を行わず、1ヶ月分を全額支払うものとする。</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第9条（乙からの解約）</div>
+    <div class="article-body">
+      <p>乙は、甲が次の各号のいずれかに該当する場合、催告なく直ちに本契約を解除することができる。</p>
+      <ol>
+        <li>本契約に定める条項に違反し、相当の期間を定めて催告したにもかかわらず是正しないとき</li>
+        <li>利用料金の支払を3ヶ月以上遅延したとき</li>
+        <li>破産手続開始、民事再生手続開始、会社更生手続開始又は特別清算開始の申立てがあったとき</li>
+        <li>第15条（禁止事項）に違反したとき</li>
+        <li>第18条（反社会的勢力の排除）に違反したとき</li>
+        <li>その他、本契約を継続し難い重大な事由があるとき</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 第6章 -->
+<div class="chapter">
+  <div class="chapter-title">第6章　知的財産権</div>
+
+  <div class="article">
+    <div class="article-title">第10条（著作権）</div>
+    <div class="article-body">
+      <ol>
+        <li>本サービスの提供に伴い乙が制作した制作物に関する著作権（著作権法第27条及び第28条に規定する権利を含む。）その他一切の知的財産権は、乙に帰属するものとする。</li>
+        <li>乙は、甲に対し、本契約の有効期間中、制作物を甲の事業活動の目的に限り使用する非独占的な利用権を許諾する。</li>
+        <li>甲は、乙の事前の書面による承諾なく、制作物を複製、改変、第三者に譲渡又は再許諾してはならない。</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第11条（甲が提供する素材）</div>
+    <div class="article-body">
+      <ol>
+        <li>甲が制作にあたり乙に提供したテキスト、画像、ロゴ等の素材に関する著作権その他の権利は、甲に帰属するものとする。</li>
+        <li>甲は、乙に提供する素材が第三者の権利を侵害しないことを保証する。万一、第三者から権利侵害の主張があった場合、甲の責任と費用において解決するものとする。</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 第7章 -->
+<div class="chapter">
+  <div class="chapter-title">第7章　解約後の取り扱い</div>
+
+  <div class="article">
+    <div class="article-title">第12条（解約後のホームページ）</div>
+    <div class="article-body">
+      <p>本契約が終了した場合、乙は甲のホームページを非公開とし、乙のサーバーから削除するものとする。甲は、解約後に当該ホームページの閲覧及び使用ができなくなることをあらかじめ承諾する。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第13条（解約後のドメイン）</div>
+    <div class="article-body">
+      <ol>
+        <li>本契約の終了後も、ドメインの所有権は乙に帰属するものとする。</li>
+        <li>甲がドメインの譲渡を希望する場合は、実費に加え、手数料5,000円（税別）を乙に支払うことにより、乙は甲へドメインを譲渡するものとする。</li>
+        <li>前項の譲渡手続は、甲が譲渡費用を支払った後、合理的な期間内に完了するものとする。</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第14条（HTMLデータの譲渡）</div>
+    <div class="article-body">
+      <ol>
+        <li>甲が本契約の終了後にHTMLデータ等の制作物の譲渡を希望する場合、10,000円（税別）を乙に支払うことにより、乙は甲にHTMLデータを譲渡するものとする。</li>
+        <li>前項によりHTMLデータが譲渡された場合であっても、制作物の著作権は乙に帰属するものとし、甲は自己の事業活動の範囲内でのみ使用することができる。</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 第8章 -->
+<div class="chapter">
+  <div class="chapter-title">第8章　禁止事項</div>
+
+  <div class="article">
+    <div class="article-title">第15条（禁止事項）</div>
+    <div class="article-body">
+      <p>甲は、本サービスの利用にあたり、次の各号に掲げる行為をしてはならない。</p>
+      <ol>
+        <li>法令又は公序良俗に反するコンテンツの掲載</li>
+        <li>第三者の著作権、商標権、肖像権、プライバシー権その他の権利を侵害するコンテンツの掲載</li>
+        <li>虚偽又は誤解を招く情報の掲載</li>
+        <li>乙又は第三者のサーバー、ネットワークに過度の負担をかける行為</li>
+        <li>本サービスを利用して取得した情報を、乙の事前の承諾なく第三者に提供する行為</li>
+        <li>本サービスのシステムに対する不正アクセス、改ざん又は破壊行為</li>
+        <li>その他、乙が不適切と合理的に判断する行為</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 第9章 -->
+<div class="chapter">
+  <div class="chapter-title">第9章　免責事項</div>
+
+  <div class="article">
+    <div class="article-title">第16条（免責）</div>
+    <div class="article-body">
+      <ol>
+        <li>乙は、天災地変、戦争、テロ、暴動、法令の改正、政府機関の行為、通信回線の障害、サーバー障害、停電その他の不可抗力により本サービスの提供が遅延又は中断した場合、これにより甲に生じた損害について責任を負わないものとする。</li>
+        <li>乙は、本サービスの利用により甲が期待する売上、利益その他の成果を保証するものではない。</li>
+        <li>乙は、本サービスにより制作されたホームページに掲載された甲のコンテンツの正確性、適法性について責任を負わないものとする。</li>
+        <li>乙は、定期的なメンテナンス、システムの更新その他合理的な理由により、本サービスを一時的に停止することがある。この場合、乙は事前に甲に通知するよう努めるものとする。</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 第10章 -->
+<div class="chapter">
+  <div class="chapter-title">第10章　秘密保持</div>
+
+  <div class="article">
+    <div class="article-title">第17条（秘密保持義務）</div>
+    <div class="article-body">
+      <ol>
+        <li>甲及び乙は、本契約の履行に関連して知り得た相手方の技術上又は営業上の秘密情報（以下「秘密情報」という。）を、相手方の事前の書面による承諾なく第三者に開示又は漏洩してはならない。</li>
+        <li>前項の秘密保持義務は、次の各号のいずれかに該当する情報については適用しない。
+          <ol class="sub-list" type="a">
+            <li>開示を受けた時点で既に公知であった情報</li>
+            <li>開示を受けた後、自己の責めに帰すべき事由なく公知となった情報</li>
+            <li>開示を受けた時点で既に自己が保有していた情報</li>
+            <li>正当な権限を有する第三者から秘密保持義務を負うことなく取得した情報</li>
+            <li>法令又は裁判所の命令により開示が義務付けられた情報</li>
+          </ol>
+        </li>
+        <li>本条の秘密保持義務は、本契約終了後も3年間存続するものとする。</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 第11章 -->
+<div class="chapter">
+  <div class="chapter-title">第11章　反社会的勢力の排除</div>
+
+  <div class="article">
+    <div class="article-title">第18条（反社会的勢力の排除）</div>
+    <div class="article-body">
+      <ol>
+        <li>甲及び乙は、自己又はその役員、実質的に経営を支配する者が、暴力団、暴力団員、暴力団準構成員、暴力団関係企業、総会屋、社会運動等標ぼうゴロ、特殊知能暴力集団その他これらに準ずる反社会的勢力（以下「反社会的勢力」という。）に該当しないことを表明し、保証する。</li>
+        <li>甲及び乙は、相手方が前項に違反した場合、何らの催告を要することなく直ちに本契約を解除することができるものとする。</li>
+        <li>前項の規定により本契約が解除された場合、解除された当事者は、相手方に対し、これにより生じた損害の賠償を請求することができないものとする。</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 第12章 -->
+<div class="chapter">
+  <div class="chapter-title">第12章　損害賠償</div>
+
+  <div class="article">
+    <div class="article-title">第19条（損害賠償）</div>
+    <div class="article-body">
+      <ol>
+        <li>甲又は乙は、本契約に違反して相手方に損害を与えた場合、相手方に対し、現実に生じた直接かつ通常の損害を賠償する責任を負うものとする。</li>
+        <li>乙が甲に対して負う損害賠償の累計総額は、損害の発生原因となった事由が生じた時点から遡って過去6ヶ月間に甲が乙に対して支払った月額利用料金の合計額を上限とする。</li>
+        <li>乙は、逸失利益、間接損害、特別損害、偶発的損害及び懲罰的損害については、予見の有無にかかわらず、一切の責任を負わないものとする。</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 第13章 -->
+<div class="chapter">
+  <div class="chapter-title">第13章　一般条項</div>
+
+  <div class="article">
+    <div class="article-title">第20条（権利義務の譲渡禁止）</div>
+    <div class="article-body">
+      <p>甲及び乙は、相手方の事前の書面による承諾なく、本契約上の地位又は本契約に基づく権利義務の全部若しくは一部を、第三者に譲渡し、又は担保に供してはならない。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第21条（通知）</div>
+    <div class="article-body">
+      <p>本契約に基づく通知は、書面又は電子メールにより、相手方が届け出た住所又はメールアドレス宛に行うものとし、到達した時点をもって効力を生ずるものとする。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第22条（契約の変更）</div>
+    <div class="article-body">
+      <p>本契約の変更は、甲乙双方が書面により合意した場合に限り、その効力を生ずるものとする。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第23条（分離可能性）</div>
+    <div class="article-body">
+      <p>本契約のいずれかの条項が法令により無効又は執行不能と判断された場合であっても、当該条項以外の本契約の各条項は、引き続き完全にその効力を有するものとする。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第24条（合意管轄）</div>
+    <div class="article-body">
+      <p>本契約に関する一切の紛争については、東京地方裁判所を第一審の専属的合意管轄裁判所とする。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第25条（準拠法）</div>
+    <div class="article-body">
+      <p>本契約の成立、効力、解釈及び履行については、日本法を準拠法とする。</p>
+    </div>
+  </div>
+
+  <div class="article">
+    <div class="article-title">第26条（協議事項）</div>
+    <div class="article-body">
+      <p>本契約に定めのない事項又は本契約の解釈に疑義が生じた場合は、甲乙誠意をもって協議のうえ解決するものとする。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 署名欄 -->
+<div class="signature-section">
+  <p style="text-align: center; margin-bottom: 20px;">本契約の成立を証するため、本書2通を作成し、甲乙記名押印のうえ各1通を保有する。</p>
+
+  <div class="signature-date">
+    契約締結日：<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日</span>
+  </div>
+
+  <div class="signature-block">
+    <div class="signature-party">
+      <h3>甲（お客様）</h3>
+      <div class="seal-area">印</div>
+      <div class="signature-field">
+        <label>住所</label>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div class="signature-field">
+        <label>会社名・屋号</label>
+        <div class="line"></div>
+      </div>
+      <div class="signature-field">
+        <label>代表者名</label>
+        <div class="line"></div>
+      </div>
+    </div>
+
+    <div class="signature-party">
+      <h3>乙（サービス提供者）</h3>
+      <div class="seal-area">印</div>
+      <div class="adlink-info">
+        <div class="signature-field">
+          <label>住所</label>
+          <p>東京都渋谷区道玄坂1丁目10番8号<br>渋谷道玄坂東急ビル2F-C</p>
+        </div>
+        <div class="signature-field">
+          <label>会社名</label>
+          <p>合同会社ADLINK</p>
+        </div>
+        <div class="signature-field">
+          <label>代表者名</label>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /.document -->
+
+</body>
+</html>

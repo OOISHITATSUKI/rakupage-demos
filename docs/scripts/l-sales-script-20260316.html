@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LINE AI受付 営業トークスクリプト - 2026年3月16日</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 15px; scroll-behavior: smooth; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+    color: #1e293b;
+    background: #f1f5f9;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ========== Print ========== */
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .page { box-shadow: none; margin: 0; padding: 24px 20px; border-radius: 0; }
+    .page + .page { page-break-before: always; }
+    .no-print { display: none !important; }
+    .script-block { break-inside: avoid; }
+    h2 { font-size: 1.3rem; }
+  }
+
+  /* ========== Page wrapper ========== */
+  .page {
+    max-width: 210mm;
+    margin: 16px auto;
+    background: #fff;
+    padding: 40px 48px;
+    box-shadow: 0 4px 24px rgba(0,0,0,.08);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #06b6d4, #2563eb, #7c3aed);
+  }
+
+  /* ========== Typography ========== */
+  h1 { font-size: 2rem; font-weight: 800; line-height: 1.3; color: #0f172a; }
+  h2 { font-size: 1.45rem; font-weight: 700; color: #2563eb; margin: 32px 0 16px; position: relative; padding-bottom: 10px; }
+  h2::after { content: ""; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: #2563eb; border-radius: 2px; }
+  h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: #1e293b; }
+  h4 { font-size: 0.95rem; font-weight: 700; color: #475569; margin-bottom: 4px; }
+  p { margin-bottom: 10px; }
+  .subtitle { font-size: 1rem; color: #64748b; margin-top: 4px; }
+  .text-sm { font-size: 0.85rem; }
+  .text-muted { color: #64748b; }
+
+  /* ========== Header ========== */
+  .header { text-align: center; padding-bottom: 24px; border-bottom: 2px solid #e2e8f0; margin-bottom: 24px; }
+  .header .badge { display: inline-block; background: #2563eb; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 3px 12px; border-radius: 20px; margin-bottom: 10px; letter-spacing: 0.05em; }
+  .header .date { font-size: 0.8rem; color: #94a3b8; margin-top: 6px; }
+
+  /* ========== TOC ========== */
+  .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 24px; margin-bottom: 24px; }
+  .toc h3 { color: #2563eb; margin-bottom: 10px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 4px; font-size: 0.9rem; }
+  .toc a { color: #2563eb; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ========== Script blocks ========== */
+  .script-block {
+    background: #f8fafc;
+    border-left: 4px solid #2563eb;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .script-block.green { border-left-color: #10b981; }
+  .script-block.orange { border-left-color: #f59e0b; }
+  .script-block.purple { border-left-color: #8b5cf6; }
+  .script-block.red { border-left-color: #ef4444; }
+
+  .speaker {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    letter-spacing: 0.03em;
+  }
+  .speaker.you { background: #dbeafe; color: #1d4ed8; }
+  .speaker.client { background: #fef3c7; color: #92400e; }
+
+  .talk { font-size: 0.93rem; line-height: 1.9; }
+  .talk strong { color: #dc2626; font-weight: 700; }
+  .talk em { font-style: normal; background: #fef9c3; padding: 0 3px; border-radius: 2px; }
+
+  /* ==========院別セクション ========== */
+  .clinic-section {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .clinic-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 10px 10px 0 0;
+  }
+  .clinic-section:nth-child(odd)::before { background: #2563eb; }
+  .clinic-section:nth-child(even)::before { background: #06b6d4; }
+
+  .clinic-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+  .clinic-meta {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #e2e8f0;
+  }
+  .clinic-meta span { margin-right: 12px; }
+
+  /* ========== Insight box ========== */
+  .insight {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+  }
+  .insight-title { font-weight: 700; color: #1d4ed8; margin-bottom: 4px; }
+
+  /* ========== Point list ========== */
+  .point-list { list-style: none; padding: 0; }
+  .point-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+  }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 8px;
+    width: 12px; height: 12px;
+    background: #2563eb;
+    border-radius: 50%;
+  }
+
+  /* ========== Check list ========== */
+  .check-list { list-style: none; padding: 0; }
+  .check-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+  }
+  .check-list li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0; top: 0;
+    color: #10b981;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  /* ========== Objection table ========== */
+  .obj-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 0.88rem; }
+  .obj-table th, .obj-table td { padding: 10px 12px; border: 1px solid #e2e8f0; text-align: left; vertical-align: top; }
+  .obj-table th { background: #f1f5f9; font-weight: 700; color: #475569; white-space: nowrap; width: 30%; }
+  .obj-table td { line-height: 1.7; }
+
+  /* ========== Highlight box ========== */
+  .highlight-box {
+    background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+    border: 2px solid #2563eb;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .highlight-box h3 { color: #2563eb; }
+
+  /* ========== Flow ========== */
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .flow-num {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    background: #2563eb;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-right: 12px;
+    margin-top: 2px;
+  }
+  .flow-text { font-size: 0.9rem; }
+  .flow-text strong { color: #0f172a; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- PAGE 1: 表紙 & 目次 -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="header">
+    <div class="badge">CONFIDENTIAL - 社内用</div>
+    <h1>LINE AI受付<br>営業トークスクリプト</h1>
+    <p class="subtitle">接骨院向け電話営業 - カスタマイズ版</p>
+    <p class="date">2026年3月16日 作成 / 合同会社ADLINK LINE AI受付事業部</p>
+  </div>
+
+  <div class="toc">
+    <h3>目次</h3>
+    <ol>
+      <li><a href="#common">共通営業ポイント・基本トーク</a></li>
+      <li><a href="#monitor">モニター院 無料提案トーク</a></li>
+      <li><a href="#objection">想定される反論と切り返し</a></li>
+      <li><a href="#c1">院別スクリプト 1 - 真治堂鍼灸接骨院</a></li>
+      <li><a href="#c2">院別スクリプト 2 - 星名接骨院</a></li>
+      <li><a href="#c3">院別スクリプト 3 - つくし鍼灸整骨院</a></li>
+      <li><a href="#c4">院別スクリプト 4 - いがらし接骨院スポーツはりきゅう</a></li>
+      <li><a href="#c5">院別スクリプト 5 - 両国駅前スポーツ健康医療鍼灸接骨院</a></li>
+      <li><a href="#closing">クロージング・次回アクション</a></li>
+    </ol>
+  </div>
+
+  <div class="insight">
+    <div class="insight-title">本スクリプトの使い方</div>
+    各院のリサーチ情報に基づき、相手の課題に合わせたカスタマイズトークを用意しています。電話をかける前に該当院のセクションを確認し、相手のペインポイントを把握した上で電話してください。共通パートは全院で使えるベースです。
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 2: 共通営業ポイント -->
+<!-- ============================================================ -->
+<div class="page" id="common">
+  <h2>共通営業ポイント</h2>
+
+  <h3>サービス概要（30秒で伝える）</h3>
+  <div class="script-block">
+    <p class="talk">
+      LINE公式アカウントにAIを搭載して、<strong>24時間自動で予約受付</strong>ができるシステムです。<br>
+      患者さんがLINEでメッセージを送ると、AIが症状のヒアリングから空き枠の提案、予約確定まで<strong>すべて自動</strong>で行います。<br>
+      施術中に電話が鳴って手を止める必要がなくなります。
+    </p>
+  </div>
+
+  <h3>刺さるキーワード（繰り返し使う）</h3>
+  <ul class="check-list">
+    <li><strong>施術中の電話対応が不要</strong> - 最大のペインポイント</li>
+    <li><strong>24時間受付</strong> - 夜間・休診日の取りこぼし防止</li>
+    <li><strong>患者さんの8割はLINEユーザー</strong> - 電話よりハードルが低い</li>
+    <li><strong>新患の離脱防止</strong> - 電話がつながらず他院に流れるのを防ぐ</li>
+    <li><strong>受付スタッフ不要</strong> - 人件費の削減</li>
+    <li><strong>初期費用ゼロ・モニター無料</strong> - リスクなく試せる</li>
+  </ul>
+
+  <h3>基本の電話オープニング</h3>
+  <div class="script-block">
+    <span class="speaker you">自分</span>
+    <p class="talk">
+      お忙しいところ恐れ入ります。<br>
+      合同会社ADLINKの大石と申します。<br>
+      接骨院さま向けの<em>LINE予約の自動化サービス</em>のご案内でお電話いたしました。<br>
+      院長先生はいらっしゃいますでしょうか？
+    </p>
+  </div>
+
+  <div class="script-block green">
+    <span class="speaker you">自分</span>
+    <p class="talk">
+      【院長につながった場合】<br>
+      院長先生、お忙しいところ失礼いたします。<br>
+      合同会社ADLINKの大石と申します。<br>
+      実は今、<strong>東京の接骨院さまを対象に、LINEで予約を24時間AIが自動受付するシステム</strong>のモニター院を募集しておりまして、<br>
+      <em>1分だけ</em>お時間いただけますでしょうか？
+    </p>
+  </div>
+
+  <div class="script-block orange">
+    <span class="speaker client">相手</span>
+    <p class="talk">
+      【忙しいと言われた場合】<br>
+    </p>
+    <span class="speaker you">自分</span>
+    <p class="talk">
+      承知いたしました。まさに<strong>その「忙しくて電話に出られない」という課題を解決するサービス</strong>なんです。<br>
+      お時間のよろしいタイミングを教えていただければ、改めてお電話いたします。<br>
+      何時頃がお手すきでしょうか？
+    </p>
+  </div>
+
+  <h3>ニーズ喚起トーク</h3>
+  <div class="script-block">
+    <span class="speaker you">自分</span>
+    <p class="talk">
+      先生、一つだけお聞きしたいのですが――<br>
+      <strong>施術中にかかってくる電話</strong>、どうされていますか？<br>
+      <br>
+      多くの接骨院さんからお聞きするのが、<br>
+      「手を止めて出るけど、患者さんに申し訳ない」<br>
+      「出られなくて、折り返したら他の院に予約していた」<br>
+      という話なんです。<br>
+      <br>
+      先生のところではいかがですか？
+    </p>
+  </div>
+
+  <h3>数字で説明するトーク</h3>
+  <div class="script-block purple">
+    <span class="speaker you">自分</span>
+    <p class="talk">
+      ある調査では、<strong>電話がつながらなかった新患の約6割が他院に流れる</strong>というデータがあります。<br>
+      仮に1日1件の取りこぼしがあるとすると、<br>
+      初診料5,000円 × 月20日 = <strong>月10万円の機会損失</strong>です。<br>
+      さらにリピートを考えると、年間で<strong>数百万円規模</strong>の影響になります。<br>
+      <br>
+      これをLINEで24時間受けられるようにするだけで、取りこぼしをゼロに近づけられます。
+    </p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 3: モニター提案トーク -->
+<!-- ============================================================ -->
+<div class="page" id="monitor">
+  <h2>モニター院 無料提案トーク</h2>
+
+  <div class="highlight-box">
+    <h3>モニター提案の核心</h3>
+    <p class="text-sm">「無料なのでリスクゼロ」「フィードバックをいただくだけ」「先着5院限定」の3点を必ず伝える。</p>
+  </div>
+
+  <div class="script-block green">
+    <span class="speaker you">自分</span>
+    <p class="talk">
+      実は今回、サービスの正式リリースに向けて、<br>
+      <strong>実際の接骨院さまにモニターとしてご協力いただきたい</strong>と考えておりまして。<br>
+      <br>
+      モニター院さまには、<br>
+      <em>初期費用・月額費用すべて無料</em>でシステムをご利用いただけます。<br>
+      <br>
+      お願いしたいのは、<strong>使ってみた感想やご意見をいただくこと</strong>、それだけです。<br>
+      「ここが使いにくい」「こういう機能がほしい」といったお声をいただけると、<br>
+      我々としても大変ありがたいのです。
+    </p>
+  </div>
+
+  <div class="script-block">
+    <span class="speaker you">自分</span>
+    <p class="talk">
+      お試しいただいて、もし合わなければ<strong>いつでもやめていただいて構いません</strong>。<br>
+      解約の縛りなども一切ございません。<br>
+      <br>
+      正式リリース後も、モニター院さまには<strong>特別価格</strong>でご継続いただける形を考えています。<br>
+      <br>
+      <strong>先着5院限定</strong>のご案内ですので、ご興味があれば早めにお声がけいただければ幸いです。
+    </p>
+  </div>
+
+  <h3>導入の簡単さを伝えるトーク</h3>
+  <div class="script-block">
+    <span class="speaker you">自分</span>
+    <p class="talk">
+      導入はとても簡単です。<br>
+      <strong>先生にやっていただくことは、ほぼありません。</strong><br>
+      <br>
+      LINE公式アカウントをすでにお持ちでしたら、そこにAIを接続するだけです。<br>
+      お持ちでなければ、アカウント開設からすべて私どもがサポートいたします。<br>
+      <br>
+      設定は<em>最短で翌日</em>から稼働できます。
+    </p>
+  </div>
+
+  <h3>導入フロー（説明用）</h3>
+  <div class="flow-step">
+    <div class="flow-num">1</div>
+    <div class="flow-text"><strong>お申込み</strong> - 電話またはLINEで「モニター希望」とお伝えください</div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">2</div>
+    <div class="flow-text"><strong>ヒアリング</strong> - 診療時間・メニュー・予約ルールなどを確認（15分程度）</div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">3</div>
+    <div class="flow-text"><strong>AI設定</strong> - 貴院専用のAI受付を構築（1〜2営業日）</div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">4</div>
+    <div class="flow-text"><strong>LINE接続</strong> - 公式アカウントにAIを接続（当社が実施）</div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">5</div>
+    <div class="flow-text"><strong>運用開始</strong> - 24時間AI予約受付スタート</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: 反論対応 -->
+<!-- ============================================================ -->
+<div class="page" id="objection">
+  <h2>想定される反論と切り返し</h2>
+
+  <table class="obj-table">
+    <tr>
+      <th>「うちは電話で十分」</th>
+      <td>
+        おっしゃる通り、お電話でご対応されている院さんは多いです。<br>
+        ただ、<strong>施術中の電話対応</strong>は、先生にも患者さんにも負担になりませんか？<br>
+        LINEなら施術を中断せず、AIが代わりに対応します。<strong>電話をやめる必要はなく、LINEという窓口を「追加」するイメージ</strong>です。
+      </td>
+    </tr>
+    <tr>
+      <th>「AIに任せるのは不安」</th>
+      <td>
+        ご心配はもっともです。ただ、予約の受付という<strong>定型業務</strong>はAIが最も得意とする分野です。<br>
+        AIが対応した内容はすべて<strong>先生のLINEに通知</strong>されますので、何かあればすぐ確認できます。<br>
+        まずはモニターでお試しいただいて、合わなければいつでもやめられます。
+      </td>
+    </tr>
+    <tr>
+      <th>「費用はどのくらい？」</th>
+      <td>
+        正式リリース後は月額制を予定していますが、<strong>今回はモニター院として完全無料</strong>です。<br>
+        初期費用もかかりません。正式リリース後もモニター院さまには特別価格をご用意します。
+      </td>
+    </tr>
+    <tr>
+      <th>「LINE使ってない患者が多い」</th>
+      <td>
+        日本のLINEユーザーは<strong>9,700万人</strong>で、60代以上でも7割以上が利用しています。<br>
+        電話が苦手な若い世代の集患にも効果的です。<br>
+        電話予約はそのまま残しつつ、<strong>LINEという選択肢を増やす</strong>だけですのでリスクはありません。
+      </td>
+    </tr>
+    <tr>
+      <th>「考えさせてほしい」</th>
+      <td>
+        もちろんです。ただ、モニター枠が<strong>先着5院</strong>のため、<br>
+        まずは実際の画面をお見せする<strong>5分のデモ</strong>だけでもいかがでしょうか？<br>
+        デモを見ていただいてから判断していただければ結構です。<br>
+        今週と来週、どちらがご都合よろしいですか？
+      </td>
+    </tr>
+    <tr>
+      <th>「自分では決められない」<br>（本部決裁）</th>
+      <td>
+        承知いたしました。本部のご担当者様向けの<strong>資料</strong>をお送りすることもできます。<br>
+        また、本部の方とのお打ち合わせにも同席させていただけますので、<br>
+        まずは先生から「こういうサービスがある」とお伝えいただけますでしょうか？
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: 院別スクリプト1 - 真治堂 -->
+<!-- ============================================================ -->
+<div class="page" id="c1">
+  <h2>院別カスタマイズスクリプト</h2>
+
+  <div class="clinic-section">
+    <div class="clinic-name">1. 真治堂鍼灸接骨院</div>
+    <div class="clinic-meta">
+      <span>荒川区</span>
+      <span>Web予約フォーム廃止済み</span>
+      <span>電話 + Instagram DM対応</span>
+      <span>夜間対応あり</span>
+    </div>
+
+    <div class="insight">
+      <div class="insight-title">リサーチポイント</div>
+      Web予約フォームを以前設けていたが廃止している。予約手段が電話とInstagram DMのみ。夜間帯の施術もあり、電話対応の負担が大きいと推測。Instagram DMで個別対応している点から、デジタルツールへの抵抗は低い。
+    </div>
+
+    <h4>アプローチの方針</h4>
+    <ul class="point-list">
+      <li>「Web予約を一度やめた理由」に共感しつつ、LINEは別物であることを伝える</li>
+      <li>Instagram DMの手動対応の手間をAIで自動化できる点を訴求</li>
+      <li>夜間の予約受付を24時間自動化できるメリットを強調</li>
+    </ul>
+
+    <h4>電話トークスクリプト</h4>
+    <div class="script-block">
+      <span class="speaker you">自分</span>
+      <p class="talk">
+        院長先生、お忙しいところ失礼いたします。合同会社ADLINKの大石と申します。<br>
+        真治堂さんのホームページとInstagramを拝見しまして、<br>
+        夜間帯も含めてしっかりご対応されているのが印象的でした。<br>
+        <br>
+        一つお聞きしたいのですが、以前はWeb予約フォームを設けていらっしゃったと思うのですが、<br>
+        廃止された理由は何かおありでしたか？
+      </p>
+    </div>
+
+    <div class="script-block orange">
+      <span class="speaker client">相手</span>
+      <p class="talk">（Web予約の問題点を話してくれる想定 → 共感する）</p>
+    </div>
+
+    <div class="script-block green">
+      <span class="speaker you">自分</span>
+      <p class="talk">
+        なるほど、そうだったんですね。<br>
+        実は今、Web予約フォームの代わりに<strong>LINEでAIが自動予約受付する仕組み</strong>が出てきていまして。<br>
+        <br>
+        従来のWeb予約フォームとの違いは、<strong>AIが会話形式で対応する</strong>ので、<br>
+        先生がInstagram DMで個別に返信されているような丁寧な対応を、<br>
+        <em>AIが24時間自動で</em>やってくれる形なんです。<br>
+        <br>
+        特に先生のところは夜間帯の施術もされていると思いますが、<br>
+        <strong>夜に「明日予約したい」とLINEが来ても、AIがその場で対応</strong>してくれます。<br>
+        <br>
+        Instagram DMの対応も含めて、先生の負担がかなり減るのではないかと思いまして<br>
+        ご連絡させていただきました。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: 院別スクリプト2 - 星名接骨院 -->
+<!-- ============================================================ -->
+<div class="page" id="c2">
+  <div class="clinic-section">
+    <div class="clinic-name">2. 星名接骨院</div>
+    <div class="clinic-meta">
+      <span>台東区</span>
+      <span>老舗</span>
+      <span>電話予約のみ</span>
+      <span>独自の「星名式健体法」</span>
+    </div>
+
+    <div class="insight">
+      <div class="insight-title">リサーチポイント</div>
+      老舗の接骨院で、独自メソッド「星名式健体法」を持つ。予約手段は電話のみ。デジタル化が進んでいない可能性があるが、独自の施術法があることから、技術・サービスへのこだわりは強い。「施術の質を上げるために電話対応を減らす」という文脈で訴求する。
+    </div>
+
+    <h4>アプローチの方針</h4>
+    <ul class="point-list">
+      <li>老舗の実績と「星名式健体法」を尊重・リスペクトする姿勢を見せる</li>
+      <li>「施術に集中できる環境づくり」という観点で提案</li>
+      <li>デジタルへの抵抗感を想定し、「患者さんがLINEで送るだけ」のシンプルさを強調</li>
+    </ul>
+
+    <h4>電話トークスクリプト</h4>
+    <div class="script-block">
+      <span class="speaker you">自分</span>
+      <p class="talk">
+        院長先生、お忙しいところ失礼いたします。合同会社ADLINKの大石と申します。<br>
+        星名接骨院さんのことを調べさせていただいたのですが、<br>
+        <strong>「星名式健体法」</strong>という独自の施術法をお持ちなんですね。<br>
+        地域で長く愛されていらっしゃるのが伝わってきました。<br>
+        <br>
+        一つお伺いしたいのですが、<br>
+        現在お電話のみで予約を受けていらっしゃると思うのですが、<br>
+        <strong>施術中にお電話が入ったとき</strong>はどのように対応されていますか？
+      </p>
+    </div>
+
+    <div class="script-block orange">
+      <span class="speaker client">相手</span>
+      <p class="talk">（施術中の電話対応について回答される想定）</p>
+    </div>
+
+    <div class="script-block green">
+      <span class="speaker you">自分</span>
+      <p class="talk">
+        やはりそうですよね。<br>
+        先生のように<strong>独自の技術をお持ちの院</strong>こそ、<br>
+        施術に100%集中できる環境が大事だと思うんです。<br>
+        <br>
+        実は今、<strong>LINEにAIを搭載して、予約を24時間自動で受け付ける仕組み</strong>がありまして。<br>
+        先生の手を煩わせることなく、AIが患者さんの予約を受けてくれます。<br>
+        <br>
+        先生の院の場合、まさに<strong>「星名式健体法」の施術に集中するための環境づくり</strong>として<br>
+        お役に立てるのではないかと思いました。<br>
+        <br>
+        患者さんはLINEでメッセージを送るだけです。<br>
+        <em>先生が操作するものは何もありません。</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: 院別スクリプト3 - つくし鍼灸整骨院 -->
+<!-- ============================================================ -->
+<div class="page" id="c3">
+  <div class="clinic-section">
+    <div class="clinic-name">3. つくし鍼灸整骨院</div>
+    <div class="clinic-meta">
+      <span>台東区</span>
+      <span>技術力の評判が高い</span>
+      <span>電話・EPARK</span>
+      <span>LINE予約の記載なし</span>
+    </div>
+
+    <div class="insight">
+      <div class="insight-title">リサーチポイント</div>
+      技術力に定評があり口コミ評価が高い。EPARKを使っているが、LINE予約は導入していない。EPARKの手数料やプラットフォーム依存を課題に感じている可能性がある。LINE予約は自社のLINE公式アカウントで完結するため、EPARKとの差別化ポイントになる。
+    </div>
+
+    <h4>アプローチの方針</h4>
+    <ul class="point-list">
+      <li>技術力の高さを褒めたうえで、「良い技術が予約の取りこぼしで伝わらないのはもったいない」と伝える</li>
+      <li>EPARKは他院との比較が生まれるが、LINEは自院だけの窓口であることを強調</li>
+      <li>LINE予約がまだない点を「伸びしろ」として提案</li>
+    </ul>
+
+    <h4>電話トークスクリプト</h4>
+    <div class="script-block">
+      <span class="speaker you">自分</span>
+      <p class="talk">
+        院長先生、お忙しいところ失礼いたします。合同会社ADLINKの大石と申します。<br>
+        つくし鍼灸整骨院さんのことを調べさせていただいたのですが、<br>
+        患者さんからの<strong>口コミ評価がとても高くて</strong>、技術力にこだわりを持っていらっしゃるのが伝わりました。<br>
+        <br>
+        ところで先生、現在EPARKとお電話で予約を受けていらっしゃると思うのですが、<br>
+        <strong>LINE経由での予約</strong>は検討されたことはありますか？
+      </p>
+    </div>
+
+    <div class="script-block orange">
+      <span class="speaker client">相手</span>
+      <p class="talk">（LINE予約について回答される想定）</p>
+    </div>
+
+    <div class="script-block green">
+      <span class="speaker you">自分</span>
+      <p class="talk">
+        なるほど。実は今、<strong>LINEにAIを組み込んで予約受付を自動化する仕組み</strong>をご案内しています。<br>
+        <br>
+        EPARKさんとの大きな違いは2つあります。<br>
+        1つ目は、<strong>自院のLINE公式アカウントで完結する</strong>ので、<br>
+        他院と比較されることなく、先生の院のファンがそのまま予約できます。<br>
+        <br>
+        2つ目は、<strong>AIが24時間対応</strong>するので、<br>
+        施術中の電話にも、夜間の問い合わせにも、自動で応答してくれます。<br>
+        <br>
+        先生のように技術力が高い院は、<strong>一度来てもらえればリピートにつながる</strong>はずです。<br>
+        だからこそ、<em>新患の取りこぼしゼロ</em>が大事だと思うんです。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: 院別スクリプト4 - いがらし接骨院 -->
+<!-- ============================================================ -->
+<div class="page" id="c4">
+  <div class="clinic-section">
+    <div class="clinic-name">4. いがらし接骨院スポーツはりきゅう</div>
+    <div class="clinic-meta">
+      <span>墨田区</span>
+      <span>スポーツ特化</span>
+      <span>電話・EPARK</span>
+      <span>施術中の電話対応が課題</span>
+    </div>
+
+    <div class="insight">
+      <div class="insight-title">リサーチポイント</div>
+      スポーツ傷害に特化した専門院。EPARK掲載あり。スポーツ選手は試合や練習後の夜間に予約をしたいケースが多い。スポーツ特化院は施術時間が長い傾向があり、施術中の電話対応の課題がより深刻。
+    </div>
+
+    <h4>アプローチの方針</h4>
+    <ul class="point-list">
+      <li>スポーツ特化ならではの「施術時間の長さ」と「夜間ニーズ」を切り口にする</li>
+      <li>アスリートの予約行動（練習後・試合後の夜間）に合わせた24時間受付を訴求</li>
+      <li>「スポーツ選手は電話よりLINEの世代が多い」という切り口</li>
+    </ul>
+
+    <h4>電話トークスクリプト</h4>
+    <div class="script-block">
+      <span class="speaker you">自分</span>
+      <p class="talk">
+        院長先生、お忙しいところ失礼いたします。合同会社ADLINKの大石と申します。<br>
+        いがらし接骨院さんのホームページを拝見しまして、<br>
+        <strong>スポーツ傷害に特化</strong>されているんですね。すごく専門性が高いなと感じました。<br>
+        <br>
+        一つお伺いしたいのですが、<br>
+        スポーツをされている患者さんだと、<strong>練習や試合の後、夜に「明日診てほしい」</strong>と<br>
+        連絡してくるケースが多いのではないですか？
+      </p>
+    </div>
+
+    <div class="script-block orange">
+      <span class="speaker client">相手</span>
+      <p class="talk">（夜間の問い合わせについて回答される想定）</p>
+    </div>
+
+    <div class="script-block green">
+      <span class="speaker you">自分</span>
+      <p class="talk">
+        やはりそうですよね。<br>
+        スポーツ選手って、<strong>「今すぐ予約したい」</strong>というタイミングが<br>
+        営業時間外に来ることが多いと思うんです。<br>
+        <br>
+        そこで今ご案内しているのが、<strong>LINEにAIを搭載した24時間予約受付システム</strong>です。<br>
+        <br>
+        たとえば、選手が夜10時に「明日の肩の治療を予約したい」とLINEを送ると、<br>
+        <strong>AIがその場で空き枠を提案して予約を確定</strong>してくれます。<br>
+        <br>
+        先生のところは施術時間もしっかり取られていると思うので、<br>
+        <em>施術中に電話で手を止められることもなくなります</em>。<br>
+        <br>
+        しかもスポーツ選手は若い世代が多いので、<br>
+        <strong>電話よりLINEのほうが予約のハードルが低い</strong>んです。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: 院別スクリプト5 - 両国駅前 -->
+<!-- ============================================================ -->
+<div class="page" id="c5">
+  <div class="clinic-section">
+    <div class="clinic-name">5. 両国駅前スポーツ健康医療鍼灸接骨院</div>
+    <div class="clinic-meta">
+      <span>墨田区</span>
+      <span>11店舗グループ</span>
+      <span>電話・Web予約</span>
+      <span>本部決裁の可能性あり</span>
+    </div>
+
+    <div class="insight">
+      <div class="insight-title">リサーチポイント</div>
+      11店舗を展開するグループ院。Web予約も電話も対応しているが、LINE AI予約は未導入。グループ院の場合、院長の一存では決められず本部決裁の可能性が高い。ただし「1院でのモニター」という形なら院長判断で動ける可能性もある。グループ全体に広がれば大きな成果になる。
+    </div>
+
+    <h4>アプローチの方針</h4>
+    <ul class="point-list">
+      <li>グループ院のスケールメリットを意識させる（1院で成功→全院展開）</li>
+      <li>「まず1院でモニター」というスモールスタートを提案して決裁ハードルを下げる</li>
+      <li>本部決裁の可能性を想定し、資料送付や本部への説明を申し出る</li>
+    </ul>
+
+    <h4>電話トークスクリプト</h4>
+    <div class="script-block">
+      <span class="speaker you">自分</span>
+      <p class="talk">
+        お忙しいところ失礼いたします。合同会社ADLINKの大石と申します。<br>
+        両国駅前スポーツ健康医療鍼灸接骨院さんのことを調べさせていただきまして、<br>
+        <strong>11店舗のグループ</strong>を展開されているんですね。素晴らしいですね。<br>
+        <br>
+        実は今、接骨院グループさま向けに、<br>
+        <strong>LINEでAIが予約を24時間自動受付するシステム</strong>のモニター院を募集しておりまして。<br>
+        <br>
+        院長先生もしくはご担当の方にお話しできればと思うのですが、<br>
+        いらっしゃいますでしょうか？
+      </p>
+    </div>
+
+    <div class="script-block orange">
+      <span class="speaker client">相手</span>
+      <p class="talk">（院長or担当者につながった場合）</p>
+    </div>
+
+    <div class="script-block green">
+      <span class="speaker you">自分</span>
+      <p class="talk">
+        ありがとうございます。<br>
+        グループ院さんの場合、各院の電話対応や予約管理って<br>
+        <strong>統一が難しい課題</strong>ではないですか？<br>
+        <br>
+        今回ご案内しているLINE AIは、<br>
+        <strong>各院のLINE公式アカウントにAIを搭載</strong>するだけで、<br>
+        予約受付が24時間自動化されます。<br>
+        <br>
+        グループ全院で導入すれば、<br>
+        <strong>予約対応の品質を統一</strong>でき、各院のスタッフの負担も減らせます。<br>
+        <br>
+        もちろん、最初から全院でとなると大きな判断になりますので、<br>
+        <em>まずは両国駅前院さんの1院だけでモニター</em>としてお試しいただくのはいかがでしょうか？<br>
+        <br>
+        モニターは<strong>完全無料</strong>ですので、<br>
+        1院で効果を確認してから、グループ全体への展開をご検討いただければと思います。
+      </p>
+    </div>
+
+    <div class="script-block purple">
+      <span class="speaker you">自分</span>
+      <p class="talk">
+        【本部決裁と言われた場合】<br>
+        承知いたしました。<br>
+        本部のご担当者様向けに、<strong>導入効果や費用をまとめた資料</strong>をお送りすることもできます。<br>
+        <br>
+        また、「<strong>1院だけの無料モニター</strong>」という形であれば、<br>
+        大きな投資判断ではないので、院長先生の裁量で試せる可能性もあるかと思います。<br>
+        <br>
+        いずれにしても、まずは<strong>5分のデモ</strong>を見ていただければ<br>
+        イメージが湧くと思いますので、一度お時間をいただけませんか？
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: クロージング -->
+<!-- ============================================================ -->
+<div class="page" id="closing">
+  <h2>クロージング・次回アクション</h2>
+
+  <h3>デモ誘導トーク（最重要）</h3>
+  <div class="script-block green">
+    <span class="speaker you">自分</span>
+    <p class="talk">
+      先生、口頭だとなかなかイメージが湧きにくいと思いますので、<br>
+      <strong>実際のAIの動きを5分だけお見せする</strong>のが一番早いと思います。<br>
+      <br>
+      スマホの画面をお見せするだけですので、<br>
+      <strong>今週か来週、5分だけお時間をいただけませんか？</strong><br>
+      <br>
+      直接お伺いすることもできますし、<br>
+      お忙しければ<em>LINEのビデオ通話やZoom</em>でも対応できます。<br>
+      <br>
+      ご都合の良い日時を教えていただければ、こちらから合わせます。
+    </p>
+  </div>
+
+  <h3>日程確定トーク</h3>
+  <div class="script-block">
+    <span class="speaker you">自分</span>
+    <p class="talk">
+      ありがとうございます。では、<strong>○月○日の○時</strong>にお伺いいたします。<br>
+      <br>
+      当日は5分ほどで実際のAIの動きをお見せしますので、<br>
+      それを見ていただいてからご判断いただければと思います。<br>
+      <br>
+      お時間いただきありがとうございます。<br>
+      当日お会いできるのを楽しみにしております。<br>
+      失礼いたします。
+    </p>
+  </div>
+
+  <h3>興味なしの場合の退き方</h3>
+  <div class="script-block red">
+    <span class="speaker you">自分</span>
+    <p class="talk">
+      承知いたしました。お忙しい中お時間いただきありがとうございました。<br>
+      もし今後ご興味が出てきましたら、いつでもお気軽にご連絡ください。<br>
+      <strong>合同会社ADLINKの大石</strong>と申します。<br>
+      本日はお時間いただきありがとうございました。失礼いたします。
+    </p>
+  </div>
+
+  <h3>電話後のフォローアクション</h3>
+  <table class="obj-table">
+    <tr>
+      <th>アポ取得</th>
+      <td>
+        すぐにGoogleカレンダーに登録。前日にリマインドLINEまたは電話。<br>
+        デモ用のスマホとデモURL（ <strong>https://ai-receptionist-i9my.onrender.com</strong> ）を準備。
+      </td>
+    </tr>
+    <tr>
+      <th>資料送付依頼</th>
+      <td>
+        営業提案書PDFをメールまたはLINEで当日中に送付。<br>
+        3営業日後にフォロー電話。
+      </td>
+    </tr>
+    <tr>
+      <th>検討中</th>
+      <td>
+        「1週間後に改めてお電話します」と伝えて電話。<br>
+        モニター枠の残り数を伝えてスピード感を演出。
+      </td>
+    </tr>
+    <tr>
+      <th>断られた</th>
+      <td>
+        丁寧にお礼を伝えて終話。3ヶ月後にリスト再アプローチ。<br>
+        断り理由をCRMに記録し、次回のトーク改善に活用。
+      </td>
+    </tr>
+  </table>
+
+  <div class="highlight-box" style="margin-top: 24px;">
+    <h3>営業の心得</h3>
+    <ul class="check-list">
+      <li><strong>売り込まない</strong> - 「モニターとしてご協力いただきたい」というスタンス</li>
+      <li><strong>相手の課題を先に聞く</strong> - こちらから話すのは相手が課題を口にしてから</li>
+      <li><strong>5分のデモに持ち込む</strong> - 電話で全てを説明しようとしない</li>
+      <li><strong>先着5院を常に意識させる</strong> - 緊急性を感じてもらう</li>
+      <li><strong>断られても感謝を忘れない</strong> - 印象が良ければ後日つながる</li>
+    </ul>
+  </div>
+
+  <p style="text-align: center; margin-top: 32px; font-size: 0.8rem; color: #94a3b8;">
+    合同会社ADLINK LINE AI受付事業部 / 2026年3月16日作成 / 社外秘
+  </p>
+</div>
+
+</body>
+</html>

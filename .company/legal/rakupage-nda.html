@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秘密保持契約書 - ラクページ（ホームページ制作サービス）</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    font-size: 10.5pt;
+    line-height: 1.8;
+    color: #1a1a1a;
+    background: #f5f5f5;
+  }
+
+  .document {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    padding: 25mm 20mm 25mm 25mm;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 18pt;
+    font-weight: bold;
+    letter-spacing: 0.5em;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1a1a1a;
+  }
+
+  .preamble {
+    margin-bottom: 24px;
+    text-indent: 1em;
+  }
+
+  .article {
+    margin-bottom: 20px;
+  }
+
+  .article-title {
+    font-size: 11pt;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  .article-body {
+    margin-left: 1em;
+  }
+
+  .article-body p {
+    text-indent: 1em;
+    margin-bottom: 4px;
+  }
+
+  .article-body ol {
+    list-style: none;
+    counter-reset: item;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .article-body ol > li {
+    counter-increment: item;
+    margin-bottom: 4px;
+    padding-left: 2.5em;
+    text-indent: -2.5em;
+  }
+
+  .article-body ol > li::before {
+    content: "(" counter(item) ") ";
+  }
+
+  .article-body .sub-list {
+    list-style: none;
+    counter-reset: sub-item;
+    margin-left: 1em;
+    padding-left: 0;
+  }
+
+  .article-body .sub-list > li {
+    counter-increment: sub-item;
+    padding-left: 2em;
+    text-indent: -2em;
+  }
+
+  .article-body .sub-list > li::before {
+    content: counter(sub-item, katakana-iroha) ". ";
+  }
+
+  .clause-num {
+    display: inline;
+  }
+
+  .paragraph {
+    margin-bottom: 4px;
+    padding-left: 1.5em;
+    text-indent: -1.5em;
+  }
+
+  .signature-section {
+    margin-top: 50px;
+  }
+
+  .signature-date {
+    margin-bottom: 30px;
+  }
+
+  .signature-date span {
+    display: inline-block;
+    min-width: 60px;
+    border-bottom: 1px solid #1a1a1a;
+    margin: 0 4px;
+    text-align: center;
+  }
+
+  .signature-block {
+    margin-bottom: 40px;
+    padding-left: 40%;
+  }
+
+  .signature-block .label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .signature-block .field {
+    margin-bottom: 8px;
+  }
+
+  .signature-block .field-label {
+    display: inline-block;
+    width: 70px;
+  }
+
+  .signature-block .field-line {
+    display: inline-block;
+    min-width: 200px;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 2px;
+  }
+
+  .seal-space {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 8pt;
+    color: #999;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+
+  @media print {
+    body {
+      background: none;
+    }
+
+    .document {
+      width: 100%;
+      margin: 0;
+      padding: 15mm 18mm 15mm 22mm;
+      box-shadow: none;
+      min-height: auto;
+    }
+
+    .article {
+      page-break-inside: avoid;
+    }
+
+    .signature-section {
+      page-break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="document">
+
+  <h1>秘密保持契約書</h1>
+
+  <div class="preamble">
+    <p>（以下「甲」という。）と合同会社ADLINK（以下「乙」という。）は、乙が提供するホームページ制作サービス「ラクページ」（以下「本サービス」という。）に関連して相互に開示する秘密情報の取扱いについて、以下のとおり秘密保持契約（以下「本契約」という。）を締結する。</p>
+  </div>
+
+  <!-- 第1条 -->
+  <div class="article">
+    <div class="article-title">第1条（目的）</div>
+    <div class="article-body">
+      <p>本契約は、甲乙間における本サービスの提供に関する検討、協議、契約の締結および履行（以下「本目的」という。）に際し、甲乙が相互に開示する秘密情報を適切に保護することを目的とする。</p>
+    </div>
+  </div>
+
+  <!-- 第2条 -->
+  <div class="article">
+    <div class="article-title">第2条（秘密情報の定義）</div>
+    <div class="article-body">
+      <p class="paragraph">1. 本契約において「秘密情報」とは、本目的に関連して、一方の当事者（以下「開示者」という。）が他方の当事者（以下「受領者」という。）に対し、口頭、書面、電磁的記録その他の方法により開示した技術上、営業上その他一切の情報をいう。秘密情報には、以下の情報を含むが、これらに限られない。</p>
+      <ol>
+        <li>甲の事業情報、顧客情報、売上情報、経営に関する情報</li>
+        <li>ホームページ制作に際して甲が乙に提供する写真、テキスト、ロゴ、デザイン素材その他の資料</li>
+        <li>甲の取引先、顧客、従業員等に関する個人情報</li>
+        <li>乙のサービス仕様、技術情報、ソースコード、システム構成に関する情報</li>
+        <li>乙の営業ノウハウ、価格体系、提案書その他の営業上の情報</li>
+        <li>本契約の存在および内容</li>
+      </ol>
+      <p class="paragraph">2. 前項の規定にかかわらず、次の各号のいずれかに該当する情報は、秘密情報に含まないものとする。</p>
+      <ol>
+        <li>開示の時点において既に公知であった情報</li>
+        <li>開示後、受領者の責めに帰すべき事由によらず公知となった情報</li>
+        <li>開示の時点において受領者が既に正当に保有していたことを証明できる情報</li>
+        <li>受領者が秘密情報によらず独自に開発したことを証明できる情報</li>
+        <li>正当な権限を有する第三者から秘密保持義務を負うことなく適法に取得した情報</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 第3条 -->
+  <div class="article">
+    <div class="article-title">第3条（秘密情報の取扱い）</div>
+    <div class="article-body">
+      <p class="paragraph">1. 受領者は、秘密情報を本目的のためにのみ使用するものとし、本目的以外の目的に使用してはならない。</p>
+      <p class="paragraph">2. 受領者は、開示者の事前の書面による承諾を得ることなく、秘密情報を第三者に開示または漏洩してはならない。</p>
+      <p class="paragraph">3. 受領者は、秘密情報を知る必要のある自己の役員および従業員（以下「関係者」という。）に限り開示することができる。この場合、受領者は当該関係者に対し本契約に定める秘密保持義務と同等の義務を課すものとし、当該関係者の行為について一切の責任を負う。</p>
+      <p class="paragraph">4. 受領者は、開示者の事前の書面による承諾を得た場合に限り、本目的のために必要な範囲で秘密情報を第三者（再委託先等を含む。）に開示することができる。この場合、受領者は当該第三者に対し本契約に定める秘密保持義務と同等の義務を課すものとし、当該第三者の行為について一切の責任を負う。</p>
+    </div>
+  </div>
+
+  <!-- 第4条 -->
+  <div class="article">
+    <div class="article-title">第4条（秘密情報の管理）</div>
+    <div class="article-body">
+      <p class="paragraph">1. 受領者は、秘密情報を善良なる管理者の注意をもって厳重に管理するものとする。</p>
+      <p class="paragraph">2. 受領者は、秘密情報への不正アクセス、紛失、破壊、改ざんおよび漏洩等（以下「漏洩等」という。）の防止のために、合理的な安全管理措置を講じるものとする。</p>
+      <p class="paragraph">3. 受領者は、秘密情報の漏洩等が発生し、またはそのおそれがあることを知った場合は、直ちに開示者に通知し、開示者の指示に従い適切な措置を講じるものとする。</p>
+    </div>
+  </div>
+
+  <!-- 第5条 -->
+  <div class="article">
+    <div class="article-title">第5条（秘密情報の複製）</div>
+    <div class="article-body">
+      <p class="paragraph">1. 受領者は、本目的のために合理的に必要な範囲に限り、秘密情報を複製することができる。</p>
+      <p class="paragraph">2. 前項に基づき作成された複製物は、秘密情報として本契約の規定に従い取り扱うものとする。</p>
+    </div>
+  </div>
+
+  <!-- 第6条 -->
+  <div class="article">
+    <div class="article-title">第6条（開示の例外）</div>
+    <div class="article-body">
+      <p class="paragraph">1. 受領者は、法令、規則、裁判所の命令、行政機関の要請その他の法的根拠に基づき秘密情報の開示を求められた場合は、必要最小限の範囲に限り当該秘密情報を開示することができる。</p>
+      <p class="paragraph">2. 前項の場合、受領者は、法令上許容される範囲で、事前に開示者に対してその旨を通知し、開示の範囲を最小限にするよう合理的な努力をするものとする。</p>
+    </div>
+  </div>
+
+  <!-- 第7条 -->
+  <div class="article">
+    <div class="article-title">第7条（秘密情報の返還・廃棄）</div>
+    <div class="article-body">
+      <p class="paragraph">1. 受領者は、開示者から要求があった場合、または本契約が終了した場合は、開示者の指示に従い、秘密情報（その複製物を含む。）を速やかに返還し、または廃棄するものとする。</p>
+      <p class="paragraph">2. 受領者は、前項に基づき秘密情報を廃棄した場合は、開示者の求めに応じてその旨を書面にて証明するものとする。</p>
+      <p class="paragraph">3. 前二項の規定にかかわらず、法令上保存が義務づけられている情報および電子的バックアップシステムに自動保存された情報については、本契約に定める秘密保持義務に従い引き続き管理するものとする。</p>
+    </div>
+  </div>
+
+  <!-- 第8条 -->
+  <div class="article">
+    <div class="article-title">第8条（知的財産権）</div>
+    <div class="article-body">
+      <p>秘密情報の開示は、開示者が保有する特許権、著作権、商標権その他の知的財産権について、受領者に対し何らの権利も付与するものではない。</p>
+    </div>
+  </div>
+
+  <!-- 第9条 -->
+  <div class="article">
+    <div class="article-title">第9条（有効期間）</div>
+    <div class="article-body">
+      <p class="paragraph">1. 本契約の有効期間は、本契約締結日から、甲乙間における本サービスに関する契約（以下「本件契約」という。）の終了日までとする。ただし、甲乙間で別途書面により合意した場合はこの限りではない。</p>
+      <p class="paragraph">2. 本契約の終了後といえども、第2条（秘密情報の定義）、第3条（秘密情報の取扱い）、第4条（秘密情報の管理）、第7条（秘密情報の返還・廃棄）、第8条（知的財産権）、第10条（損害賠償）および第12条（合意管轄）の規定は、本契約終了後3年間なお効力を有するものとする。</p>
+    </div>
+  </div>
+
+  <!-- 第10条 -->
+  <div class="article">
+    <div class="article-title">第10条（損害賠償）</div>
+    <div class="article-body">
+      <p class="paragraph">1. 甲または乙は、本契約に違反して相手方に損害を与えた場合は、相手方に対し、当該違反に起因して相手方が被った損害（合理的な弁護士費用を含む。）を賠償する義務を負う。</p>
+      <p class="paragraph">2. 前項の損害賠償の請求は、本契約の解除の有無にかかわらず行うことができる。</p>
+    </div>
+  </div>
+
+  <!-- 第11条 -->
+  <div class="article">
+    <div class="article-title">第11条（反社会的勢力の排除）</div>
+    <div class="article-body">
+      <p class="paragraph">1. 甲および乙は、相手方に対し、自らが次の各号のいずれにも該当しないことを表明し、保証する。</p>
+      <ol>
+        <li>暴力団、暴力団員、暴力団関係企業・団体、総会屋、社会運動標ぼうゴロ、特殊知能暴力集団その他これらに準ずる反社会的勢力（以下「反社会的勢力」という。）であること</li>
+        <li>反社会的勢力が経営に実質的に関与していること</li>
+        <li>反社会的勢力を利用していること</li>
+        <li>反社会的勢力に対して資金等を提供し、または便宜を供与するなどの関与をしていること</li>
+        <li>役員もしくは経営に実質的に関与している者が反社会的勢力と社会的に非難されるべき関係を有していること</li>
+      </ol>
+      <p class="paragraph">2. 甲または乙は、相手方が前項の表明・保証に違反した場合は、何らの催告を要することなく、直ちに本契約を解除することができる。</p>
+      <p class="paragraph">3. 前項に基づき本契約を解除した当事者は、相手方に対し、当該解除により生じた損害の賠償を請求することができる。なお、当該解除により解除された当事者に損害が生じた場合であっても、解除した当事者はこれを賠償する責を負わない。</p>
+    </div>
+  </div>
+
+  <!-- 第12条 -->
+  <div class="article">
+    <div class="article-title">第12条（合意管轄）</div>
+    <div class="article-body">
+      <p>本契約に関する一切の紛争については、東京地方裁判所を第一審の専属的合意管轄裁判所とする。</p>
+    </div>
+  </div>
+
+  <!-- 第13条 -->
+  <div class="article">
+    <div class="article-title">第13条（協議事項）</div>
+    <div class="article-body">
+      <p>本契約に定めのない事項および本契約の解釈に疑義が生じた事項については、甲乙誠意をもって協議のうえ解決するものとする。</p>
+    </div>
+  </div>
+
+  <!-- 署名欄 -->
+  <div class="signature-section">
+
+    <p>本契約の成立を証するため、本書2通を作成し、甲乙記名押印のうえ各1通を保有する。</p>
+
+    <div class="signature-date" style="margin-top: 30px;">
+      <p>締結日：<span style="min-width:60px;">&nbsp;&nbsp;&nbsp;&nbsp;</span>年<span style="min-width:40px;">&nbsp;&nbsp;</span>月<span style="min-width:40px;">&nbsp;&nbsp;</span>日</p>
+    </div>
+
+    <div class="signature-block" style="padding-left: 0; margin-top: 40px;">
+      <div class="label">【甲】</div>
+      <div class="field">
+        <span class="field-label">住所：</span>
+        <span class="field-line">&nbsp;</span>
+      </div>
+      <div class="field">
+        <span class="field-label">名称：</span>
+        <span class="field-line">&nbsp;</span>
+      </div>
+      <div class="field">
+        <span class="field-label">代表者：</span>
+        <span class="field-line">&nbsp;</span>
+        <span class="seal-space">印</span>
+      </div>
+    </div>
+
+    <div class="signature-block" style="padding-left: 0; margin-top: 40px;">
+      <div class="label">【乙】</div>
+      <div class="field">
+        <span class="field-label">住所：</span>
+        <span class="field-line">東京都渋谷区道玄坂1丁目10番8号渋谷道玄坂東急ビル2F-C</span>
+      </div>
+      <div class="field">
+        <span class="field-label">名称：</span>
+        <span class="field-line">合同会社ADLINK</span>
+      </div>
+      <div class="field">
+        <span class="field-label">代表者：</span>
+        <span class="field-line">&nbsp;</span>
+        <span class="seal-space">印</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
