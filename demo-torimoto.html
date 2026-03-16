@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社鳥本 | 岐阜県岐阜市の表具店 屏風・掛軸・襖・障子・畳</title>
+<meta name="description" content="岐阜県岐阜市で創業50年以上。屏風・掛軸・襖・障子・畳の表具全般なら株式会社鳥本にお任せください。伝統の技と真心で暮らしの和を守ります。">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sumi:#2c2c2c;
+  --sumi-light:#3d3d3d;
+  --gold:#b8963e;
+  --gold-light:#d4b668;
+  --gold-pale:#f0e6c8;
+  --ivory:#f7f3ec;
+  --ivory-light:#faf8f4;
+  --washi:#ede8dd;
+  --indigo:#2e4057;
+  --indigo-light:#3d5570;
+  --text:#333;
+  --text-light:#666;
+  --text-muted:#999;
+  --white:#fff;
+  --shadow:0 2px 20px rgba(44,44,44,.08);
+  --shadow-lg:0 8px 40px rgba(44,44,44,.12);
+  --radius:6px;
+  --transition:.3s ease;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","Noto Serif JP",serif;color:var(--text);line-height:1.9;background:var(--ivory-light);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* ===== UTILITY ===== */
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.section-title{text-align:center;margin-bottom:55px}
+.section-title h2{font-size:1.8rem;color:var(--sumi);position:relative;display:inline-block;padding-bottom:16px;letter-spacing:.1em;font-weight:700}
+.section-title h2::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:50px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px}
+.section-title .en{display:block;font-family:"Hiragino Kaku Gothic ProN",sans-serif;font-size:.7rem;color:var(--gold);letter-spacing:.2em;margin-top:8px;text-transform:uppercase;font-weight:400}
+.section-title p.sub{color:var(--text-light);margin-top:8px;font-size:.88rem;letter-spacing:.05em}
+section{padding:90px 0}
+section:nth-child(even){background:var(--ivory)}
+
+/* ===== FADE IN ===== */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ===== HEADER ===== */
+.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(250,248,244,.97);backdrop-filter:blur(12px);box-shadow:0 1px 8px rgba(0,0,0,.05);transition:var(--transition)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{width:46px;height:46px;background:linear-gradient(135deg,var(--sumi) 0%,var(--sumi-light) 100%);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:900;font-size:1.3rem;letter-spacing:-.02em;line-height:1;border:1px solid var(--gold)}
+.logo-text{font-size:.9rem;font-weight:700;color:var(--sumi);line-height:1.3;letter-spacing:.05em}
+.logo-text span{display:block;font-size:.6rem;font-weight:400;color:var(--text-light);letter-spacing:.08em}
+
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{font-family:"Hiragino Kaku Gothic ProN",sans-serif;font-size:.82rem;font-weight:500;color:var(--text);position:relative;transition:var(--transition);letter-spacing:.02em}
+.nav a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--gold);transition:var(--transition)}
+.nav a:hover::after{width:100%}
+.nav a:hover{color:var(--gold)}
+.nav-cta{background:var(--sumi)!important;color:var(--gold-pale)!important;padding:9px 22px;border-radius:4px;font-size:.78rem!important;transition:var(--transition);letter-spacing:.05em}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--sumi-light)!important;transform:translateY(-1px)}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;z-index:1001}
+.hamburger span{display:block;width:24px;height:2px;background:var(--sumi);transition:var(--transition)}
+
+/* ===== HERO ===== */
+.hero{margin-top:72px;min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a1a1a 0%,#2c2c2c 40%,#3d3528 70%,#2e2618 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse at 25% 50%,rgba(184,150,62,.12) 0%,transparent 60%),
+  radial-gradient(ellipse at 75% 30%,rgba(212,182,104,.08) 0%,transparent 50%),
+  radial-gradient(ellipse at 50% 80%,rgba(184,150,62,.06) 0%,transparent 50%)}
+.hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0v80M0 40h80' stroke='%23b8963e' stroke-width='.3' opacity='.06'/%3E%3C/svg%3E")}
+
+.hero-content{position:relative;z-index:2;max-width:680px;padding:0 20px;margin-left:8%}
+.hero-badge{display:inline-block;background:rgba(184,150,62,.15);backdrop-filter:blur(5px);color:var(--gold-pale);padding:7px 20px;border-radius:3px;font-size:.72rem;letter-spacing:.15em;margin-bottom:28px;border:1px solid rgba(184,150,62,.3)}
+.hero h1{font-size:2.5rem;color:var(--white);line-height:1.6;font-weight:700;letter-spacing:.06em;margin-bottom:22px;text-shadow:0 2px 30px rgba(0,0,0,.4)}
+.hero h1 em{font-style:normal;color:var(--gold-light)}
+.hero p{color:rgba(255,255,255,.78);font-size:1rem;line-height:2;margin-bottom:38px;letter-spacing:.03em}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 34px;border-radius:4px;font-size:.88rem;font-weight:600;transition:var(--transition);cursor:pointer;border:none;letter-spacing:.05em;font-family:inherit}
+.btn-primary{background:var(--gold);color:var(--sumi);box-shadow:0 4px 20px rgba(184,150,62,.25)}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 6px 25px rgba(184,150,62,.35)}
+.btn-secondary{background:rgba(255,255,255,.08);color:var(--white);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(5px)}
+.btn-secondary:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+
+/* Hero decorative */
+.hero-deco{position:absolute;right:5%;top:50%;transform:translateY(-50%);z-index:1;opacity:.06}
+.hero-circle{width:400px;height:400px;border:2px solid var(--gold-light);border-radius:50%;position:relative;animation:slowRotate 40s linear infinite}
+.hero-circle::before{content:"";position:absolute;top:40px;left:40px;right:40px;bottom:40px;border:1px dashed rgba(184,150,62,.4);border-radius:50%;animation:slowRotate 25s linear infinite reverse}
+.hero-circle::after{content:"和";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:6rem;color:var(--gold-light);opacity:.5;font-weight:700}
+@keyframes slowRotate{to{transform:translateY(-50%) rotate(360deg)}}
+
+/* ===== SERVICES ===== */
+#services{background:var(--ivory)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.service-card{background:var(--white);border-radius:var(--radius);padding:36px 24px;text-align:center;box-shadow:var(--shadow);transition:var(--transition);position:relative;overflow:hidden}
+.service-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));opacity:0;transition:var(--transition)}
+.service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.service-card:hover::before{opacity:1}
+.service-icon{width:70px;height:70px;margin:0 auto 20px;background:linear-gradient(135deg,var(--ivory),var(--washi));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;transition:var(--transition)}
+.service-card:hover .service-icon{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--white)}
+.service-card h3{font-size:1.1rem;color:var(--sumi);margin-bottom:10px;letter-spacing:.05em}
+.service-card p{font-size:.82rem;color:var(--text-light);line-height:1.8}
+
+/* ===== ABOUT (強み) ===== */
+#about{background:var(--ivory-light)}
+.about-content{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-visual{position:relative;height:380px;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,var(--sumi) 0%,#3d3528 50%,var(--sumi-light) 100%);display:flex;align-items:center;justify-content:center}
+.about-visual-text{color:var(--gold);font-size:4rem;font-weight:700;opacity:.3;letter-spacing:.2em;writing-mode:vertical-rl}
+.about-visual::after{content:"";position:absolute;inset:0;border:1px solid rgba(184,150,62,.2);border-radius:var(--radius)}
+.about-detail h3{font-size:1.5rem;color:var(--sumi);margin-bottom:20px;letter-spacing:.05em;line-height:1.6}
+.about-detail h3 em{font-style:normal;color:var(--gold)}
+.about-detail p{color:var(--text-light);margin-bottom:16px;font-size:.92rem}
+.about-features{margin-top:28px}
+.about-feature{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+.about-feature-icon{flex-shrink:0;width:36px;height:36px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:.85rem;font-weight:700}
+.about-feature div h4{font-size:.95rem;color:var(--sumi);margin-bottom:3px}
+.about-feature div p{font-size:.82rem;color:var(--text-light);margin:0}
+
+/* ===== WORKS ===== */
+#works{background:var(--ivory)}
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.work-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.work-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.work-thumb{height:200px;position:relative;overflow:hidden}
+.work-thumb-1{background:linear-gradient(135deg,#2c2c2c,#4a3f30,#b8963e)}
+.work-thumb-2{background:linear-gradient(135deg,#3d3528,#2c2c2c,#d4b668)}
+.work-thumb-3{background:linear-gradient(135deg,#1a1a1a,#3d3d3d,#b8963e)}
+.work-thumb::after{content:attr(data-label);position:absolute;bottom:12px;right:12px;background:rgba(44,44,44,.85);color:var(--gold-pale);padding:4px 12px;border-radius:3px;font-size:.7rem;letter-spacing:.1em}
+.work-thumb-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3.5rem;opacity:.15;color:var(--gold-pale)}
+.work-body{padding:24px}
+.work-body h3{font-size:1.05rem;color:var(--sumi);margin-bottom:8px;letter-spacing:.03em}
+.work-body p{font-size:.82rem;color:var(--text-light);line-height:1.8}
+.work-tag{display:inline-block;background:var(--ivory);color:var(--gold);font-size:.68rem;padding:3px 10px;border-radius:3px;margin-top:10px;letter-spacing:.05em}
+
+/* ===== COMPANY ===== */
+#company{background:var(--ivory-light)}
+.company-table{max-width:750px;margin:0 auto;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.company-row{display:flex;border-bottom:1px solid var(--ivory)}
+.company-row:last-child{border-bottom:none}
+.company-row dt{flex:0 0 160px;background:var(--sumi);color:var(--gold-pale);padding:18px 24px;font-size:.85rem;font-weight:600;letter-spacing:.05em;display:flex;align-items:center}
+.company-row dd{flex:1;padding:18px 24px;font-size:.9rem;color:var(--text);font-family:"Hiragino Kaku Gothic ProN",sans-serif}
+
+/* ===== FAQ ===== */
+#faq{background:var(--ivory)}
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{background:var(--white);border-radius:var(--radius);margin-bottom:14px;box-shadow:var(--shadow);overflow:hidden}
+.faq-question{width:100%;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:none;background:none;font-size:.95rem;color:var(--sumi);font-weight:600;letter-spacing:.03em;text-align:left;font-family:inherit;transition:var(--transition)}
+.faq-question:hover{color:var(--gold)}
+.faq-question::before{content:"Q.";color:var(--gold);font-weight:700;margin-right:12px;flex-shrink:0;font-size:1rem}
+.faq-toggle{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--ivory);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--gold);transition:var(--transition)}
+.faq-item.active .faq-toggle{background:var(--gold);color:var(--white);transform:rotate(180deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+.faq-answer-inner{padding:0 24px 20px 56px;font-size:.88rem;color:var(--text-light);line-height:1.9}
+
+/* ===== CONTACT ===== */
+#contact{background:linear-gradient(135deg,var(--sumi) 0%,#3d3528 50%,var(--sumi-light) 100%);color:var(--white)}
+#contact .section-title h2{color:var(--white)}
+#contact .section-title h2::after{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+#contact .section-title .en{color:var(--gold-light)}
+.contact-wrap{max-width:700px;margin:0 auto;text-align:center}
+.contact-text{color:rgba(255,255,255,.75);margin-bottom:40px;font-size:.95rem;line-height:2}
+.contact-info{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.contact-card{background:rgba(255,255,255,.07);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:30px 36px;text-align:center;flex:1;min-width:240px}
+.contact-card-icon{font-size:1.8rem;margin-bottom:10px;color:var(--gold-light)}
+.contact-card h3{font-size:.85rem;color:rgba(255,255,255,.6);margin-bottom:8px;font-weight:400;letter-spacing:.08em}
+.contact-card p{font-size:1.3rem;color:var(--white);font-weight:700;letter-spacing:.05em}
+.contact-card p a{color:var(--white)}
+.contact-card p a:hover{color:var(--gold-light)}
+.contact-hours{color:rgba(255,255,255,.5);font-size:.78rem;margin-top:6px}
+
+/* ===== FOOTER ===== */
+.footer{background:#1a1a1a;color:rgba(255,255,255,.5);padding:40px 0 100px;text-align:center;font-family:"Hiragino Kaku Gothic ProN",sans-serif}
+.footer-logo{font-size:1.1rem;color:var(--gold-pale);font-weight:700;letter-spacing:.1em;margin-bottom:6px;font-family:"Hiragino Mincho ProN",serif}
+.footer-address{font-size:.75rem;margin-bottom:20px;line-height:1.8}
+.footer-copy{font-size:.7rem;margin-bottom:6px}
+.footer-credit{font-size:.65rem;color:rgba(255,255,255,.3);margin-bottom:3px}
+.footer-demo{font-size:.6rem;color:rgba(255,255,255,.25);letter-spacing:.05em}
+
+/* ===== MOBILE FIXED BAR ===== */
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:rgba(44,44,44,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(184,150,62,.3);padding:0;height:64px}
+.mobile-bar-inner{display:flex;height:100%}
+.mobile-bar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--gold-pale);font-size:.6rem;font-family:"Hiragino Kaku Gothic ProN",sans-serif;letter-spacing:.03em;transition:var(--transition);text-decoration:none}
+.mobile-bar a:nth-child(1){background:var(--gold);color:var(--sumi)}
+.mobile-bar a span.bar-icon{font-size:1.2rem}
+.mobile-bar a:active{opacity:.7}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .about-content{grid-template-columns:1fr}
+  .about-visual{height:260px}
+  .works-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(250,248,244,.98);backdrop-filter:blur(15px);flex-direction:column;justify-content:center;gap:30px;opacity:0;visibility:hidden;transition:var(--transition)}
+  .nav.open{opacity:1;visibility:visible}
+  .nav a{font-size:1.05rem}
+  .nav-cta{margin-top:10px;padding:12px 30px;font-size:.9rem!important}
+  .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+  .hero{min-height:80vh}
+  .hero-content{margin-left:0}
+  .hero h1{font-size:1.8rem}
+  .hero p{font-size:.9rem}
+  .hero-deco{display:none}
+  .btn{padding:13px 26px;font-size:.82rem}
+
+  section{padding:60px 0}
+  .section-title{margin-bottom:40px}
+  .section-title h2{font-size:1.5rem}
+  .services-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .service-card{padding:28px 18px}
+
+  .works-grid{grid-template-columns:1fr}
+  .work-thumb{height:180px}
+
+  .company-row{flex-direction:column}
+  .company-row dt{padding:14px 20px;font-size:.8rem}
+  .company-row dd{padding:14px 20px;font-size:.85rem}
+
+  .contact-info{flex-direction:column;gap:16px}
+
+  .mobile-bar{display:flex}
+  .footer{padding-bottom:120px}
+}
+@media(max-width:480px){
+  .services-grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.55rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">鳥</div>
+      <div class="logo-text">株式会社 鳥本<span>表具の伝統と技</span></div>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#services">サービス</a>
+      <a href="#about">私たちの強み</a>
+      <a href="#works">制作事例</a>
+      <a href="#company">会社概要</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">創業50年以上の信頼と実績</div>
+    <h1><em>五十年の伝統</em>と技が紡ぐ<br>暮らしの中の美しい和</h1>
+    <p>岐阜県岐阜市で半世紀以上、屏風・掛軸・襖・障子・畳など表具全般を手がけてまいりました。確かな技術と丁寧な仕事で、お客様の大切な空間に和の美をお届けします。</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary">お問い合わせ</a>
+      <a href="#services" class="btn btn-secondary">サービスを見る</a>
+    </div>
+  </div>
+  <div class="hero-deco">
+    <div class="hero-circle"></div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>サービス紹介</h2>
+      <span class="en">Services</span>
+      <p class="sub">伝統の技で、暮らしの和を守ります</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">屏</div>
+        <h3>屏風</h3>
+        <p>金屏風・銀屏風から創作屏風まで。高い技術力で美しい仕上がりをお約束します。修理・修復もお任せください。</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">軸</div>
+        <h3>掛軸</h3>
+        <p>書画の表装、古い掛軸の修復、新規制作まで。作品の魅力を最大限に引き出す丁寧な仕立てを行います。</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">襖</div>
+        <h3>襖</h3>
+        <p>襖の新調・張替え。豊富な柄と素材からお選びいただけます。お部屋の雰囲気を一新いたします。</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">障</div>
+        <h3>障子</h3>
+        <p>障子の張替え・新調。やわらかな光を通す美しい障子で、和室の品格を保ちます。</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">畳</div>
+        <h3>畳</h3>
+        <p>畳の新調・表替え・裏返し。い草の香りが心地よい空間づくりをお手伝いいたします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>私たちの強み</h2>
+      <span class="en">Our Strengths</span>
+    </div>
+    <div class="about-content">
+      <div class="about-visual fade-in">
+        <div class="about-visual-text">匠の技</div>
+      </div>
+      <div class="about-detail fade-in">
+        <h3>創業<em>五十年以上</em>の<br>確かな技術と信頼</h3>
+        <p>株式会社鳥本は、岐阜県岐阜市で半世紀以上にわたり表具業を営んでまいりました。特に屏風制作においては高い技術力を誇り、多くのお客様にご信頼いただいております。</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon">壱</div>
+            <div>
+              <h4>屏風制作の卓越した技術</h4>
+              <p>長年培った職人技で、美しく堅牢な屏風を制作いたします。</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">弐</div>
+            <div>
+              <h4>表具全般のワンストップ対応</h4>
+              <p>屏風から畳まで、和室に関するあらゆるご要望にお応えします。</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">参</div>
+            <div>
+              <h4>丁寧なヒアリングとご提案</h4>
+              <p>お客様のご要望をしっかりお聞きし、最適なご提案をいたします。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORKS ===== -->
+<section id="works">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>制作事例</h2>
+      <span class="en">Works</span>
+      <p class="sub">これまで手がけた仕事の一例をご紹介します</p>
+    </div>
+    <div class="works-grid">
+      <div class="work-card fade-in">
+        <div class="work-thumb work-thumb-1" data-label="屏風制作">
+          <div class="work-thumb-inner">屏</div>
+        </div>
+        <div class="work-body">
+          <h3>六曲一双金屏風の修復</h3>
+          <p>長年使用され傷みのあった金屏風を、伝統技法で丁寧に修復。往時の輝きを取り戻しました。</p>
+          <span class="work-tag">屏風修復</span>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-thumb work-thumb-2" data-label="襖・障子">
+          <div class="work-thumb-inner">襖</div>
+        </div>
+        <div class="work-body">
+          <h3>料亭 和室全面改装</h3>
+          <p>岐阜市内の老舗料亭様の和室を全面改装。襖・障子・畳をトータルでコーディネートしました。</p>
+          <span class="work-tag">総合施工</span>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-thumb work-thumb-3" data-label="掛軸表装">
+          <div class="work-thumb-inner">軸</div>
+        </div>
+        <div class="work-body">
+          <h3>書道作品の本表装</h3>
+          <p>書道家様の大切な作品を、裂地の選定からこだわり抜いた本表装で仕立てました。</p>
+          <span class="work-tag">掛軸表装</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPANY ===== -->
+<section id="company">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>会社概要</h2>
+      <span class="en">Company</span>
+    </div>
+    <dl class="company-table fade-in">
+      <div class="company-row">
+        <dt>会社名</dt>
+        <dd>株式会社 鳥本</dd>
+      </div>
+      <div class="company-row">
+        <dt>業種</dt>
+        <dd>表具全般（屏風・掛軸・襖・障子・畳）</dd>
+      </div>
+      <div class="company-row">
+        <dt>所在地</dt>
+        <dd>〒500-8258 岐阜県岐阜市細畑3丁目22番15号</dd>
+      </div>
+      <div class="company-row">
+        <dt>電話番号</dt>
+        <dd><a href="tel:058-246-9005" style="color:var(--gold);font-weight:600">058-246-9005</a></dd>
+      </div>
+      <div class="company-row">
+        <dt>事業内容</dt>
+        <dd>屏風制作・修復 / 掛軸表装・修復 / 襖張替え・新調 / 障子張替え・新調 / 畳新調・表替え</dd>
+      </div>
+      <div class="company-row">
+        <dt>創業</dt>
+        <dd>50年以上の歴史</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>よくある質問</h2>
+      <span class="en">FAQ</span>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <button class="faq-question">
+          <span>見積もりは無料ですか？</span>
+          <span class="faq-toggle">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">はい、お見積もりは無料で承っております。現地確認が必要な場合も、岐阜市内であれば無料でお伺いいたします。お気軽にお電話ください。</div>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question">
+          <span>屏風の修理・修復はできますか？</span>
+          <span class="faq-toggle">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">はい、屏風の修理・修復は当社の得意分野です。破れや傷み、金箔の剥がれなど、状態を確認したうえで最適な修復方法をご提案いたします。まずはお気軽にご相談ください。</div>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question">
+          <span>襖や障子の張替え、どのくらい時間がかかりますか？</span>
+          <span class="faq-toggle">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">通常、襖・障子の張替えはお預かりしてから2〜5日程度でお届けいたします。枚数や状態により異なりますので、詳しくはお問い合わせください。</div>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question">
+          <span>岐阜市以外のエリアにも対応していますか？</span>
+          <span class="faq-toggle">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">はい、岐阜市近郊であれば対応可能です。エリアによっては出張費をいただく場合がございますので、まずはお電話でご確認ください。</div>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question">
+          <span>畳の表替えと新調の違いは何ですか？</span>
+          <span class="faq-toggle">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">表替えは畳の芯（畳床）はそのままに、表面のい草部分のみを新しくする方法です。新調は畳床ごとすべて新しくします。畳床の状態を確認し、最適な方法をご提案いたします。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>お問い合わせ</h2>
+      <span class="en">Contact</span>
+    </div>
+    <div class="contact-wrap fade-in">
+      <p class="contact-text">屏風・掛軸・襖・障子・畳のことなら何でもご相談ください。<br>お見積もりは無料です。まずはお気軽にお電話ください。</p>
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-card-icon">&#9742;</div>
+          <h3>お電話でのお問い合わせ</h3>
+          <p><a href="tel:058-246-9005">058-246-9005</a></p>
+          <p class="contact-hours">受付時間：お気軽にお問い合わせください</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">&#9993;</div>
+          <h3>所在地</h3>
+          <p style="font-size:1rem">岐阜県岐阜市<br>細畑3丁目22番15号</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">株式会社 鳥本</div>
+    <div class="footer-address">〒500-8258 岐阜県岐阜市細畑3丁目22番15号<br>TEL: 058-246-9005</div>
+    <div class="footer-copy">&copy; 株式会社鳥本 All Rights Reserved.</div>
+    <div class="footer-credit">制作：ラクページ</div>
+    <div class="footer-demo">※ これはデモサイトです（未公開）</div>
+  </div>
+</footer>
+
+<!-- ===== MOBILE FIXED BAR ===== -->
+<div class="mobile-bar">
+  <div class="mobile-bar-inner">
+    <a href="tel:058-246-9005">
+      <span class="bar-icon">&#9742;</span>
+      電話する
+    </a>
+    <a href="#services">
+      <span class="bar-icon">&#9655;</span>
+      サービス
+    </a>
+    <a href="#works">
+      <span class="bar-icon">&#9733;</span>
+      事例
+    </a>
+    <a href="#contact">
+      <span class="bar-icon">&#9993;</span>
+      問い合わせ
+    </a>
+  </div>
+</div>
+
+<script>
+/* ===== Hamburger Menu ===== */
+(function(){
+  var hamburger=document.getElementById('hamburger');
+  var nav=document.getElementById('nav');
+  hamburger.addEventListener('click',function(){
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('open');
+  });
+  var links=nav.querySelectorAll('a');
+  for(var i=0;i<links.length;i++){
+    links[i].addEventListener('click',function(){
+      hamburger.classList.remove('active');
+      nav.classList.remove('open');
+    });
+  }
+})();
+
+/* ===== Fade In on Scroll ===== */
+(function(){
+  var els=document.querySelectorAll('.fade-in');
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){observer.observe(el);});
+})();
+
+/* ===== FAQ Accordion ===== */
+(function(){
+  var items=document.querySelectorAll('.faq-item');
+  items.forEach(function(item){
+    var btn=item.querySelector('.faq-question');
+    var answer=item.querySelector('.faq-answer');
+    var inner=item.querySelector('.faq-answer-inner');
+    btn.addEventListener('click',function(){
+      var isOpen=item.classList.contains('active');
+      /* close all */
+      items.forEach(function(it){
+        it.classList.remove('active');
+        it.querySelector('.faq-answer').style.maxHeight='0';
+      });
+      if(!isOpen){
+        item.classList.add('active');
+        answer.style.maxHeight=inner.scrollHeight+20+'px';
+      }
+    });
+  });
+})();
+
+/* ===== Smooth scroll for anchor links (fallback) ===== */
+(function(){
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var target=document.querySelector(this.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        var offset=72;
+        var top=target.getBoundingClientRect().top+window.pageYOffset-offset;
+        window.scrollTo({top:top,behavior:'smooth'});
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

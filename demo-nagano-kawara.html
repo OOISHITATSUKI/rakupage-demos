@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>長野県瓦事業組合 | 信州の屋根を守り続けて</title>
+<meta name="description" content="長野県瓦事業組合は、信州の住まいを守る瓦職人の組合です。瓦葺き・修繕・耐震補強・屋根リフォームのご相談はお任せください。">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --c-forest:#2d5016;
+  --c-forest-dark:#1a3009;
+  --c-green:#4a7c28;
+  --c-green-light:#6b9e3a;
+  --c-slate:#4a4a4a;
+  --c-gray:#6e6e6e;
+  --c-gray-light:#e8e8e4;
+  --c-cream:#f5f4f0;
+  --c-white:#ffffff;
+  --c-accent:#8b6914;
+  --c-accent-light:#c49b2a;
+  --c-tile:#7a4e2a;
+  --c-tile-dark:#5c3a1e;
+  --shadow:0 2px 20px rgba(0,0,0,.08);
+  --shadow-lg:0 8px 40px rgba(0,0,0,.12);
+  --radius:12px;
+  --transition:all .3s ease;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,"Noto Sans JP",sans-serif;color:var(--c-slate);line-height:1.8;background:var(--c-cream);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* ===== HEADER ===== */
+.header{background:var(--c-white);position:fixed;top:0;left:0;width:100%;z-index:1000;box-shadow:0 1px 8px rgba(0,0,0,.06);transition:var(--transition)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--c-forest),var(--c-green));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:700;line-height:1}
+.logo-text{font-size:14px;font-weight:700;color:var(--c-forest-dark);line-height:1.3}
+.logo-text span{display:block;font-size:10px;font-weight:400;color:var(--c-gray);letter-spacing:.5px}
+.nav-desktop{display:flex;gap:28px;align-items:center}
+.nav-desktop a{font-size:13px;font-weight:600;color:var(--c-slate);transition:var(--transition);position:relative}
+.nav-desktop a:hover{color:var(--c-green)}
+.nav-desktop a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--c-green);transition:var(--transition)}
+.nav-desktop a:hover::after{width:100%}
+.nav-cta{background:linear-gradient(135deg,var(--c-forest),var(--c-green));color:#fff!important;padding:8px 20px;border-radius:30px;font-size:13px!important}
+.nav-cta:hover{opacity:.9}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001}
+.hamburger span{display:block;width:24px;height:2px;background:var(--c-forest-dark);transition:var(--transition);border-radius:2px}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-mobile{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(255,255,255,.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:30px;opacity:0;visibility:hidden;transition:var(--transition)}
+.nav-mobile.active{opacity:1;visibility:visible}
+.nav-mobile a{font-size:18px;font-weight:600;color:var(--c-forest-dark)}
+
+/* ===== HERO ===== */
+.hero{margin-top:68px;position:relative;min-height:85vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(160deg,#1a3009 0%,#2d5016 30%,#3d6820 60%,#4a7c28 100%)}
+.hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 600'%3E%3Cpath d='M0,400 Q200,200 400,350 Q600,100 800,300 Q1000,150 1200,280 Q1400,200 1440,250 L1440,600 L0,600Z' fill='rgba(255,255,255,0.04)'/%3E%3Cpath d='M0,450 Q300,300 600,400 Q900,250 1200,380 Q1350,300 1440,350 L1440,600 L0,600Z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E") no-repeat bottom/cover;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:120px;background:linear-gradient(to top,var(--c-cream),transparent);pointer-events:none}
+.hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:60px;width:100%}
+.hero-content{flex:1;color:#fff}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);padding:6px 16px;border-radius:30px;font-size:12px;letter-spacing:1px;margin-bottom:20px;backdrop-filter:blur(4px)}
+.hero-title{font-size:clamp(28px,4.5vw,52px);font-weight:800;line-height:1.3;margin-bottom:20px;text-shadow:0 2px 20px rgba(0,0,0,.2)}
+.hero-title em{font-style:normal;color:var(--c-accent-light)}
+.hero-sub{font-size:clamp(14px,1.8vw,18px);line-height:1.9;opacity:.9;margin-bottom:36px;max-width:540px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-size:15px;font-weight:700;transition:var(--transition);cursor:pointer;border:none;text-align:center;justify-content:center}
+.btn-primary{background:linear-gradient(135deg,var(--c-accent),var(--c-accent-light));color:#fff;box-shadow:0 4px 20px rgba(139,105,20,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(139,105,20,.4)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.hero-visual{flex:0 0 380px;position:relative}
+.hero-roof{width:100%;aspect-ratio:1;position:relative}
+.hero-roof-shape{position:absolute;bottom:20%;left:50%;transform:translateX(-50%);width:280px}
+.roof-top{width:0;height:0;border-left:140px solid transparent;border-right:140px solid transparent;border-bottom:80px solid var(--c-tile);position:relative;margin:0 auto}
+.roof-top::after{content:'';position:absolute;top:100%;left:-140px;width:280px;height:8px;background:var(--c-tile-dark)}
+.roof-body{width:280px;height:100px;background:repeating-linear-gradient(0deg,var(--c-tile) 0px,var(--c-tile) 18px,var(--c-tile-dark) 18px,var(--c-tile-dark) 20px);border-radius:0 0 4px 4px;position:relative}
+.roof-body::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:repeating-linear-gradient(90deg,transparent 0px,transparent 38px,rgba(0,0,0,.1) 38px,rgba(0,0,0,.1) 40px)}
+.mountain-bg{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);width:340px;height:180px;opacity:.15}
+.mountain-bg .m1{position:absolute;bottom:0;left:20%;width:0;height:0;border-left:100px solid transparent;border-right:100px solid transparent;border-bottom:160px solid #fff}
+.mountain-bg .m2{position:absolute;bottom:0;left:50%;width:0;height:0;border-left:80px solid transparent;border-right:80px solid transparent;border-bottom:130px solid #fff}
+.mountain-bg .m3{position:absolute;bottom:0;left:-10%;width:0;height:0;border-left:90px solid transparent;border-right:90px solid transparent;border-bottom:120px solid #fff}
+
+/* ===== SECTIONS ===== */
+section{padding:80px 0}
+.section-label{display:inline-block;background:linear-gradient(135deg,var(--c-forest),var(--c-green));color:#fff;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-size:clamp(24px,3.5vw,36px);font-weight:800;color:var(--c-forest-dark);margin-bottom:16px;line-height:1.4}
+.section-desc{font-size:15px;color:var(--c-gray);max-width:640px;line-height:1.9;margin-bottom:48px}
+.text-center{text-align:center}
+.text-center .section-desc{margin-left:auto;margin-right:auto}
+
+/* ===== ABOUT ===== */
+.about{background:var(--c-white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-image{position:relative;height:360px;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,#2d5016,#4a7c28,#6b9e3a);display:flex;align-items:center;justify-content:center}
+.about-image-inner{text-align:center;color:#fff;padding:30px}
+.about-image-icon{font-size:64px;margin-bottom:16px;opacity:.9}
+.about-image-text{font-size:20px;font-weight:700;line-height:1.6}
+.about-image-text small{display:block;font-size:13px;font-weight:400;opacity:.7;margin-top:8px}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.about-stat{text-align:center;padding:20px 10px;background:var(--c-cream);border-radius:var(--radius)}
+.about-stat-num{font-size:28px;font-weight:800;color:var(--c-forest);line-height:1}
+.about-stat-num span{font-size:14px;font-weight:600}
+.about-stat-label{font-size:11px;color:var(--c-gray);margin-top:6px}
+
+/* ===== SERVICES ===== */
+.services{background:var(--c-cream)}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.service-card{background:var(--c-white);border-radius:var(--radius);padding:36px 24px;text-align:center;box-shadow:var(--shadow);transition:var(--transition);position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--c-forest),var(--c-green))}
+.service-icon{width:70px;height:70px;margin:0 auto 20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;background:linear-gradient(135deg,rgba(45,80,22,.08),rgba(74,124,40,.08))}
+.service-name{font-size:17px;font-weight:700;color:var(--c-forest-dark);margin-bottom:10px}
+.service-desc{font-size:13px;color:var(--c-gray);line-height:1.8}
+
+/* ===== BRANCHES ===== */
+.branches{background:var(--c-white)}
+.branches-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.branch-card{background:var(--c-cream);border-radius:var(--radius);padding:30px 20px;text-align:center;transition:var(--transition);border:2px solid transparent;position:relative}
+.branch-card:hover{border-color:var(--c-green-light);background:var(--c-white)}
+.branch-icon{width:56px;height:56px;margin:0 auto 16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;background:linear-gradient(135deg,var(--c-forest),var(--c-green));color:#fff}
+.branch-name{font-size:18px;font-weight:700;color:var(--c-forest-dark);margin-bottom:8px}
+.branch-area{font-size:12px;color:var(--c-gray);line-height:1.7}
+
+/* ===== FAQ ===== */
+.faq{background:var(--c-cream)}
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.faq-item{background:var(--c-white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.faq-question{padding:22px 28px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:700;font-size:15px;color:var(--c-forest-dark);transition:var(--transition);user-select:none}
+.faq-question:hover{color:var(--c-green)}
+.faq-toggle{width:28px;height:28px;border-radius:50%;background:var(--c-cream);display:flex;align-items:center;justify-content:center;font-size:18px;transition:var(--transition);flex-shrink:0;color:var(--c-green)}
+.faq-item.active .faq-toggle{background:var(--c-green);color:#fff;transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+.faq-answer-inner{padding:0 28px 22px;font-size:14px;color:var(--c-gray);line-height:1.9;border-top:1px solid var(--c-gray-light)}
+.faq-answer-inner{padding-top:16px}
+
+/* ===== CONTACT ===== */
+.contact{background:linear-gradient(160deg,var(--c-forest-dark),var(--c-forest),var(--c-green));color:#fff;position:relative}
+.contact::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Ccircle cx='400' cy='200' r='300' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3Ccircle cx='400' cy='200' r='200' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3C/svg%3E") no-repeat center/cover}
+.contact-inner{position:relative;z-index:2;text-align:center}
+.contact .section-label{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2)}
+.contact .section-title{color:#fff}
+.contact .section-desc{color:rgba(255,255,255,.8);margin-left:auto;margin-right:auto}
+.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.contact-card{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:36px 24px;text-align:center;transition:var(--transition)}
+.contact-card:hover{background:rgba(255,255,255,.15);transform:translateY(-3px)}
+.contact-card-icon{font-size:32px;margin-bottom:14px}
+.contact-card-title{font-size:14px;font-weight:700;margin-bottom:8px;opacity:.9}
+.contact-card-value{font-size:18px;font-weight:800;letter-spacing:.5px}
+.contact-card-value.tel{font-size:24px;color:var(--c-accent-light)}
+.contact-note{margin-top:32px;font-size:13px;opacity:.7}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--c-forest-dark);color:rgba(255,255,255,.7);padding:50px 0 100px;font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+.footer-brand{max-width:340px}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.footer-logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--c-green),var(--c-green-light));border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700}
+.footer-logo-text{font-size:13px;font-weight:700;color:#fff}
+.footer-desc{line-height:1.8;font-size:12px}
+.footer-links{display:flex;gap:50px}
+.footer-col h4{color:#fff;font-size:13px;margin-bottom:14px;font-weight:700}
+.footer-col a{display:block;font-size:12px;margin-bottom:10px;transition:var(--transition);opacity:.7}
+.footer-col a:hover{opacity:1;color:var(--c-green-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:40px;padding-top:24px;text-align:center;font-size:11px;opacity:.5}
+.footer-bottom .demo-badge{display:inline-block;background:rgba(255,255,255,.1);padding:4px 14px;border-radius:20px;margin-bottom:8px;font-size:10px;letter-spacing:1px}
+
+/* ===== MOBILE BAR ===== */
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;width:100%;background:var(--c-white);box-shadow:0 -2px 16px rgba(0,0,0,.1);z-index:1000;padding:10px 16px}
+.mobile-bar-inner{display:flex;gap:10px;max-width:500px;margin:0 auto}
+.mobile-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:12px;border-radius:10px;font-size:13px;font-weight:700;text-align:center;transition:var(--transition)}
+.mobile-bar .mb-tel{background:var(--c-green);color:#fff}
+.mobile-bar .mb-contact{background:var(--c-accent);color:#fff}
+
+/* ===== FADE IN ===== */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-delay-1{transition-delay:.15s}
+.fade-in-delay-2{transition-delay:.3s}
+.fade-in-delay-3{transition-delay:.45s}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .services-grid,.branches-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-visual{display:none}
+  .contact-cards{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-desktop{display:none}
+  .hamburger{display:flex}
+  .nav-mobile{display:flex}
+  .hero{min-height:70vh}
+  .hero-title{font-size:28px}
+  section{padding:60px 0}
+  .about-grid{grid-template-columns:1fr;gap:30px}
+  .about-image{height:240px}
+  .about-stats{grid-template-columns:repeat(3,1fr);gap:10px}
+  .about-stat-num{font-size:22px}
+  .services-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .service-card{padding:24px 16px}
+  .branches-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .contact-cards{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}
+  .footer-inner{flex-direction:column;gap:30px}
+  .footer-links{gap:30px}
+  .mobile-bar{display:block}
+  .footer{padding-bottom:90px}
+}
+@media(max-width:480px){
+  .services-grid{grid-template-columns:1fr}
+  .branches-grid{grid-template-columns:1fr}
+  .hero-buttons{flex-direction:column}
+  .btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">瓦</div>
+      <div class="logo-text">長野県瓦事業組合<span>Nagano Kawara Association</span></div>
+    </a>
+    <nav class="nav-desktop">
+      <a href="#about">組合について</a>
+      <a href="#services">サービス</a>
+      <a href="#branches">支部紹介</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="nav-mobile" id="navMobile">
+  <a href="#about" onclick="closeNav()">組合について</a>
+  <a href="#services" onclick="closeNav()">サービス</a>
+  <a href="#branches" onclick="closeNav()">支部紹介</a>
+  <a href="#faq" onclick="closeNav()">よくある質問</a>
+  <a href="#contact" onclick="closeNav()">お問い合わせ</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">&#9968; 信州の屋根を守る職人集団</div>
+      <h1 class="hero-title">信州の暮らしを、<br><em>瓦の技</em>で守り続ける。</h1>
+      <p class="hero-sub">長野県瓦事業組合は、県内全域の瓦職人が結集し、伝統の技術と最新の工法で信州の住まいを守り続けています。屋根のことなら、私たちにお任せください。</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">&#9742; お問い合わせ</a>
+        <a href="#services" class="btn btn-outline">サービスを見る &#8594;</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-roof">
+        <div class="mountain-bg">
+          <div class="m1"></div>
+          <div class="m2"></div>
+          <div class="m3"></div>
+        </div>
+        <div class="hero-roof-shape">
+          <div class="roof-top"></div>
+          <div class="roof-body"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image fade-in">
+        <div class="about-image-inner">
+          <div class="about-image-icon">&#127983;</div>
+          <div class="about-image-text">信州の屋根を<br>守り続けて<small>伝統と革新の瓦技術</small></div>
+        </div>
+      </div>
+      <div class="fade-in fade-in-delay-1">
+        <div class="section-label">ABOUT</div>
+        <h2 class="section-title">確かな技術を持つ<br>瓦職人の組合です</h2>
+        <p class="section-desc">長野県瓦事業組合は、県内の瓦工事・屋根工事に携わる事業者が加盟する組合です。北信・中信・南信・東信の4つの支部を持ち、長野県全域をカバー。日本の伝統建築を支える瓦葺きの技術を継承しながら、耐震・防災に対応した最新工法にも取り組んでいます。</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat-num">4<span>支部</span></div>
+            <div class="about-stat-label">県内全域をカバー</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">50<span>年以上</span></div>
+            <div class="about-stat-label">組合の歴史</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">多数</div>
+            <div class="about-stat-label">加盟事業者</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container text-center">
+    <div class="section-label fade-in">SERVICES</div>
+    <h2 class="section-title fade-in">屋根のお悩み、<br>すべてお任せください</h2>
+    <p class="section-desc fade-in">伝統的な瓦葺きから、耐震補強・リフォームまで。長野県の気候風土を知り尽くした職人が、最適な施工をご提案します。</p>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">&#127983;</div>
+        <h3 class="service-name">瓦葺き工事</h3>
+        <p class="service-desc">日本瓦・洋瓦・平板瓦など、新築住宅の瓦葺き工事を承ります。信州の気候に最適な瓦を職人がご提案。</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-1">
+        <div class="service-icon">&#128295;</div>
+        <h3 class="service-name">修繕・補修</h3>
+        <p class="service-desc">瓦のズレ・割れ・雨漏りなどのトラブルに迅速対応。部分補修から全面葺き替えまで対応いたします。</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-2">
+        <div class="service-icon">&#128170;</div>
+        <h3 class="service-name">耐震補強</h3>
+        <p class="service-desc">ガイドライン工法による耐震化で地震に強い屋根に。軽量瓦への葺き替えもご相談ください。</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-3">
+        <div class="service-icon">&#127968;</div>
+        <h3 class="service-name">屋根リフォーム</h3>
+        <p class="service-desc">断熱性能の向上、太陽光パネル設置対応など、現代のニーズに合わせた屋根リフォームをご提案します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANCHES -->
+<section class="branches" id="branches">
+  <div class="container text-center">
+    <div class="section-label fade-in">BRANCHES</div>
+    <h2 class="section-title fade-in">長野県全域を<br>4支部でカバー</h2>
+    <p class="section-desc fade-in">お住まいの地域の支部が、地元密着で対応いたします。まずはお気軽にお問い合わせください。</p>
+    <div class="branches-grid">
+      <div class="branch-card fade-in">
+        <div class="branch-icon">&#9968;</div>
+        <h3 class="branch-name">北信支部</h3>
+        <p class="branch-area">長野市・中野市・飯山市<br>須坂市 周辺エリア</p>
+      </div>
+      <div class="branch-card fade-in fade-in-delay-1">
+        <div class="branch-icon">&#127956;</div>
+        <h3 class="branch-name">中信支部</h3>
+        <p class="branch-area">松本市・塩尻市・安曇野市<br>大町市 周辺エリア</p>
+      </div>
+      <div class="branch-card fade-in fade-in-delay-2">
+        <div class="branch-icon">&#127795;</div>
+        <h3 class="branch-name">南信支部</h3>
+        <p class="branch-area">飯田市・伊那市・駒ヶ根市<br>諏訪市 周辺エリア</p>
+      </div>
+      <div class="branch-card fade-in fade-in-delay-3">
+        <div class="branch-icon">&#9728;</div>
+        <h3 class="branch-name">東信支部</h3>
+        <p class="branch-area">上田市・佐久市・小諸市<br>東御市 周辺エリア</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container text-center">
+    <div class="section-label fade-in">FAQ</div>
+    <h2 class="section-title fade-in">よくあるご質問</h2>
+    <p class="section-desc fade-in">お客様からよくいただくご質問をまとめました。</p>
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>瓦屋根の寿命はどのくらいですか？</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">瓦自体の耐用年数は50年以上と非常に長持ちです。ただし、下地の防水シートや漆喰は20〜30年程度で劣化するため、定期的な点検・メンテナンスをおすすめしています。信州の寒暖差が大きい気候では、特に凍害対策が重要です。</div>
+        </div>
+      </div>
+      <div class="faq-item fade-in fade-in-delay-1">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>瓦屋根は地震に弱いのですか？</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">現在のガイドライン工法で施工された瓦屋根は、地震に対して十分な耐震性能を持っています。全ての瓦を釘やビスで固定する「全数緊結」工法により、震度7クラスの地震でも瓦がズレにくくなっています。古い工法の場合は耐震改修をご検討ください。</div>
+        </div>
+      </div>
+      <div class="faq-item fade-in fade-in-delay-1">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>見積もりは無料ですか？</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">はい、お見積もりは無料で承っております。現地調査を行い、屋根の状態を確認した上で最適な施工プランとお見積もりをご提示いたします。お気軽にお問い合わせください。</div>
+        </div>
+      </div>
+      <div class="faq-item fade-in fade-in-delay-2">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>組合員に工事を依頼するメリットは？</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">組合加盟の事業者は、技術講習や安全研修を定期的に受講しており、一定以上の技術レベルが保証されています。また、万が一のトラブルの際にも組合がサポートいたしますので、安心してご依頼いただけます。</div>
+        </div>
+      </div>
+      <div class="faq-item fade-in fade-in-delay-2">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span>雪止め瓦は必要ですか？</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">長野県は積雪地域が多いため、雪止め瓦の設置を強くおすすめしています。落雪による事故や、雨樋・カーポートの破損を防ぐことができます。地域の積雪量に応じた適切な雪止め対策をご提案いたします。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container contact-inner">
+    <div class="section-label fade-in">CONTACT</div>
+    <h2 class="section-title fade-in">お気軽にご相談ください</h2>
+    <p class="section-desc fade-in">屋根・瓦に関するご相談、お見積もりのご依頼は、お電話またはお問い合わせフォームよりお気軽にどうぞ。</p>
+    <div class="contact-cards">
+      <div class="contact-card fade-in">
+        <div class="contact-card-icon">&#9742;</div>
+        <div class="contact-card-title">お電話でのお問い合わせ</div>
+        <div class="contact-card-value tel">0263-32-0800</div>
+      </div>
+      <div class="contact-card fade-in fade-in-delay-1">
+        <div class="contact-card-icon">&#128205;</div>
+        <div class="contact-card-title">事務局所在地</div>
+        <div class="contact-card-value" style="font-size:14px">〒390-0862<br>長野県松本市宮渕1-4-39</div>
+      </div>
+      <div class="contact-card fade-in fade-in-delay-2">
+        <div class="contact-card-icon">&#128336;</div>
+        <div class="contact-card-title">受付時間</div>
+        <div class="contact-card-value" style="font-size:15px">平日 9:00〜17:00</div>
+      </div>
+    </div>
+    <p class="contact-note fade-in">※ 土日祝日はお休みをいただいております。お急ぎの場合はお電話にてご連絡ください。</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon">瓦</div>
+          <div class="footer-logo-text">長野県瓦事業組合</div>
+        </div>
+        <p class="footer-desc">信州の住まいを守る瓦職人の組合。伝統の技術と最新の工法で、安心・安全な屋根づくりをサポートします。</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>メニュー</h4>
+          <a href="#about">組合について</a>
+          <a href="#services">サービス</a>
+          <a href="#branches">支部紹介</a>
+          <a href="#faq">よくある質問</a>
+        </div>
+        <div class="footer-col">
+          <h4>お問い合わせ</h4>
+          <a href="tel:0263-32-0800">TEL: 0263-32-0800</a>
+          <a>〒390-0862</a>
+          <a>長野県松本市宮渕1-4-39</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="demo-badge">DEMO SITE - 未公開</div><br>
+      <p>&copy; 長野県瓦事業組合 All Rights Reserved.</p>
+      <p style="margin-top:4px">制作：ラクページ｜デモサイト・未公開</p>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE BAR -->
+<div class="mobile-bar">
+  <div class="mobile-bar-inner">
+    <a href="tel:0263-32-0800" class="mb-tel">&#9742; 電話する</a>
+    <a href="#contact" class="mb-contact">&#9993; お問い合わせ</a>
+  </div>
+</div>
+
+<script>
+// Hamburger menu
+const hamburger=document.getElementById('hamburger');
+const navMobile=document.getElementById('navMobile');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('active');
+  navMobile.classList.toggle('active');
+  document.body.style.overflow=navMobile.classList.contains('active')?'hidden':'';
+});
+function closeNav(){
+  hamburger.classList.remove('active');
+  navMobile.classList.remove('active');
+  document.body.style.overflow='';
+}
+
+// FAQ Accordion
+function toggleFaq(el){
+  const item=el.parentElement;
+  const answer=item.querySelector('.faq-answer');
+  const isActive=item.classList.contains('active');
+  document.querySelectorAll('.faq-item').forEach(i=>{
+    i.classList.remove('active');
+    i.querySelector('.faq-answer').style.maxHeight=null;
+  });
+  if(!isActive){
+    item.classList.add('active');
+    answer.style.maxHeight=answer.scrollHeight+'px';
+  }
+}
+
+// Fade-in on scroll
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+// Header shadow on scroll
+window.addEventListener('scroll',()=>{
+  const header=document.getElementById('header');
+  if(window.scrollY>10){
+    header.style.boxShadow='0 2px 20px rgba(0,0,0,.1)';
+  }else{
+    header.style.boxShadow='0 1px 8px rgba(0,0,0,.06)';
+  }
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const target=document.querySelector(this.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      const offset=68;
+      const top=target.getBoundingClientRect().top+window.pageYOffset-offset;
+      window.scrollTo({top,behavior:'smooth'});
+      closeNav();
+    }
+  });
+});
+</script>
+</body>
+</html>

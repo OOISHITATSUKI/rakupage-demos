@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社アド・サイン｜看板・サインのトータルプロデュース</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0f1b2d;
+  --navy-light:#1a2d47;
+  --navy-mid:#243b5c;
+  --gold:#c9a84c;
+  --gold-light:#e2c76e;
+  --gold-pale:#f5e6b8;
+  --white:#ffffff;
+  --gray:#b0b8c4;
+  --gray-light:#e8ecf0;
+  --text:#222;
+  --bg:#f7f8fa;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--text);background:var(--bg);line-height:1.8;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+
+/* Utility */
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:1.8rem;color:var(--navy);display:inline-block;position:relative;padding-bottom:12px}
+.section-title h2::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.section-title p{color:var(--gray);font-size:.85rem;margin-top:8px;letter-spacing:.1em;text-transform:uppercase}
+section{padding:80px 0}
+
+/* Fade-in animation */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ===== HEADER ===== */
+header{background:var(--navy);position:fixed;top:0;left:0;width:100%;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.3)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:70px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900;color:var(--navy)}
+.logo-text{color:var(--white);font-size:1.1rem;font-weight:700;line-height:1.2}
+.logo-text small{display:block;font-size:.6rem;color:var(--gold);font-weight:400;letter-spacing:.15em}
+nav ul{display:flex;gap:24px}
+nav a{color:var(--gray-light);font-size:.85rem;transition:color .3s;position:relative}
+nav a:hover{color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* ===== HERO ===== */
+.hero{margin-top:70px;min-height:90vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 40%,var(--navy-mid) 100%);position:relative;overflow:hidden;text-align:center;padding:60px 20px}
+.hero::before{content:"";position:absolute;top:-50%;right:-30%;width:80%;height:200%;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:120px;background:linear-gradient(to top,var(--bg),transparent);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:750px}
+.hero-badge{display:inline-block;background:linear-gradient(90deg,var(--gold),var(--gold-light));color:var(--navy);font-size:.75rem;font-weight:700;padding:6px 20px;border-radius:30px;margin-bottom:24px;letter-spacing:.1em}
+.hero h1{color:var(--white);font-size:2.6rem;line-height:1.4;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--gold-light)}
+.hero p{color:var(--gray);font-size:1rem;margin-bottom:36px;line-height:1.9}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 36px;border-radius:50px;font-size:.9rem;font-weight:700;transition:all .3s;cursor:pointer;border:none}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);box-shadow:0 4px 20px rgba(201,168,76,.4)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(201,168,76,.55)}
+.btn-outline{background:transparent;color:var(--gold-light);border:2px solid var(--gold);padding:12px 34px}
+.btn-outline:hover{background:var(--gold);color:var(--navy)}
+
+/* Decorative sign shapes */
+.hero-deco{position:absolute;opacity:.06;pointer-events:none}
+.hero-deco-1{top:10%;left:5%;width:200px;height:120px;border:4px solid var(--gold);border-radius:12px;transform:rotate(-8deg)}
+.hero-deco-2{bottom:15%;right:8%;width:150px;height:150px;border:4px solid var(--gold);border-radius:50%;transform:rotate(15deg)}
+.hero-deco-3{top:30%;right:15%;width:80px;height:180px;border:4px solid var(--gold);border-radius:8px;transform:rotate(5deg)}
+
+/* ===== FEATURES ===== */
+.features{background:var(--white)}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.feature-card{text-align:center;padding:40px 24px;border-radius:16px;background:var(--bg);border:1px solid var(--gray-light);transition:all .3s}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(15,27,45,.1);border-color:var(--gold)}
+.feature-icon{width:70px;height:70px;margin:0 auto 20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;background:linear-gradient(135deg,var(--navy),var(--navy-light));color:var(--gold-light)}
+.feature-card h3{font-size:1.1rem;margin-bottom:10px;color:var(--navy)}
+.feature-card p{font-size:.88rem;color:#666;line-height:1.7}
+
+/* ===== SERVICES ===== */
+.services{background:var(--navy);color:var(--white)}
+.services .section-title h2{color:var(--white)}
+.services .section-title h2::after{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.services .section-title p{color:var(--gray)}
+.services-flow{display:flex;gap:0;align-items:stretch;position:relative;justify-content:center;flex-wrap:wrap}
+.service-step{flex:1;min-width:200px;max-width:250px;text-align:center;padding:30px 20px;position:relative}
+.step-num{display:inline-block;width:44px;height:44px;line-height:44px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);font-weight:900;font-size:1rem;margin-bottom:16px}
+.service-step h3{font-size:1rem;margin-bottom:10px;color:var(--gold-light)}
+.service-step p{font-size:.82rem;color:var(--gray);line-height:1.7}
+.step-arrow{position:absolute;right:-16px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:1.5rem;z-index:2}
+
+/* ===== WORKS ===== */
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.work-card{border-radius:16px;overflow:hidden;background:var(--white);box-shadow:0 4px 20px rgba(0,0,0,.06);transition:all .3s}
+.work-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.work-thumb{height:200px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
+.work-thumb-1{background:linear-gradient(135deg,var(--navy),var(--navy-mid))}
+.work-thumb-2{background:linear-gradient(135deg,#1e3a5f,#2d5a87)}
+.work-thumb-3{background:linear-gradient(135deg,var(--navy-light),#345)}
+.work-thumb span{color:var(--gold-light);font-size:3.5rem;opacity:.9}
+.work-thumb .work-label{position:absolute;bottom:12px;right:12px;background:var(--gold);color:var(--navy);font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:20px}
+.work-body{padding:24px}
+.work-body h3{font-size:1rem;margin-bottom:8px;color:var(--navy)}
+.work-body p{font-size:.84rem;color:#666;line-height:1.7}
+
+/* ===== COMPANY ===== */
+.company{background:var(--white)}
+.company-wrapper{display:flex;gap:50px;align-items:flex-start;flex-wrap:wrap}
+.company-map{flex:1;min-width:280px;height:320px;border-radius:16px;background:linear-gradient(135deg,var(--navy),var(--navy-mid));display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:1rem;text-align:center;line-height:2}
+.company-table{flex:1;min-width:300px}
+.company-table table{width:100%;border-collapse:collapse}
+.company-table th,.company-table td{padding:14px 16px;font-size:.9rem;border-bottom:1px solid var(--gray-light);text-align:left}
+.company-table th{width:120px;color:var(--navy);font-weight:700;white-space:nowrap}
+.company-table td{color:#555}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{background:var(--white);border-radius:12px;margin-bottom:12px;box-shadow:0 2px 12px rgba(0,0,0,.04);overflow:hidden;border:1px solid var(--gray-light)}
+.faq-question{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;cursor:pointer;font-weight:700;font-size:.95rem;color:var(--navy);transition:background .3s}
+.faq-question:hover{background:rgba(201,168,76,.06)}
+.faq-question .q-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--navy);font-size:.8rem;font-weight:900;margin-right:14px;flex-shrink:0}
+.faq-question .arrow{font-size:.8rem;color:var(--gold);transition:transform .3s;flex-shrink:0;margin-left:12px}
+.faq-item.open .faq-question .arrow{transform:rotate(180deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+.faq-item.open .faq-answer{max-height:300px;padding:0 24px 20px 66px}
+.faq-answer p{font-size:.88rem;color:#555;line-height:1.8}
+
+/* ===== CONTACT ===== */
+.contact{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);color:var(--white);text-align:center}
+.contact .section-title h2{color:var(--white)}
+.contact .section-title h2::after{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.contact .section-title p{color:var(--gray)}
+.contact-cards{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.contact-card{background:rgba(255,255,255,.07);border:1px solid rgba(201,168,76,.25);border-radius:16px;padding:40px 36px;flex:1;min-width:260px;max-width:380px;text-align:center;transition:all .3s}
+.contact-card:hover{background:rgba(255,255,255,.1);border-color:var(--gold);transform:translateY(-4px)}
+.contact-card-icon{font-size:2.2rem;margin-bottom:16px}
+.contact-card h3{font-size:1.1rem;margin-bottom:8px;color:var(--gold-light)}
+.contact-card p{font-size:.88rem;color:var(--gray);margin-bottom:16px;line-height:1.7}
+.contact-card .big-num{font-size:1.6rem;font-weight:900;color:var(--white);letter-spacing:.05em}
+
+/* ===== FOOTER ===== */
+footer{background:#080e19;color:var(--gray);text-align:center;padding:40px 20px}
+footer .footer-logo{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:6px}
+footer .footer-logo span{color:var(--gold)}
+footer p{font-size:.78rem;margin-top:6px;line-height:1.8}
+footer .footer-credit{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);font-size:.72rem;color:#556}
+footer .footer-credit a{color:var(--gold);text-decoration:underline}
+
+/* ===== MOBILE FIXED BAR ===== */
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;width:100%;z-index:999;background:var(--navy);box-shadow:0 -2px 20px rgba(0,0,0,.3);border-top:2px solid var(--gold)}
+.mobile-bar-inner{display:flex}
+.mobile-bar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 4px;color:var(--gray-light);font-size:.65rem;gap:3px;transition:background .3s}
+.mobile-bar a:hover,.mobile-bar a:active{background:rgba(201,168,76,.1);color:var(--gold-light)}
+.mobile-bar a .bar-icon{font-size:1.3rem}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .features-grid,.works-grid{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:2rem}
+}
+@media(max-width:768px){
+  nav{position:fixed;top:70px;left:0;width:100%;background:var(--navy);transform:translateY(-120%);transition:transform .3s;padding:20px 0;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+  nav.open{transform:translateY(0)}
+  nav ul{flex-direction:column;align-items:center;gap:16px}
+  nav a{font-size:1rem}
+  .hamburger{display:flex}
+  .features-grid,.works-grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.6rem}
+  .hero{min-height:80vh;padding:40px 20px}
+  section{padding:60px 0}
+  .services-flow{flex-direction:column;align-items:center}
+  .step-arrow{display:none}
+  .company-wrapper{flex-direction:column}
+  .mobile-bar{display:block}
+  body{padding-bottom:64px}
+  .contact-cards{flex-direction:column;align-items:center}
+}
+@media(max-width:480px){
+  .hero h1{font-size:1.35rem}
+  .section-title h2{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">AS</div>
+      <div class="logo-text">株式会社アド・サイン<small>SIGN TOTAL PRODUCE</small></div>
+    </a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#works">制作事例</a></li>
+        <li><a href="#company">会社概要</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-deco hero-deco-3"></div>
+  <div class="hero-content fade-in">
+    <div class="hero-badge">大分の看板パートナー</div>
+    <h1>看板・サインの<br><em>トータルプロデュース</em></h1>
+    <p>企画・デザインから制作・施工まで、ワンストップで対応。<br>お客様のビジネスを"目に見える形"で支えます。</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-gold">無料相談はこちら</a>
+      <a href="#works" class="btn btn-outline">制作事例を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>選ばれる3つの理由</h2>
+      <p>Why Choose Us</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <div class="feature-icon">&#9998;</div>
+        <h3>企画からお任せ</h3>
+        <p>ヒアリングから始まり、立地やターゲットに合わせた最適な看板をご提案いたします。</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon">&#9733;</div>
+        <h3>高品質な仕上がり</h3>
+        <p>熟練の職人による制作・施工で、耐久性とデザイン性を両立した看板をお届けします。</p>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon">&#9854;</div>
+        <h3>地域密着の安心感</h3>
+        <p>大分で長年培った信頼と実績。アフターメンテナンスまで責任を持って対応します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>サービスの流れ</h2>
+      <p>Our Service Flow</p>
+    </div>
+    <div class="services-flow fade-in">
+      <div class="service-step">
+        <div class="step-num">1</div>
+        <h3>企画・ヒアリング</h3>
+        <p>お客様のご要望や設置場所の環境を丁寧にヒアリングし、最適なプランをご提案します。</p>
+        <span class="step-arrow">&#9654;</span>
+      </div>
+      <div class="service-step">
+        <div class="step-num">2</div>
+        <h3>デザイン</h3>
+        <p>ブランドイメージに合わせたオリジナルデザインを作成。修正も柔軟に対応いたします。</p>
+        <span class="step-arrow">&#9654;</span>
+      </div>
+      <div class="service-step">
+        <div class="step-num">3</div>
+        <h3>制作</h3>
+        <p>最新の設備と熟練の技術で、高品質な看板・サインを一つひとつ丁寧に制作します。</p>
+        <span class="step-arrow">&#9654;</span>
+      </div>
+      <div class="service-step">
+        <div class="step-num">4</div>
+        <h3>施工・設置</h3>
+        <p>安全かつ正確な施工で、看板を最適な位置に設置。アフターフォローも万全です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>制作事例</h2>
+      <p>Our Works</p>
+    </div>
+    <div class="works-grid">
+      <div class="work-card fade-in">
+        <div class="work-thumb work-thumb-1">
+          <span>&#9632;</span>
+          <span class="work-label">店舗看板</span>
+        </div>
+        <div class="work-body">
+          <h3>飲食店様 ファサード看板</h3>
+          <p>夜間でも視認性の高いLEDバックライト看板を企画・設置。集客力アップに貢献しました。</p>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-thumb work-thumb-2">
+          <span>&#9670;</span>
+          <span class="work-label">案内サイン</span>
+        </div>
+        <div class="work-body">
+          <h3>医療施設様 院内サイン</h3>
+          <p>わかりやすさを重視した院内サイン計画。統一感あるデザインで患者様の導線を改善しました。</p>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-thumb work-thumb-3">
+          <span>&#9650;</span>
+          <span class="work-label">屋外広告</span>
+        </div>
+        <div class="work-body">
+          <h3>不動産会社様 野立て看板</h3>
+          <p>交通量の多い幹線道路沿いに大型看板を設置。認知度向上に大きく貢献しました。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="company" id="company">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>会社概要</h2>
+      <p>Company Info</p>
+    </div>
+    <div class="company-wrapper fade-in">
+      <div class="company-map">
+        &#128205;<br>大分県大分市<br>小野鶴1916番地の1
+      </div>
+      <div class="company-table">
+        <table>
+          <tr><th>会社名</th><td>株式会社アド・サイン</td></tr>
+          <tr><th>業種</th><td>看板・サインのトータルプロデュース</td></tr>
+          <tr><th>所在地</th><td>〒870-1153<br>大分県大分市小野鶴1916番地の1</td></tr>
+          <tr><th>電話番号</th><td><a href="tel:097-541-7755" style="color:var(--navy);font-weight:700">097-541-7755</a></td></tr>
+          <tr><th>事業内容</th><td>各種看板の企画・デザイン・制作・施工<br>サイン計画・屋外広告・車両ラッピング</td></tr>
+          <tr><th>対応エリア</th><td>大分県大分市を中心に県内全域対応</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>よくある質問</h2>
+      <p>FAQ</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span><span class="q-mark">Q</span>看板の制作期間はどのくらいですか？</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><p>看板の種類や規模によりますが、通常はご注文から2〜4週間程度でお届け・設置が可能です。お急ぎの場合もご相談ください。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span><span class="q-mark">Q</span>デザインからお願いできますか？</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><p>はい、もちろんです。お客様のイメージやご要望をヒアリングし、プロのデザイナーが最適なデザインをご提案いたします。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span><span class="q-mark">Q</span>見積もりは無料ですか？</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><p>はい、お見積もりは無料です。現地調査も含めて無料で対応しておりますので、お気軽にご相談ください。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span><span class="q-mark">Q</span>看板の修理やメンテナンスもお願いできますか？</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><p>はい、看板の修理・リニューアル・メンテナンスも承っております。他社製の看板でもお気軽にご相談ください。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span><span class="q-mark">Q</span>対応エリアはどこまでですか？</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><p>大分市を中心に、大分県内全域に対応しております。県外のお客様もまずはお問い合わせください。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>お問い合わせ</h2>
+      <p>Contact Us</p>
+    </div>
+    <p class="fade-in" style="color:var(--gray);margin-bottom:10px">看板のことなら何でもお気軽にご相談ください</p>
+    <div class="contact-cards">
+      <div class="contact-card fade-in">
+        <div class="contact-card-icon">&#9742;</div>
+        <h3>お電話でのお問い合わせ</h3>
+        <p>受付時間 9:00〜18:00（土日祝除く）</p>
+        <a href="tel:097-541-7755" class="big-num">097-541-7755</a>
+      </div>
+      <div class="contact-card fade-in">
+        <div class="contact-card-icon">&#9993;</div>
+        <h3>メールでのお問い合わせ</h3>
+        <p>24時間受付・翌営業日までに返信</p>
+        <a href="#contact" class="btn btn-gold" style="margin-top:8px">お問い合わせフォーム</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">株式会社<span>アド・サイン</span></div>
+  <p>〒870-1153 大分県大分市小野鶴1916番地の1<br>TEL: 097-541-7755</p>
+  <div class="footer-credit">
+    <p>ラクページ制作｜デモサイト・未公開</p>
+    <p>&copy; 2026 株式会社アド・サイン All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- MOBILE FIXED BAR -->
+<div class="mobile-bar">
+  <div class="mobile-bar-inner">
+    <a href="tel:097-541-7755">
+      <span class="bar-icon">&#9742;</span>
+      電話する
+    </a>
+    <a href="#services">
+      <span class="bar-icon">&#9881;</span>
+      サービス
+    </a>
+    <a href="#works">
+      <span class="bar-icon">&#9733;</span>
+      事例
+    </a>
+    <a href="#contact">
+      <span class="bar-icon">&#9993;</span>
+      問い合わせ
+    </a>
+  </div>
+</div>
+
+<script>
+// Hamburger menu
+function toggleMenu(){
+  document.getElementById('nav').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('active');
+}
+// Close menu on link click
+document.querySelectorAll('#nav a').forEach(function(a){
+  a.addEventListener('click',function(){
+    document.getElementById('nav').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('active');
+  });
+});
+
+// FAQ accordion
+function toggleFaq(el){
+  var item=el.parentElement;
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
+  if(!wasOpen) item.classList.add('open');
+}
+
+// Fade-in on scroll
+function handleFadeIn(){
+  var els=document.querySelectorAll('.fade-in');
+  els.forEach(function(el){
+    var rect=el.getBoundingClientRect();
+    if(rect.top<window.innerHeight-60){
+      el.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll',handleFadeIn);
+window.addEventListener('load',handleFadeIn);
+</script>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有限会社 山口業務店 | 左官・塗装・外構工事｜愛知県春日井市</title>
+<meta name="description" content="愛知県春日井市の有限会社山口業務店。創業75年以上の信頼と実績。左官工事・塗装工事・外構工事を戸建て・マンション問わず対応いたします。">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --slate:#3d4f5f;
+  --slate-dark:#2a3a48;
+  --slate-deeper:#1e2d3a;
+  --blue:#4a7c9b;
+  --blue-light:#6ba3c7;
+  --blue-pale:#e8f1f7;
+  --gray:#6b7b8a;
+  --gray-light:#f4f6f8;
+  --gray-warm:#e9ecef;
+  --accent:#c7956d;
+  --accent-light:#dbb89a;
+  --white:#fefefe;
+  --text:#2c2c2c;
+  --text-light:#5a6670;
+  --shadow:0 4px 24px rgba(0,0,0,.08);
+  --radius:12px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,"Segoe UI",sans-serif;color:var(--text);line-height:1.8;background:var(--white);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* ===== UTILITIES ===== */
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:clamp(1.6rem,4vw,2.2rem);color:var(--slate-dark);position:relative;display:inline-block;padding-bottom:16px}
+.section-title h2::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:linear-gradient(90deg,var(--blue),var(--accent));border-radius:2px}
+.section-title p{margin-top:12px;color:var(--text-light);font-size:.95rem}
+
+section{padding:80px 0}
+@media(max-width:768px){section{padding:60px 0}}
+
+/* ===== FADE IN ===== */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ===== HEADER ===== */
+.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(254,254,254,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.06);transition:all .3s}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--slate),var(--blue));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;font-weight:700}
+.logo-text{font-size:1.05rem;font-weight:700;color:var(--slate-dark);line-height:1.3}
+.logo-text small{display:block;font-size:.65rem;font-weight:400;color:var(--text-light);letter-spacing:.5px}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:.88rem;color:var(--text);font-weight:500;position:relative;transition:color .3s}
+.nav a:hover{color:var(--blue)}
+.nav a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--blue);transition:width .3s}
+.nav a:hover::after{width:100%}
+.nav-cta{background:var(--blue);color:#fff!important;padding:8px 20px;border-radius:50px;font-size:.85rem!important;transition:background .3s,transform .2s}
+.nav-cta:hover{background:var(--slate-dark);transform:translateY(-1px)}
+.nav-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--slate-dark);transition:all .3s;border-radius:1px}
+
+@media(max-width:768px){
+  .nav{position:fixed;top:0;right:-100%;width:70%;max-width:300px;height:100vh;background:var(--white);flex-direction:column;justify-content:center;gap:30px;box-shadow:-4px 0 30px rgba(0,0,0,.1);transition:right .4s ease}
+  .nav.open{right:0}
+  .nav a{font-size:1.1rem}
+  .hamburger{display:flex}
+  .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+}
+
+/* ===== HERO ===== */
+.hero{margin-top:70px;min-height:calc(100vh - 70px);display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--slate-deeper) 0%,var(--slate-dark) 30%,var(--slate) 60%,#4a6070 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse 800px 600px at 20% 80%,rgba(74,124,155,.25),transparent),
+  radial-gradient(ellipse 600px 400px at 80% 20%,rgba(199,149,109,.15),transparent),
+  radial-gradient(ellipse 400px 400px at 50% 50%,rgba(255,255,255,.03),transparent)}
+.hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Crect width='2' height='2' x='19' y='19'/%3E%3C/g%3E%3C/svg%3E")}
+
+/* 壁テクスチャ装飾 */
+.hero-deco{position:absolute;pointer-events:none;opacity:.06}
+.hero-deco-1{top:10%;right:5%;width:300px;height:300px;border:3px solid #fff;border-radius:var(--radius)}
+.hero-deco-2{bottom:15%;left:3%;width:200px;height:200px;border:2px solid #fff;border-radius:50%}
+.hero-deco-3{top:50%;right:20%;width:100px;height:100px;background:#fff;border-radius:4px;transform:rotate(45deg)}
+
+.hero-content{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 20px;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:50px;padding:8px 20px;margin-bottom:24px;color:rgba(255,255,255,.9);font-size:.85rem}
+.hero-badge-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);color:#fff;font-weight:800;line-height:1.3;margin-bottom:16px;text-shadow:0 2px 20px rgba(0,0,0,.2)}
+.hero h1 .accent{color:var(--accent-light)}
+.hero-sub{color:rgba(255,255,255,.85);font-size:clamp(1rem,2.5vw,1.2rem);margin-bottom:36px;line-height:1.8}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:14px 32px;border-radius:50px;font-size:1rem;font-weight:600;transition:all .3s;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--blue-light);transform:translateY(-2px);box-shadow:0 8px 25px rgba(74,124,155,.3)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;padding:14px 32px;border-radius:50px;font-size:1rem;font-weight:600;border:2px solid rgba(255,255,255,.4);transition:all .3s;cursor:pointer}
+.btn-secondary:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.7);transform:translateY(-2px)}
+
+.hero-stats{display:flex;gap:40px;margin-top:50px;padding-top:30px;border-top:1px solid rgba(255,255,255,.12)}
+.hero-stat{text-align:center;color:#fff}
+.hero-stat-num{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;color:var(--accent-light)}
+.hero-stat-label{font-size:.8rem;color:rgba(255,255,255,.7);margin-top:4px}
+
+@media(max-width:768px){
+  .hero-stats{gap:20px}
+  .hero-buttons{flex-direction:column;align-items:stretch}
+  .btn-primary,.btn-secondary{justify-content:center}
+}
+
+/* ===== SERVICE ===== */
+.service-section{background:var(--gray-light)}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.service-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.service-card-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;overflow:hidden}
+.service-card-img.sakan{background:linear-gradient(135deg,#8a9bae,#b0bec5)}
+.service-card-img.tosou{background:linear-gradient(135deg,#7b9eb8,#90caf9)}
+.service-card-img.gaikou{background:linear-gradient(135deg,#8d9e87,#a5b89c)}
+.service-card-body{padding:28px}
+.service-card-body h3{font-size:1.2rem;color:var(--slate-dark);margin-bottom:12px}
+.service-card-body p{color:var(--text-light);font-size:.92rem;line-height:1.8}
+.service-tag{display:inline-block;background:var(--blue-pale);color:var(--blue);font-size:.75rem;padding:4px 12px;border-radius:20px;margin-top:14px;font-weight:600}
+
+@media(max-width:768px){
+  .service-grid{grid-template-columns:1fr}
+}
+
+/* ===== WORKS ===== */
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.work-card{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--white);transition:transform .3s}
+.work-card:hover{transform:translateY(-4px)}
+.work-card-img{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.work-card-img.work1{background:linear-gradient(135deg,#6b8ea3,#8fb4c9)}
+.work-card-img.work2{background:linear-gradient(135deg,#8a9070,#aab89a)}
+.work-card-img.work3{background:linear-gradient(135deg,#9a8878,#bfae9e)}
+.work-card-icon{font-size:3.5rem;opacity:.7}
+.work-card-label{position:absolute;top:14px;left:14px;background:var(--blue);color:#fff;font-size:.7rem;padding:4px 12px;border-radius:20px;font-weight:600}
+.work-card-body{padding:22px}
+.work-card-body h3{font-size:1.05rem;color:var(--slate-dark);margin-bottom:8px}
+.work-card-body p{color:var(--text-light);font-size:.88rem}
+.work-card-meta{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--gray-warm);font-size:.78rem;color:var(--gray)}
+
+@media(max-width:768px){
+  .works-grid{grid-template-columns:1fr}
+}
+
+/* ===== COMPANY ===== */
+.company-section{background:var(--gray-light)}
+.company-inner{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.company-map{height:320px;border-radius:var(--radius);background:linear-gradient(135deg,#d5dce3,#e8ecf0);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--gray);font-size:.9rem;position:relative;overflow:hidden}
+.company-map::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 30px,rgba(0,0,0,.03) 30px,rgba(0,0,0,.03) 31px),repeating-linear-gradient(90deg,transparent,transparent 30px,rgba(0,0,0,.03) 30px,rgba(0,0,0,.03) 31px)}
+.company-map-icon{font-size:3rem;opacity:.5}
+.company-table{width:100%}
+.company-table table{width:100%;border-collapse:collapse}
+.company-table th,.company-table td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--gray-warm);font-size:.92rem}
+.company-table th{background:var(--blue-pale);color:var(--slate-dark);font-weight:600;width:30%;white-space:nowrap}
+.company-table td{background:var(--white)}
+
+@media(max-width:768px){
+  .company-inner{grid-template-columns:1fr}
+  .company-map{height:220px}
+}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{background:var(--white);border-radius:var(--radius);margin-bottom:14px;box-shadow:0 2px 12px rgba(0,0,0,.05);overflow:hidden;border:1px solid var(--gray-warm)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--slate-dark);transition:background .3s;gap:12px}
+.faq-q:hover{background:var(--blue-pale)}
+.faq-q .icon{font-size:1.2rem;transition:transform .3s;flex-shrink:0;color:var(--blue)}
+.faq-item.open .faq-q .icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+.faq-item.open .faq-a{max-height:300px;padding:0 24px 20px}
+.faq-a p{color:var(--text-light);font-size:.9rem;line-height:1.9}
+
+/* ===== CONTACT ===== */
+.contact-section{background:linear-gradient(160deg,var(--slate-deeper),var(--slate-dark),var(--slate));color:#fff;position:relative;overflow:hidden}
+.contact-section::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 80% 20%,rgba(74,124,155,.2),transparent)}
+.contact-inner{text-align:center;position:relative;z-index:2}
+.contact-inner h2{font-size:clamp(1.6rem,4vw,2.2rem);margin-bottom:16px}
+.contact-inner>p{color:rgba(255,255,255,.75);margin-bottom:40px;font-size:.95rem}
+.contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:700px;margin:0 auto}
+.contact-card{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:36px 28px;text-align:center;transition:transform .3s,background .3s}
+.contact-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.12)}
+.contact-card-icon{font-size:2.4rem;margin-bottom:16px}
+.contact-card h3{font-size:1.1rem;margin-bottom:8px}
+.contact-card p{color:rgba(255,255,255,.7);font-size:.85rem;margin-bottom:18px}
+.contact-card a{display:inline-block;padding:10px 28px;border-radius:50px;font-weight:600;font-size:.92rem;transition:all .3s}
+.contact-card a.phone-link{background:var(--accent);color:#fff}
+.contact-card a.phone-link:hover{background:var(--accent-light)}
+.contact-card a.mail-link{background:var(--blue);color:#fff}
+.contact-card a.mail-link:hover{background:var(--blue-light)}
+
+@media(max-width:768px){
+  .contact-cards{grid-template-columns:1fr}
+}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--slate-deeper);color:rgba(255,255,255,.6);padding:40px 0 120px;text-align:center;font-size:.82rem}
+.footer-logo{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:6px}
+.footer-addr{margin-bottom:16px;line-height:1.7}
+.footer-copy{margin-bottom:8px}
+.footer-badge{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:6px 16px;font-size:.72rem;color:rgba(255,255,255,.5);margin-top:8px}
+
+/* ===== MOBILE FIXED BAR ===== */
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;width:100%;z-index:999;background:var(--white);box-shadow:0 -2px 20px rgba(0,0,0,.1);padding:10px 16px;gap:10px}
+.mobile-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:10px;font-size:.88rem;font-weight:600;text-align:center;transition:transform .2s}
+.mobile-bar .mb-phone{background:var(--accent);color:#fff}
+.mobile-bar .mb-contact{background:var(--blue);color:#fff}
+
+@media(max-width:768px){
+  .mobile-bar{display:flex}
+  .footer{padding-bottom:100px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">山</div>
+      <div class="logo-text">山口業務店<small>左官・塗装・外構工事</small></div>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#service">サービス</a>
+      <a href="#works">施工事例</a>
+      <a href="#company">会社概要</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-deco hero-deco-3"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="hero-badge-dot"></span>愛知県春日井市の左官・塗装のプロ</div>
+    <h1>創業<span class="accent">75年</span>以上。<br>壁と暮らしを、守り続ける。</h1>
+    <p class="hero-sub">左官工事・塗装工事・外構工事を通じて、<br>戸建てからマンションまで、確かな技術でお応えします。</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">&#9742; お問い合わせ</a>
+      <a href="#service" class="btn-secondary">&#9660; サービスを見る</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">75<span style="font-size:.6em">年以上</span></div>
+        <div class="hero-stat-label">創業からの歴史</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3,000<span style="font-size:.6em">件+</span></div>
+        <div class="hero-stat-label">累計施工実績</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">戸建&amp;集合</div>
+        <div class="hero-stat-label">どちらも対応</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section class="service-section" id="service">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>サービス紹介</h2>
+      <p>長年の経験と技術で、お客様のご要望にお応えします</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card fade-in">
+        <div class="service-card-img sakan">&#9649;</div>
+        <div class="service-card-body">
+          <h3>左官工事</h3>
+          <p>土壁・漆喰・モルタルなど、伝統的な左官技術から現代的な仕上げまで。内装・外装問わず美しく丈夫な壁を仕上げます。</p>
+          <span class="service-tag">内壁・外壁・補修</span>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-card-img tosou">&#9730;</div>
+        <div class="service-card-body">
+          <h3>塗装工事</h3>
+          <p>外壁塗装・屋根塗装・防水塗装など、建物を風雨や紫外線から守る塗装工事。適切な塗料選定で長持ちする仕上がりに。</p>
+          <span class="service-tag">外壁・屋根・防水</span>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-card-img gaikou">&#9878;</div>
+        <div class="service-card-body">
+          <h3>外構工事</h3>
+          <p>駐車場・アプローチ・ブロック塀・フェンスなど、住まいの外回りをトータルでご提案。機能性とデザイン性を両立します。</p>
+          <span class="service-tag">駐車場・塀・フェンス</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>施工事例</h2>
+      <p>これまでの施工事例の一部をご紹介します</p>
+    </div>
+    <div class="works-grid">
+      <div class="work-card fade-in">
+        <div class="work-card-img work1">
+          <span class="work-card-icon">&#9721;</span>
+          <span class="work-card-label">外壁塗装</span>
+        </div>
+        <div class="work-card-body">
+          <h3>春日井市 S様邸 外壁塗装工事</h3>
+          <p>築25年の戸建住宅。シリコン塗料による外壁全面塗り替え。色褪せた外壁が新築同様の輝きに。</p>
+          <div class="work-card-meta">
+            <span>戸建住宅</span>
+            <span>工期：約2週間</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-card-img work2">
+          <span class="work-card-icon">&#9632;</span>
+          <span class="work-card-label">左官工事</span>
+        </div>
+        <div class="work-card-body">
+          <h3>名古屋市 マンション共用部左官補修</h3>
+          <p>マンション共用廊下のモルタル補修工事。ひび割れや剥がれを丁寧に修復し、美観と安全性を回復。</p>
+          <div class="work-card-meta">
+            <span>マンション</span>
+            <span>工期：約1週間</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-card-img work3">
+          <span class="work-card-icon">&#9638;</span>
+          <span class="work-card-label">外構工事</span>
+        </div>
+        <div class="work-card-body">
+          <h3>春日井市 T様邸 駐車場・アプローチ工事</h3>
+          <p>新築住宅の外構一式。土間コンクリート駐車場とインターロッキングのアプローチを施工。</p>
+          <div class="work-card-meta">
+            <span>新築外構</span>
+            <span>工期：約10日</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="company-section" id="company">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>会社概要</h2>
+      <p>地域に根ざし、信頼を積み重ねてまいりました</p>
+    </div>
+    <div class="company-inner fade-in">
+      <div class="company-table">
+        <table>
+          <tr><th>会社名</th><td>有限会社 山口業務店</td></tr>
+          <tr><th>所在地</th><td>〒486-0842<br>愛知県春日井市六軒屋町4丁目101</td></tr>
+          <tr><th>電話番号</th><td><a href="tel:09033041150" style="color:var(--blue);font-weight:600">090-3304-1150</a></td></tr>
+          <tr><th>業務内容</th><td>左官工事 / 塗装工事 / 外構工事</td></tr>
+          <tr><th>対応エリア</th><td>愛知県春日井市を中心に近郊エリア</td></tr>
+          <tr><th>対応建物</th><td>戸建住宅・マンション・商業施設</td></tr>
+          <tr><th>創業</th><td>75年以上</td></tr>
+        </table>
+      </div>
+      <div class="company-map">
+        <div class="company-map-icon">&#128205;</div>
+        <div>愛知県春日井市六軒屋町4丁目101</div>
+        <div style="font-size:.78rem;color:var(--gray)">Google Map</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>よくある質問</h2>
+      <p>お客様からよくいただくご質問にお答えします</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>見積もりは無料ですか？</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a"><p>はい、お見積もりは無料です。現地調査の上、詳細なお見積もりを作成いたします。お気軽にお電話ください。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>対応エリアはどこまでですか？</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a"><p>愛知県春日井市を中心に、名古屋市・小牧市・瀬戸市・尾張旭市など近郊エリアに対応しております。その他の地域もご相談ください。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>マンションの工事も対応できますか？</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a"><p>はい、戸建住宅だけでなくマンションの共用部・専有部の左官工事・塗装工事にも豊富な実績がございます。管理組合様からのご依頼も承っております。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>工事期間はどのくらいかかりますか？</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a"><p>工事の規模や内容によりますが、小規模な補修工事で1〜3日、外壁塗装で1〜2週間、外構工事で1〜2週間程度が目安です。事前にスケジュールをご案内いたします。</p></div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>塗料の種類はどのように選べばよいですか？</span>
+          <span class="icon">+</span>
+        </div>
+        <div class="faq-a"><p>建物の状態やご予算、耐久性のご希望に応じて最適な塗料をご提案いたします。シリコン・フッ素・無機塗料など各種取り扱いがございますので、現地調査時に詳しくご説明いたします。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner fade-in">
+      <h2>お問い合わせ</h2>
+      <p>左官・塗装・外構のことなら、お気軽にご相談ください</p>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="contact-card-icon">&#9742;</div>
+          <h3>お電話でのお問い合わせ</h3>
+          <p>受付時間：8:00〜18:00</p>
+          <a href="tel:09033041150" class="phone-link">090-3304-1150</a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">&#9993;</div>
+          <h3>メールでのお問い合わせ</h3>
+          <p>24時間受付・翌営業日に返信</p>
+          <a href="mailto:info@example.com" class="mail-link">メールで問い合わせ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">有限会社 山口業務店</div>
+    <div class="footer-addr">
+      〒486-0842 愛知県春日井市六軒屋町4丁目101<br>
+      TEL: 090-3304-1150
+    </div>
+    <div class="footer-copy">&copy; 有限会社 山口業務店 All Rights Reserved.</div>
+    <div class="footer-badge">ラクページ制作｜デモサイト・未公開</div>
+  </div>
+</footer>
+
+<!-- MOBILE FIXED BAR -->
+<div class="mobile-bar">
+  <a href="tel:09033041150" class="mb-phone">&#9742; 電話する</a>
+  <a href="#contact" class="mb-contact">&#9993; お問い合わせ</a>
+</div>
+
+<script>
+// Hamburger menu
+const hamburger=document.getElementById('hamburger');
+const nav=document.getElementById('nav');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('open');
+});
+nav.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    hamburger.classList.remove('active');
+    nav.classList.remove('open');
+  });
+});
+
+// Fade-in on scroll
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+// FAQ accordion
+function toggleFaq(el){
+  const item=el.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+// Smooth scroll for mobile bar
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const target=document.querySelector(this.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+</script>
+
+</body>
+</html>
