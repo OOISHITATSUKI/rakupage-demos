@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有限会社 新永建設 | 京都府長岡京市の土木工事・舗装工事・造園工事</title>
+<meta name="description" content="京都府長岡京市の建設会社。土木工事・舗装工事・とび土工・造園工事のことなら有限会社新永建設にお任せください。">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green-dark:#1a3d2a;
+  --green:#2d6644;
+  --green-light:#3d8a5c;
+  --green-pale:#dceee4;
+  --gray-dark:#3a3a3a;
+  --gray:#5a5a5a;
+  --gray-light:#8a8a8a;
+  --earth:#6b5a42;
+  --earth-light:#8b7a62;
+  --earth-pale:#e0d8cc;
+  --cream:#f2f0ec;
+  --cream-light:#f8f7f4;
+  --text:#333;
+  --text-light:#666;
+  --white:#fff;
+  --shadow:0 2px 20px rgba(26,61,42,.1);
+  --shadow-lg:0 8px 40px rgba(26,61,42,.12);
+  --radius:8px;
+  --transition:.3s ease;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,"Noto Sans JP",sans-serif;color:var(--text);line-height:1.8;background:var(--cream-light);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto}
+ul{list-style:none}
+
+/* ===== UTILITY ===== */
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:1.8rem;color:var(--green-dark);position:relative;display:inline-block;padding-bottom:12px;letter-spacing:.05em}
+.section-title h2::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:linear-gradient(90deg,var(--green),var(--earth));border-radius:2px}
+.section-title p{color:var(--text-light);margin-top:10px;font-size:.9rem;letter-spacing:.1em}
+
+section{padding:80px 0}
+
+/* ===== FADE IN ===== */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-left{opacity:0;transform:translateX(-30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in-left.visible{opacity:1;transform:translateX(0)}
+.fade-in-right{opacity:0;transform:translateX(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in-right.visible{opacity:1;transform:translateX(0)}
+
+/* ===== HEADER ===== */
+.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);box-shadow:0 1px 10px rgba(0,0,0,.06);transition:var(--transition)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--green) 0%,var(--gray-dark) 100%);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:900;font-size:1.1rem;letter-spacing:-.02em;line-height:1}
+.logo-text{font-size:.85rem;font-weight:700;color:var(--green-dark);line-height:1.3}
+.logo-text span{display:block;font-size:.65rem;font-weight:400;color:var(--text-light)}
+
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:.85rem;font-weight:500;color:var(--text);position:relative;transition:var(--transition)}
+.nav a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--green);transition:var(--transition)}
+.nav a:hover::after{width:100%}
+.nav a:hover{color:var(--green)}
+.nav-cta{background:var(--green);color:var(--white)!important;padding:8px 20px;border-radius:50px;font-size:.8rem!important;transition:var(--transition)}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--green-dark);transform:translateY(-1px)}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;z-index:1001}
+.hamburger span{display:block;width:24px;height:2px;background:var(--green-dark);transition:var(--transition)}
+
+/* ===== HERO ===== */
+.hero{margin-top:70px;min-height:85vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a2a1e 0%,#2a3a2e 40%,#3a3a3a 100%);background-image:linear-gradient(135deg,rgba(26,42,30,.75) 0%,rgba(42,58,46,.65) 40%,rgba(58,58,58,.7) 100%),url('https://images.unsplash.com/photo-1590075865003-e48277faa558?w=1600&q=80');background-size:cover;background-position:center}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse at 20% 50%,rgba(45,102,68,.3) 0%,transparent 60%),
+  radial-gradient(ellipse at 80% 30%,rgba(107,90,66,.2) 0%,transparent 50%),
+  radial-gradient(ellipse at 60% 80%,rgba(58,58,58,.2) 0%,transparent 50%);
+}
+.hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0v60M0 30h60' stroke='%23ffffff' stroke-width='.3' opacity='.04'/%3E%3C/svg%3E")}
+
+.hero-content{position:relative;z-index:2;max-width:700px;padding:0 20px}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(5px);color:var(--white);padding:6px 18px;border-radius:50px;font-size:.75rem;letter-spacing:.1em;margin-bottom:24px;border:1px solid rgba(255,255,255,.2)}
+.hero h1{font-size:2.6rem;color:var(--white);line-height:1.5;font-weight:800;letter-spacing:.02em;margin-bottom:20px;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.hero h1 em{font-style:normal;color:#8ec68a}
+.hero p{color:rgba(255,255,255,.85);font-size:1.05rem;line-height:2;margin-bottom:36px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-size:.9rem;font-weight:600;transition:var(--transition);cursor:pointer;border:none}
+.btn-primary{background:var(--green);color:var(--white);box-shadow:0 4px 20px rgba(45,102,68,.3)}
+.btn-primary:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 6px 25px rgba(45,102,68,.4)}
+.btn-secondary{background:rgba(255,255,255,.15);color:var(--white);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(5px)}
+.btn-secondary:hover{background:rgba(255,255,255,.25);transform:translateY(-2px)}
+
+.hero-visual{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:500px;height:500px;opacity:.15}
+.hero-visual::before{content:"";position:absolute;inset:0;border:3px solid rgba(255,255,255,.1);border-radius:50%;animation:rotate 30s linear infinite}
+.hero-visual::after{content:"";position:absolute;top:50px;left:50px;right:50px;bottom:50px;border:2px dashed rgba(255,255,255,.06);border-radius:50%;animation:rotate 20s linear infinite reverse}
+@keyframes rotate{to{transform:rotate(360deg)}}
+
+/* ===== FEATURES BAR ===== */
+.features-bar{background:var(--white);padding:30px 0;box-shadow:var(--shadow)}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.feature-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.feature-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--green-pale),var(--cream));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.feature-item h4{font-size:.8rem;color:var(--green-dark);font-weight:600}
+.feature-item p{font-size:.7rem;color:var(--text-light)}
+
+/* ===== SERVICES ===== */
+.services{background:var(--cream)}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.service-card{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.service-visual{height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.service-visual.v1{background:linear-gradient(135deg,rgba(26,61,42,.3),rgba(45,102,68,.3)),url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80');background-size:cover;background-position:center}
+.service-visual.v2{background:linear-gradient(135deg,rgba(58,58,58,.3),rgba(90,90,90,.3)),url('https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=800&q=80');background-size:cover;background-position:center}
+.service-visual.v3{background:linear-gradient(135deg,rgba(107,90,66,.3),rgba(139,122,98,.3)),url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80');background-size:cover;background-position:center}
+.service-visual.v4{background:linear-gradient(135deg,rgba(45,102,68,.3),rgba(61,138,92,.3)),url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80');background-size:cover;background-position:center}
+.service-visual .icon{font-size:3.5rem;opacity:0;position:relative;z-index:2}
+.service-visual::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(255,255,255,.1) 0%,transparent 60%)}
+.service-body{padding:28px}
+.service-body h3{font-size:1.15rem;color:var(--green-dark);margin-bottom:10px;font-weight:700}
+.service-body p{font-size:.9rem;color:var(--text-light);line-height:1.9}
+.service-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.service-tags span{background:var(--cream);color:var(--earth);padding:4px 12px;border-radius:50px;font-size:.72rem;font-weight:500}
+
+/* ===== WORKS ===== */
+.works{background:var(--cream-light)}
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.work-card{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.work-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.work-thumb{height:200px;display:flex;align-items:center;justify-content:center;position:relative}
+.work-thumb.w1{background:linear-gradient(135deg,rgba(58,58,58,.2),rgba(90,90,90,.2)),url('https://images.unsplash.com/photo-1621922688758-8c218e262861?w=800&q=80');background-size:cover;background-position:center}
+.work-thumb.w2{background:linear-gradient(135deg,rgba(107,90,66,.2),rgba(139,122,98,.2)),url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80');background-size:cover;background-position:center}
+.work-thumb.w3{background:linear-gradient(135deg,rgba(45,102,68,.2),rgba(61,138,92,.2)),url('https://images.unsplash.com/photo-1598902108854-d1446536e275?w=800&q=80');background-size:cover;background-position:center}
+.work-thumb .w-icon{font-size:3rem;opacity:0}
+.work-thumb .work-label{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.5);color:var(--white);padding:4px 12px;border-radius:50px;font-size:.7rem;font-weight:500}
+.work-info{padding:20px}
+.work-info h4{font-size:1rem;color:var(--green-dark);margin-bottom:6px}
+.work-info p{font-size:.82rem;color:var(--text-light)}
+.work-info .work-meta{display:flex;gap:12px;margin-top:10px;font-size:.72rem;color:var(--gray-light)}
+
+/* ===== COMPANY ===== */
+.company{background:var(--white)}
+.company-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.company-text h3{font-size:1.3rem;color:var(--green-dark);margin-bottom:16px;font-weight:700}
+.company-text p{color:var(--text-light);font-size:.92rem;line-height:2;margin-bottom:24px}
+.company-table{width:100%}
+.company-table table{width:100%;border-collapse:collapse}
+.company-table th,.company-table td{padding:14px 16px;font-size:.88rem;border-bottom:1px solid #eee;text-align:left}
+.company-table th{width:120px;color:var(--green-dark);font-weight:600;background:var(--green-pale);white-space:nowrap}
+.company-table td{color:var(--text)}
+
+/* ===== FAQ ===== */
+.faq{background:var(--cream)}
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{background:var(--white);border-radius:12px;margin-bottom:14px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.faq-question{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--green-dark);transition:var(--transition);gap:12px}
+.faq-question:hover{background:var(--cream)}
+.faq-question .q-mark{flex-shrink:0;width:28px;height:28px;background:var(--green);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-right:12px}
+.faq-question .arrow{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:.7rem;transition:var(--transition);color:var(--gray-light)}
+.faq-item.open .faq-question .arrow{transform:rotate(180deg);background:var(--green-pale)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+.faq-answer-inner{padding:0 24px 20px 64px;color:var(--text-light);font-size:.9rem;line-height:1.9}
+
+/* ===== CONTACT ===== */
+.contact{background:linear-gradient(135deg,var(--green-dark) 0%,var(--gray-dark) 100%);color:var(--white);text-align:center}
+.contact .section-title h2{color:var(--white)}
+.contact .section-title h2::after{background:linear-gradient(90deg,#8ec68a,var(--earth-pale))}
+.contact .section-title p{color:rgba(255,255,255,.7)}
+.contact-box{max-width:600px;margin:0 auto;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border-radius:20px;padding:40px;border:1px solid rgba(255,255,255,.15)}
+.contact-phone{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:.05em}
+.contact-phone a{color:var(--white)}
+.contact-note{font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:24px}
+.contact-info-row{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:20px}
+.contact-info-item{display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(255,255,255,.8)}
+.contact-info-item .ci-icon{width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem}
+
+/* ===== FOOTER ===== */
+.footer{background:#1a1a1a;color:rgba(255,255,255,.6);padding:40px 0 100px;text-align:center;font-size:.8rem}
+.footer-logo{font-size:1rem;font-weight:700;color:rgba(255,255,255,.8);margin-bottom:10px}
+.footer p{margin-bottom:6px}
+.footer .demo-notice{display:inline-block;margin-top:16px;padding:8px 20px;background:rgba(255,255,255,.08);border-radius:50px;font-size:.72rem;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.1)}
+
+/* ===== MOBILE FIXED BAR ===== */
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--green);padding:0;box-shadow:0 -2px 20px rgba(0,0,0,.2)}
+.mobile-bar a{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--white);font-weight:700;font-size:1rem;padding:16px;text-align:center;letter-spacing:.05em}
+.mobile-bar a .phone-icon{font-size:1.3rem;animation:ring 2s ease infinite}
+@keyframes ring{0%,100%{transform:rotate(0)}10%{transform:rotate(14deg)}20%{transform:rotate(-14deg)}30%{transform:rotate(10deg)}40%{transform:rotate(-6deg)}50%{transform:rotate(0)}}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .nav{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(255,255,255,.98);flex-direction:column;justify-content:center;gap:30px;backdrop-filter:blur(10px)}
+  .nav.open{display:flex}
+  .nav a{font-size:1.1rem}
+  .hamburger{display:flex}
+  .hamburger.active span:nth-child(1){transform:rotate(45deg) translateY(5px)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:rotate(-45deg) translateY(-5px)}
+
+  .hero h1{font-size:1.8rem}
+  .hero{min-height:70vh}
+  .hero-visual{display:none}
+
+  .features-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+  .services-grid{grid-template-columns:1fr}
+  .works-grid{grid-template-columns:1fr}
+  .company-wrap{grid-template-columns:1fr;gap:30px}
+
+  .mobile-bar{display:block}
+  .footer{padding-bottom:80px}
+
+  section{padding:60px 0}
+  .section-title h2{font-size:1.5rem}
+}
+@media(max-width:480px){
+  .hero h1{font-size:1.5rem}
+  .hero p{font-size:.9rem}
+  .hero-buttons{flex-direction:column}
+  .btn{justify-content:center;padding:12px 24px;font-size:.85rem}
+  .features-grid{grid-template-columns:1fr 1fr}
+  .feature-item h4{font-size:.75rem}
+  .contact-phone{font-size:1.5rem}
+  .contact-box{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">新</div>
+      <div class="logo-text">新永建設<span>京都府長岡京市の土木・舗装・造園</span></div>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#services" onclick="closeNav()">サービス</a>
+      <a href="#works" onclick="closeNav()">施工実績</a>
+      <a href="#company" onclick="closeNav()">会社概要</a>
+      <a href="#faq" onclick="closeNav()">よくある質問</a>
+      <a href="#contact" onclick="closeNav()" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-badge">京都府長岡京市の地域密着建設会社</div>
+    <h1>京都の街をつくる、<br><em>確かな土木技術</em></h1>
+    <p>土木工事・舗装工事・造園工事のことなら、地域の発展を支え続けてきた<br>有限会社新永建設にお任せください。</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn btn-primary">&#9742; お問い合わせ</a>
+      <a href="#services" class="btn btn-secondary">サービスを見る &#8594;</a>
+    </div>
+  </div>
+  <div class="hero-visual"></div>
+</section>
+
+<!-- FEATURES BAR -->
+<div class="features-bar">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-item fade-in">
+        <div class="feature-icon">&#9968;</div>
+        <h4>土木工事</h4>
+        <p>インフラを支える技術</p>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon">&#128739;</div>
+        <h4>舗装工事</h4>
+        <p>安全な道路を施工</p>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon">&#128170;</div>
+        <h4>とび・土工</h4>
+        <p>基礎から確実に</p>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon">&#127795;</div>
+        <h4>造園工事</h4>
+        <p>緑あふれる空間づくり</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>サービス紹介</h2>
+      <p>SERVICE</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-visual v1"><span class="icon">&#9968;</span></div>
+        <div class="service-body">
+          <h3>土木工事</h3>
+          <p>道路・河川・上下水道などの公共インフラ整備から、宅地造成・擁壁工事まで。地域のライフラインを支える確かな土木技術で、安全で快適な街づくりに貢献します。</p>
+          <div class="service-tags">
+            <span>道路工事</span><span>河川工事</span><span>宅地造成</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-visual v2"><span class="icon">&#128739;</span></div>
+        <div class="service-body">
+          <h3>舗装工事</h3>
+          <p>アスファルト舗装・コンクリート舗装・インターロッキング舗装など、用途に合わせた最適な舗装をご提案。駐車場や歩道の整備も含め、丁寧で長持ちする施工をお届けします。</p>
+          <div class="service-tags">
+            <span>アスファルト</span><span>駐車場舗装</span><span>歩道整備</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-visual v3"><span class="icon">&#128170;</span></div>
+        <div class="service-body">
+          <h3>とび・土工工事</h3>
+          <p>足場の組立て・解体、基礎工事、杭打ち、掘削工事など、建設の要となるとび・土工工事を安全第一で施工。豊富な経験と確かな技術で、あらゆる現場に対応いたします。</p>
+          <div class="service-tags">
+            <span>足場工事</span><span>基礎工事</span><span>掘削工事</span>
+          </div>
+        </div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-visual v4"><span class="icon">&#127795;</span></div>
+        <div class="service-body">
+          <h3>造園工事</h3>
+          <p>京都の風情を活かした造園・緑化工事をご提案。公園・庭園の整備から、植栽・芝張り・庭木の剪定まで、緑あふれる美しい空間をつくり上げます。</p>
+          <div class="service-tags">
+            <span>植栽工事</span><span>公園整備</span><span>緑化工事</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works" id="works">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>施工実績</h2>
+      <p>WORKS</p>
+    </div>
+    <div class="works-grid">
+      <div class="work-card fade-in">
+        <div class="work-thumb w1">
+          <span class="w-icon">&#9968;</span>
+          <span class="work-label">土木工事</span>
+        </div>
+        <div class="work-info">
+          <h4>長岡京市 市道改良工事</h4>
+          <p>市道の拡幅・排水設備改良工事。地域の交通安全と利便性向上に貢献。</p>
+          <div class="work-meta">
+            <span>&#128197; 2025年</span>
+            <span>&#128207; 道路改良</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-thumb w2">
+          <span class="w-icon">&#128739;</span>
+          <span class="work-label">舗装工事</span>
+        </div>
+        <div class="work-info">
+          <h4>向日市 商業施設駐車場舗装</h4>
+          <p>大型商業施設の駐車場アスファルト舗装工事。耐久性と排水性に優れた施工。</p>
+          <div class="work-meta">
+            <span>&#128197; 2024年</span>
+            <span>&#128207; アスファルト舗装</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-thumb w3">
+          <span class="w-icon">&#127795;</span>
+          <span class="work-label">造園工事</span>
+        </div>
+        <div class="work-info">
+          <h4>長岡京市 公園緑化整備工事</h4>
+          <p>市内公園のリニューアル。植栽計画から芝張り・遊歩道整備まで一貫施工。</p>
+          <div class="work-meta">
+            <span>&#128197; 2024年</span>
+            <span>&#128207; 公園整備</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="company" id="company">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>会社概要</h2>
+      <p>COMPANY</p>
+    </div>
+    <div class="company-wrap">
+      <div class="company-text fade-in-left">
+        <h3>地域の発展を支える建設会社</h3>
+        <p>有限会社新永建設は、京都府長岡京市に拠点を構え、土木工事・舗装工事・造園工事を通じて地域のインフラ整備と街づくりに貢献してまいりました。安全第一をモットーに、確かな技術と豊富な経験で、あらゆる現場に対応いたします。</p>
+        <p>公共工事から民間工事まで幅広く実績があり、京都の街並みと調和した施工をお届けします。お気軽にご相談ください。</p>
+      </div>
+      <div class="company-table fade-in-right">
+        <table>
+          <tr><th>会社名</th><td>有限会社 新永建設</td></tr>
+          <tr><th>所在地</th><td>〒617-0824<br>京都府長岡京市長岡1丁目49-1</td></tr>
+          <tr><th>電話番号</th><td><a href="tel:075-951-2234" style="color:var(--green);font-weight:600">075-951-2234</a></td></tr>
+          <tr><th>業種</th><td>土木工事業（土木工事・舗装工事・とび土工・造園工事）</td></tr>
+          <tr><th>対応エリア</th><td>京都府長岡京市を中心とした京都府全域</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>よくある質問</h2>
+      <p>FAQ</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span style="display:flex;align-items:center;gap:12px"><span class="q-mark">Q</span>個人の駐車場舗装もお願いできますか？</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">はい、個人のお客様の駐車場舗装工事も承っております。アスファルト舗装・コンクリート舗装・インターロッキングなど、ご予算と用途に合わせた最適なプランをご提案いたします。まずはお気軽にご相談ください。</div></div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span style="display:flex;align-items:center;gap:12px"><span class="q-mark">Q</span>見積もりは無料ですか？</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">はい、お見積もりは無料です。現地調査を行った上で、工事内容と費用の詳細をご説明いたします。お見積もり後のキャンセルも可能ですので、安心してお問い合わせください。</div></div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span style="display:flex;align-items:center;gap:12px"><span class="q-mark">Q</span>対応エリアはどこまでですか？</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">長岡京市を中心に、向日市・大山崎町・京都市西京区・伏見区・宇治市など京都府全域に対応しております。大阪府との府境エリアについてもご相談可能です。</div></div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span style="display:flex;align-items:center;gap:12px"><span class="q-mark">Q</span>造園工事だけの依頼もできますか？</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">もちろんです。庭木の植栽や剪定、芝張り、花壇の整備など、造園工事のみのご依頼も喜んでお受けいたします。お庭のリフォームや緑化のご相談もお気軽にどうぞ。</div></div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <span style="display:flex;align-items:center;gap:12px"><span class="q-mark">Q</span>工事期間はどれくらいですか？</span>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">工事の規模や内容によって異なります。駐車場舗装であれば数日〜1週間程度、道路改良工事であれば数週間〜数か月が目安です。お見積もり時に工期の目安もご案内いたしますので、お気軽にご相談ください。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-title fade-in">
+      <h2>お問い合わせ</h2>
+      <p>CONTACT</p>
+    </div>
+    <div class="contact-box fade-in">
+      <p style="margin-bottom:16px;font-size:.9rem;opacity:.85">まずはお気軽にお電話ください</p>
+      <div class="contact-phone"><a href="tel:075-951-2234">&#9742; 075-951-2234</a></div>
+      <p class="contact-note">受付時間：平日 8:00〜18:00</p>
+      <div class="contact-info-row">
+        <div class="contact-info-item">
+          <span class="ci-icon">&#128205;</span>
+          <span>京都府長岡京市長岡1丁目49-1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">有限会社 新永建設</div>
+    <p>〒617-0824 京都府長岡京市長岡1丁目49-1</p>
+    <p>TEL: 075-951-2234</p>
+    <p style="margin-top:12px">&copy; 有限会社 新永建設 All Rights Reserved.</p>
+    <div class="demo-notice">本サイトは「ラクページ制作」によるデモサイトです（未公開）</div>
+  </div>
+</footer>
+
+<!-- MOBILE FIXED BAR -->
+<div class="mobile-bar">
+  <a href="tel:075-951-2234">
+    <span class="phone-icon">&#9742;</span>
+    今すぐ電話する｜075-951-2234
+  </a>
+</div>
+
+<script>
+// Nav toggle
+function toggleNav(){
+  document.getElementById('nav').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('active');
+}
+function closeNav(){
+  document.getElementById('nav').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('active');
+}
+
+// FAQ toggle
+function toggleFaq(el){
+  var item=el.parentElement;
+  var answer=item.querySelector('.faq-answer');
+  var inner=answer.querySelector('.faq-answer-inner');
+  if(item.classList.contains('open')){
+    item.classList.remove('open');
+    answer.style.maxHeight='0';
+  }else{
+    // close all
+    document.querySelectorAll('.faq-item.open').forEach(function(i){
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight='0';
+    });
+    item.classList.add('open');
+    answer.style.maxHeight=inner.scrollHeight+'px';
+  }
+}
+
+// Fade-in on scroll
+var observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.fade-in,.fade-in-left,.fade-in-right').forEach(function(el){
+  observer.observe(el);
+});
+
+// Mobile bar show/hide on scroll (show after 300px)
+var mobileBar=document.querySelector('.mobile-bar');
+var lastScroll=0;
+window.addEventListener('scroll',function(){
+  var st=window.pageYOffset||document.documentElement.scrollTop;
+  if(window.innerWidth<=900){
+    if(st>300){
+      mobileBar.style.transform='translateY(0)';
+    }else{
+      mobileBar.style.transform='translateY(100%)';
+    }
+  }
+  lastScroll=st;
+});
+// initial state
+if(mobileBar){mobileBar.style.transform='translateY(100%)';mobileBar.style.transition='transform .3s ease';}
+</script>
+</body>
+</html>
