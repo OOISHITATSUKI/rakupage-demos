@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ルーモ｜歩く広告塔。届けたい人に、直接届く広告</title>
+<meta name="description" content="ルーモは人が背負って歩く発光デジタルサイネージ広告。1日1台2,000円〜レンタル可能。繁華街から地元密着まで、届けたい場所に直接届く新しい広告のカタチ。">
+<style>
+/* ========== Reset & Base ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  color: #333;
+  line-height: 1.8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ========== Variables ========== */
+:root {
+  --primary: #e63725;
+  --primary-dark: #c4271a;
+  --accent: #ff8c00;
+  --accent-dark: #e07800;
+  --bg-light: #fff8f5;
+  --bg-white: #ffffff;
+  --text: #333333;
+  --text-light: #666666;
+  --text-white: #ffffff;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+  --max-width: 1100px;
+  --section-padding: 80px 20px;
+}
+
+/* ========== Utility ========== */
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+.section-title {
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text);
+  line-height: 1.4;
+}
+.section-subtitle {
+  text-align: center;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--text-light);
+  margin-bottom: 48px;
+}
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: 60px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  line-height: 1.4;
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(230,55,37,0.35);
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(230,55,37,0.45);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.highlight { color: var(--primary); }
+.highlight-accent { color: var(--accent); }
+
+/* ========== Fade-in ========== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== Header ========== */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: 0.04em;
+}
+.nav-desktop { display: flex; align-items: center; gap: 28px; }
+.nav-desktop a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.3s;
+}
+.nav-desktop a:hover { color: var(--primary); }
+.nav-desktop .btn { padding: 10px 24px; font-size: 0.9rem; }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1100;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.98);
+  z-index: 1050;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.nav-mobile.active { display: flex; }
+.nav-mobile a { font-size: 1.3rem; font-weight: 700; color: var(--text); }
+.nav-mobile a:hover { color: var(--primary); }
+@media (max-width: 768px) {
+  .nav-desktop { display: none; }
+  .hamburger { display: flex; }
+}
+
+/* ========== Hero ========== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 60px;
+  background: linear-gradient(135deg, #fff5f0 0%, #ffffff 40%, #fff8f0 70%, #ffefe5 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -30%;
+  width: 80%; height: 80%;
+  background: radial-gradient(circle, rgba(230,55,37,0.05) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+}
+.hero-text {}
+.hero-badge {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 60px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+.hero h1 em {
+  color: var(--primary);
+  font-style: normal;
+}
+.hero p {
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  color: var(--text-light);
+  margin-bottom: 32px;
+  line-height: 1.8;
+}
+.hero p strong {
+  color: var(--primary);
+  font-size: 1.05em;
+}
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 16px; }
+@media (max-width: 768px) {
+  .hero-buttons { justify-content: center; }
+}
+.hero-image {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ========== Problems ========== */
+.problems {
+  padding: var(--section-padding);
+  background: var(--bg-light);
+}
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.problem-card {
+  background: #fff;
+  border: 2px solid #f1f5f9;
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: all 0.3s ease;
+}
+.problem-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+}
+.problem-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+.problem-card p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.6;
+}
+.problems-cta { text-align: center; margin-top: 40px; }
+.problems-cta p {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+/* ========== Features ========== */
+.features {
+  padding: var(--section-padding);
+  background: var(--bg-white);
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+.feature-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 40px 28px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.feature-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; height: 48px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.feature-icon {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+  display: block;
+}
+.feature-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.feature-card p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ========== Variations ========== */
+.variations {
+  padding: var(--section-padding);
+  background: var(--bg-light);
+}
+.variations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.variation-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+.variation-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.variation-card .icon { font-size: 2.8rem; margin-bottom: 14px; display: block; }
+.variation-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.variation-card p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ========== Use Cases ========== */
+.usecases {
+  padding: var(--section-padding);
+  background: var(--bg-white);
+}
+.usecases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.usecase-item {
+  background: var(--bg-light);
+  border-radius: var(--radius-sm);
+  padding: 28px 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.usecase-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.usecase-item .icon { font-size: 2.4rem; margin-bottom: 12px; display: block; }
+.usecase-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+
+/* ========== Scenes ========== */
+.scenes {
+  padding: var(--section-padding);
+  background: var(--bg-light);
+}
+.scenes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.scene-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  background: #fff;
+}
+.scene-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.scene-thumb {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  color: #fff;
+}
+.scene-card:nth-child(1) .scene-thumb { background: linear-gradient(135deg, #e63725, #ff6b4a); }
+.scene-card:nth-child(2) .scene-thumb { background: linear-gradient(135deg, #ff8c00, #ffb347); }
+.scene-card:nth-child(3) .scene-thumb { background: linear-gradient(135deg, #2563eb, #60a5fa); }
+.scene-card:nth-child(4) .scene-thumb { background: linear-gradient(135deg, #10b981, #34d399); }
+.scene-body { padding: 20px; }
+.scene-body h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.scene-body p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ========== Pricing ========== */
+.pricing {
+  padding: var(--section-padding);
+  background: var(--bg-white);
+}
+.pricing-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 48px 36px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+  border: 3px solid var(--primary);
+}
+.pricing-badge {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  padding: 6px 24px;
+  border-radius: 60px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pricing-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  margin-top: 12px;
+  color: var(--text);
+}
+.pricing-price {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+.pricing-price small { font-size: 0.4em; font-weight: 600; color: var(--text-light); }
+.pricing-note {
+  font-size: 0.9rem;
+  color: var(--accent-dark);
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+.pricing-features { text-align: left; margin-bottom: 28px; }
+.pricing-features li {
+  padding: 10px 0;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #f1f5f9;
+}
+.pricing-features li::before {
+  content: '✓';
+  color: var(--primary);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.pricing-custom {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--bg-light);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 600;
+}
+.pricing-extra {
+  margin-top: 20px;
+  padding: 16px;
+  background: #fff8f0;
+  border: 1px solid #ffe0b2;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: #e65100;
+  font-weight: 600;
+}
+
+/* ========== Flow ========== */
+.flow {
+  padding: var(--section-padding);
+  background: var(--bg-light);
+}
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.flow-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 28px 0;
+  position: relative;
+}
+.flow-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 27px; top: 76px; bottom: 0;
+  width: 2px;
+  background: #fdd;
+}
+.flow-step-number {
+  width: 56px; height: 56px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.flow-step-content h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.flow-step-content p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+/* ========== FAQ ========== */
+.faq {
+  padding: var(--section-padding);
+  background: var(--bg-white);
+}
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.faq-item {
+  background: var(--bg-light);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 24px;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: inherit;
+  line-height: 1.6;
+}
+.faq-question::before {
+  content: 'Q.';
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.faq-toggle {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  font-weight: 800;
+}
+.faq-item.active .faq-toggle { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.faq-answer-inner {
+  padding: 0 24px 20px 52px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+.faq-answer-inner::before {
+  content: 'A. ';
+  color: var(--accent);
+  font-weight: 800;
+}
+.faq-item.active .faq-answer { max-height: 300px; }
+
+/* ========== Contact ========== */
+.contact {
+  padding: var(--section-padding);
+  background: linear-gradient(135deg, #c4271a, #e63725);
+  color: #fff;
+  text-align: center;
+}
+.contact .section-title { color: #fff; }
+.contact .section-subtitle { color: rgba(255,255,255,0.8); }
+.contact-box {
+  max-width: 560px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  padding: 48px 36px;
+}
+.contact-message {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+.contact-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  color: var(--primary);
+  padding: 18px 40px;
+  border-radius: 60px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.contact-email-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+}
+.contact-note {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: #1a1a1a;
+  color: rgba(255,255,255,0.7);
+  padding: 40px 20px;
+  text-align: center;
+}
+.footer-logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.footer-company { font-size: 0.85rem; margin-bottom: 16px; }
+.footer-info { font-size: 0.8rem; margin-bottom: 8px; }
+.footer-links { margin-top: 16px; }
+.footer-links a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.3s;
+  margin: 0 8px;
+}
+.footer-links a:hover { color: #fff; }
+.footer-copy {
+  margin-top: 24px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ========== Mobile Fixed Bar ========== */
+.mobile-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 999;
+  background: var(--primary);
+}
+.mobile-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 16px;
+}
+@media (max-width: 768px) {
+  .mobile-bar { display: block; }
+  .footer { padding-bottom: 80px; }
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 480px) {
+  :root { --section-padding: 56px 16px; }
+  .hero { padding: 90px 16px 50px; }
+  .btn { padding: 14px 28px; font-size: 1rem; }
+  .usecases-grid { grid-template-columns: repeat(2, 1fr); }
+  .variations-grid { grid-template-columns: 1fr; }
+  .contact-email-link { font-size: 1rem; padding: 16px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header" id="top">
+  <div class="header-inner">
+    <a href="#top" class="logo">RUMO</a>
+    <nav class="nav-desktop">
+      <a href="#features">特徴</a>
+      <a href="#variations">使い方</a>
+      <a href="#pricing">料金</a>
+      <a href="#contact" class="btn btn-primary" style="padding:10px 24px;font-size:0.9rem;">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="nav-mobile" id="navMobile">
+  <a href="#features" onclick="closeMenu()">特徴</a>
+  <a href="#variations" onclick="closeMenu()">使い方</a>
+  <a href="#usecases" onclick="closeMenu()">活用業種</a>
+  <a href="#pricing" onclick="closeMenu()">料金</a>
+  <a href="#contact" class="btn btn-primary" onclick="closeMenu()">お問い合わせ</a>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">1日1台 2,000円〜レンタル</div>
+      <h1>届けたい人に、<br><em>直接届く広告。</em></h1>
+      <p>人が背負って歩く<strong>デジタルサイネージ広告</strong>「ルーモ」。<br>繁華街でも、地元の商店街でも。<br>チラシ配布との組み合わせもOK。<br><strong>ダイレクトに届く</strong>新しい広告のカタチ。</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">お問い合わせ</a>
+        <a href="#features" class="btn btn-outline">ルーモの特徴</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="images/rumo-street.jpg" alt="街を歩く人々 - ルーモならダイレクトに届く">
+    </div>
+  </div>
+</section>
+
+<!-- ===== Download CTA ===== -->
+<section style="padding:40px 20px;background:var(--bg-light);text-align:center;">
+  <div class="container">
+    <p style="font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:16px;">ルーモの詳しい資料はこちら</p>
+    <a href="https://drive.google.com/uc?export=download&id=1t_vE5B8LlhNARHo5Se1mi7TtiJfrY_63" class="btn btn-primary" style="font-size:1rem;">📥 資料をダウンロード（PDF）</a>
+  </div>
+</section>
+
+<!-- ===== Problems ===== -->
+<section class="problems" id="problems">
+  <div class="container fade-in">
+    <h2 class="section-title">こんなお悩み、ありませんか？</h2>
+    <p class="section-subtitle">従来の広告では解決しにくい課題に、ルーモが応えます</p>
+    <div class="problems-grid">
+      <div class="problem-card">
+        <span class="problem-icon">📄</span>
+        <p>チラシを配っても<br>受け取ってもらえない</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">🏪</span>
+        <p>新規オープンしたけど<br>周辺に知ってもらえない</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">💰</span>
+        <p>ネット広告は高いし<br>ターゲットが絞りにくい</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">📍</span>
+        <p>特定エリアの人だけに<br>アプローチしたい</p>
+      </div>
+    </div>
+    <div class="problems-cta">
+      <p>その課題、ルーモで解決できます！</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Features ===== -->
+<section class="features" id="features">
+  <div class="container fade-in">
+    <h2 class="section-title">ルーモの<span class="highlight">3つの強み</span></h2>
+    <p class="section-subtitle">「届ける場所」を自分で選べる、新しい広告</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-number">1</span>
+        <span class="feature-icon">🎯</span>
+        <h3>届けたい場所に<br>ダイレクトに届く</h3>
+        <p>エリア・時間帯・曜日を自由に指定可能。繁華街でも地元の商店街でも、届けたい場所にピンポイントで広告を届けます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-number">2</span>
+        <span class="feature-icon">👁️</span>
+        <h3>動くから目に入る、<br>光るから目立つ</h3>
+        <p>人が歩く＋高輝度ディスプレイで、チラシや固定看板では実現できない圧倒的な存在感。昼も夜もしっかり目立ちます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-number">3</span>
+        <span class="feature-icon">📱</span>
+        <h3>SNSで自然と<br>話題になる</h3>
+        <p>「なんだこれ？」と思わず写真を撮られる広告。SNSで拡散され、オフラインからオンラインへの波及効果が期待できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Variations ===== -->
+<section class="variations" id="variations">
+  <div class="container fade-in">
+    <h2 class="section-title">ルーモの<span class="highlight-accent">活用バリエーション</span></h2>
+    <p class="section-subtitle">デジタル広告だけじゃない。組み合わせで効果アップ</p>
+    <div class="variations-grid">
+      <div class="variation-card">
+        <span class="icon">📺</span>
+        <h4>デジタルサイネージ広告</h4>
+        <p>高輝度ディスプレイで動画・画像を表示。動きと光で視線をキャッチ。</p>
+      </div>
+      <div class="variation-card">
+        <span class="icon">📄</span>
+        <h4>チラシ配布との組み合わせ</h4>
+        <p>新規出店の告知にぴったり。ルーモで目を引きながら、チラシを手渡し。</p>
+      </div>
+      <div class="variation-card">
+        <span class="icon">🗺️</span>
+        <h4>エリア巡回広告</h4>
+        <p>地元密着で商圏を歩いてまわる。特定エリアの住民にダイレクトにリーチ。</p>
+      </div>
+      <div class="variation-card">
+        <span class="icon">🎪</span>
+        <h4>イベント・催事での告知</h4>
+        <p>会場内外を歩いてPR。来場者の注目を集め、ブース誘導にも効果的。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Use Cases ===== -->
+<section class="usecases" id="usecases">
+  <div class="container fade-in">
+    <h2 class="section-title">向いている業種・用途</h2>
+    <p class="section-subtitle">さまざまなビジネスでご活用いただけます</p>
+    <div class="usecases-grid">
+      <div class="usecase-item">
+        <span class="icon">🍽️</span>
+        <h4>飲食店</h4>
+      </div>
+      <div class="usecase-item">
+        <span class="icon">🎰</span>
+        <h4>パチンコ店</h4>
+      </div>
+      <div class="usecase-item">
+        <span class="icon">🏢</span>
+        <h4>不動産</h4>
+      </div>
+      <div class="usecase-item">
+        <span class="icon">🏪</span>
+        <h4>新店オープン</h4>
+      </div>
+      <div class="usecase-item">
+        <span class="icon">📢</span>
+        <h4>広告代理店</h4>
+      </div>
+      <div class="usecase-item">
+        <span class="icon">🎪</span>
+        <h4>イベント告知</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Scenes ===== -->
+<section class="scenes" id="scenes">
+  <div class="container fade-in">
+    <h2 class="section-title">活用シーン</h2>
+    <p class="section-subtitle">こんな場面でルーモが活躍します</p>
+    <div class="scenes-grid">
+      <div class="scene-card">
+        <div class="scene-thumb" style="background:none;padding:0;height:auto;"><img src="images/rumo-shinjuku.jpg" alt="繁華街での広告" style="width:100%;height:200px;object-fit:cover;"></div>
+        <div class="scene-body">
+          <h4>繁華街での集客・話題づくり</h4>
+          <p>渋谷・新宿・池袋などの人通りが多いエリアを歩き、通行人にダイレクトにアプローチ。チラシ配布との組み合わせも可能。</p>
+        </div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-thumb" style="background:none;padding:0;height:auto;"><img src="images/rumo-shibuya.jpg" alt="地元密着の飲食街" style="width:100%;height:200px;object-fit:cover;"></div>
+        <div class="scene-body">
+          <h4>地元密着の認知拡大</h4>
+          <p>お店の周辺エリアをルーモで巡回。近隣住民に「あ、新しいお店ができたんだ」と自然に認知してもらえます。</p>
+        </div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-thumb" style="background:none;padding:0;height:auto;"><img src="images/rumo-mall.jpg" alt="商業施設" style="width:100%;height:200px;object-fit:cover;"></div>
+        <div class="scene-body">
+          <h4>商業施設周辺での告知</h4>
+          <p>ショッピングモールや駅前で効果的にアプローチ。新店舗オープンやキャンペーンの告知に最適です。</p>
+        </div>
+      </div>
+      <div class="scene-card">
+        <div class="scene-thumb" style="background:none;padding:0;height:auto;"><img src="images/rumo-event.jpg" alt="イベント会場" style="width:100%;height:200px;object-fit:cover;"></div>
+        <div class="scene-body">
+          <h4>イベント・期間限定プロモーション</h4>
+          <p>フェス・スポーツイベント・セールなど、短期集中でインパクトを出したいときにスポット利用が可能です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Pricing ===== -->
+<section class="pricing" id="pricing">
+  <div class="container fade-in">
+    <h2 class="section-title">料金</h2>
+    <p class="section-subtitle">必要なときだけ、必要な分だけ。プランはカスタマイズ可能です</p>
+    <div class="pricing-card">
+      <div class="pricing-badge">カスタマイズ可能</div>
+      <h3>ルーモ本体レンタル</h3>
+      <div class="pricing-price">2,000<small>円〜/日・台（税別）</small></div>
+      <p class="pricing-note">短期・スポット利用OK</p>
+      <ul class="pricing-features">
+        <li>高輝度デジタルサイネージ本体</li>
+        <li>台数・日数に応じて調整可能</li>
+        <li>エリア・時間帯の指定OK</li>
+        <li>1日からのスポット利用対応</li>
+        <li>チラシ配布との組み合わせも可能</li>
+      </ul>
+      <a href="mailto:info@cawae-laboo.com" class="btn btn-primary" style="width:100%;">メールでお問い合わせ</a>
+      <div class="pricing-custom">
+        💡 台数・期間・エリアなど、ご要望に応じてプランをカスタマイズいたします。お気軽にご相談ください。
+      </div>
+      <div class="pricing-extra">
+        ⚠ 背負いスタッフの派遣は行っておりません。<br>「ルーモ本体のみ」の貸し出しとなります。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Flow ===== -->
+<section class="flow" id="flow">
+  <div class="container fade-in">
+    <h2 class="section-title">ご利用の流れ</h2>
+    <p class="section-subtitle">かんたん4ステップでスタート</p>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step-number">1</div>
+        <div class="flow-step-content">
+          <h3>✉️ メールでお問い合わせ</h3>
+          <p>info@cawae-laboo.com まで、利用目的・希望エリア・台数などをお気軽にお送りください。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-number">2</div>
+        <div class="flow-step-content">
+          <h3>📋 プラン提案・お見積もり</h3>
+          <p>ご要望に応じてプランをカスタマイズ。台数・日数・エリアなど柔軟に対応いたします。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-number">3</div>
+        <div class="flow-step-content">
+          <h3>🎨 広告データご準備</h3>
+          <p>ディスプレイに表示する広告デザインデータ（画像・動画）をお送りください。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-number">4</div>
+        <div class="flow-step-content">
+          <h3>🚀 ルーモ貸し出し・運用開始！</h3>
+          <p>ルーモ本体をお渡しして、運用スタート。届けたい人に、ダイレクトに届けましょう！</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="container fade-in">
+    <h2 class="section-title">よくある質問</h2>
+    <p class="section-subtitle">お客様からよくいただくご質問</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          ルーモとは何ですか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">ルーモは、人が背負って歩く発光デジタルサイネージ広告です。高輝度ディスプレイで動画・画像を表示し、届けたい場所にダイレクトに広告を届けられます。</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          チラシ配布と組み合わせることはできますか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">はい、可能です。ルーモで視覚的に注目を集めながら、スタッフがチラシを手渡しする活用方法が人気です。新規出店の告知に特に効果的です。</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          スタッフも派遣してもらえますか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">申し訳ございませんが、背負いスタッフの派遣は行っておりません。ルーモ本体のみの貸し出しとなります。お客様のスタッフにて運用をお願いいたします。</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          1台から借りられますか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">はい、1台からレンタル可能です。台数・日数はご要望に応じてカスタマイズいたしますので、お気軽にご相談ください。</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          短期間だけ利用できますか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">はい、1日からのスポット利用が可能です。イベント当日だけ、週末だけなど、短期間のご利用も大歓迎です。</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          地元の商店街でも使えますか？
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">もちろんです。繁華街だけでなく、地元の商店街やお店の周辺エリアでの運用も可能です。地域密着の集客に効果的です。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="contact" id="contact">
+  <div class="container fade-in">
+    <h2 class="section-title">お問い合わせ</h2>
+    <p class="section-subtitle">メールでお気軽にご連絡ください</p>
+    <div class="contact-box">
+      <p class="contact-message">ルーモで届けたい人に<br>ダイレクトに届けませんか？<br>プランのカスタマイズもご相談ください。</p>
+      <a href="mailto:info@cawae-laboo.com" class="contact-email-link">
+        ✉ info@cawae-laboo.com
+      </a>
+      <p class="contact-note">※ 希望エリア・台数・期間などをお気軽にお書きください</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">RUMO</div>
+    <div class="footer-company">運営: 合同会社ADLINK</div>
+    <div class="footer-info">〒150-0043 東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F-C</div>
+    <div class="footer-info">Mail: info@cawae-laboo.com</div>
+    <div class="footer-links">
+      <a href="https://adlink.created.app">会社HP</a>
+      <a href="rakupage.html">ラクページ</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 合同会社ADLINK All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- ===== Mobile Fixed Bar ===== -->
+<div class="mobile-bar">
+  <a href="mailto:info@cawae-laboo.com">
+    <span>✉</span> メールでお問い合わせ
+  </a>
+</div>
+
+<script>
+// Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('navMobile');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMobile.classList.toggle('active');
+  document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+});
+function closeMenu() {
+  hamburger.classList.remove('active');
+  navMobile.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    if (!isActive) item.classList.add('active');
+  });
+});
+
+// Scroll Fade-in
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('is-visible');
+  });
+}, { threshold: 0.15 });
+fadeEls.forEach(el => observer.observe(el));
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.querySelector('.header');
+  header.style.boxShadow = window.scrollY > 50
+    ? '0 2px 20px rgba(0,0,0,0.1)'
+    : '0 2px 12px rgba(0,0,0,0.06)';
+});
+</script>
+
+</body>
+</html>
