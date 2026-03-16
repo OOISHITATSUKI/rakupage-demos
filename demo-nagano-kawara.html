@@ -58,7 +58,7 @@ img{max-width:100%;display:block}
 .nav-mobile a{font-size:18px;font-weight:600;color:var(--c-forest-dark)}
 
 /* ===== HERO ===== */
-.hero{margin-top:68px;position:relative;min-height:85vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(160deg,#1a3009 0%,#2d5016 30%,#3d6820 60%,#4a7c28 100%)}
+.hero{margin-top:68px;position:relative;min-height:85vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(160deg,rgba(26,48,9,.78) 0%,rgba(45,80,22,.72) 30%,rgba(61,104,32,.68) 60%,rgba(74,124,40,.72) 100%),url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1600&q=80') center/cover no-repeat}
 .hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 600'%3E%3Cpath d='M0,400 Q200,200 400,350 Q600,100 800,300 Q1000,150 1200,280 Q1400,200 1440,250 L1440,600 L0,600Z' fill='rgba(255,255,255,0.04)'/%3E%3Cpath d='M0,450 Q300,300 600,400 Q900,250 1200,380 Q1350,300 1440,350 L1440,600 L0,600Z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E") no-repeat bottom/cover;pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:120px;background:linear-gradient(to top,var(--c-cream),transparent);pointer-events:none}
 .hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:60px;width:100%}
@@ -96,7 +96,7 @@ section{padding:80px 0}
 /* ===== ABOUT ===== */
 .about{background:var(--c-white)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
-.about-image{position:relative;height:360px;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,#2d5016,#4a7c28,#6b9e3a);display:flex;align-items:center;justify-content:center}
+.about-image{position:relative;height:360px;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,rgba(45,80,22,.35),rgba(74,124,40,.3),rgba(107,158,58,.25)),url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80') center/cover no-repeat;display:flex;align-items:center;justify-content:center}
 .about-image-inner{text-align:center;color:#fff;padding:30px}
 .about-image-icon{font-size:64px;margin-bottom:16px;opacity:.9}
 .about-image-text{font-size:20px;font-weight:700;line-height:1.6}
@@ -317,21 +317,25 @@ section{padding:80px 0}
     <p class="section-desc fade-in">伝統的な瓦葺きから、耐震補強・リフォームまで。長野県の気候風土を知り尽くした職人が、最適な施工をご提案します。</p>
     <div class="services-grid">
       <div class="service-card fade-in">
+        <img src="https://images.unsplash.com/photo-1601123416264-38e759e63239?w=400&q=80" alt="瓦葺き工事" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:16px">
         <div class="service-icon">&#127983;</div>
         <h3 class="service-name">瓦葺き工事</h3>
         <p class="service-desc">日本瓦・洋瓦・平板瓦など、新築住宅の瓦葺き工事を承ります。信州の気候に最適な瓦を職人がご提案。</p>
       </div>
       <div class="service-card fade-in fade-in-delay-1">
+        <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?w=400&q=80" alt="修繕・補修" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:16px">
         <div class="service-icon">&#128295;</div>
         <h3 class="service-name">修繕・補修</h3>
         <p class="service-desc">瓦のズレ・割れ・雨漏りなどのトラブルに迅速対応。部分補修から全面葺き替えまで対応いたします。</p>
       </div>
       <div class="service-card fade-in fade-in-delay-2">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80" alt="耐震補強" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:16px">
         <div class="service-icon">&#128170;</div>
         <h3 class="service-name">耐震補強</h3>
         <p class="service-desc">ガイドライン工法による耐震化で地震に強い屋根に。軽量瓦への葺き替えもご相談ください。</p>
       </div>
       <div class="service-card fade-in fade-in-delay-3">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&q=80" alt="屋根リフォーム" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:16px">
         <div class="service-icon">&#127968;</div>
         <h3 class="service-name">屋根リフォーム</h3>
         <p class="service-desc">断熱性能の向上、太陽光パネル設置対応など、現代のニーズに合わせた屋根リフォームをご提案します。</p>
@@ -348,21 +352,25 @@ section{padding:80px 0}
     <p class="section-desc fade-in">お住まいの地域の支部が、地元密着で対応いたします。まずはお気軽にお問い合わせください。</p>
     <div class="branches-grid">
       <div class="branch-card fade-in">
+        <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?w=400&q=80" alt="北信エリア" style="width:100%;height:110px;object-fit:cover;border-radius:8px;margin-bottom:14px">
         <div class="branch-icon">&#9968;</div>
         <h3 class="branch-name">北信支部</h3>
         <p class="branch-area">長野市・中野市・飯山市<br>須坂市 周辺エリア</p>
       </div>
       <div class="branch-card fade-in fade-in-delay-1">
+        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=400&q=80" alt="中信エリア" style="width:100%;height:110px;object-fit:cover;border-radius:8px;margin-bottom:14px">
         <div class="branch-icon">&#127956;</div>
         <h3 class="branch-name">中信支部</h3>
         <p class="branch-area">松本市・塩尻市・安曇野市<br>大町市 周辺エリア</p>
       </div>
       <div class="branch-card fade-in fade-in-delay-2">
+        <img src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=400&q=80" alt="南信エリア" style="width:100%;height:110px;object-fit:cover;border-radius:8px;margin-bottom:14px">
         <div class="branch-icon">&#127795;</div>
         <h3 class="branch-name">南信支部</h3>
         <p class="branch-area">飯田市・伊那市・駒ヶ根市<br>諏訪市 周辺エリア</p>
       </div>
       <div class="branch-card fade-in fade-in-delay-3">
+        <img src="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=400&q=80" alt="東信エリア" style="width:100%;height:110px;object-fit:cover;border-radius:8px;margin-bottom:14px">
         <div class="branch-icon">&#9728;</div>
         <h3 class="branch-name">東信支部</h3>
         <p class="branch-area">上田市・佐久市・小諸市<br>東御市 周辺エリア</p>

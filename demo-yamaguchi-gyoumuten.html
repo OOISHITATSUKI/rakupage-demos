@@ -74,7 +74,7 @@ section{padding:80px 0}
 }
 
 /* ===== HERO ===== */
-.hero{margin-top:70px;min-height:calc(100vh - 70px);display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--slate-deeper) 0%,var(--slate-dark) 30%,var(--slate) 60%,#4a6070 100%)}
+.hero{margin-top:70px;min-height:calc(100vh - 70px);display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--slate-deeper) 0%,var(--slate-dark) 30%,var(--slate) 60%,#4a6070 100%);background-image:linear-gradient(160deg,rgba(30,45,58,.85) 0%,rgba(42,58,72,.8) 30%,rgba(61,79,95,.75) 60%,rgba(74,96,112,.7) 100%),url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80');background-size:cover;background-position:center}
 .hero::before{content:"";position:absolute;inset:0;background:
   radial-gradient(ellipse 800px 600px at 20% 80%,rgba(74,124,155,.25),transparent),
   radial-gradient(ellipse 600px 400px at 80% 20%,rgba(199,149,109,.15),transparent),
@@ -117,6 +117,7 @@ section{padding:80px 0}
 .service-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
 .service-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.12)}
 .service-card-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;overflow:hidden}
+.service-card-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .service-card-img.sakan{background:linear-gradient(135deg,#8a9bae,#b0bec5)}
 .service-card-img.tosou{background:linear-gradient(135deg,#7b9eb8,#90caf9)}
 .service-card-img.gaikou{background:linear-gradient(135deg,#8d9e87,#a5b89c)}
@@ -134,11 +135,12 @@ section{padding:80px 0}
 .work-card{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--white);transition:transform .3s}
 .work-card:hover{transform:translateY(-4px)}
 .work-card-img{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.work-card-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .work-card-img.work1{background:linear-gradient(135deg,#6b8ea3,#8fb4c9)}
 .work-card-img.work2{background:linear-gradient(135deg,#8a9070,#aab89a)}
 .work-card-img.work3{background:linear-gradient(135deg,#9a8878,#bfae9e)}
 .work-card-icon{font-size:3.5rem;opacity:.7}
-.work-card-label{position:absolute;top:14px;left:14px;background:var(--blue);color:#fff;font-size:.7rem;padding:4px 12px;border-radius:20px;font-weight:600}
+.work-card-label{position:absolute;top:14px;left:14px;background:var(--blue);color:#fff;font-size:.7rem;padding:4px 12px;border-radius:20px;font-weight:600;z-index:2}
 .work-card-body{padding:22px}
 .work-card-body h3{font-size:1.05rem;color:var(--slate-dark);margin-bottom:8px}
 .work-card-body p{color:var(--text-light);font-size:.88rem}
@@ -278,7 +280,7 @@ section{padding:80px 0}
     </div>
     <div class="service-grid">
       <div class="service-card fade-in">
-        <div class="service-card-img sakan">&#9649;</div>
+        <div class="service-card-img sakan"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="左官工事 - 漆喰壁の仕上げ" loading="lazy">&#9649;</div>
         <div class="service-card-body">
           <h3>左官工事</h3>
           <p>土壁・漆喰・モルタルなど、伝統的な左官技術から現代的な仕上げまで。内装・外装問わず美しく丈夫な壁を仕上げます。</p>
@@ -286,7 +288,7 @@ section{padding:80px 0}
         </div>
       </div>
       <div class="service-card fade-in">
-        <div class="service-card-img tosou">&#9730;</div>
+        <div class="service-card-img tosou"><img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&q=80" alt="塗装工事 - 外壁塗装" loading="lazy">&#9730;</div>
         <div class="service-card-body">
           <h3>塗装工事</h3>
           <p>外壁塗装・屋根塗装・防水塗装など、建物を風雨や紫外線から守る塗装工事。適切な塗料選定で長持ちする仕上がりに。</p>
@@ -294,7 +296,7 @@ section{padding:80px 0}
         </div>
       </div>
       <div class="service-card fade-in">
-        <div class="service-card-img gaikou">&#9878;</div>
+        <div class="service-card-img gaikou"><img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=600&q=80" alt="外構工事 - エクステリア" loading="lazy">&#9878;</div>
         <div class="service-card-body">
           <h3>外構工事</h3>
           <p>駐車場・アプローチ・ブロック塀・フェンスなど、住まいの外回りをトータルでご提案。機能性とデザイン性を両立します。</p>
@@ -315,7 +317,7 @@ section{padding:80px 0}
     <div class="works-grid">
       <div class="work-card fade-in">
         <div class="work-card-img work1">
-          <span class="work-card-icon">&#9721;</span>
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="外壁塗装施工事例" loading="lazy">
           <span class="work-card-label">外壁塗装</span>
         </div>
         <div class="work-card-body">
@@ -329,7 +331,7 @@ section{padding:80px 0}
       </div>
       <div class="work-card fade-in">
         <div class="work-card-img work2">
-          <span class="work-card-icon">&#9632;</span>
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="左官工事施工事例" loading="lazy">
           <span class="work-card-label">左官工事</span>
         </div>
         <div class="work-card-body">
@@ -343,7 +345,7 @@ section{padding:80px 0}
       </div>
       <div class="work-card fade-in">
         <div class="work-card-img work3">
-          <span class="work-card-icon">&#9638;</span>
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="外構工事施工事例" loading="lazy">
           <span class="work-card-label">外構工事</span>
         </div>
         <div class="work-card-body">

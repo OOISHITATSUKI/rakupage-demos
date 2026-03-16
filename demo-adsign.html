@@ -55,7 +55,7 @@ nav a:hover{color:var(--gold)}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
 /* ===== HERO ===== */
-.hero{margin-top:70px;min-height:90vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 40%,var(--navy-mid) 100%);position:relative;overflow:hidden;text-align:center;padding:60px 20px}
+.hero{margin-top:70px;min-height:90vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 40%,var(--navy-mid) 100%);background-image:linear-gradient(135deg,rgba(15,27,45,.88) 0%,rgba(26,45,71,.82) 40%,rgba(36,59,92,.78) 100%),url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80');background-size:cover;background-position:center;position:relative;overflow:hidden;text-align:center;padding:60px 20px}
 .hero::before{content:"";position:absolute;top:-50%;right:-30%;width:80%;height:200%;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none}
 .hero::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:120px;background:linear-gradient(to top,var(--bg),transparent);pointer-events:none}
 .hero-content{position:relative;z-index:2;max-width:750px}
@@ -101,12 +101,13 @@ nav a:hover{color:var(--gold)}
 .works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
 .work-card{border-radius:16px;overflow:hidden;background:var(--white);box-shadow:0 4px 20px rgba(0,0,0,.06);transition:all .3s}
 .work-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.12)}
-.work-thumb{height:200px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative}
+.work-thumb{height:200px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden}
+.work-thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .work-thumb-1{background:linear-gradient(135deg,var(--navy),var(--navy-mid))}
 .work-thumb-2{background:linear-gradient(135deg,#1e3a5f,#2d5a87)}
 .work-thumb-3{background:linear-gradient(135deg,var(--navy-light),#345)}
-.work-thumb span{color:var(--gold-light);font-size:3.5rem;opacity:.9}
-.work-thumb .work-label{position:absolute;bottom:12px;right:12px;background:var(--gold);color:var(--navy);font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:20px}
+.work-thumb span{color:var(--gold-light);font-size:3.5rem;opacity:.9;z-index:2;position:relative}
+.work-thumb .work-label{position:absolute;bottom:12px;right:12px;background:var(--gold);color:var(--navy);font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:20px;z-index:2}
 .work-body{padding:24px}
 .work-body h3{font-size:1rem;margin-bottom:8px;color:var(--navy)}
 .work-body p{font-size:.84rem;color:#666;line-height:1.7}
@@ -301,7 +302,7 @@ footer .footer-credit a{color:var(--gold);text-decoration:underline}
     <div class="works-grid">
       <div class="work-card fade-in">
         <div class="work-thumb work-thumb-1">
-          <span>&#9632;</span>
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="飲食店ファサード看板" loading="lazy">
           <span class="work-label">店舗看板</span>
         </div>
         <div class="work-body">
@@ -311,7 +312,7 @@ footer .footer-credit a{color:var(--gold);text-decoration:underline}
       </div>
       <div class="work-card fade-in">
         <div class="work-thumb work-thumb-2">
-          <span>&#9670;</span>
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=600&q=80" alt="医療施設院内サイン" loading="lazy">
           <span class="work-label">案内サイン</span>
         </div>
         <div class="work-body">
@@ -321,7 +322,7 @@ footer .footer-credit a{color:var(--gold);text-decoration:underline}
       </div>
       <div class="work-card fade-in">
         <div class="work-thumb work-thumb-3">
-          <span>&#9650;</span>
+          <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&q=80" alt="野立て看板・屋外広告" loading="lazy">
           <span class="work-label">屋外広告</span>
         </div>
         <div class="work-body">

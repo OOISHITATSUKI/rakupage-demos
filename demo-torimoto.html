@@ -68,7 +68,7 @@ section:nth-child(even){background:var(--ivory)}
 .hamburger span{display:block;width:24px;height:2px;background:var(--sumi);transition:var(--transition)}
 
 /* ===== HERO ===== */
-.hero{margin-top:72px;min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a1a1a 0%,#2c2c2c 40%,#3d3528 70%,#2e2618 100%)}
+.hero{margin-top:72px;min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(26,26,26,.82) 0%,rgba(44,44,44,.75) 40%,rgba(61,53,40,.7) 70%,rgba(46,38,24,.8) 100%),url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1600&q=80') center/cover no-repeat}
 .hero::before{content:"";position:absolute;inset:0;background:
   radial-gradient(ellipse at 25% 50%,rgba(184,150,62,.12) 0%,transparent 60%),
   radial-gradient(ellipse at 75% 30%,rgba(212,182,104,.08) 0%,transparent 50%),
@@ -97,7 +97,9 @@ section:nth-child(even){background:var(--ivory)}
 /* ===== SERVICES ===== */
 #services{background:var(--ivory)}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
-.service-card{background:var(--white);border-radius:var(--radius);padding:36px 24px;text-align:center;box-shadow:var(--shadow);transition:var(--transition);position:relative;overflow:hidden}
+.service-card{background:var(--white);border-radius:var(--radius);padding:0;text-align:center;box-shadow:var(--shadow);transition:var(--transition);position:relative;overflow:hidden}
+.service-card-img{width:100%;height:160px;object-fit:cover;display:block}
+.service-card-body{padding:28px 24px}
 .service-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));opacity:0;transition:var(--transition)}
 .service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
 .service-card:hover::before{opacity:1}
@@ -109,8 +111,9 @@ section:nth-child(even){background:var(--ivory)}
 /* ===== ABOUT (強み) ===== */
 #about{background:var(--ivory-light)}
 .about-content{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
-.about-visual{position:relative;height:380px;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,var(--sumi) 0%,#3d3528 50%,var(--sumi-light) 100%);display:flex;align-items:center;justify-content:center}
-.about-visual-text{color:var(--gold);font-size:4rem;font-weight:700;opacity:.3;letter-spacing:.2em;writing-mode:vertical-rl}
+.about-visual{position:relative;height:380px;border-radius:var(--radius);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.about-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.about-visual-text{position:relative;z-index:2;color:var(--gold-pale);font-size:4rem;font-weight:700;opacity:.5;letter-spacing:.2em;writing-mode:vertical-rl;text-shadow:0 2px 20px rgba(0,0,0,.5)}
 .about-visual::after{content:"";position:absolute;inset:0;border:1px solid rgba(184,150,62,.2);border-radius:var(--radius)}
 .about-detail h3{font-size:1.5rem;color:var(--sumi);margin-bottom:20px;letter-spacing:.05em;line-height:1.6}
 .about-detail h3 em{font-style:normal;color:var(--gold)}
@@ -127,11 +130,10 @@ section:nth-child(even){background:var(--ivory)}
 .work-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
 .work-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
 .work-thumb{height:200px;position:relative;overflow:hidden}
-.work-thumb-1{background:linear-gradient(135deg,#2c2c2c,#4a3f30,#b8963e)}
-.work-thumb-2{background:linear-gradient(135deg,#3d3528,#2c2c2c,#d4b668)}
-.work-thumb-3{background:linear-gradient(135deg,#1a1a1a,#3d3d3d,#b8963e)}
-.work-thumb::after{content:attr(data-label);position:absolute;bottom:12px;right:12px;background:rgba(44,44,44,.85);color:var(--gold-pale);padding:4px 12px;border-radius:3px;font-size:.7rem;letter-spacing:.1em}
-.work-thumb-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3.5rem;opacity:.15;color:var(--gold-pale)}
+.work-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.work-card:hover .work-thumb img{transform:scale(1.05)}
+.work-thumb::after{content:attr(data-label);position:absolute;bottom:12px;right:12px;background:rgba(44,44,44,.85);color:var(--gold-pale);padding:4px 12px;border-radius:3px;font-size:.7rem;letter-spacing:.1em;z-index:2}
+.work-thumb-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3.5rem;opacity:.15;color:var(--gold-pale);z-index:1}
 .work-body{padding:24px}
 .work-body h3{font-size:1.05rem;color:var(--sumi);margin-bottom:8px;letter-spacing:.03em}
 .work-body p{font-size:.82rem;color:var(--text-light);line-height:1.8}
@@ -285,29 +287,44 @@ section:nth-child(even){background:var(--ivory)}
     </div>
     <div class="services-grid">
       <div class="service-card fade-in">
-        <div class="service-icon">屏</div>
-        <h3>屏風</h3>
-        <p>金屏風・銀屏風から創作屏風まで。高い技術力で美しい仕上がりをお約束します。修理・修復もお任せください。</p>
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80" alt="金屏風" class="service-card-img" loading="lazy">
+        <div class="service-card-body">
+          <div class="service-icon">屏</div>
+          <h3>屏風</h3>
+          <p>金屏風・銀屏風から創作屏風まで。高い技術力で美しい仕上がりをお約束します。修理・修復もお任せください。</p>
+        </div>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">軸</div>
-        <h3>掛軸</h3>
-        <p>書画の表装、古い掛軸の修復、新規制作まで。作品の魅力を最大限に引き出す丁寧な仕立てを行います。</p>
+        <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=600&q=80" alt="掛軸" class="service-card-img" loading="lazy">
+        <div class="service-card-body">
+          <div class="service-icon">軸</div>
+          <h3>掛軸</h3>
+          <p>書画の表装、古い掛軸の修復、新規制作まで。作品の魅力を最大限に引き出す丁寧な仕立てを行います。</p>
+        </div>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">襖</div>
-        <h3>襖</h3>
-        <p>襖の新調・張替え。豊富な柄と素材からお選びいただけます。お部屋の雰囲気を一新いたします。</p>
+        <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=600&q=80" alt="襖のある和室" class="service-card-img" loading="lazy">
+        <div class="service-card-body">
+          <div class="service-icon">襖</div>
+          <h3>襖</h3>
+          <p>襖の新調・張替え。豊富な柄と素材からお選びいただけます。お部屋の雰囲気を一新いたします。</p>
+        </div>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">障</div>
-        <h3>障子</h3>
-        <p>障子の張替え・新調。やわらかな光を通す美しい障子で、和室の品格を保ちます。</p>
+        <img src="https://images.unsplash.com/photo-1505069190533-da1c9af13346?w=600&q=80" alt="光が差す障子" class="service-card-img" loading="lazy">
+        <div class="service-card-body">
+          <div class="service-icon">障</div>
+          <h3>障子</h3>
+          <p>障子の張替え・新調。やわらかな光を通す美しい障子で、和室の品格を保ちます。</p>
+        </div>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">畳</div>
-        <h3>畳</h3>
-        <p>畳の新調・表替え・裏返し。い草の香りが心地よい空間づくりをお手伝いいたします。</p>
+        <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?w=600&q=80" alt="畳の和室" class="service-card-img" loading="lazy">
+        <div class="service-card-body">
+          <div class="service-icon">畳</div>
+          <h3>畳</h3>
+          <p>畳の新調・表替え・裏返し。い草の香りが心地よい空間づくりをお手伝いいたします。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -322,6 +339,7 @@ section:nth-child(even){background:var(--ivory)}
     </div>
     <div class="about-content">
       <div class="about-visual fade-in">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80" alt="職人の技" loading="lazy">
         <div class="about-visual-text">匠の技</div>
       </div>
       <div class="about-detail fade-in">
@@ -365,8 +383,8 @@ section:nth-child(even){background:var(--ivory)}
     </div>
     <div class="works-grid">
       <div class="work-card fade-in">
-        <div class="work-thumb work-thumb-1" data-label="屏風制作">
-          <div class="work-thumb-inner">屏</div>
+        <div class="work-thumb" data-label="屏風制作">
+          <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80" alt="金屏風の修復" loading="lazy">
         </div>
         <div class="work-body">
           <h3>六曲一双金屏風の修復</h3>
@@ -375,8 +393,8 @@ section:nth-child(even){background:var(--ivory)}
         </div>
       </div>
       <div class="work-card fade-in">
-        <div class="work-thumb work-thumb-2" data-label="襖・障子">
-          <div class="work-thumb-inner">襖</div>
+        <div class="work-thumb" data-label="襖・障子">
+          <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80" alt="和室の全面改装" loading="lazy">
         </div>
         <div class="work-body">
           <h3>料亭 和室全面改装</h3>
@@ -385,8 +403,8 @@ section:nth-child(even){background:var(--ivory)}
         </div>
       </div>
       <div class="work-card fade-in">
-        <div class="work-thumb work-thumb-3" data-label="掛軸表装">
-          <div class="work-thumb-inner">軸</div>
+        <div class="work-thumb" data-label="掛軸表装">
+          <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80" alt="掛軸の表装" loading="lazy">
         </div>
         <div class="work-body">
           <h3>書道作品の本表装</h3>
