@@ -315,42 +315,79 @@ img { max-width: 100%; }
 }
 .about-visual {
   aspect-ratio: 4/3;
-  background:
-    linear-gradient(135deg, rgba(58,58,58,0.35) 0%, rgba(139,69,19,0.3) 100%),
-    url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80') center/cover no-repeat;
   border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   position: relative;
   overflow: hidden;
 }
-.about-visual::before {
-  content: '';
+.about-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-visual-overlay {
   position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 20px,
-      rgba(255,255,255,0.04) 20px,
-      rgba(255,255,255,0.04) 21px
-    );
-}
-.about-visual-icon {
-  font-size: 80px;
-  position: relative;
-  z-index: 1;
-}
-.about-visual-text {
-  color: rgba(255,255,255,0.7);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(26,26,26,0.85));
+  color: #fff;
   font-size: 14px;
-  margin-top: 12px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* Gallery */
+.gallery { padding: 80px 0; background: var(--washi-dark); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
   position: relative;
-  z-index: 1;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+  display: block;
+}
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  transform: translateY(100%);
+  transition: transform 0.4s;
+}
+.gallery-item:hover .gallery-item-overlay { transform: translateY(0); }
+.gallery-item-tag {
+  display: inline-block;
+  background: var(--akacya);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+@media (max-width: 768px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr; }
 }
 
 .about-content h3 {
@@ -952,8 +989,8 @@ img { max-width: 100%; }
     </div>
     <div class="about-grid">
       <div class="about-visual fade-in-left">
-        <div class="about-visual-icon">&#127983;&#65039;</div>
-        <div class="about-visual-text">伝統と技術の継承</div>
+        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80" alt="瓦屋根の日本家屋">
+        <div class="about-visual-overlay">伝統と技術の継承</div>
       </div>
       <div class="about-content fade-in-right">
         <h3>地域に根ざした瓦工事の専門家集団</h3>
@@ -995,28 +1032,84 @@ img { max-width: 100%; }
     </div>
     <div class="services-grid">
       <div class="service-card fade-in">
-        <img src="https://images.unsplash.com/photo-1601123416264-38e759e63239?w=400&q=80" alt="瓦葺き工事" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:16px;opacity:.85">
+        <img src="https://images.unsplash.com/photo-1601123416264-38e759e63239?w=400&q=80" alt="瓦葺き工事" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:16px">
         <div class="service-icon">&#127983;</div>
         <h3>瓦葺き工事</h3>
         <p>日本の風土に適した瓦屋根の新設工事。和瓦・洋瓦・平板瓦など、多様な瓦に対応します。美しく耐久性の高い屋根を実現。</p>
       </div>
       <div class="service-card fade-in">
-        <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?w=400&q=80" alt="修繕・葺き替え" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:16px;opacity:.85">
+        <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?w=400&q=80" alt="修繕・葺き替え" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:16px">
         <div class="service-icon">&#128295;</div>
         <h3>修繕・葺き替え</h3>
         <p>雨漏りや瓦のズレ、割れなどのトラブルに迅速対応。部分修理から全面葺き替えまで、最適な方法をご提案いたします。</p>
       </div>
       <div class="service-card fade-in">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80" alt="耐震工事" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:16px;opacity:.85">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80" alt="耐震工事" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:16px">
         <div class="service-icon">&#128170;</div>
         <h3>耐震工事</h3>
         <p>地震対策に欠かせない屋根の軽量化・耐震補強。ガイドライン工法に基づく安心の施工で、地震に強い住まいづくり。</p>
       </div>
       <div class="service-card fade-in">
-        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&q=80" alt="屋根リフォーム" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:16px;opacity:.85">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&q=80" alt="屋根リフォーム" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:16px">
         <div class="service-icon">&#127968;</div>
         <h3>屋根リフォーム</h3>
         <p>屋根の断熱性・遮熱性向上や外観のリフレッシュ。太陽光パネル対応工事など、暮らしに合わせたリフォームをご案内。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-header-en">WORKS</div>
+      <h2>施工事例</h2>
+      <div class="section-divider"></div>
+      <p>組合加盟店による施工事例をご紹介します</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1601123416264-38e759e63239?w=600&q=80" alt="和瓦の新築屋根">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-tag">新築</div>
+          <div>和瓦葺き工事 - 水戸市 I様邸</div>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=600&q=80" alt="葺き替え完了の住宅">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-tag">葺き替え</div>
+          <div>屋根全面葺き替え - つくば市 S様邸</div>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=600&q=80" alt="瓦屋根の美しい家">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-tag">修繕</div>
+          <div>瓦修繕・雨漏り修理 - 日立市 K様邸</div>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="リフォーム後の住宅">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-tag">リフォーム</div>
+          <div>屋根リフォーム工事 - 土浦市 A様邸</div>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80" alt="モダンな住宅外観">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-tag">新築</div>
+          <div>平板瓦葺き工事 - ひたちなか市 M様邸</div>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="高級住宅の屋根">
+        <div class="gallery-item-overlay">
+          <div class="gallery-item-tag">耐震補強</div>
+          <div>耐震ガイドライン工法 - 古河市 T様邸</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1057,7 +1150,7 @@ img { max-width: 100%; }
           <a href="#contact" class="btn btn-primary">&#128222; まずはお気軽にご相談</a>
         </div>
       </div>
-      <div class="search-map fade-in-right">
+      <div class="search-map fade-in-right" style="background:linear-gradient(135deg,rgba(58,58,58,0.5),rgba(139,69,19,0.4)),url('https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=800&q=80') center/cover no-repeat;">
         <div class="search-map-icon">&#128205;</div>
         <div class="search-map-text">茨城県全域対応</div>
         <div class="search-map-sub">水戸・つくば・日立・土浦・ひたちなか 他</div>

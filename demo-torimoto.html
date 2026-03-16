@@ -94,6 +94,19 @@ section:nth-child(even){background:var(--ivory)}
 .hero-circle::after{content:"和";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:6rem;color:var(--gold-light);opacity:.5;font-weight:700}
 @keyframes slowRotate{to{transform:translateY(-50%) rotate(360deg)}}
 
+/* ===== VISUAL STRIP ===== */
+.visual-strip{padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.visual-strip-item{position:relative;aspect-ratio:4/3;overflow:hidden}
+.visual-strip-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.visual-strip-item:hover img{transform:scale(1.1)}
+.visual-strip-item .caption{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(transparent,rgba(44,44,44,.85));color:var(--gold-pale);font-size:.78rem;letter-spacing:.1em;text-align:center;font-weight:600}
+@media(max-width:768px){
+  .visual-strip{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .visual-strip{grid-template-columns:1fr}
+}
+
 /* ===== SERVICES ===== */
 #services{background:var(--ivory)}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
@@ -276,6 +289,26 @@ section:nth-child(even){background:var(--ivory)}
     <div class="hero-circle"></div>
   </div>
 </section>
+
+<!-- ===== VISUAL STRIP ===== -->
+<div class="visual-strip">
+  <div class="visual-strip-item">
+    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&q=80" alt="金屏風" loading="lazy">
+    <div class="caption">屏風</div>
+  </div>
+  <div class="visual-strip-item">
+    <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=500&q=80" alt="掛軸・書" loading="lazy">
+    <div class="caption">掛軸</div>
+  </div>
+  <div class="visual-strip-item">
+    <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=500&q=80" alt="襖のある和室" loading="lazy">
+    <div class="caption">襖・障子</div>
+  </div>
+  <div class="visual-strip-item">
+    <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?w=500&q=80" alt="畳の和室" loading="lazy">
+    <div class="caption">畳</div>
+  </div>
+</div>
 
 <!-- ===== SERVICES ===== -->
 <section id="services">
