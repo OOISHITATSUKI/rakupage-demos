@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>やま秀田中建設＋建築工房アーキクラフト | 長野県の木造住宅・新築・リフォーム</title>
+<meta name="description" content="長野県の木造住宅・新築・リフォーム。やま秀田中建設＋建築工房アーキクラフトは地域に密着した確かな施工をお届けします。">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green-dark:#2d5a1e;--green:#3d7a2e;--green-light:#5a9e42;--green-pale:#e4f0dc;--brown-dark:#4a3828;--brown:#6b5240;--brown-light:#8b7260;--brown-pale:#d9cfc0;--cream:#f4f0e8;--cream-light:#faf8f3;--text:#333;--text-light:#666;--white:#fff;--shadow:0 2px 20px rgba(45,90,30,.1);--shadow-lg:0 8px 40px rgba(45,90,30,.12);--radius:8px;--transition:.3s ease}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,"Noto Sans JP",sans-serif;color:var(--text);line-height:1.8;background:var(--cream-light);overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{max-width:100%;height:auto}ul{list-style:none}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:1.8rem;color:var(--green-dark);position:relative;display:inline-block;padding-bottom:12px;letter-spacing:.05em}
+.section-title h2::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:linear-gradient(90deg,var(--green),var(--brown-light));border-radius:2px}
+.section-title p{color:var(--text-light);margin-top:10px;font-size:.9rem;letter-spacing:.1em}
+section{padding:80px 0}
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-left{opacity:0;transform:translateX(-30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in-left.visible{opacity:1;transform:translateX(0)}
+.fade-in-right{opacity:0;transform:translateX(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in-right.visible{opacity:1;transform:translateX(0)}
+.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);box-shadow:0 1px 10px rgba(0,0,0,.06);transition:var(--transition)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--green) 0%,var(--brown) 100%);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:900;font-size:1.1rem;line-height:1}
+.logo-text{font-size:.85rem;font-weight:700;color:var(--green-dark);line-height:1.3}
+.logo-text span{display:block;font-size:.65rem;font-weight:400;color:var(--text-light)}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:.85rem;font-weight:500;color:var(--text);position:relative;transition:var(--transition)}
+.nav a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--green);transition:var(--transition)}
+.nav a:hover::after{width:100%}.nav a:hover{color:var(--green)}
+.nav-cta{background:var(--green);color:var(--white)!important;padding:8px 20px;border-radius:50px;font-size:.8rem!important;transition:var(--transition)}
+.nav-cta::after{display:none!important}.nav-cta:hover{background:var(--green-dark);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;z-index:1001}
+.hamburger span{display:block;width:24px;height:2px;background:var(--green-dark);transition:var(--transition)}
+.hero{margin-top:70px;min-height:85vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a3a12 0%,#2d4a1a 40%,#4a3828 100%);background-image:linear-gradient(135deg,rgba(26,58,18,.7) 0%,rgba(45,74,26,.6) 40%,rgba(74,56,40,.7) 100%),url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1600&q=80');background-size:cover;background-position:center}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(61,122,46,.3) 0%,transparent 60%),radial-gradient(ellipse at 80% 30%,rgba(107,82,64,.2) 0%,transparent 50%),radial-gradient(ellipse at 60% 80%,rgba(45,90,30,.2) 0%,transparent 50%)}
+.hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0v60M0 30h60' stroke='%23ffffff' stroke-width='.3' opacity='.04'/%3E%3C/svg%3E")}
+.hero-content{position:relative;z-index:2;max-width:700px;padding:0 20px}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(5px);color:var(--white);padding:6px 18px;border-radius:50px;font-size:.75rem;letter-spacing:.1em;margin-bottom:24px;border:1px solid rgba(255,255,255,.2)}
+.hero h1{font-size:2.6rem;color:var(--white);line-height:1.5;font-weight:800;letter-spacing:.02em;margin-bottom:20px;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.hero h1 em{font-style:normal;color:#a8d88a}
+.hero p{color:rgba(255,255,255,.85);font-size:1.05rem;line-height:2;margin-bottom:36px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;font-size:.9rem;font-weight:600;transition:var(--transition);cursor:pointer;border:none}
+.btn-primary{background:var(--green);color:var(--white);box-shadow:0 4px 20px rgba(61,122,46,.3)}
+.btn-primary:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 6px 25px rgba(61,122,46,.4)}
+.btn-secondary{background:rgba(255,255,255,.15);color:var(--white);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(5px)}
+.btn-secondary:hover{background:rgba(255,255,255,.25);transform:translateY(-2px)}
+.hero-visual{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:500px;height:500px;opacity:.15}
+.hero-visual::before{content:"";position:absolute;inset:0;border:3px solid rgba(255,255,255,.1);border-radius:50%;animation:rotate 30s linear infinite}
+.hero-visual::after{content:"";position:absolute;top:50px;left:50px;right:50px;bottom:50px;border:2px dashed rgba(255,255,255,.06);border-radius:50%;animation:rotate 20s linear infinite reverse}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.features-bar{background:var(--white);padding:30px 0;box-shadow:var(--shadow)}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.feature-item{display:flex;flex-direction:column;align-items:center;gap:8px}
+.feature-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--green-pale),var(--cream));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.feature-item h4{font-size:.8rem;color:var(--green-dark);font-weight:600}
+.feature-item p{font-size:.7rem;color:var(--text-light)}
+.services{background:var(--cream)}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.service-card{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.service-visual{height:200px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.service-visual.v1{background:linear-gradient(135deg,rgba(45,90,30,.3),rgba(90,158,66,.3)),url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80');background-size:cover;background-position:center}
+.service-visual.v2{background:linear-gradient(135deg,rgba(61,122,46,.3),rgba(107,82,64,.3)),url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80');background-size:cover;background-position:center}
+.service-visual.v3{background:linear-gradient(135deg,rgba(74,56,40,.3),rgba(107,82,64,.3)),url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80');background-size:cover;background-position:center}
+.service-visual.v4{background:linear-gradient(135deg,rgba(45,90,30,.3),rgba(61,122,46,.3)),url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80');background-size:cover;background-position:center}
+.service-visual .icon{font-size:3.5rem;opacity:0;position:relative;z-index:2}
+.service-visual::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(255,255,255,.1) 0%,transparent 60%)}
+.service-body{padding:28px}
+.service-body h3{font-size:1.15rem;color:var(--green-dark);margin-bottom:10px;font-weight:700}
+.service-body p{font-size:.9rem;color:var(--text-light);line-height:1.9}
+.service-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.service-tags span{background:var(--cream);color:var(--brown);padding:4px 12px;border-radius:50px;font-size:.72rem;font-weight:500}
+.works{background:var(--cream-light)}
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.work-card{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+.work-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.work-thumb{height:200px;display:flex;align-items:center;justify-content:center;position:relative}
+.work-thumb.w1{background:linear-gradient(135deg,rgba(90,158,66,.2),rgba(168,216,138,.2)),url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80');background-size:cover;background-position:center}
+.work-thumb.w2{background:linear-gradient(135deg,rgba(107,82,64,.2),rgba(139,114,96,.2)),url('https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&q=80');background-size:cover;background-position:center}
+.work-thumb.w3{background:linear-gradient(135deg,rgba(45,90,30,.2),rgba(90,158,66,.2)),url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80');background-size:cover;background-position:center}
+.work-thumb .w-icon{font-size:3rem;opacity:0}
+.work-thumb .work-label{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.5);color:var(--white);padding:4px 12px;border-radius:50px;font-size:.7rem;font-weight:500}
+.work-info{padding:20px}
+.work-info h4{font-size:1rem;color:var(--green-dark);margin-bottom:6px}
+.work-info p{font-size:.82rem;color:var(--text-light)}
+.work-info .work-meta{display:flex;gap:12px;margin-top:10px;font-size:.72rem;color:var(--brown-light)}
+.company{background:var(--white)}
+.company-wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.company-text h3{font-size:1.3rem;color:var(--green-dark);margin-bottom:16px;font-weight:700}
+.company-text p{color:var(--text-light);font-size:.92rem;line-height:2;margin-bottom:24px}
+.company-table{width:100%}
+.company-table table{width:100%;border-collapse:collapse}
+.company-table th,.company-table td{padding:14px 16px;font-size:.88rem;border-bottom:1px solid #eee;text-align:left}
+.company-table th{width:120px;color:var(--green-dark);font-weight:600;background:var(--green-pale);white-space:nowrap}
+.company-table td{color:var(--text)}
+.faq{background:var(--cream)}
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{background:var(--white);border-radius:12px;margin-bottom:14px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.faq-question{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--green-dark);transition:var(--transition);gap:12px}
+.faq-question:hover{background:var(--cream)}
+.faq-question .q-mark{flex-shrink:0;width:28px;height:28px;background:var(--green);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-right:12px}
+.faq-question .arrow{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:.7rem;transition:var(--transition);color:var(--brown-light)}
+.faq-item.open .faq-question .arrow{transform:rotate(180deg);background:var(--green-pale)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+.faq-answer-inner{padding:0 24px 20px 64px;color:var(--text-light);font-size:.9rem;line-height:1.9}
+.contact{background:linear-gradient(135deg,var(--green-dark) 0%,var(--brown-dark) 100%);color:var(--white);text-align:center}
+.contact .section-title h2{color:var(--white)}
+.contact .section-title h2::after{background:linear-gradient(90deg,#a8d88a,var(--brown-pale))}
+.contact .section-title p{color:rgba(255,255,255,.7)}
+.contact-box{max-width:600px;margin:0 auto;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border-radius:20px;padding:40px;border:1px solid rgba(255,255,255,.15)}
+.contact-phone{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:.05em}
+.contact-phone a{color:var(--white)}
+.contact-note{font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:24px}
+.contact-info-row{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:20px}
+.contact-info-item{display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(255,255,255,.8)}
+.contact-info-item .ci-icon{width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.footer{background:#141e0e;color:rgba(255,255,255,.6);padding:40px 0 100px;text-align:center;font-size:.8rem}
+.footer-logo{font-size:1rem;font-weight:700;color:rgba(255,255,255,.8);margin-bottom:10px}
+.footer p{margin-bottom:6px}
+.footer .demo-notice{display:inline-block;margin-top:16px;padding:8px 20px;background:rgba(255,255,255,.08);border-radius:50px;font-size:.72rem;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.1)}
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--green);padding:0;box-shadow:0 -2px 20px rgba(0,0,0,.2)}
+.mobile-bar a{display:flex;align-items:center;justify-content:center;gap:8px;color:var(--white);font-weight:700;font-size:1rem;padding:16px;text-align:center;letter-spacing:.05em}
+.mobile-bar a .phone-icon{font-size:1.3rem;animation:ring 2s ease infinite}
+@keyframes ring{0%,100%{transform:rotate(0)}10%{transform:rotate(14deg)}20%{transform:rotate(-14deg)}30%{transform:rotate(10deg)}40%{transform:rotate(-6deg)}50%{transform:rotate(0)}}
+@media(max-width:900px){
+.nav{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(255,255,255,.98);flex-direction:column;justify-content:center;gap:30px;backdrop-filter:blur(10px)}
+.nav.open{display:flex}.nav a{font-size:1.1rem}.hamburger{display:flex}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translateY(5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translateY(-5px)}
+.hero h1{font-size:1.8rem}.hero{min-height:70vh}.hero-visual{display:none}
+.features-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.services-grid{grid-template-columns:1fr}.works-grid{grid-template-columns:1fr}
+.company-wrap{grid-template-columns:1fr;gap:30px}
+.mobile-bar{display:block}.footer{padding-bottom:80px}
+section{padding:60px 0}.section-title h2{font-size:1.5rem}
+}
+@media(max-width:480px){
+.hero h1{font-size:1.5rem}.hero p{font-size:.9rem}.hero-buttons{flex-direction:column}
+.btn{justify-content:center;padding:12px 24px;font-size:.85rem}
+.features-grid{grid-template-columns:1fr 1fr}.feature-item h4{font-size:.75rem}
+.contact-phone{font-size:1.5rem}.contact-box{padding:24px}
+}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="container header-inner">
+<a href="#" class="logo">
+<div class="logo-icon">や</div>
+<div class="logo-text">やま秀田中建設＋建築工房アーキクラフト<span>長野県の木造住宅・新築・リフォーム</span></div>
+</a>
+<nav class="nav" id="nav">
+<a href="#services" onclick="closeNav()">サービス</a>
+<a href="#works" onclick="closeNav()">施工事例</a>
+<a href="#company" onclick="closeNav()">会社概要</a>
+<a href="#faq" onclick="closeNav()">よくある質問</a>
+<a href="#contact" onclick="closeNav()" class="nav-cta">お問い合わせ</a>
+</nav>
+<div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</div>
+</header>
+
+<section class="hero">
+<div class="container hero-content">
+<div class="hero-badge">長野県の地域密着木造住宅・新築・リフォーム</div>
+<h1>地域に根ざした、<br><em>信頼の家づくり</em></h1>
+<p>新築・リフォームのことなら、地域で信頼されるやま秀田中建設＋建築工房アーキクラフトにお任せください。</p>
+<div class="hero-buttons">
+<a href="#contact" class="btn btn-primary">&#9742; お問い合わせ</a>
+<a href="#services" class="btn btn-secondary">サービスを見る &#8594;</a>
+</div>
+</div>
+<div class="hero-visual"></div>
+</section>
+
+<div class="features-bar">
+<div class="container">
+<div class="features-grid">
+<div class="feature-item fade-in"><div class="feature-icon">&#127968;</div><h4>新築住宅</h4><p>理想の住まいを実現</p></div>
+<div class="feature-item fade-in"><div class="feature-icon">&#128295;</div><h4>リフォーム</h4><p>住まいを快適に</p></div>
+<div class="feature-item fade-in"><div class="feature-icon">&#127751;</div><h4>増改築</h4><p>暮らしに合わせて</p></div>
+<div class="feature-item fade-in"><div class="feature-icon">&#127795;</div><h4>外構工事</h4><p>住まいの顔を整える</p></div>
+</div>
+</div>
+</div>
+
+<section class="services" id="services">
+<div class="container">
+<div class="section-title fade-in"><h2>サービス紹介</h2><p>SERVICE</p></div>
+<div class="services-grid">
+<div class="service-card fade-in">
+<div class="service-visual v1"><span class="icon">&#127968;</span></div>
+<div class="service-body">
+<h3>新築住宅</h3>
+<p>ご家族のライフスタイルに合わせた、世界にひとつだけの住まいをご提案。地域の気候風土を活かした、長く愛される家づくりをお届けします。</p>
+<div class="service-tags"><span>注文住宅</span><span>自由設計</span><span>高品質</span></div>
+</div>
+</div>
+<div class="service-card fade-in">
+<div class="service-visual v2"><span class="icon">&#128295;</span></div>
+<div class="service-body">
+<h3>リフォーム</h3>
+<p>キッチン・浴室などの水回りから、間取り変更を伴う大規模リノベーションまで。快適で安心な住まいへ生まれ変わらせます。</p>
+<div class="service-tags"><span>水回り</span><span>内装</span><span>間取り変更</span></div>
+</div>
+</div>
+<div class="service-card fade-in">
+<div class="service-visual v3"><span class="icon">&#127751;</span></div>
+<div class="service-body">
+<h3>増改築</h3>
+<p>家族構成の変化やライフスタイルに合わせた増改築。既存の住まいを活かしながら、新しい空間を創出します。</p>
+<div class="service-tags"><span>増築</span><span>改築</span><span>バリアフリー</span></div>
+</div>
+</div>
+<div class="service-card fade-in">
+<div class="service-visual v4"><span class="icon">&#127795;</span></div>
+<div class="service-body">
+<h3>外構・エクステリア</h3>
+<p>フェンス・カーポート・庭園など、住まいの外観を美しく整えます。防犯性と利便性を兼ね備えた外構プランをご提案。</p>
+<div class="service-tags"><span>外構</span><span>エクステリア</span><span>庭園</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="works" id="works">
+<div class="container">
+<div class="section-title fade-in"><h2>施工事例</h2><p>WORKS</p></div>
+<div class="works-grid">
+<div class="work-card fade-in">
+<div class="work-thumb w1"><span class="w-icon">&#127968;</span><span class="work-label">新築住宅</span></div>
+<div class="work-info"><h4>長野県 A様邸 新築住宅工事</h4><p>お客様のご要望に合わせた丁寧な施工で、快適な住まいを実現しました。</p>
+<div class="work-meta"><span>&#128197; 2025年</span><span>&#128207; 新築住宅</span></div></div>
+</div>
+<div class="work-card fade-in">
+<div class="work-thumb w2"><span class="w-icon">&#128295;</span><span class="work-label">リフォーム</span></div>
+<div class="work-info"><h4>長野県 B様邸 リフォーム工事</h4><p>経験豊富なスタッフが、確かな技術で丁寧に仕上げました。</p>
+<div class="work-meta"><span>&#128197; 2024年</span><span>&#128207; リフォーム</span></div></div>
+</div>
+<div class="work-card fade-in">
+<div class="work-thumb w3"><span class="w-icon">&#127795;</span><span class="work-label">増改築</span></div>
+<div class="work-info"><h4>長野県 C様邸 増改築工事</h4><p>地域の気候風土を考慮した、長く使える施工をお届けしました。</p>
+<div class="work-meta"><span>&#128197; 2024年</span><span>&#128207; 増改築</span></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="company" id="company">
+<div class="container">
+<div class="section-title fade-in"><h2>会社概要</h2><p>COMPANY</p></div>
+<div class="company-wrap">
+<div class="company-text fade-in-left">
+<h3>長野県の暮らしを支える</h3>
+<p>やま秀田中建設＋建築工房アーキクラフトは、長野県に拠点を構え、地域の皆さまの暮らしに寄り添った木造住宅・新築・リフォームを続けてまいりました。確かな技術と丁寧な対応で、お客様に満足いただける施工をお届けします。</p>
+<p>まずはお気軽にご相談ください。お見積もりは無料です。</p>
+</div>
+<div class="company-table fade-in-right">
+<table>
+<tr><th>会社名</th><td>やま秀田中建設＋建築工房アーキクラフト</td></tr>
+<tr><th>所在地</th><td>長野県（詳細不明）</td></tr>
+<tr><th>電話番号</th><td><a href="tel:不明" style="color:var(--green);font-weight:600">不明</a></td></tr>
+<tr><th>業種</th><td>木造住宅・新築・リフォーム</td></tr>
+<tr><th>対応エリア</th><td>長野県を中心とした周辺地域</td></tr>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<section class="faq" id="faq">
+<div class="container">
+<div class="section-title fade-in"><h2>よくある質問</h2><p>FAQ</p></div>
+<div class="faq-list">
+<div class="faq-item fade-in"><div class="faq-question" onclick="toggleFaq(this)"><span style="display:flex;align-items:center;gap:12px"><span class="q-mark">Q</span>見積もりは無料ですか？</span><span class="arrow">&#9660;</span></div>
+<div class="faq-answer"><div class="faq-answer-inner">はい、お見積もりは無料です。現地調査を行った上で、詳細なお見積書をご提示いたします。お見積もり後のキャンセルも可能ですので、安心してお問い合わせください。</div></div></div>
+<div class="faq-item fade-in"><div class="faq-question" onclick="toggleFaq(this)"><span style="display:flex;align-items:center;gap:12px"><span class="q-mark">Q</span>工事の期間はどれくらいですか？</span><span class="arrow">&#9660;</span></div>
+<div class="faq-answer"><div class="faq-answer-inner">工事の規模や内容によって異なりますが、一般的な工事で1〜3ヶ月程度が目安です。まずはお気軽にご相談ください。詳しいスケジュールをお伝えいたします。</div></div></div>
+<div class="faq-item fade-in"><div class="faq-question" onclick="toggleFaq(this)"><span style="display:flex;align-items:center;gap:12px"><span class="q-mark">Q</span>対応エリアはどこまでですか？</span><span class="arrow">&#9660;</span></div>
+<div class="faq-answer"><div class="faq-answer-inner">長野県を中心に、周辺地域にも対応しております。その他のエリアについてもお気軽にご相談ください。</div></div></div>
+<div class="faq-item fade-in"><div class="faq-question" onclick="toggleFaq(this)"><span style="display:flex;align-items:center;gap:12px"><span class="q-mark">Q</span>相談だけでも大丈夫ですか？</span><span class="arrow">&#9660;</span></div>
+<div class="faq-answer"><div class="faq-answer-inner">もちろんです。お気軽にお電話またはお問い合わせフォームからご相談ください。専門スタッフが丁寧にお答えいたします。</div></div></div>
+</div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="container">
+<div class="section-title fade-in"><h2>お問い合わせ</h2><p>CONTACT</p></div>
+<div class="contact-box fade-in">
+<p style="margin-bottom:16px;font-size:.9rem;opacity:.85">まずはお気軽にお電話ください</p>
+<div class="contact-phone"><a href="tel:不明">&#9742; 不明</a></div>
+<p class="contact-note">受付時間：平日 8:00〜18:00</p>
+<div class="contact-info-row">
+<div class="contact-info-item"><span class="ci-icon">&#128205;</span><span>長野県（詳細不明）</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">やま秀田中建設＋建築工房アーキクラフト</div>
+<p>長野県（詳細不明）</p>
+<p>TEL: 不明</p>
+<p style="margin-top:12px">&copy; やま秀田中建設＋建築工房アーキクラフト All Rights Reserved.</p>
+<div class="demo-notice">本サイトは「ラクページ制作」によるデモサイトです（未公開）</div>
+</div>
+</footer>
+
+<div class="mobile-bar">
+<a href="tel:不明"><span class="phone-icon">&#9742;</span>今すぐ電話する｜不明</a>
+</div>
+
+<script>
+function toggleNav(){document.getElementById('nav').classList.toggle('open');document.getElementById('hamburger').classList.toggle('active')}
+function closeNav(){document.getElementById('nav').classList.remove('open');document.getElementById('hamburger').classList.remove('active')}
+function toggleFaq(el){var item=el.parentElement;var answer=item.querySelector('.faq-answer');var inner=answer.querySelector('.faq-answer-inner');if(item.classList.contains('open')){item.classList.remove('open');answer.style.maxHeight='0'}else{document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-answer').style.maxHeight='0'});item.classList.add('open');answer.style.maxHeight=inner.scrollHeight+'px'}}
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible')}})},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in,.fade-in-left,.fade-in-right').forEach(function(el){observer.observe(el)});
+var mobileBar=document.querySelector('.mobile-bar');var lastScroll=0;
+window.addEventListener('scroll',function(){var st=window.pageYOffset||document.documentElement.scrollTop;if(window.innerWidth<=900){if(st>300){mobileBar.style.transform='translateY(0)'}else{mobileBar.style.transform='translateY(100%)'}}lastScroll=st});
+if(mobileBar){mobileBar.style.transform='translateY(100%)';mobileBar.style.transition='transform .3s ease'}
+</script>
+</body>
+</html>
